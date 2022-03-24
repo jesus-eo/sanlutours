@@ -1,0 +1,328 @@
+/*------------------------------------------------------------
+*----------------Pagina contacto y sobre nosotros-------------
+*----------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   /* font-family:var(--fuenteAcme) */
+   :root{
+      --fuenteAcme: 'Acme', sans-serif;
+      --fuenteCorben: 'Corben', cursive;
+      --colorLetra: #485342;
+   }
+
+   a {
+    text-decoration: none;
+   }
+   ul, li {
+    list-style: none;
+   }
+   #container-envolvente-principal{
+    height: 100%;
+   }
+   /*----------------
+   ||  Bloque1(b1)  ||
+   -----------------*/
+   #bloque1-pag-principal {
+
+    height: 99vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuenteCorben);
+   }
+   /*Imagen fondo*/
+   #bloque1-pag-principal::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8;
+    background-image: url('../Img/carreras-sn.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: 100% 100%;
+   }
+   #login {
+
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: flex-end;
+
+   }
+   #login a {
+    padding: 5px;
+    color: #485342;
+   }
+   .encabezado-b1-principal {
+    display: flex;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 25px;
+    transition: top 0.5s;
+   }
+
+   #container-logo {
+    display: flex;
+    width: 40%;
+   }
+   #logo {
+    margin-left: 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+   }
+   #logo>img {
+    width: 60%;
+   }
+   /*Navegación*/
+   .nav-b1-principal {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    font-size: 20px;
+    color: #485342;
+   }
+   .nav-b1-principal ul li a {
+    color: #485342;
+   }
+   .nav-b1-principal>ul {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+   }
+   .tours {
+    position: relative;
+    cursor: pointer;
+   }
+   .desplegable-oculto{
+    position: absolute;
+    border: 1px solid black;
+    margin-top: 20px;
+    display: none;
+   }
+   /*Hace visible la lista*/
+   .desplegable-visible{
+    display: block;
+    position: absolute;
+    margin-top: 10px;
+    transition: all 2s;
+   }
+   .desplegable-visible li{
+       padding-top: 5px;
+   }
+   .subrallado:hover {
+    text-decoration: underline;
+   }
+   .subrallado-actual {
+       text-decoration: underline #485342;
+   }
+   /*--Contenedor central--*/
+   #container-central{
+       height: 100%;
+       width: auto;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-top: 4%;
+   }
+#container-difuminado {
+    height: 80%;
+    width: 60%;
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container-difuminado h1 {
+    color: #485342;
+    font-size: 40px;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+#container-difuminado p {
+    padding: 5%;
+    font-size: 20px;
+}
+/*---------------------
+||  Bloque6(b6)footer  ||
+-----------------------*/
+#b6-pagina-principal {
+    display: flex;
+    flex-direction: column;
+    height: 45vh;
+    width: 100%;
+    background-color: #DBE2DD;
+  }
+  .b6-container-iconos {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+  }
+  .b6-iconos {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .b6-iconos picture {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .b6-iconos picture img {
+    width: 50%;
+  }
+  .b6-iconos a {
+    font-size: 24px;
+    font-family: var(--fuenteCorben);
+    color: #2F3A29;
+  }
+  .b6-iconos a:hover {
+    text-decoration: underline;
+  }
+  .b6-iconos-redes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #iconos-redes {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    padding: 1%;
+  }
+  #iconos-redes a>img {
+    width: 40%;
+  }
+  #b6-p-actualizacion {
+    display: flex;
+    justify-content: center;
+  }
+
+  /*----------------
+  ----Contacto.html--
+  ------------------*/
+  #bloque1-pag-contacto::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8;
+    background-image: url('../Img/img\ contacto.png');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: 100% 100%;
+   }
+   #bloque1-pag-contacto {
+    height: 99vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuenteCorben);
+   }
+   #container-section-form {
+     display: flex;
+     height: 100%;
+     flex-wrap: wrap;
+   }
+   .p-section-form  {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 40%;
+   }
+   .form-contacto {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 60%;
+   }
+ .form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form input {
+    border-radius: 10px;
+    height: 8%;
+    background-color: rgba(239, 239, 239, 0.3);
+    border: none;
+  }
+  .form button {
+    border-radius: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #DBE2DD;
+  }
+  .form textarea{
+    border-radius: 10px;
+    height: 25%;
+  }
+  .form label {
+    font-family: var(--fuenteCorben);
+  }
+  .cajasform::placeholder {
+    color: white;
+  }
+/*-----------------------------------------------------------------------
+*----------------Pagina Tours(layout(clasetour) vista(freetours))-------------
+*----------------------------------------------------------*/
+.container-card-tours {
+    background-color: #C7CEC9;
+}
+
+.h1-card {
+ color: #485342;
+ font-size: 30px;
+ font-family: var(--fuenteAcme);
+}
+.p-card {
+ color: #485342;
+ font-size: 20px;
+ font-family: var(--fuenteAcme);
+}
+/*Main*/
+.main-freetour {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(10, 1fr);
+   grid-template-rows: repeat(10, 1fr);
+}
+.p1-main-freetour {
+ grid-column: 2/5;
+ grid-row: 5/5;
+ font-family: var(--fuenteCorben);
+ color: #FFFFFF;
+ font-size: 35px;
+}
+.p2-main-freetour {
+ grid-column: 2/8;
+ grid-row: 6/7;
+ color: #FFFFFF;
+ font-size: 50px
+}
