@@ -13,7 +13,7 @@ ubicacionPrincipal vale 0 al inicio*/
 let ubicacionPrincipal = window.scrollY;
 window.onscroll = function () {
     let desplazamientoActual = window.scrollY;
-    if(desplazamientoActual >= 100){
+    if (desplazamientoActual >= 100) {
         if (ubicacionPrincipal >= desplazamientoActual) {
             document.querySelector('.encabezado-b1-principal').style.top = '0';
             document.querySelector('.encabezado-b1-principal').style.backgroundColor = '#C7CEC9';
@@ -22,7 +22,7 @@ window.onscroll = function () {
             document.querySelector('.encabezado-b1-principal').style.top = '-100px';
         }
         ubicacionPrincipal = desplazamientoActual;
-    }else {
+    } else {
         document.querySelector('.encabezado-b1-principal').style.top = '25px';
         document.querySelector('.encabezado-b1-principal').style.backgroundColor = '';
         document.querySelector('.desplegable-oculto').style.backgroundColor = '';
@@ -56,21 +56,21 @@ let images = [
 let arrowLeft = document.querySelector("#arrow-left");
 let arrowRight = document.querySelector("#arrow-right");
 let imagenActual = 0;
-arrowLeft.addEventListener('click',cambiaImg);
-arrowRight.addEventListener('click',cambiaImg);
+arrowLeft.addEventListener('click', cambiaImg);
+arrowRight.addEventListener('click', cambiaImg);
 
 /* Función que cambia de imagen dependiendo de la flecha que pulses cambiando el src de la imagen por uno del array  */
 function cambiaImg(e) {
-    console.log(imagenActual,images.length);
-    if (e.target.id == "arrow-right" && imagenActual < (images.length -1)) {
-        imagenActual+=1;
+
+    if (e.target.id == "arrow-right" && imagenActual < (images.length - 1)) {
+        imagenActual += 1;
         document.querySelector(".img-slider").src = images[imagenActual];
         document.querySelector("#b4-h2").innerHTML = h2[imagenActual];
         document.querySelector("#b4-p").innerHTML = p[imagenActual];
     }
-    if (e.target.id == "arrow-left" && imagenActual != 0 ){
-        console.log("entra",imagenActual,images.length);
-        imagenActual-=1;
+    if (e.target.id == "arrow-left" && imagenActual != 0) {
+
+        imagenActual -= 1;
         document.querySelector(".img-slider").src = images[imagenActual];
         document.querySelector("#b4-h2").innerHTML = h2[imagenActual];
         document.querySelector("#b4-p").innerHTML = p[imagenActual];
@@ -82,8 +82,8 @@ function cambiaImg(e) {
 let arrowLeftb5 = document.querySelector("#arrow-left-b5");
 let arrowRightb5 = document.querySelector("#arrow-right-b5");
 let comentarioActual = 0;
-arrowLeftb5.addEventListener('click',peticion);
-arrowRightb5.addEventListener('click',peticion);
+arrowLeftb5.addEventListener('click', peticion);
+arrowRightb5.addEventListener('click', peticion);
 
 
 async function peticion(e) {
@@ -104,15 +104,15 @@ async function peticion(e) {
 /* Función que cambia de imagen dependiendo de la flecha que pulses cambiando el src de la imagen por uno del array  */
 function cambiaComentario(id, json) {
 
-    if (id == "arrow-right-b5" && comentarioActual < (json.comentarios.length -1)) {
-        comentarioActual+=1;
-      console.log('Entraaaaaaaaaa');
+    if (id == "arrow-right-b5" && comentarioActual < (json.comentarios.length - 1)) {
+        comentarioActual += 1;
+
         document.querySelector("#b5-p").innerHTML = json.comentarios[comentarioActual].comentario;
         document.querySelector("#b5-p2").innerHTML = json.comentarios[comentarioActual].autor;
     }
-    if (id == "arrow-left-b5" && comentarioActual != 0 ){
-        console.log("entra",comentarioActual,images.length);
-        comentarioActual-=1;
+    if (id == "arrow-left-b5" && comentarioActual != 0) {
+
+        comentarioActual -= 1;
         document.querySelector("#b5-p").innerHTML = json.comentarios[comentarioActual].comentario;
         document.querySelector("#b5-p2").innerHTML = json.comentarios[comentarioActual].autor;
     }

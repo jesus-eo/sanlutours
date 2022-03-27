@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   /* font-family:var(--fuenteAcme) */
+   :root{
+      --fuenteAcme: 'Acme', sans-serif;
+      --fuenteCorben: 'Corben', cursive;
+      --colorLetra: #485342;
+   }
+
+   a {
+    text-decoration: none;
+   }
+   ul, li {
+    list-style: none;
+   }
+   #container-envolvente-principal{
+    height: 100%;
+   }
+
+
+
+    /*----------------
+   ||  Bloque1(b1)  ||
+   -----------------*/
+   #bloque1-pag-individual{
+
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuenteCorben);
+   }
+   /*Imagen fondo*/
+   #bloque1-pag-individual::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+    background-image: url('../Img/Img\ gastronomia/Casa balbino.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: 100% 100%;
+   }
+   #login {
+
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: flex-end;
+
+   }
+   #login a {
+    padding: 5px;
+    color: #485342;
+   }
+   .encabezado-b1-principal {
+    display: flex;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 25px;
+    transition: top 0.5s;
+   }
+
+   #container-logo {
+    display: flex;
+    width: 40%;
+   }
+   #logo {
+    margin-left: 20px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+   }
+   #logo>img {
+    width: 60%;
+   }
+   /*Navegación*/
+   .nav-b1-principal {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    font-size: 20px;
+    color: #485342;
+   }
+   .nav-b1-principal ul li a {
+    color: #485342;
+   }
+   .nav-b1-principal>ul {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+   }
+   .tours {
+    position: relative;
+    cursor: pointer;
+   }
+   .desplegable-oculto{
+    position: absolute;
+    border: 1px solid black;
+    margin-top: 20px;
+    display: none;
+   }
+   /*Hace visible la lista*/
+   .desplegable-visible{
+    display: block;
+    position: absolute;
+    margin-top: 10px;
+    transition: all 2s;
+   }
+   .desplegable-visible li{
+       padding-top: 5px;
+   }
+
+   .titulo-central {
+     height: 80%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100vw;
+     color: #FFFFFF;
+   }
+   .titulo-central h1 {
+     font-size: 32px;
+   }
+   .datos-tour {
+     height: 20%;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     color: #FFFFFF;
+   }
+   .h3-datos-tour {
+      font-size: 16px;
+    }
+    .subrallado:hover {
+        text-decoration: underline;
+       }
+       .subrallado-actual {
+           text-decoration: underline #485342;
+       }
+/*----------------------------
+---Bloque2 tour individual----
+----------------------------*/
+
+#bloque2-pag-individual {
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ background-color: #485342;
+ font-family: var(--fuenteAcme);
+}
+.breadcrumb {
+    height: 10%;
+}
+.breadcrumb > ul{
+    padding: 2%;
+}
+/*Migas de pan curriculum*/
+.breadcrumb ul li {
+    display: inline;
+    color: #FFFFFF;
+ }
+.breadcrumb ul li+li:before {
+ content: ">";
+ padding: 10px;
+}
+.enlace-bread {
+    color: rgb(199, 206, 201);
+}
+.sitio-actual {
+    color: #FFFFFF;
+}
+.descripcion-ind {
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+}
+.descripcion-ind p {
+    width: 80%;
+    font-size: 30px;
+
+}
+.planing-ind {
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60%;
+}
+.planing-ind p {
+    width: 80%;
+    margin-top: 10px;
+    font-size: 30px;
+}
+.planing-ind h1 {
+    margin-bottom: 2%;
+    font-size: 40px;
+}
+/*----------------
+Punto de encuentro
+------------------*/
+#punto-encuentro {
+  height: 100vh;
+  background-color: #DBE2DD;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.b1-punto-encuentro {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 20%;
+  width: 100%;
+  font-size: 40px;
+  color: var(--colorLetra);
+  font-family: var(--fuenteAcme);
+}
+.container-mapa {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+}
+/*---------------------
+||  Bloque-formreserva  ||
+-----------------------*/
+#form-reserva {
+  height: 100vh;
+  width: 100%;
+  background-color: #2F3A29;
+  display: flex;
+  flex-direction: column;
+}
+#h1-form-reserva {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 20%;
+  width: 100%;
+  font-size: 40px;
+  font-family: var(--fuenteAcme);
+  color: #FFFFFF;
+}
+#container-form-reserva {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+}
+.form-reserva {
+  display: flex;
+  height: 100%;
+  width: 30%;
+  flex-direction: column;
+  margin-top: 10%;
+}
+
+.form-reserva p {
+  padding: 3%;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+.form div {
+  display: flex;
+}
+.form >div > input {
+  margin: auto;
+    height: 50%;
+}
+#btnenviar {
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #DBE2DD;
+  width: 100%;
+}
+/*---------------------
+||  Footer  ||
+-----------------------*/
+#b6-pagina-principal {
+    display: flex;
+    flex-direction: column;
+    height: 45vh;
+    width: 100%;
+    background-color: #DBE2DD;
+  }
+  .b6-container-iconos {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+  }
+  .b6-iconos {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .b6-iconos picture {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .b6-iconos picture img {
+    width: 50%;
+  }
+  .b6-iconos a {
+    font-size: 24px;
+    font-family: var(--fuenteCorben);
+    color: #2F3A29;
+  }
+  .b6-iconos a:hover {
+    text-decoration: underline;
+  }
+  .b6-iconos-redes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #iconos-redes {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    padding: 1%;
+  }
+  #iconos-redes a>img {
+    width: 40%;
+  }
+  #b6-p-actualizacion {
+    display: flex;
+    justify-content: center;
+  }

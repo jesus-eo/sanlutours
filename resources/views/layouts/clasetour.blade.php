@@ -13,7 +13,9 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        {{--  Tailwind --}}
+    {{-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> --}}
+    <script src="https://cdn.tailwindcss.com"></script>
         <!-- Styles -->
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
@@ -56,7 +58,7 @@
                                 </a>
                             </li>
                             <div>
-                                <li class="tours subrallado-actual" title="Tours">Tours
+                                <li id="subrallado-tour" class="tours subrallado-actual" title="Tours">Tours
                                     <i id="botonLateral" class="fa fa-angle-right"></i>
                                 </li>
                                 <ul id="menu-desplegable" class="desplegable-oculto">
@@ -66,7 +68,7 @@
                                     <li><a class="subrallado" href="{{route('deportours')}}">Deportivo</a></li>
                                 </ul>
                             </div>
-                            <li><a class="subrallado" href="">Guias</a></li>
+                            <li><a id="subrallado-guia" class="subrallado" href="{{route('guias')}}">Guias</a></li>
                             <li><a class="subrallado" href="{{route('sobrenosotros')}}">Sobre Nosotros</a></li>
                             <li><a class="subrallado" href="{{route('contacto')}}">Contacto</a></li>
                         </ul>

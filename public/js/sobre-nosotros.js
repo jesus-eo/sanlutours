@@ -3,17 +3,23 @@ window.addEventListener('load', function() {
 
     let declaration = document.styleSheets[0].cssRules[6].style;
     let valor = document.querySelector("#valor-img-fondo").value;
-    console.log(valor);
     if (valor == "freetour"){
         declaration.setProperty("background-image", "url('../Img/img Freetours/imagen caballos encabezado.jpg')");
-        console.log(declaration);
     }else if(valor == "gastrotour"){
         declaration.setProperty("background-image", "url('../Img/Img gastronomia/pp-Vaso vino.jpg')");
     }else if(valor == "cultutour"){
         declaration.setProperty("background-image", "url('../Img/Img Cultural/palacio2.jpg')");
     }else if(valor == "deportour"){
         declaration.setProperty("background-image", "url('../Img/img Deportivo/imagen fondo deportiva.jpg')");
+    }else if(valor == "guias"){
+        declaration.setProperty("background-image", "url('../Img/Guias.jpg')");
+        let subGuia = document.querySelector("#subrallado-guia");
+        let subTour = document.querySelector("#subrallado-tour");
+        subGuia.classList.toggle('subrallado');
+        subGuia.classList.toggle('subrallado-actual');
+        subTour.classList.toggle('subrallado-actual');
     }
+
 });
 
 /*Desplegable menu(Tours)*/
@@ -47,7 +53,11 @@ window.onscroll = function () {
     }
 }
 
-
+/********************Estrella guias ***************/
+document.getElementById("label-star").addEventListener('click', function(){
+    let valor = document.getElementById("valor-star");
+    valor.innerHTML=(parseInt(valor.innerHTML)+1);
+ })
 
 
 

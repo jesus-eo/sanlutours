@@ -66,7 +66,7 @@
                                     <li><a class="subrallado" href="{{route('deportours')}}">Deportivo</a></li>
                                 </ul>
                             </div>
-                            <li><a class="subrallado" href="">Guias</a></li>
+                            <li><a class="subrallado" href="{{route('guias')}}">Guias</a></li>
                             <li><a class="subrallado" href="{{route('sobrenosotros')}}">Sobre Nosotros</a></li>
                             <li><a class="subrallado-actual" href="">Contacto</a></li>
                         </ul>

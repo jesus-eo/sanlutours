@@ -42,6 +42,14 @@ Route::get('/deportours', function () {
     return view('sanlutour.deportours');
 })->name('deportours');
 
+Route::get('/tourindividual', function () {
+    return view('sanlutour.tourindividual');
+})->name('tourindividual');
+
+Route::get('/guias', function () {
+    return view('sanlutour.guias');
+})->name('guias');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
