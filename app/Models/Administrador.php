@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Administrador extends Model
 {
     use HasFactory;
+    protected $table = 'administrador';
+
+    public function usuario()
+    {
+        return $this->hasOne(User::class);
+    }
+
 }

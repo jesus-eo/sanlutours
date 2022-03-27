@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Guia extends Model
 {
     use HasFactory;
+
+    public function tours(){
+        return $this->belongsToMany(Tour::class);
+    }
 }

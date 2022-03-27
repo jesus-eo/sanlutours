@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     use HasFactory;
+
+    public function usuario(){
+        return $this->belongsTo(User::class);
+    }
+    public function tour(){
+        return $this->belongsTo(Tour::class);
+    }
 }
