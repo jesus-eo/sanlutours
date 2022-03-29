@@ -22,8 +22,11 @@ return new class extends Migration
             $table->integer('plazas');
             $table->string('tipo');
             $table->string('imagen');
+            $table->integer('duracion');
             $table->decimal('precio',5,2);
             $table->integer('valoracion');
+            $table->string('latitud');
+            $table->string('longitud');
             $table->timestamps();
         });
     }
