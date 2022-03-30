@@ -83,4 +83,11 @@ class TourController extends Controller
     {
         //
     }
+
+    public function freetours()
+    {
+           return view("sanlutour.freetours",[
+            "tours"=> Tour::all()->where('tipo','free'),
+        ]);
+    }
 }

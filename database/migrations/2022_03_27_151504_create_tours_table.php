@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->text('planing');
-            $table->timestamp('fecha-hora');
+            $table->timestamp('fechahora');
             $table->integer('plazas');
             $table->string('tipo');
             $table->string('imagen');

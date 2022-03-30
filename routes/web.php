@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +27,9 @@ Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('contacto');
 
-Route::get('/freetours', function () {
+/* Route::get('/freetours', function () {
     return view('sanlutour.freetours');
-})->name('freetours');
+})->name('freetours'); */
 
 Route::get('/gastrotours', function () {
     return view('sanlutour.gastrotours');
@@ -49,6 +50,9 @@ Route::get('/tourindividual', function () {
 Route::get('/guias', function () {
     return view('sanlutour.guias');
 })->name('guias');
+
+
+Route::get('/freetours', [TourController::class, 'freetours'])->name('freetours');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
