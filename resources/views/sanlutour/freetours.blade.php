@@ -10,29 +10,29 @@
     </x-slot>
 
     <!-- Remove py-8 -->
-    <div class="mx-auto container py-8">
-        <div class="flex flex-wrap items-center  justify-center">
+    <div>
+        <div class="flex flex-wrap  justify-around container10">
             <!-- Card 1 -->
             @foreach ($tours as $tour)
 
 
-            <div tabindex="0" class="focus:outline-none mx-2 w-80 xl:mb-0 mb-8">
+            <div class="mx-2 xl:mb-5 mt-8 mb-8 contintaa">
                 <div>
-                    <img alt="person capturing an image"
-                        src="{{asset($tour->imagen)}}" tabindex="0"
+                    <img alt="imagen tour"
+                        src="{{asset($tour->imagen)}}"
                         class="focus:outline-none w-full h-52" />
                 </div>
-                <div class="bg-white">
+                <div class="bg-white h-96" >
                     <div class="flex items-center justify-center px-4 pt-4">
                         <h1 class="h1-card">{{$tour->nombre}}</h1>
                     </div>
                     <div class="p-4">
                         <div class="flex items-center">
 
-                            <p tabindex="0" class="p-card focus:outline-none  mt-2">{{$tour->descripcion}}</p>
+                            <p tabindex="0" class="p-card  mt-2">{{$tour->descripcion}}</p>
                         </div>
                         <div class="flex flex-col colums mt-4">
-                            <p class="p-card">Fecha: {{$tous->fechahora}}</p>
+                            <p class="p-card">Fecha: {{$tour->fechahora}}</p>
                             <p class="p-card">Duración: {{$tour->duracion}}h</p>
                             <p class="p-card">Precio: {{$tour->precio}}€</p>
                         </div>
