@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTourRequest;
 use App\Http\Requests\UpdateTourRequest;
 use App\Models\Tour;
-
+use Illuminate\Http\Request;
 class TourController extends Controller
 {
     /**
@@ -110,5 +110,26 @@ class TourController extends Controller
            return view("sanlutour.gastrotours",[
             "tours"=> Tour::all()->where('tipo','gastronomico'),
         ]);
+    }
+
+    public function valoracion(Request $request)
+    {
+        $id = $request->input('id');
+        $valor = $request->input('valor');
+        $tour = Tour::findOrfail($id);
+        $tour->nombre = $tour->nombre;
+        $tour->descripcion = $tour->descripcion;
+        $tour->planing = $tour->planing;
+        $tour->fechahora = $tour->fechahora;
+        $tour->plazas = $tour->plazas;
+        $tour->tipo = $tour->tipo;
+        $tour->imagen = $tour->imagen;
+        $tour->duracion = $tour->duracion;
+        $tour->precio = $tour->precio;
+        $tour->valoracion = $tour->valoracion + $valor;
+        $tour->latitud = $tour->latitud;
+        $tour->longitud = $tour->longitud;
+        $tour->save();
+        echo json_encode($tour->valoracion);
     }
 }

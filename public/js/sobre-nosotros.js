@@ -54,10 +54,6 @@ window.onscroll = function () {
 }
 
 /********************Estrella guias ***************/
-/* let btnstar = document.querySelector('.btnstart');
-btnstar.addEventListener('click', function (){
-    console.log(btnstar.value);
-}) */
 async function valoracion(e, id){
     console.log(e.value + id);
 
@@ -90,5 +86,37 @@ async function valoracion(e, id){
     }
 }
 
+/********************Estrella tours(free,cultural,deportivo,gastronomico) ***************/
 
+async function valoraciontour(e, id){
+    console.log(e.value + id);
+
+    try {
+        let json = {
+            "id": id,
+            "valor": e.value,
+        };
+        let response = await fetch('http://127.0.0.1:8000/valtour', {
+            method: 'POST',
+            //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
+            headers: {
+                'Content-type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
+            },
+            body: JSON.stringify(json),
+        })
+        //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
+        if(response.ok){
+           let valorActual = await response.json();
+           let pValor = document.querySelector('.val'+ id);
+           console.log(pValor);
+           pValor.innerHTML = `${valorActual}`;
+        }else{
+            alert("Error en la respuesta")
+        }
+    } catch (error) {
+        alert(error.message);
+    }
+}
 

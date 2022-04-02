@@ -33,7 +33,11 @@ Route::get('/tourindividual', function () {
     return view('sanlutour.tourindividual');
 })->name('tourindividual');
 
+
+
+/**Estrellas***/
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
+Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
 Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
 

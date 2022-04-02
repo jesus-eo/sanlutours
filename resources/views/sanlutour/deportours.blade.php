@@ -24,6 +24,34 @@
                     <div class="flex items-center justify-center px-4 pt-4">
                         <h1 class="h1-card">{{$tour->nombre}}</h1>
                     </div>
+                    <div class="valoracion flex items-center justify-center">
+                        <p class="val{{$tour->id}}">{{$tour->valoracion}}</p>
+                            <!-- Estrella 1 -->
+                            <button onclick="valoraciontour(this,{{$tour->id}})" type="submit" value="5">
+                                <i class="fas fa-star"></i>
+                            </button>
+
+                            <!-- Estrella 2 -->
+                            <button onclick="valoraciontour(this,{{$tour->id}})" type="submit" value="4">
+                                <i class="fas fa-star"></i>
+                            </button>
+
+                            <!-- Estrella 3 -->
+                            <button onclick="valoraciontour(this,{{$tour->id}})" type="submit" value="3">
+                                <i class="fas fa-star"></i>
+                            </button>
+
+                            <!-- Estrella 4 -->
+                            <button onclick="valoraciontour(this,{{$tour->id}})" type="submit" value="2">
+                                <i class="fas fa-star"></i>
+                            </button>
+
+                            <!-- Estrella 5 -->
+                            <button onclick="valoraciontour(this,{{$tour->id}})" type="submit"  value="1">
+                                <i class="fas fa-star"></i>
+                            </button>
+
+                    </div>
                     <div class="p-4">
                         <div class="flex items-center">
                             <p lass="p-card  mt-2">{{$tour->descripcion}}</p>
