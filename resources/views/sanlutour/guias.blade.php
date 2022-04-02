@@ -29,12 +29,37 @@
                             <h1 class="font-bold text-3xl text-center mb-1">{{$guia->nombre}}</h1>
                             <p class="text-gray-800 text-sm text-center">Guía de tour {{$guia->tours->first()->tipo}}</p>
                             <p class="text-center text-gray-600 text-base pt-3 font-normal">{{$guia->descripcion}}</p>
-                            <div class="star-rating">
-                                <!--  <input type="radio" name="stars" id="star-a" value="5"/> -->
-                                <label for="star-a" id="label-star"></label>
-                                <p id="valor-star">{{$guia->valoracion}}</p>
+                           {{--  <form action="{{Route('valoracion.update',[$guia])}}" method="post">
+                                @csrf --}}
+                                <div class="valoracion">
+                                    <p class="val{{$guia->id}}">{{$guia->valoracion}}</p>
+                                        <!-- Estrella 1 -->
+                                        <button onclick="valoracion(this,{{$guia->id}})" type="submit" value="5">
+                                            <i class="fas fa-star"></i>
+                                        </button>
 
-                            </div>
+                                        <!-- Estrella 2 -->
+                                        <button onclick="valoracion(this,{{$guia->id}})" type="submit" value="4">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+
+                                        <!-- Estrella 3 -->
+                                        <button onclick="valoracion(this,{{$guia->id}})" type="submit" value="3">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+
+                                        <!-- Estrella 4 -->
+                                        <button onclick="valoracion(this,{{$guia->id}})" type="submit" value="2">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+
+                                        <!-- Estrella 5 -->
+                                        <button onclick="valoracion(this,{{$guia->id}})" type="submit"  value="1">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+
+                                </div>
+                           {{--  </form> --}}
                         </div>
                     </div>
                 </div>
@@ -44,3 +69,4 @@
     </div>
 
 </x-clasetour>
+

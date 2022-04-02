@@ -13,9 +13,6 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        {{--  Tailwind --}}
-    {{-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> --}}
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
         <!-- Styles -->
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
@@ -23,6 +20,7 @@
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
         </style>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ $title }}</title>
     </head>
     <body>

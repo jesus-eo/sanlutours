@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGuiaRequest;
 use App\Http\Requests\UpdateGuiaRequest;
 use App\Models\Guia;
-
+use Illuminate\Http\Request;
 class GuiaController extends Controller
 {
     /**
@@ -85,5 +85,16 @@ class GuiaController extends Controller
     public function destroy(Guia $guia)
     {
         //
+    }
+
+    public function valoracion(Request $request)
+    {
+        $id = $request->input('id');
+        $valor = $request->input('valor');
+        $guia = Guia::findOrfail($id);
+        $guia->nombre = $guia->nombre;
+        $guia->valoracion = $guia->valoracion + $valor;
+        $guia->save();
+        echo json_encode($guia->valoracion);
     }
 }
