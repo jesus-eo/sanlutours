@@ -14,9 +14,10 @@
             <div role="list" aria-label="Behind the scenes People "
                 class="lg:flex md:flex sm:flex items-center flex-wrap md:justify-around sm:justify-around lg:justify-around">
 
+                @foreach ($guias as $guia )
                 <div role="listitem"
                     class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                    <div class="rounded overflow-hidden shadow-md bg-white pb-5">
+                    <div class="rounded overflow-hidden shadow-lg bg-white pb-5  shadow-black">
                         <div class="absolute -mt-20 w-full flex justify-center">
                             <div class="h-32 w-32">
                                 <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
@@ -25,136 +26,21 @@
                             </div>
                         </div>
                         <div class="px-6 mt-16">
-                            <h1 class="font-bold text-3xl text-center mb-1">Andres Berlin</h1>
-                            <p class="text-gray-800 text-sm text-center">Chief Executive Officer</p>
-                            <p class="text-center text-gray-600 text-base pt-3 font-normal">The CEO's role in
-                                raising a company's corporate IQ is to establish an atmosphere that promotes
-                                knowledge sharing and collaboration.</p>
-                                <div class="star-rating">
-                                   <!--  <input type="radio" name="stars" id="star-a" value="5"/> -->
-                                    <label for="star-a" id="label-star"></label>
-                                    <p id="valor-star">0</p>
+                            <h1 class="font-bold text-3xl text-center mb-1">{{$guia->nombre}}</h1>
+                            <p class="text-gray-800 text-sm text-center">Guía de tour {{$guia->tours->first()->tipo}}</p>
+                            <p class="text-center text-gray-600 text-base pt-3 font-normal">{{$guia->descripcion}}</p>
+                            <div class="star-rating">
+                                <!--  <input type="radio" name="stars" id="star-a" value="5"/> -->
+                                <label for="star-a" id="label-star"></label>
+                                <p id="valor-star">{{$guia->valoracion}}</p>
 
-                                </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div role="listitem"
-                    class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                    <div class="rounded overflow-hidden shadow-md bg-white pb-5">
-                        <div class="absolute -mt-20 w-full flex justify-center">
-                            <div class="h-32 w-32">
-                                <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                    alt="Display Picture of Andres Berlin" role="img"
-                                    class="rounded-full object-cover h-full w-full shadow-md" />
                             </div>
                         </div>
-                        <div class="px-6 mt-16">
-                            <h1 class="font-bold text-3xl text-center mb-1">Andres Berlin</h1>
-                            <p class="text-gray-800 text-sm text-center">Chief Executive Officer</p>
-                            <p class="text-center text-gray-600 text-base pt-3 font-normal">The CEO's role in
-                                raising a company's corporate IQ is to establish an atmosphere that promotes
-                                knowledge sharing and collaboration.</p>
-
-                        </div>
                     </div>
                 </div>
-
-                <div role="listitem"
-                    class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                    <div class="rounded overflow-hidden shadow-md bg-white pb-5">
-                        <div class="absolute -mt-20 w-full flex justify-center">
-                            <div class="h-32 w-32">
-                                <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                    alt="Display Picture of Andres Berlin" role="img"
-                                    class="rounded-full object-cover h-full w-full shadow-md" />
-                            </div>
-                        </div>
-                        <div class="px-6 mt-16">
-                            <h1 class="font-bold text-3xl text-center mb-1">Andres Berlin</h1>
-                            <p class="text-gray-800 text-sm text-center">Chief Executive Officer</p>
-                            <p class="text-center text-gray-600 text-base pt-3 font-normal">The CEO's role in
-                                raising a company's corporate IQ is to establish an atmosphere that promotes
-                                knowledge sharing and collaboration.</p>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div role="listitem"
-                    class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                    <div class="rounded overflow-hidden shadow-md bg-white pb-5">
-                        <div class="absolute -mt-20 w-full flex justify-center">
-                            <div class="h-32 w-32">
-                                <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                    alt="Display Picture of Andres Berlin" role="img"
-                                    class="rounded-full object-cover h-full w-full shadow-md" />
-                            </div>
-                        </div>
-                        <div class="px-6 mt-16">
-                            <h1 class="font-bold text-3xl text-center mb-1">Andres Berlin</h1>
-                            <p class="text-gray-800 text-sm text-center">Chief Executive Officer</p>
-                            <p class="text-center text-gray-600 text-base pt-3 font-normal">The CEO's role in
-                                raising a company's corporate IQ is to establish an atmosphere that promotes
-                                knowledge sharing and collaboration.</p>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div role="listitem"
-                    class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                    <div class="rounded overflow-hidden shadow-md bg-white pb-5">
-                        <div class="absolute -mt-20 w-full flex justify-center">
-                            <div class="h-32 w-32">
-                                <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                    alt="Display Picture of Andres Berlin" role="img"
-                                    class="rounded-full object-cover h-full w-full shadow-md" />
-                            </div>
-                        </div>
-                        <div class="px-6 mt-16">
-                            <h1 class="font-bold text-3xl text-center mb-1">Andres Berlin</h1>
-                            <p class="text-gray-800 text-sm text-center">Chief Executive Officer</p>
-                            <p class="text-center text-gray-600 text-base pt-3 font-normal">The CEO's role in
-                                raising a company's corporate IQ is to establish an atmosphere that promotes
-                                knowledge sharing and collaboration.</p>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div role="listitem"
-                    class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                    <div class="rounded overflow-hidden shadow-md bg-white pb-5">
-                        <div class="absolute -mt-20 w-full flex justify-center">
-                            <div class="h-32 w-32">
-                                <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
-                                    alt="Display Picture of Andres Berlin" role="img"
-                                    class="rounded-full object-cover h-full w-full shadow-md" />
-                            </div>
-                        </div>
-                        <div class="px-6 mt-16">
-                            <h1 class="font-bold text-3xl text-center mb-1">Andres Berlin</h1>
-                            <p class="text-gray-800 text-sm text-center">Chief Executive Officer</p>
-                            <p class="text-center text-gray-600 text-base pt-3 font-normal">The CEO's role in
-                                raising a company's corporate IQ is to establish an atmosphere that promotes
-                                knowledge sharing and collaboration.</p>
-
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
-
-
-
         </div>
     </div>
 
 </x-clasetour>
-
-

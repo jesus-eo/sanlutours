@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuiaController;
 use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,32 +28,28 @@ Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('contacto');
 
-/* Route::get('/freetours', function () {
-    return view('sanlutour.freetours');
-})->name('freetours'); */
-
-Route::get('/gastrotours', function () {
-    return view('sanlutour.gastrotours');
-})->name('gastrotours');
-
-Route::get('/cultutours', function () {
-    return view('sanlutour.cultutours');
-})->name('cultutours');
-
-Route::get('/deportours', function () {
-    return view('sanlutour.deportours');
-})->name('deportours');
 
 Route::get('/tourindividual', function () {
     return view('sanlutour.tourindividual');
 })->name('tourindividual');
 
-Route::get('/guias', function () {
-    return view('sanlutour.guias');
-})->name('guias');
 
+Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
+
+Route::get('/gastrotours', [TourController::class, 'gastrotours'])->name('gastrotours');
+
+Route::get('/gastrotours', [TourController::class, 'gastrotours'])->name('gastrotours');
 
 Route::get('/freetours', [TourController::class, 'freetours'])->name('freetours');
+
+Route::get('/cultutours',[TourController::class,
+'cultutours'])->name('cultutours');
+
+Route::get('/deportours',[TourController::class,
+'deportours'])->name('deportours');
+
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

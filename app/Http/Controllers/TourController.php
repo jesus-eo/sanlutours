@@ -90,4 +90,25 @@ class TourController extends Controller
             "tours"=> Tour::all()->where('tipo','free'),
         ]);
     }
+
+    public function cultutours()
+    {
+           return view("sanlutour.cultutours",[
+            "tours"=> Tour::all()->where('tipo','cultural'),
+        ]);
+    }
+
+    public function deportours()
+    {
+           return view("sanlutour.deportours",[
+            "tours"=> Tour::all()->where('tipo','deportivo'),
+        ]);
+    }
+
+    public function gastrotours()
+    {
+           return view("sanlutour.gastrotours",[
+            "tours"=> Tour::all()->where('tipo','gastronomico'),
+        ]);
+    }
 }

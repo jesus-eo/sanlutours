@@ -15,7 +15,10 @@ class GuiaController extends Controller
      */
     public function index()
     {
-        //
+        return view('sanlutour.guias',[
+
+            "guias"=> Guia::all(),
+        ]);
     }
 
     /**
