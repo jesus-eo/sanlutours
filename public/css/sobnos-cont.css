@@ -293,7 +293,7 @@
 *----------------Pagina Tours(layout(clasetour) vista(freetours))-------------
 *----------------------------------------------------------*/
 .container-card-tours {
-    background-color: #C7CEC9;
+    background-color: #485342;
 }
 
 .h1-card {
@@ -326,14 +326,11 @@
  color: #FFFFFF;
  font-size: 50px
 }
-.container10 {
-border: 2px solid black;
 
-}
-.contintaa {
-    border: 2px solid green;
-    width: 35rem;
-    height: 80%;
+.cont-card {
+    box-shadow: 0px 0px 10px 1px black;
+    width: 25rem;
+    height: 90%;
 }
 /*------------------------
   -------------Guias------
