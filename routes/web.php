@@ -35,22 +35,24 @@ Route::get('/tourindividual', function () {
 
 
 
+
+
 /**Estrellas***/
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
 Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
 Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
 
-Route::get('/gastrotours', [TourController::class, 'gastrotours'])->name('gastrotours');
 
-Route::get('/gastrotours', [TourController::class, 'gastrotours'])->name('gastrotours');
 
-Route::get('/freetours', [TourController::class, 'freetours'])->name('freetours');
+Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
 
-Route::get('/cultutours',[TourController::class,
+Route::get('/freetours/{orden?}', [TourController::class, 'freetours'])->name('freetours');
+
+Route::get('/cultutours/{orden?}',[TourController::class,
 'cultutours'])->name('cultutours');
 
-Route::get('/deportours',[TourController::class,
+Route::get('/deportours/{orden?}',[TourController::class,
 'deportours'])->name('deportours');
 
 

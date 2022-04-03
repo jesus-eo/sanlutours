@@ -11,6 +11,20 @@
 
     <!-- Remove py-8 -->
     <div>
+        <div class="orden-tour flex">
+            <p class="text-white">Ordenar por:</p>
+            <a class="text-md border-2 rounded-md  text-white hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('freetours',['fecha'])}}">Fecha</a>
+            <a class="text-md border-2 rounded-md  text-white hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('freetours',['precio'])}}">Precio</a>
+        </div>
+            {{-- <form method="POST" action="{{route('ordenacion',[fecha])}}">
+                @csrf
+                <button type="submit" value="fecha" class="text-md border-2 rounded-md  text-white hover:bg-green-900 hover:text-white transition duration-300">Fecha</button>
+            </form> --}}
+
+
+           {{--  <button type="submit" value="precio" class="text-md border-2 rounded-md  text-white hover:bg-green-900 hover:text-white transition duration-300">Precio</button> --}}
+
+
         <div class="flex flex-wrap  justify-around">
             <!-- Card 1 -->
             @foreach ($tours as $tour)
@@ -57,7 +71,7 @@
                             <p lass="p-card  mt-2">{{$tour->descripcion}}</p>
                         </div>
                         <div class="flex flex-col colums mt-4">
-                            <p class="p-card">Fecha: {{$tour->fechahora}}</p>
+                            <p class="p-card">Fecha: {{(new Datetime($tour->fechahora))->format('d/m/Y H:i:s')}}</p>
                             <p class="p-card">Duración: {{$tour->duracion}}h</p>
                             <p class="p-card">Precio: {{$tour->precio}}€</p>
                         </div>
@@ -75,3 +89,6 @@
     </div>
 
 </x-clasetour>
+<script>
+
+</script>

@@ -334,6 +334,15 @@
     width: 25rem;
     height: 90%;
 }
+.orden-tour {
+    height: 10%;
+    padding: 10px;
+    width: 30%;
+    justify-content: space-around;
+}
+.orden-tour button {
+    padding: 5px;
+}
 /*------------------------
   -------------Guias------
   -----------------------*/
@@ -358,23 +367,23 @@
     color: var(--color-hover);
     transform: rotate(360deg);
   }
-  button:nth-child(1):hover ~ button {
+  .valoracion button:nth-child(1):hover ~ button {
     color: var(--color-hover);
     transform: rotate(360deg);
   }
-  button:nth-child(2):hover ~ button {
+  .valoracion button:nth-child(2):hover ~ button {
     color: var(--color-hover);
     transform: rotate(360deg);
   }
-  button:nth-child(3):hover ~ button {
+  .valoracion button:nth-child(3):hover ~ button {
     color: var(--color-hover);
     transform: rotate(360deg);
   }
-  button:nth-child(4):hover ~ button {
+  .valoracion button:nth-child(4):hover ~ button {
     color: var(--color-hover);
     transform: rotate(360deg);
   }
-  button:nth-child(5):hover ~ button {
+  .valoracion button:nth-child(5):hover ~ button {
     color: var(--color-hover);
     transform: rotate(360deg);
   }

@@ -84,32 +84,72 @@ class TourController extends Controller
         //
     }
 
-    public function freetours()
+    public function freetours($orden = "")
     {
-           return view("sanlutour.freetours",[
-            "tours"=> Tour::all()->where('tipo','free'),
-        ]);
+        if($orden == 'precio'){
+            return view("sanlutour.freetours",[
+                "tours"=>Tour::where('tipo','free')->orderBy('precio','asc')->get(),
+            ]);
+        }else if($orden == 'fecha'){
+            return view("sanlutour.freetours",[
+                "tours"=>Tour::where('tipo','free')->orderBy('duracion','asc')->get(),
+            ]);
+        }else {
+            return view("sanlutour.freetours",[
+                "tours"=> Tour::all()->where('tipo','free'),]);
+        }
+
     }
 
-    public function cultutours()
+    public function cultutours($orden = "")
     {
-           return view("sanlutour.cultutours",[
-            "tours"=> Tour::all()->where('tipo','cultural'),
-        ]);
+        if($orden == 'precio'){
+            return view("sanlutour.cultutours",[
+                "tours"=>Tour::where('tipo','cultural')->orderBy('precio','asc')->get(),
+            ]);
+        }else if($orden == 'fecha'){
+            return view("sanlutour.cultutours",[
+                "tours"=>Tour::where('tipo','cultural')->orderBy('duracion','asc')->get(),
+            ]);
+        }else {
+            return view("sanlutour.cultutours",[
+                "tours"=> Tour::all()->where('tipo','cultural'),]);
+        }
+
     }
 
-    public function deportours()
+    public function deportours($orden = "")
     {
-           return view("sanlutour.deportours",[
-            "tours"=> Tour::all()->where('tipo','deportivo'),
-        ]);
+        if($orden == 'precio'){
+            return view("sanlutour.deportours",[
+                "tours"=>Tour::where('tipo','deportivo')->orderBy('precio','asc')->get(),
+            ]);
+        }else if($orden == 'fecha'){
+            return view("sanlutour.deportours",[
+                "tours"=>Tour::where('tipo','deportivo')->orderBy('duracion','asc')->get(),
+            ]);
+        }else {
+            return view("sanlutour.deportours",[
+                "tours"=> Tour::all()->where('tipo','deportivo'),]);
+        }
+
     }
 
-    public function gastrotours()
+    public function gastrotours($orden = "")
     {
-           return view("sanlutour.gastrotours",[
-            "tours"=> Tour::all()->where('tipo','gastronomico'),
-        ]);
+        if($orden == 'precio'){
+            return view("sanlutour.gastrotours",[
+                "tours"=>Tour::where('tipo','gastronomico')->orderBy('precio','asc')->get(),
+            ]);
+        }else if($orden == 'fecha'){
+            return view("sanlutour.gastrotours",[
+                "tours"=>Tour::where('tipo','gastronomico')->orderBy('duracion','asc')->get(),
+            ]);
+        }else {
+            return view("sanlutour.gastrotours",[
+                "tours"=> Tour::all()->where('tipo','gastronomico'),]);
+        }
+
     }
 
     public function valoracion(Request $request)
@@ -132,4 +172,20 @@ class TourController extends Controller
         $tour->save();
         echo json_encode($tour->valoracion);
     }
+
+
+    public function ordenar($orden){
+        if($orden == 'precio'){
+            return view("sanlutour.freetours",[
+                "tours"=>Tour::where('tipo','free')->orderBy('precio','asc')->get(),
+            ]);
+        }else if($orden == 'fecha'){
+            return view("sanlutour.freetours",[
+                "tours"=>Tour::where('tipo','free')->orderBy('duracion','asc')->get(),
+            ]);
+        }
+
+    }
 }
+
+
