@@ -11,10 +11,13 @@
 
     <!-- Remove py-8 -->
     <div>
-        <div class="orden-tour flex">
-            <p class="text-white">Ordenar por:</p>
-            <a class="text-md border-2 rounded-md  text-white hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('deportours',['fecha'])}}">Fecha</a>
-            <a class="text-md border-2 rounded-md  text-white hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('deportours',['precio'])}}">Precio</a>
+        <div class="orden-tour">
+            <div class="cont-orden bg-white rounded-md">
+                <p>Ordenar por:</p>
+                <a class="text-md border-2 rounded-md  border-green-800 hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('deportours',['fecha'])}}">Fecha</a>
+                <a class="text-md border-2 rounded-md border-green-800  hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('deportours',['precio'])}}">Precio</a>
+                <a class="text-md border-2 rounded-md border-green-800  hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('deportours',['duracion'])}}">Duración</a>
+            </div>
         </div>
         <div class="flex flex-wrap  justify-around">
             <!-- Card 1 -->

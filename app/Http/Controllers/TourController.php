@@ -92,6 +92,10 @@ class TourController extends Controller
             ]);
         }else if($orden == 'fecha'){
             return view("sanlutour.freetours",[
+                "tours"=>Tour::where('tipo','free')->orderBy('fechahora','asc')->get(),
+            ]);
+        }else if($orden == 'duracion'){
+            return view("sanlutour.freetours",[
                 "tours"=>Tour::where('tipo','free')->orderBy('duracion','asc')->get(),
             ]);
         }else {
@@ -108,6 +112,10 @@ class TourController extends Controller
                 "tours"=>Tour::where('tipo','cultural')->orderBy('precio','asc')->get(),
             ]);
         }else if($orden == 'fecha'){
+            return view("sanlutour.cultutours",[
+                "tours"=>Tour::where('tipo','cultural')->orderBy('fechahora','asc')->get(),
+            ]);
+        }else if($orden == 'duracion'){
             return view("sanlutour.cultutours",[
                 "tours"=>Tour::where('tipo','cultural')->orderBy('duracion','asc')->get(),
             ]);
@@ -126,6 +134,10 @@ class TourController extends Controller
             ]);
         }else if($orden == 'fecha'){
             return view("sanlutour.deportours",[
+                "tours"=>Tour::where('tipo','deportivo')->orderBy('fechahora','asc')->get(),
+            ]);
+        }else if($orden == 'duracion'){
+            return view("sanlutour.deportours",[
                 "tours"=>Tour::where('tipo','deportivo')->orderBy('duracion','asc')->get(),
             ]);
         }else {
@@ -142,6 +154,10 @@ class TourController extends Controller
                 "tours"=>Tour::where('tipo','gastronomico')->orderBy('precio','asc')->get(),
             ]);
         }else if($orden == 'fecha'){
+            return view("sanlutour.gastrotours",[
+                "tours"=>Tour::where('tipo','gastronomico')->orderBy('fechahora','asc')->get(),
+            ]);
+        }else if($orden == 'duracion'){
             return view("sanlutour.gastrotours",[
                 "tours"=>Tour::where('tipo','gastronomico')->orderBy('duracion','asc')->get(),
             ]);

@@ -43,8 +43,6 @@ Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion
 
 Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
 
-
-
 Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
 
 Route::get('/freetours/{orden?}', [TourController::class, 'freetours'])->name('freetours');

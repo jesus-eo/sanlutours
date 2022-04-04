@@ -335,14 +335,19 @@
     height: 90%;
 }
 .orden-tour {
-    height: 10%;
+    display: flex;
     padding: 10px;
     width: 30%;
+}
+.cont-orden {
+    box-shadow: 0px 0px 10px 1px black;
+    display: flex;
+    height: 100%;
+    padding: 10px;
+    width: 300%;
     justify-content: space-around;
 }
-.orden-tour button {
-    padding: 5px;
-}
+
 /*------------------------
   -------------Guias------
   -----------------------*/

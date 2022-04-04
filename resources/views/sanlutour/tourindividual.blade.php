@@ -92,9 +92,10 @@
                     <h3 class="h3-datos-tour">PRECIO</h3>
                     <p>30€</p>
                 </div>
-
             </div>
+            <img class="img-fondo" src="{{asset('Img/Img Cultural/tour cabildo.jpeg')}}" alt="Imagen fondo tour individual">
         </div>
+
         <div id="bloque2-pag-individual">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ul>
