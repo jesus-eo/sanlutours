@@ -47,7 +47,9 @@ class TourController extends Controller
      */
     public function show(Tour $tour)
     {
-        //
+        return(view('sanlutour.tourindividual', [
+            'tour'=> $tour
+        ]));
     }
 
     /**

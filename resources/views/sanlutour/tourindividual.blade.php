@@ -77,42 +77,50 @@
 
 
             <div class="titulo-central">
-                <h1>CASA BALBINO</h1>
+                <h1>{{$tour->nombre}}</h1>
             </div>
             <div class="datos-tour">
                 <div>
                     <h3 class="h3-datos-tour">DURACIÓN</h3>
-                    <p>2:00 horas</p>
+                    <p>{{$tour->duracion}} horas</p>
                 </div>
                 <div>
                     <h3 class="h3-datos-tour">FECHA</h3>
-                    <p>00-00-0000</p>
+                    <p>{{$tour->fechahora}}</p>
                 </div>
                 <div>
                     <h3 class="h3-datos-tour">PRECIO</h3>
-                    <p>30€</p>
+                    <p>{{$tour->precio}}€</p>
                 </div>
             </div>
-            <img class="img-fondo" src="{{asset('Img/Img Cultural/tour cabildo.jpeg')}}" alt="Imagen fondo tour individual">
+            <img class="img-fondo" src="{{asset($tour->imagen)}}" alt="Imagen fondo tour individual">
         </div>
-
+        @php
+            $ultimaVisita = "";
+            if($tour->tipo == 'gastronomico'){
+                $ultimaVisita = 'gastrotours';
+            }else if($tour->tipo == 'cultural'){
+                $ultimaVisita = 'cultutours';
+            }else if($tour->tipo == 'deportivo'){
+                $ultimaVisita = 'deportours';
+            }else{
+                $ultimaVisita = 'freetours';
+            }
+        @endphp
         <div id="bloque2-pag-individual">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ul>
-                    <li><a class=" underline enlace-bread" href="">Inicio</a></li>
-                    <li class="sitio-actual">Tour Gastronómico</li>
+                    <li><a class="enlace-bread" href="/">Inicio</a></li>
+                    <li><a class="enlace-bread"  href="{{route($ultimaVisita)}}">Tours {{$tour->tipo}}</a> </li>
+                    <li class="sitio-actual">Tour {{$tour->nombre}}</li>
                 </ul>
             </nav>
             <div class="descripcion-ind">
-                <p>Conocida en medio mundo, las Tortillas de Camarones es un plato muy especial que no todos saben
-                    cocinar. Casa Balbino es considerada por muchos "El Templo de las Tortillas de Camarones". Ahora te
-                    toca a ti descubrir por qué.</p>
+                <p>{{$tour->descripcion}}</p>
             </div>
             <div class="planing-ind">
                 <h1>Planing de la Visita</h1>
-                <p>Quedamos en el centro de la ciudad justamente en la plaza del cabildo donde emprenderemos la marcha
-                    hacia donde será nuestro destino, una vez allí degustaremos de varias tapas donde probaremos las
-                    exquisiteces de este bar acompañado de una charla explicativa de la historia del mismo.</p>
+                <p>{{$tour->planing}}</p>
             </div>
         </div>
 
@@ -131,13 +139,13 @@
             </div>
             <div id="container-form-reserva">
                 <div class="form-reserva">
-                    <p>Fecha: 00-000-0000</p>
-                    <p>Duración: 2h</p>
-                    <p>Precio: 25€</p>
+                    <p>Fecha: {{$tour->fechahora}}</p>
+                    <p>Duración: {{$tour->duracion}}h</p>
+                    <p>Precio: {{$tour->precio}}€</p>
                     <form class="form" action="index.html" method="get">
                         <div>
                             <p>N.personas:</p>
-                            <input type="number" name="npersonas" id="" maxlength="5" minlength="5">
+                            <input type="number" name="npersonas" id="" max="5" min="1">{{-- Hacer consulta abase de datos para ver las plazas disponible para ese tours --}}
                         </div>
                         <button type="submit" id="btnenviar">Reservar</button>
                     </form>

@@ -70,7 +70,7 @@
                             <p class="p-card">Precio: {{$tour->precio}}€</p>
                         </div>
                         <div class="flex items-center justify-center py-4">
-                            <a href=""
+                            <a href="{{Route('tourindividual',[$tour])}}"
                                 class="p-card border-2 border-green-800 px-20 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300">Ver
                                 más</a>
                         </div>

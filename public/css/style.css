@@ -66,6 +66,7 @@ ul, li {
  width: 100%;
  position: fixed;
  top: 25px;
+ z-index: 5;
  transition: top 0.5s;
 }
 
