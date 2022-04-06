@@ -20,7 +20,8 @@
                     <div class="rounded overflow-hidden shadow-lg bg-white pb-5  shadow-black">
                         <div class="absolute -mt-20 w-full flex justify-center">
                             <div class="h-32 w-32">
-                                <img src="https://cdn.tuk.dev/assets/photo-1564061170517-d3907caa96ea.jfif"
+
+                                <img src="{{asset($guia->imagen)}}"
                                     alt="Display Picture of Andres Berlin" role="img"
                                     class="rounded-full object-cover h-full w-full shadow-md" />
                             </div>

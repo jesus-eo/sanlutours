@@ -185,8 +185,8 @@ ul, li {
 .container-b2 p {
  font-size: 40px;
  text-align: center;
- margin-top: 50px;
- font-family: var(--fuenteAcme);
+ margin-top: 30px;
+ font-family: var(--fuenteCorben);
  color: var(--colorLetra);
 }
 /*----------------
@@ -303,20 +303,22 @@ ul, li {
   align-items: center;
 }
 #container-b5 {
-  height: 70%;
+  height: 80%;
   width: 70%;
 }
 #h1-b5 {
  text-align: center;
  color: #FFFFFF;
  font-size: 3rem;
- margin: 5%;
+ margin: 3%;
+ font-family: var(--fuenteCorben)
 }
 #container-b5 p{
  text-align: center;
  color: #FFFFFF;
- font-size: 25px;
+ font-size: 22px;
  padding: 3% 10%;
+ font-family: var(--fuenteCorben)
 }
 #arrow-left-b5 {
   position: absolute;

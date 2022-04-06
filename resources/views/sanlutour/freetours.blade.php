@@ -63,7 +63,7 @@
                     </div>
                     <div class="p-4">
                         <div class="flex items-center">
-                            <p lass="p-card  mt-2">{{$tour->descripcion}}</p>
+                            <p class="p-card  mt-2">{{$tour->descripcion}}</p>
                         </div>
                         <div class="flex flex-col colums mt-4">
                             <p class="p-card">Fecha: {{(new Datetime($tour->fechahora))->format('d/m/Y H:i:s')}}</p>

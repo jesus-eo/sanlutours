@@ -292,7 +292,7 @@
     color: white;
   }
 /*-----------------------------------------------------------------------
-*----------------Pagina Tours(layout(clasetour) vista(freetours))-------------
+*---------------- (freetours,culturours,deportous,gastrotours))-------------
 *----------------------------------------------------------*/
 .container-card-tours {
     background-color: #485342;
@@ -301,12 +301,12 @@
 .h1-card {
  color: #485342;
  font-size: 30px;
- font-family: var(--fuenteAcme);
+ font-family: var(--fuenteCorben);
 }
 .p-card {
  color: #485342;
  font-size: 20px;
- font-family: var(--fuenteAcme);
+ font-family: var(--fuenteCorben);
 }
 /*Main*/
 .main-freetour {
