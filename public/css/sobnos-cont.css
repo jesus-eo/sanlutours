@@ -58,9 +58,13 @@
     justify-content: flex-end;
 
    }
+   #login > div {
+    margin-right:3%;
+   }
    #login a {
     padding: 5px;
     color: #485342;
+    font-family: var(--fuenteCorben);
    }
    .encabezado-b1-principal {
     display: flex;
@@ -170,7 +174,7 @@
 #b6-pagina-principal {
     display: flex;
     flex-direction: column;
-    height: 45vh;
+    height: 55vh;
     width: 100%;
     background-color: #DBE2DD;
   }
@@ -253,8 +257,6 @@
    }
    .p-section-form  {
      display: flex;
-     justify-content: center;
-     align-items: center;
      width: 40%;
    }
    .form-contacto {
@@ -274,12 +276,18 @@
     background-color: rgba(239, 239, 239, 0.3);
     border: none;
   }
-  .form button {
+  #btnenviar {
+    height: 8%;
     border-radius: 10px;
     margin-top: 5px;
     cursor: pointer;
     border: none;
     background-color: #DBE2DD;
+    transition: all 300ms;
+  }
+  #btnenviar:hover {
+    color: #FFFFFF;
+    background-color: var(--colorLetra);
   }
   .form textarea{
     border-radius: 10px;
@@ -336,7 +344,7 @@
 }
 .orden-tour {
     display: flex;
-    padding: 10px;
+    padding: 15px;
     width: 30%;
 }
 .cont-orden {

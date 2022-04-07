@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('sanlutour.welcome');
+    return view('sanlutour.principal');
 })->name('index');
 
 Route::get('/sobrenosotros', function () {
