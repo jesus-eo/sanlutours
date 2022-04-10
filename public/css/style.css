@@ -508,14 +508,14 @@ ul, li {
     position: absolute;
     font-size: 8vh;
     cursor: pointer;
-    top: 520vh;
+    top: 530vh;
     left: 10%;
   }
   #arrow-right-b5 {
     position: absolute;
     font-size: 8vh;
     cursor: pointer;
-    top: 520vh;
+    top: 530vh;
     right: 10%;
   }
 }
@@ -526,28 +526,28 @@ ul, li {
         position: absolute;
         font-size: 8vh;
         cursor: pointer;
-        top: 555vh;
+        top: 645vh;
     }
     #arrow-right {
         position: absolute;
         font-size: 8vh;
         cursor: pointer;
-        top: 555vh;
+        top:645vh;
         left: 95%;
     }
     #arrow-left-b5 {
         position: absolute;
         font-size: 8vh;
         cursor: pointer;
-        top: 670vh;
-        left: 10%;
+        top: 810vh;
+        left: 5%;
       }
       #arrow-right-b5 {
         position: absolute;
         font-size: 8vh;
         cursor: pointer;
-        top: 670vh;
-        right: 10%;
+        top: 810vh;
+        right: 5%;
       }
     .nav-b1-principal{
         font-size: 16px;
@@ -587,8 +587,49 @@ ul, li {
     }
  }
 
+
+/* Flecha*/
+@media (max-width: 700px) {
+  #arrow-left {
+    position: absolute;
+    font-size: 8vh;
+    cursor: pointer;
+    top: 640vh;
+}
+#arrow-right {
+    position: absolute;
+    font-size: 8vh;
+    cursor: pointer;
+    top:640vh;
+    left: 95%;
+}
+#arrow-left-b5 {
+    position: absolute;
+    font-size: 8vh;
+    cursor: pointer;
+    top: 790vh;
+    left: 5%;
+  }
+  #arrow-right-b5 {
+    position: absolute;
+    font-size: 8vh;
+    cursor: pointer;
+    top: 790vh;
+    right: 5%;
+  }
+
+}
+
 /* Movil sm */
 @media (max-width: 640px) {
+    .b6-container-iconos {
+      align-items: center;
+      flex-direction: column;
+    }
+    .b6-iconos{
+      width: 90%;
+      margin-bottom: 20px;
+    }
     .nav-b1-principal{
       display: none;
     }
@@ -599,5 +640,67 @@ ul, li {
     #logo img {
         width: 80%;
     }
-
+    #arrow-left {
+      position: absolute;
+      font-size: 6vh;
+      cursor: pointer;
+      top: 560vh;
+  }
+  #arrow-right {
+      position: absolute;
+      font-size: 6vh;
+      cursor: pointer;
+      top:560vh;
+      left: 95%;
+  }
+  #arrow-left-b5 {
+      position: absolute;
+      font-size: 6vh;
+      cursor: pointer;
+      top: 690vh;
+      left: 5%;
+    }
+    #arrow-right-b5 {
+      position: absolute;
+      font-size: 6vh;
+      cursor: pointer;
+      top: 690vh;
+      right: 5%;
+    }
+    #b3-definicion p,
+    .p2-main-b1,
+    #b4-definicion p,
+    #container-b5 p
+    {
+    font-size: 20px;
+   }
+ }
+ @media (max-width: 540px) {
+  #arrow-left {
+    position: absolute;
+    font-size: 6vh;
+    cursor: pointer;
+    top: 530vh;
+}
+#arrow-right {
+    position: absolute;
+    font-size: 6vh;
+    cursor: pointer;
+    top:530vh;
+    left: 95%;
+}
+  #arrow-left-b5 {
+    position: absolute;
+    font-size: 6vh;
+    cursor: pointer;
+    top: 680vh;
+    left: 5%;
+  }
+  #arrow-right-b5 {
+    position: absolute;
+    font-size: 6vh;
+    cursor: pointer;
+    top: 680vh;
+    right: 5%;
+  }
  }
