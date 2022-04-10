@@ -151,7 +151,62 @@ ul, li {
  text-decoration: underline;
 }
 .subrallado-actual {
-    text-decoration: underline #485342;
+ text-decoration: underline #485342;
+}
+/* Menu hamburguesa */
+.giro-burguer {
+ transform: rotate(90deg);
+}
+#mobile-menu {
+ position: fixed;
+ width: 100%;
+ height: 100vh;
+ top: 100px;
+ background-color: #2F3A29;
+ text-align: center;
+ transition: all .5s;
+}
+#mobile-menu li {
+ line-height: 30px;
+ margin: 50px 0;
+ transition: all .5s;
+}
+#mobile-menu li a {
+ font-size: 16px;
+ text-transform: uppercase;
+ font-weight: 600;
+ font-family: var(--fuenteCorben);
+}
+#mobile-menu li a:hover {
+ background-color: #FFFFFF;
+ color: var(--colorLetra);
+}
+#submenu {
+ display: flex;
+ cursor: pointer;
+ justify-content: center;
+ align-items: center;
+}
+#boton-lateral {
+ color: #FFFFFF;
+}
+.desplegable-oculto-burguer{
+ transform: translateX(-100%);
+ transition: all 1s;
+ color: #FFFFFF;
+ position: absolute;
+}
+   /*Hace visible la lista*/
+.desplegable-visible-burguer{
+ display: block;
+ position: relative;
+ margin-top: -10%;
+ margin-left: 55%;
+ transition: all 1s;
+}
+.desplegable-visible-burguer li{
+ padding-top: 5px;
+ color: #FFFFFF;
 }
 /*----------------
 ||  Bloque2(b2)  ||
@@ -395,35 +450,7 @@ ul, li {
   display: flex;
   justify-content: center;
 }
-/* Menu hamburguesa */
-.giro-burguer {
-    transform: rotate(90deg);
-  }
-#mobile-menu {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 100px;
-    background-color: #2F3A29;
-    text-align: center;
-    transition: all .5s;
-}
-#mobile-menu li {
-    display: block;
-    line-height: 30px;
-    margin: 50px 0;
-    transition: all .5s;
-}
-#mobile-menu li a {
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-family: var(--fuenteCorben);
-}
-#mobile-menu li a:hover {
-    background-color: #FFFFFF;
-    color: var(--colorLetra);
-}
+
 /*-----------MEDIA QUERY--------*/
 /* Movil sm */
 @media (max-width: 640px) {

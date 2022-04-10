@@ -58,12 +58,12 @@
                 </div>
                 <!-- Mobile menu, show/hide based on menu state. -->
                 <div class="sm:hidden" id="mobile-menu" x-show="open" @click.away="open=false">
-                    <li>
+                    <li id="submenu">
                         <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
                             aria-current="page">Tours</a>
-                        <i id="botonLateral" class="fa fa-angle-right"></i>
+                        <i id="boton-lateral" class="fa fa-angle-right"></i>
                     </li>
-                    <ul id="menu-desplegable" class="desplegable-oculto">
+                    <ul id="menu-desplegable-burguer" class="desplegable-oculto-burguer">
                         <li><a class="subrallado" href="{{ route('freetours') }}">Free Tours</a></li>
                         <li><a class="subrallado" href="{{ route('cultutours') }}">Cultural</a></li>
                         <li><a class="subrallado" href="{{ route('gastrotours') }}">Gastronómico</a></li>
