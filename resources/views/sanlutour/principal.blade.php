@@ -7,18 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    {{-- CSS --}}
+    {{-- JS --}}
     <script src="{{ asset('js/pagina-principal.js') }}" defer></script>
-
+    {{-- CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
@@ -60,6 +59,13 @@
                 </div>
                 <!-- Mobile menu, show/hide based on menu state. -->
                 <div class="sm:hidden" id="mobile-menu" x-show="open" @click.away="open=false">
+                    <li>
+                        <a href="{{ route('index') }}"
+                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                            title="Enlace a página de inicio">
+                            Inicio
+                        </a>
+                    </li>
                     <li id="submenu">
                         <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
                             aria-current="page">Tours</a>
