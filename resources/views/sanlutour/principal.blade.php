@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- CSS --}}
     <script src="{{ asset('js/pagina-principal.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -22,13 +24,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
 
     </style>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    {{-- taildwind --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
 
     <title>Sanlutours</title>
 </head>
-
 <body>
-
     <div id="container-envolvente-principal">
         <div id="bloque1-pag-principal" role="contentinfo">
             <div id="login">
@@ -64,20 +66,32 @@
                         <i id="boton-lateral" class="fa fa-angle-right"></i>
                     </li>
                     <ul id="menu-desplegable-burguer" class="desplegable-oculto-burguer">
-                        <li><a class="subrallado" href="{{ route('freetours') }}">Free Tours</a></li>
-                        <li><a class="subrallado" href="{{ route('cultutours') }}">Cultural</a></li>
-                        <li><a class="subrallado" href="{{ route('gastrotours') }}">Gastronómico</a></li>
-                        <li><a class="subrallado" href="{{ route('deportours') }}">Deportivo</a></li>
+                        <li><a class="subrallado" href="{{ route('freetours') }}"
+                                title="Enlace a página de freetours">Free Tours</a></li>
+                        <li><a class="subrallado" href="{{ route('cultutours') }}"
+                                title="Enlace a página de tours culturales">Cultural</a></li>
+                        <li><a class="subrallado" href="{{ route('gastrotours') }}"
+                                title="Enlace a página de tours gastronómicos">Gastronómico</a></li>
+                        <li><a class="subrallado" href="{{ route('deportours') }}"
+                                title="Enlace a página de tours deportivos">Deportivo</a></li>
                     </ul>
                     <li>
-                        <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium">Guias</a>
+                        <a href="{{ route('guias') }}"
+                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                            title="Enlace a página de guias">
+                            Guias
+                        </a>
                     </li>
                     <li>
-                        <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium">Sobre
+                        <a href="{{ route('sobrenosotros') }}"
+                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                            title="Enlace a sección Sobre nosotros">Sobre
                             nosotros</a>
                     </li>
                     <li>
-                        <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+                        <a href="{{ route('contacto') }}"
+                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                            title="Enlace a sección de contacto">Contacto</a>
                     </li>
                 </div>
                 <div id="container-logo">

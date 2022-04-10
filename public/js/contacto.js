@@ -6,7 +6,15 @@ btntours.addEventListener('click', function () {
     document.querySelector("#botonLateral").classList.toggle("fa-angle-down");
     document.querySelector("#botonLateral").classList.toggle("fa-angle-right");
 });
+/*Desplegable menuhamburguesa(Tours)*/
+let btnsubmenu = document.querySelector("#submenu");
+btnsubmenu.addEventListener('click', function (){
+        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
+        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
+        document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
+        document.querySelector("#boton-lateral").classList.toggle("fa-angle-right");
 
+});
 /*Header aparece cuando scrolleamos hacia arriba
 ubicacionPrincipal vale 0 al inicio*/
 

@@ -135,6 +135,61 @@
    .subrallado-actual {
        text-decoration: underline #485342;
    }
+/* Menu hamburguesa */
+.giro-burguer {
+    transform: rotate(90deg);
+   }
+   #mobile-menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 100px;
+    background-color: #2F3A29;
+    text-align: center;
+    transition: all .5s;
+   }
+   #mobile-menu li {
+    line-height: 30px;
+    margin: 50px 0;
+    transition: all .5s;
+   }
+   #mobile-menu li a {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: var(--fuenteCorben);
+   }
+   #mobile-menu li a:hover {
+    background-color: #FFFFFF;
+    color: var(--colorLetra);
+   }
+   #submenu {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+   }
+   #boton-lateral {
+    color: #FFFFFF;
+   }
+   .desplegable-oculto-burguer{
+    transform: translateX(-100%);
+    transition: all 1s;
+    color: #FFFFFF;
+    position: absolute;
+   }
+      /*Hace visible la lista*/
+   .desplegable-visible-burguer{
+    display: block;
+    position: relative;
+    margin-top: -10%;
+    margin-left: 55%;
+    transition: all 1s;
+   }
+   .desplegable-visible-burguer li{
+    padding-top: 5px;
+    color: #FFFFFF;
+   }
    /*--Contenedor central--*/
    #container-central{
        height: 100%;
@@ -142,7 +197,7 @@
        display: flex;
        justify-content: center;
        align-items: center;
-       margin-top: 4%;
+       margin-top: 2%;
    }
 #container-difuminado {
     height: 80%;
@@ -252,7 +307,7 @@
    }
    #container-section-form {
      display: flex;
-     height: 100%;
+     height: 80%;
      flex-wrap: wrap;
    }
    .p-section-form  {
@@ -264,6 +319,7 @@
      justify-content: center;
      align-items: center;
      width: 60%;
+     height: 100%;
    }
  .form {
     height: 100%;
@@ -292,6 +348,7 @@
   .form textarea{
     border-radius: 10px;
     height: 25%;
+    background-color: rgba(239, 239, 239, 0.3);
   }
   .form label {
     font-family: var(--fuenteCorben);
@@ -401,3 +458,26 @@
     transform: rotate(360deg);
   }
 
+/*-----------MEDIA QUERY--------*/
+/* Movil sm */
+@media (max-width: 640px) {
+    .nav-b1-principal{
+      display: none;
+    }
+    #container-logo {
+        margin-left: 30%;
+        width: 80%;
+    }
+    #logo img {
+        width: 80%;
+    }
+
+ }
+
+/* md */
+@media (max-width: 768px) {
+    .nav-b1-principal{
+        font-size: 16px;
+      }
+
+ }
