@@ -253,15 +253,18 @@ ul, li {
 -----------------*/
 #b3-pagina-principal {
  display: flex;
- height: 100vh;
+ height: 100%;
  background-color: #DBE2DD;
  width: 100%;
  flex-wrap: wrap;
 }
-#b3-video,
+
 #b3-definicion {
  width: 50%;
  height: 100%;
+}
+#b3-video {
+ width: 50%;
 }
 #b3-video video {
  width: 100%;
@@ -270,7 +273,7 @@ ul, li {
 }
 #b3-definicion h1{
  text-align: center;
- margin-top: 20%;
+ margin-top: 10%;
  font-size: 40px;
  font-family: var(--fuenteAcme);
  color: var(--colorLetra);
@@ -287,14 +290,13 @@ ul, li {
 -----------------*/
 #b4-pagina-principal {
     display: flex;
-    height: 100vh;
+    height: 100%;
     background-color: var(--colorLetra);
     width: 100%;
     flex-wrap: wrap;
    }
    #b4-imagen {
     width: 50%;
-    height: 100%;
    }
    #b4-imagen picture {
     width: 100%;
@@ -354,7 +356,7 @@ ul, li {
 -----------------*/
 #b5-pagina-principal {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #2F3A29;
   width: 100%;
   flex-wrap: wrap;
@@ -472,5 +474,117 @@ ul, li {
     .nav-b1-principal{
         font-size: 16px;
       }
-
+    #b2-pagina-principal {
+        flex-direction: column;
+        justify-content: inherit;
+        height: 100%;
+    }
+    .container-b2 {
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .container-b2 a {
+        width: 80%;
+        display: flex;
+        align-self: center;
+    }
+    .container-b2 p {
+        margin-top: 20px;
+    }
+    /* Video */
+    /* #arrow-left {
+        position: absolute;
+        font-size: 8vh;
+        cursor: pointer;
+        top: 880vh;
+        left: 1%;
+    }
+    #arrow-right {
+        position: absolute;
+        font-size: 8vh;
+        cursor: pointer;
+        top: 640vh;
+        left: 95%;
+    } */
+    #b3-pagina-principal, #b4-pagina-principal {
+        flex-direction: column;
+        height: 100%;
+    }
+    #b3-video, #b3-definicion, #b4-definicion, #b4-imagen, #container-b5 {
+        width: 100%;
+    }
+    #b3-definicion h1 {
+        margin-top: 10%;
+    }
+    /* footer */
+    #b6-pagina-principal {
+        height: 100%;
+    }
  }
+
+
+ /* Flechas */
+
+ @media (max-width: 1000px) {
+      /* Video */
+    #arrow-left {
+        position: absolute;
+        font-size: 8vh;
+        cursor: pointer;
+        top: 380vh;
+    }
+    #arrow-right {
+        position: absolute;
+        font-size: 8vh;
+        cursor: pointer;
+        top: 380vh;
+        left: 48%;
+    }
+    #arrow-left-b5 {
+        position: absolute;
+        font-size: 8vh;
+        cursor: pointer;
+        top: 480vh;
+        left: 10%;
+      }
+      #arrow-right-b5 {
+        position: absolute;
+        font-size: 8vh;
+        cursor: pointer;
+        top: 480vh;
+        right: 10%;
+      }
+ }
+ @media (max-width: 800px) {
+    /* Video */
+  #arrow-left {
+      position: absolute;
+      font-size: 8vh;
+      cursor: pointer;
+      top: 400vh;
+  }
+  #arrow-right {
+      position: absolute;
+      font-size: 8vh;
+      cursor: pointer;
+      top: 400vh;
+      left: 48%;
+  }
+  #arrow-left-b5 {
+    position: absolute;
+    font-size: 8vh;
+    cursor: pointer;
+    top: 520vh;
+    left: 10%;
+  }
+  #arrow-right-b5 {
+    position: absolute;
+    font-size: 8vh;
+    cursor: pointer;
+    top: 520vh;
+    right: 10%;
+  }
+}
+
+

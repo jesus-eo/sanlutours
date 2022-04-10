@@ -189,6 +189,7 @@
 
 
         <div id="b4-pagina-principal" role="contentinfo">
+            <i id="arrow-left" class="far fa-angle-left"></i>
             <div id="b4-definicion">
                 <h1>Tours Destacados</h1>
                 <h2 id="b4-h2">Visita a Doñana</h2>
@@ -198,8 +199,8 @@
                     navegar desde Bajo de Guía hasta Doñana en una barcaza tradicional, y surcar el río Guadalquivir
                     para regresar a Sanlúcar.
                 </p>
-                <i id="arrow-left" class="far fa-angle-left"></i>
-                <i id="arrow-right" class="far fa-angle-right"></i>
+
+
             </div>
             <!-- container-slider -->
             <div id="b4-imagen">
@@ -208,9 +209,11 @@
                         alt="Imagen Tours destacado doñana">
                 </picture>
             </div>
+            <i id="arrow-right" class="far fa-angle-right"></i>
         </div>
 
         <div id="b5-pagina-principal">
+            <i id="arrow-left-b5" class="far fa-angle-left"></i>
             <div id="container-b5">
                 <h1 id="h1-b5">QUE DICEN DE NOSOTROS</h1>
                 <p id="b5-p">Cómo puedo empezar a describir mi tiempo con SanluTours... ¡Simplemente me cambió la vida!
@@ -220,7 +223,7 @@
                 <p id="b5-p2">-Manuela Dominguez</p>
 
             </div>
-            <i id="arrow-left-b5" class="far fa-angle-left"></i>
+
             <i id="arrow-right-b5" class="far fa-angle-right"></i>
         </div>
 
