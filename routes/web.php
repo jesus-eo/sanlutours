@@ -29,7 +29,11 @@ Route::get('/contacto', function () {
 })->name('contacto');
 
 
+/* Route::post('/tours', function () {
+    return view('sanlutour.contacto');
+})->name('creartour'); */
 
+Route::post('/tours',[TourController::class,'store'])->name('tours.store');
 
 
 
@@ -55,12 +59,26 @@ Route::get('/deportours/{orden?}',[TourController::class,
 
 
 
+Route::middleware(['auth:sanctum','verified'])->group(function () {
+    Route::get('/dashboard', function(){ return view('dashboard');
+    })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    Route::get('/tours',[TourController::class,
+    'index'])->name('crudtours');
+/*
+    Seguir con el controlador de esta ruta */
+
+});
+
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/crudtours', function () {
+    return view('crudtours');
+    })->name('crudtours'); */
+
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard'); */
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/crudfree', function () {
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('crudfree');
-})->name('crudfree');
+})->name('crudfree'); */

@@ -15,7 +15,10 @@ class TourController extends Controller
      */
     public function index()
     {
-        //
+        return view('crudtours',[
+           "tours"=>Tour::paginate(1)
+        ]);
+
     }
 
     /**
@@ -33,12 +36,24 @@ class TourController extends Controller
      *
      * @param  \App\Http\Requests\StoreTourRequest  $request
      * @return \Illuminate\Http\Response
+     * * Validamos la request con validated accediendo a la función rules de app/http/request/store...Request que es la encargada de validar.
+     * Poner la authorizacion a true
+     * En el modelo el fillable protected
+     * StoreTourRequest $request
      */
-    public function store(StoreTourRequest $request)
+    public function store()
     {
-        //
-    }
 
+        $validados = $this->validar();
+       /*  $validados = $request->validated(); */
+
+        $tourExistente = Tour::get()->where('nombre',$validados['nombre'])->where('fechahora',$validados['fechahora'])->where('tipo',$validados['tipo'])->where('duracion',$validados['duracion']);
+        if($tourExistente->isEmpty()){
+            $nuevoTour = new Tour($validados);
+            $nuevoTour->save();
+            return redirect()->route('crudtours')->with('success','Tour creado con exito');
+        }return redirect()->route('crudtours')->with('fault','Tour no creado');
+    }
     /**
      * Display the specified resource.
      *
@@ -84,6 +99,27 @@ class TourController extends Controller
     public function destroy(Tour $tour)
     {
         //
+    }
+
+    private function validar()
+    {
+
+        $validados = request()->validate([
+            'nombre'=> 'required|string|max:255',
+            'descripcion'=> 'required',
+            'planing'=> 'required',
+            'fechahora'=> 'required',
+            'plazas'=> 'required|integer',
+            'tipo'=> 'required|string|max:255',
+            'imagen'=> 'required|string|max:255',
+            'precio'=> 'required|numeric',
+            'duracion'=> 'required',
+            'valoracion'=> 'required|integer',
+            'latitud'=> 'required|string|max:255',
+            'longitud'=> 'required|string|max:255',
+        ]);
+
+        return $validados;
     }
 
     public function freetours($orden = "")

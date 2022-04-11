@@ -15,8 +15,8 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('crudfree') }}" :active="request()->routeIs('crudfree')">
-                        {{ __('Free Tours') }}
+                    <x-jet-nav-link href="{{ route('crudtours') }}" :active="request()->routeIs('crudtours')">
+                        {{ __('Tours') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -143,6 +143,9 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            <x-jet-nav-link href="{{ route('crudtours') }}" :active="request()->routeIs('crudtours')">
+                {{ __('Tours') }}
+            </x-jet-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
