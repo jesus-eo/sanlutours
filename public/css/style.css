@@ -675,6 +675,7 @@ ul, li {
     font-size: 20px;
    }
  }
+ /* Flechas */
  @media (max-width: 540px) {
   #arrow-left {
     position: absolute;

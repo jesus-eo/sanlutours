@@ -12,11 +12,17 @@
     <!-- Remove py-8 -->
     <div>
         <div class="orden-tour">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ul>
+                    <li><a class="enlace-bread rounded-md  hover:bg-green-900 hover:text-white transition duration-300" href="/">Inicio</a></li>
+                    <li>Tour cultural</li>
+                </ul>
+            </nav>
             <div class="cont-orden bg-white rounded-md">
-            <p>Ordenar por:</p>
-            <a class="text-md border-2 rounded-md  border-green-800 hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('cultutours',['fecha'])}}">Fecha</a>
-            <a class="text-md border-2 rounded-md border-green-800  hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('cultutours',['precio'])}}">Precio</a>
-            <a class="text-md border-2 rounded-md border-green-800  hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('cultutours',['duracion'])}}">Duración</a>
+                <p>Ordenar por:</p>
+                <a class="text-md border-2 rounded-md  border-green-800 hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('freetours',['fecha'])}}">Fecha</a>
+                <a class="text-md border-2 rounded-md border-green-800  hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('freetours',['precio'])}}">Precio</a>
+                <a class="text-md border-2 rounded-md border-green-800  hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('freetours',['duracion'])}}">Duración</a>
             </div>
         </div>
         <div class="flex flex-wrap  justify-around">

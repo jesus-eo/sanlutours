@@ -1091,8 +1091,8 @@ select {
 .mt-16 {
   margin-top: 4rem;
 }
-.mb-32 {
-  margin-bottom: 8rem;
+.mb-16 {
+  margin-bottom: 4rem;
 }
 .-mt-20 {
   margin-top: -5rem;
@@ -1102,6 +1102,9 @@ select {
 }
 .-mt-px {
   margin-top: -1px;
+}
+.mb-32 {
+  margin-bottom: 8rem;
 }
 .block {
   display: block;

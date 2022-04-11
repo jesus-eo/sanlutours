@@ -12,6 +12,12 @@
     <!-- Remove py-8 -->
     <div>
         <div class="orden-tour">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ul>
+                    <li><a class="enlace-bread rounded-md  hover:bg-green-900 hover:text-white transition duration-300" href="/">Inicio</a></li>
+                    <li>Free Tours</li>
+                </ul>
+            </nav>
             <div class="cont-orden bg-white rounded-md">
                 <p>Ordenar por:</p>
                 <a class="text-md border-2 rounded-md  border-green-800 hover:bg-green-900 hover:text-white transition duration-300" href="{{Route('freetours',['fecha'])}}">Fecha</a>
