@@ -19,43 +19,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('sanlutour.principal');
 })->name('index');
-
 Route::get('/sobrenosotros', function () {
     return view('sanlutour.sobrenosotros');
 })->name('sobrenosotros');
-
 Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('contacto');
-
-
-
-
-
-
-
+Route::get('/tourindividual/{tour}',[TourController::class, 'show'])->name('tourindividual');
+Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
 
 /**Estrellas***/
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
 Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
-Route::get('/tourindividual/{tour}',[TourController::class, 'show'])->name('tourindividual');
 
-Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
-
+/**Tours individuales**/
 Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
-
 Route::get('/freetours/{orden?}', [TourController::class, 'freetours'])->name('freetours');
+Route::get('/cultutours/{orden?}',[TourController::class,'cultutours'])->name('cultutours');
+Route::get('/deportours/{orden?}',[TourController::class,'deportours'])->name('deportours');
 
-Route::get('/cultutours/{orden?}',[TourController::class,
-'cultutours'])->name('cultutours');
-
-Route::get('/deportours/{orden?}',[TourController::class,
-'deportours'])->name('deportours');
-
-
-
-
+/**Dashboard**/
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
