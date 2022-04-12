@@ -24,7 +24,18 @@ class UpdateTourRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'required',
+            'planing' => 'required',
+            'fechahora' => 'required',
+            'plazas' => 'required|integer',
+            'tipo' => 'required|string|max:255',
+            'imagen' => 'required|string|max:255',
+            'precio' => 'required|numeric',
+            'duracion' => 'required',
+            'valoracion' => 'required|integer',
+            'latitud' => 'required|string|max:255',
+            'longitud' => 'required|string|max:255',
         ];
     }
 }
