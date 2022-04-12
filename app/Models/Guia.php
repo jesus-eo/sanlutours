@@ -12,4 +12,5 @@ class Guia extends Model
     public function tours(){
         return $this->belongsToMany(Tour::class);
     }
+    protected $fillable = ['nombre','descripcion', 'tipo', 'imagen', 'precio','valoracion'];
 }

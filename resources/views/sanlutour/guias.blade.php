@@ -28,7 +28,7 @@
                         </div>
                         <div class="font-guias px-6 mt-16">
                             <h1 class="font-bold text-3xl text-center mb-1">{{$guia->nombre}}</h1>
-                            <p class="text-gray-800 text-sm text-center">Guía de tour {{$guia->tours->first()->tipo}}</p>
+                            <p class="text-gray-800 text-sm text-center">Guía de tour {{$guia->tipo}}</p>
                             <p class="text-center text-gray-600 text-base pt-3 font-normal">{{$guia->descripcion}}</p>
 
                                 <div class="valoracion">

@@ -13,7 +13,7 @@ class StoreGuiaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreGuiaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre'=> 'required|string|max:255',
+            'descripcion'=> 'required',
+            'tipo'=> 'required|string|max:255',
+            'imagen'=> 'required|string|max:255',
+            'valoracion'=> 'required|integer',
         ];
     }
 }

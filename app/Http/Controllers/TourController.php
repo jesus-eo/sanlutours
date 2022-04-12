@@ -18,7 +18,7 @@ class TourController extends Controller
      */
     public function index()
     {
-        return view('crudtours', [
+        return view('dashboardadmin.crudtours', [
             "tours" => Tour::paginate(1)
         ]);
     }
@@ -78,6 +78,7 @@ class TourController extends Controller
      */
     public function edit(Tour $tour)
     {
+        //
     }
 
     /**
@@ -120,7 +121,7 @@ class TourController extends Controller
         DB::table('reservas')->where('tour_id',$id)->delete();
         DB::table('guia_tour')->where('tour_id',$id)->delete();
         Tour::find($id)->delete();
-        return redirect('/tours')->with('success','Tour borrado con exito');;
+        return redirect('/tours')->with('success','Tour borrado con exito');
     }
 
     /*  private function validar()

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->integer('valoracion');
             $table->string('imagen');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

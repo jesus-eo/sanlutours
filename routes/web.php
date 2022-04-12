@@ -42,7 +42,7 @@ Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion
 /* Tours individuales y completos */
 Route::get('/tourindividual/{tour}',[TourController::class, 'show'])->name('tourindividual');
 
-Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
+Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
 
 Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
 
@@ -55,21 +55,28 @@ Route::get('/deportours/{orden?}',[TourController::class,
 'deportours'])->name('deportours');
 
 /* Crud Tours */
+Route::get('/tours',[TourController::class,
+'index'])->name('crudtours');
 Route::post('/tours',[TourController::class,'store'])->name('tours.store');
-/* Route::get('/tours/{tour}',[TourController::class,
-'edit'])->name('tours.edit'); */
 Route::post('/tours/{tour}',[TourController::class,
 'update'])->name('tours.update');
 Route::delete('/tours/{tour}',[TourController::class,
 'destroy'])->name('tours.destroy');
 
+/* Crud guias*/
+Route::get('/guias',[GuiaController::class,
+'index'])->name('crudguias');
+Route::post('/guias',[GuiaController::class,'store'])->name('guias.store');
+Route::post('/guias/{guia}',[GuiaController::class,
+'update'])->name('guias.update');
+Route::delete('/guias/{guia}',[GuiaController::class,
+'destroy'])->name('guias.destroy');
 
 Route::middleware(['auth:sanctum','verified'])->group(function () {
     Route::get('/dashboard', function(){ return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/tours',[TourController::class,
-    'index'])->name('crudtours');
+
 /*
     Seguir con el controlador de esta ruta */
 

@@ -63,11 +63,11 @@
                         <label for="longitud" class="block text-gray-700 text-sm font-bold mb-2">Longitud</label>
                         <input type="text" name="longitud" id="longitud" value="{{ old('longitud', $tour->longitud) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="longitud" >
                     </div>
-                    <div class="flex items-center justify-start w-full">
-                        <button type="submit" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"
+                    <div class="flex items-center justify-evenly w-full">
+                        <button type="submit" class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3"
                        >Enviar</button>
                        <a href="/tours"
-                       class="text-white border-green-700 border-2 bg-green-700 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Volver</a>
+                       class="rounded-md  hover:bg-blue-600 transition duration-300 bg-blue-700  text-white font-bold py-2 px-4 my-3">Volver</a>
                     </div>
                 </div>
             </form>
