@@ -25,13 +25,22 @@ Route::get('/sobrenosotros', function () {
 Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('contacto');
-Route::get('/tourindividual/{tour}',[TourController::class, 'show'])->name('tourindividual');
-Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
+
+
+/* Route::post('/tours', function () {
+    return view('sanlutour.contacto');
+})->name('creartour'); */
+
+
 
 /**Estrellas***/
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
 Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
+/* Tours individuales y completos */
+Route::get('/tourindividual/{tour}',[TourController::class, 'show'])->name('tourindividual');
+
+Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
 
 /**Tours individuales**/
 Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
@@ -39,7 +48,49 @@ Route::get('/freetours/{orden?}', [TourController::class, 'freetours'])->name('f
 Route::get('/cultutours/{orden?}',[TourController::class,'cultutours'])->name('cultutours');
 Route::get('/deportours/{orden?}',[TourController::class,'deportours'])->name('deportours');
 
-/**Dashboard**/
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('/cultutours/{orden?}',[TourController::class,
+'cultutours'])->name('cultutours');
+
+Route::get('/deportours/{orden?}',[TourController::class,
+'deportours'])->name('deportours');
+
+/* Crud Tours */
+Route::get('/tours',[TourController::class,
+'index'])->name('crudtours');
+Route::post('/tours',[TourController::class,'store'])->name('tours.store');
+Route::post('/tours/{tour}',[TourController::class,
+'update'])->name('tours.update');
+Route::delete('/tours/{tour}',[TourController::class,
+'destroy'])->name('tours.destroy');
+
+/* Crud guias*/
+Route::get('/guias',[GuiaController::class,
+'index'])->name('crudguias');
+Route::post('/guias',[GuiaController::class,'store'])->name('guias.store');
+Route::post('/guias/{guia}',[GuiaController::class,
+'update'])->name('guias.update');
+Route::delete('/guias/{guia}',[GuiaController::class,
+'destroy'])->name('guias.destroy');
+
+Route::middleware(['auth:sanctum','verified'])->group(function () {
+    Route::get('/dashboard', function(){ return view('dashboard');
+    })->name('dashboard');
+
+
+/*
+    Seguir con el controlador de esta ruta */
+
+});
+
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/crudtours', function () {
+    return view('crudtours');
+    })->name('crudtours'); */
+
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard'); */
+
+
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
+    return view('crudfree');
+})->name('crudfree'); */

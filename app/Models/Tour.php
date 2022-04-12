@@ -15,4 +15,5 @@ class Tour extends Model
     public function reservas(){
         return $this->hasMany(Reserva::class);
     }
+    protected $fillable = ['nombre','descripcion','planing', 'fechahora', 'plazas', 'tipo', 'imagen', 'precio', 'duracion', 'valoracion', 'latitud', 'longitud'];
 }

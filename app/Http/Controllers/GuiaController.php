@@ -6,8 +6,18 @@ use App\Http\Requests\StoreGuiaRequest;
 use App\Http\Requests\UpdateGuiaRequest;
 use App\Models\Guia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 class GuiaController extends Controller
 {
+    public function guias()
+    {
+        return view('sanlutour.guias',[
+
+            "guias"=> Guia::all(),
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +25,8 @@ class GuiaController extends Controller
      */
     public function index()
     {
-        return view('sanlutour.guias',[
-
-            "guias"=> Guia::all(),
+        return view('dashboardadmin.crudguias', [
+            "guias" => Guia::paginate(1)
         ]);
     }
 
@@ -39,7 +48,16 @@ class GuiaController extends Controller
      */
     public function store(StoreGuiaRequest $request)
     {
-        //
+        /* $validados = $this->validar(); */
+        $validados = $request->validated();
+
+        $guiaExistente = Guia::get()->where('nombre', $validados['nombre'])->where('tipo', $validados['tipo'])->where('tipo', $validados['tipo'])->where('descripcion', $validados['descripcion']);
+        if ($guiaExistente->isEmpty()) {
+            $nuevoGuia = new Guia($validados);
+            $nuevoGuia->save();
+            return redirect()->route('crudguias')->with('success', 'Guia creado con exito');
+        }
+        return redirect()->route('crudguias')->with('fault', 'Guia no creado');
     }
 
     /**
@@ -73,7 +91,15 @@ class GuiaController extends Controller
      */
     public function update(UpdateGuiaRequest $request, Guia $guia)
     {
-        //
+        Guia::findOrfail($guia->id);
+        $validados = $request->validated();
+        $guia->nombre = $validados['nombre'];
+        $guia->descripcion = $validados['descripcion'];
+        $guia->tipo = $validados['tipo'];
+        $guia->imagen = $validados['imagen'];
+        $guia->valoracion = $validados['valoracion'];
+        $guia->save();
+        return redirect('/guias')->with('success', 'Guia actualizado con exito');
     }
 
     /**
@@ -84,7 +110,10 @@ class GuiaController extends Controller
      */
     public function destroy(Guia $guia)
     {
-        //
+        $id = $guia->id;
+        DB::table('guia_tour')->where('guia_id',$id)->delete();
+        Guia::find($id)->delete();
+        return redirect('/guias')->with('success','Guia borrado con exito');
     }
 
     public function valoracion(Request $request)
