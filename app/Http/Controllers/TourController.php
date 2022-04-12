@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateTourRequest;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TourController extends Controller
 {
@@ -115,7 +116,11 @@ class TourController extends Controller
      */
     public function destroy(Tour $tour)
     {
-        //
+        $id = $tour->id;
+        DB::table('reservas')->where('tour_id',$id)->delete();
+        DB::table('guia_tour')->where('tour_id',$id)->delete();
+        Tour::find($id)->delete();
+        return redirect('/tours')->with('success','Tour borrado con exito');;
     }
 
     /*  private function validar()

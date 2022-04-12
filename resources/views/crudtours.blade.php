@@ -105,7 +105,12 @@
                     class="px-4 py-1 text-sm text-white bg-blue-400 hover:bg-blue-600  rounded font-bold">Editar</a> --}}
 
                     <button @click="formedit=true" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4">Editar</button>
-                    <button wire:click="borrar({{$tour->id}})" {{-- onclick='return confirm("Seguro deseas borrarlo")' --}}  class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4">Borrar</button>
+                    <form action="{{Route('tours.destroy',[$tour])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                    <button  class="px-4 py-1 text-sm hover:bg-red-600 text-white bg-red-400 rounded" onclick='return confirm("Seguro deseas borrarlo")' type="submit">Borrar</button>
+                    </form>
+
                 </td>
             </tbody>
             </table>

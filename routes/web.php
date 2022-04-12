@@ -39,6 +39,7 @@ Route::get('/contacto', function () {
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
 Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
+/* Tours individuales y completos */
 Route::get('/tourindividual/{tour}',[TourController::class, 'show'])->name('tourindividual');
 
 Route::get('/guias', [GuiaController::class, 'index'])->name('guias');
@@ -54,13 +55,13 @@ Route::get('/deportours/{orden?}',[TourController::class,
 'deportours'])->name('deportours');
 
 /* Crud Tours */
-
 Route::post('/tours',[TourController::class,'store'])->name('tours.store');
 /* Route::get('/tours/{tour}',[TourController::class,
 'edit'])->name('tours.edit'); */
 Route::post('/tours/{tour}',[TourController::class,
 'update'])->name('tours.update');
-
+Route::delete('/tours/{tour}',[TourController::class,
+'destroy'])->name('tours.destroy');
 
 
 Route::middleware(['auth:sanctum','verified'])->group(function () {
