@@ -32,7 +32,7 @@ class StoreTourRequest extends FormRequest
             'tipo'=> 'required|string|max:255',
             'imagen'=> 'required|string|max:255',
             'precio'=> 'required|numeric',
-            'duracion'=> 'required|integer',
+            'duracion'=> 'required',
             'valoracion'=> 'required|integer',
             'latitud'=> 'required|string|max:255',
             'longitud'=> 'required|string|max:255',

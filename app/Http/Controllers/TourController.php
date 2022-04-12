@@ -6,6 +6,8 @@ use App\Http\Requests\StoreTourRequest;
 use App\Http\Requests\UpdateTourRequest;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class TourController extends Controller
 {
     /**
@@ -41,11 +43,11 @@ class TourController extends Controller
      * En el modelo el fillable protected
      * StoreTourRequest $request
      */
-    public function store()
+    public function store(StoreTourRequest $request)
     {
 
-        $validados = $this->validar();
-       /*  $validados = $request->validated(); */
+        /* $validados = $this->validar(); */
+      $validados = $request->validated();
 
         $tourExistente = Tour::get()->where('nombre',$validados['nombre'])->where('fechahora',$validados['fechahora'])->where('tipo',$validados['tipo'])->where('duracion',$validados['duracion']);
         if($tourExistente->isEmpty()){
@@ -75,7 +77,11 @@ class TourController extends Controller
      */
     public function edit(Tour $tour)
     {
-        //
+        if (!Auth::check()) { abort(403);};
+        return view('components.formedit',[
+            'tour' => $tour,
+        ]);
+
     }
 
     /**
@@ -87,7 +93,7 @@ class TourController extends Controller
      */
     public function update(UpdateTourRequest $request, Tour $tour)
     {
-        //
+        dd('entra');
     }
 
     /**

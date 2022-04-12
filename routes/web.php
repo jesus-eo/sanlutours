@@ -33,10 +33,6 @@ Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('creartour'); */
 
-Route::post('/tours',[TourController::class,'store'])->name('tours.store');
-
-
-
 
 
 /**Estrellas***/
@@ -56,6 +52,14 @@ Route::get('/cultutours/{orden?}',[TourController::class,
 
 Route::get('/deportours/{orden?}',[TourController::class,
 'deportours'])->name('deportours');
+
+/* Crud Tours */
+
+Route::post('/tours',[TourController::class,'store'])->name('tours.store');
+/* Route::get('/tours/{tour}',[TourController::class,
+'edit'])->name('tours.edit'); */
+Route::post('/tours/{tour}',[TourController::class,
+'update'])->name('tours.update');
 
 
 
