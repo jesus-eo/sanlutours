@@ -15,4 +15,6 @@ class Reserva extends Model
     public function tour(){
         return $this->belongsTo(Tour::class);
     }
+
+    protected $fillable = ['numpersonas','fechahora','user_id','tour_id'];
 }

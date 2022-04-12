@@ -21,6 +21,9 @@
                     <x-jet-nav-link href="{{ route('crudguias') }}" :active="request()->routeIs('crudguias')">
                         {{ __('Guias') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('crudreservas') }}" :active="request()->routeIs('crudreservas')">
+                        {{ __('Reservas') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -151,6 +154,9 @@
             </x-jet-nav-link>
             <x-jet-nav-link href="{{ route('crudguias') }}" :active="request()->routeIs('crudguias')">
                 {{ __('Guias') }}
+            </x-jet-nav-link>
+            <x-jet-nav-link href="{{ route('crudreservas') }}" :active="request()->routeIs('crudreservas')">
+                {{ __('Reservas') }}
             </x-jet-nav-link>
         </div>
 

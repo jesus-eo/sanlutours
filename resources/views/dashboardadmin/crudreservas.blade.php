@@ -1,0 +1,86 @@
+<x-app-layout>
+    <div class="p-2 sm:px-20 bg-white border-b border-gray-200">
+        <div>
+            @if (session('success'))
+                <div class="alert alert-success bg-green-400">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('fault'))
+                <div class="alert alert-success bg-red-500">
+                    {{ session('fault') }}
+                </div>
+            @endif
+        </div>
+        <div class="mt-4 text-2xl">
+            <div>Reservas</div>
+        </div>
+        <div class="mt-3" x-data="{ formcreate: false, formedit: false }">
+            <button @click="formcreate=true"
+                class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Crear Reserva</button>
+            {{-- Abre ventana modal añadiendo el componente crear --}}
+            <div x-show='formcreate'>@include('components.formcreatereserva')</div>
+
+            <table class="table-auto w-full">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">
+                            <div class="flex items-center justify-center">
+                                User_id
+                            </div>
+                        </th>
+
+                        <th class="px-4 py-2">
+                            <div class="flex items-center justify-center">
+                                Tour_id
+                            </div>
+                        </th>
+                        <th class="px-4 py-2">
+                            <div class="flex items-center justify-center">
+                                Número de personas
+                            </div>
+                        </th>
+                        <th class="px-4 py-2">
+                            <div class="flex items-center justify-center">
+                                Fecha hora
+                            </div>
+                        </th>
+
+                        <th class="px-4 py-2">
+                            <div class="flex items-center justify-center">
+                                Acción
+                            </div>
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($reservas as $reserva)
+                        <tr>
+                            <td class="rounded border px-4 py-2">{{ $reserva->user_id }} </td>
+                            <td class="rounded border px-4 py-2">{{ $reserva->tour_id }} </td>
+                            <td class="rounded border px-4 py-2">{{ $reserva->numpersonas }} </td>
+                            <td class="rounded border px-4 py-2">{{ $reserva->fechahora}} </td>
+                    @endforeach
+
+                    <div x-show='formedit'>@include('components.formeditreserva', [$reserva])</div>
+                    <td class="rounded border px-4 py-2 text-center">
+                        <button @click="formedit=true"
+                            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-4 rounded mb-6">Editar</button>
+                        <form action="{{ Route('reservas.destroy', [$reserva]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="px-4 py-1 font-bold hover:bg-red-600 text-white bg-red-400 rounded"
+                                onclick='return confirm("Seguro deseas borrarlo")' type="submit">Borrar</button>
+                        </form>
+
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4">
+            {{ $reservas->links() }}
+        </div>
+    </div>
+</x-app-layout>

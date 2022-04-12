@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\DB;
 
 class ReservaController extends Controller
 {
@@ -15,7 +16,9 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboardadmin.crudreservas', [
+            "reservas" => Reserva::paginate(1)
+        ]);
     }
 
     /**
@@ -36,7 +39,15 @@ class ReservaController extends Controller
      */
     public function store(StoreReservaRequest $request)
     {
-        //
+        $validados = $request->validated();
+
+        $reservaExistente = Reserva::get()->where('numpersonas', $validados['numpersonas'])->where('fechahora', $validados['fechahora'])->where('user_id', $validados['user_id'])->where('tour_id', $validados['tour_id']);
+        if ($reservaExistente->isEmpty()) {
+            $nuevoreserva = new Reserva($validados);
+            $nuevoreserva->save();
+            return redirect()->route('crudreservas')->with('success', 'Reserva creada con exito');
+        }
+        return redirect()->route('crudreservas')->with('fault', 'Reserva no creada');
     }
 
     /**
@@ -70,7 +81,14 @@ class ReservaController extends Controller
      */
     public function update(UpdateReservaRequest $request, Reserva $reserva)
     {
-        //
+        Reserva::findOrfail($reserva->id);
+        $validados = $request->validated();
+        $reserva->numpersonas = $validados['numpersonas'];
+        $reserva->fechahora = $validados['fechahora'];
+        $reserva->user_id = $validados['user_id'];
+        $reserva->tour_id = $validados['tour_id'];
+        $reserva->save();
+        return redirect('/reservas')->with('success', 'Reserva actualizado con exito');
     }
 
     /**
@@ -81,6 +99,8 @@ class ReservaController extends Controller
      */
     public function destroy(Reserva $reserva)
     {
-        //
+        $id = $reserva->id;
+        Reserva::find($id)->delete();
+        return redirect('/reservas')->with('success','Reserva borrada con exito');
     }
 }
