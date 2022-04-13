@@ -90,8 +90,9 @@ class TourController extends Controller
      */
     public function update(UpdateTourRequest $request, Tour $tour)
     {
+
         //Recogo el id del tour para comprobar que si existe y cambio las propiedades de ese objeto
-        tour::findOrfail($tour->id);
+        Tour::findOrfail($tour->id);
         $validados = $request->validated();
         $tour->nombre = $validados['nombre'];
         $tour->descripcion = $validados['descripcion'];

@@ -22,6 +22,9 @@
                         <x-jet-nav-link href="{{ route('crudreservas') }}" :active="request()->routeIs('crudreservas')">
                             {{ __('Reservas') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('crudusuarios') }}" :active="request()->routeIs('crudusuarios')">
+                            {{ __('Usuarios') }}
+                        </x-jet-nav-link>
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -177,27 +180,19 @@
                 <x-jet-nav-link href="{{ route('crudreservas') }}" :active="request()->routeIs('crudreservas')">
                     {{ __('Reservas') }}
                 </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('crudusuarios') }}" :active="request()->routeIs('crudusuarios')">
+                    {{ __('Usuarios') }}
+                </x-jet-nav-link>
             </div>
         @else
             <div class="pt-2 pb-3 space-y-1">
 
-                <x-jet-nav-link href="{{ route('crudreservas') }}" :active="request()->routeIs('crudreservas')">
+                <x-jet-nav-link href="{{ route('reservasusuario') }}" :active="request()->routeIs('reservasusuario')">
                     {{ __('Reservas') }}
                 </x-jet-nav-link>
             </div>
         @endif
-        <div class="pt-2 pb-3 space-y-1">
 
-            <x-jet-nav-link href="{{ route('crudtours') }}" :active="request()->routeIs('crudtours')">
-                {{ __('Tours') }}
-            </x-jet-nav-link>
-            <x-jet-nav-link href="{{ route('crudguias') }}" :active="request()->routeIs('crudguias')">
-                {{ __('Guias') }}
-            </x-jet-nav-link>
-            <x-jet-nav-link href="{{ route('crudreservas') }}" :active="request()->routeIs('crudreservas')">
-                {{ __('Reservas') }}
-            </x-jet-nav-link>
-        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

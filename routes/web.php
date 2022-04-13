@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuiaController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -33,14 +34,14 @@ Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracio
 Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
 /* Tours individuales y completos */
-Route::get('/tourindividual/{tour}',[TourController::class, 'show'])->name('tourindividual');
+Route::get('/tourindividual/{tour}', [TourController::class, 'show'])->name('tourindividual');
 Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
 
 /**Tours individuales**/
 Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
 Route::get('/freetours/{orden?}', [TourController::class, 'freetours'])->name('freetours');
-Route::get('/cultutours/{orden?}',[TourController::class,'cultutours'])->name('cultutours');
-Route::get('/deportours/{orden?}',[TourController::class,'deportours'])->name('deportours');
+Route::get('/cultutours/{orden?}', [TourController::class, 'cultutours'])->name('cultutours');
+Route::get('/deportours/{orden?}', [TourController::class, 'deportours'])->name('deportours');
 
 
 /* Ruta para usuarios administrador o normales */
@@ -52,58 +53,74 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 /* Modo administrador */
-Route::middleware(['auth:sanctum','can:esAdmin'])->group(function () {
-   /*  Route::get('/dashboard', function(){ return view('dashboard');
+Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
+    /*  Route::get('/dashboard', function(){ return view('dashboard');
     })->name('dashboard'); */
-     /* Cruds Modo admin */
+    /* Cruds Modo admin */
     /* Crud Tours */
-    Route::get('/tours',[TourController::class,
-    'index'])->name('crudtours');
-    Route::post('/tours',[TourController::class,'store'])->name('tours.store');
-    Route::post('/tours/{tour}',[TourController::class,
-    'update'])->name('tours.update');
-    Route::delete('/tours/{tour}',[TourController::class,
-    'destroy'])->name('tours.destroy');
+    Route::get('/tours', [
+        TourController::class,
+        'index'
+    ])->name('crudtours');
+    Route::post('/tours', [TourController::class, 'store'])->name('tours.store');
+    Route::post('/tours/{tour}', [
+        TourController::class,
+        'update'
+    ])->name('tours.update');
+    Route::delete('/tours/{tour}', [
+        TourController::class,
+        'destroy'
+    ])->name('tours.destroy');
 
     /* Crud guias*/
-    Route::get('/guias',[GuiaController::class,
-    'index'])->name('crudguias');
-    Route::post('/guias',[GuiaController::class,'store'])->name('guias.store');
-    Route::post('/guias/{guia}',[GuiaController::class,
-    'update'])->name('guias.update');
-    Route::delete('/guias/{guia}',[GuiaController::class,
-    'destroy'])->name('guias.destroy');
+    Route::get('/guias', [
+        GuiaController::class,
+        'index'
+    ])->name('crudguias');
+    Route::post('/guias', [GuiaController::class, 'store'])->name('guias.store');
+    Route::post('/guias/{guia}', [
+        GuiaController::class,
+        'update'
+    ])->name('guias.update');
+    Route::delete('/guias/{guia}', [
+        GuiaController::class,
+        'destroy'
+    ])->name('guias.destroy');
 
     /* Crud reservar */
-    Route::get('/reservasadmin',[ReservaController::class,
-    'index'])->name('crudreservas');
-    Route::post('/reservasadmin',[ReservaController::class,'store'])->name('reservas.store');
-    Route::post('/reservasadmin/{reserva}',[ReservaController::class,
-    'update'])->name('reservas.update');
-    Route::delete('/reservasadmin/{reserva}',[ReservaController::class,
-    'destroy'])->name('reservas.destroy');
+    Route::get('/reservasadmin', [
+        ReservaController::class,
+        'index'
+    ])->name('crudreservas');
+    Route::post('/reservasadmin', [ReservaController::class, 'store'])->name('reservas.store');
+    Route::post('/reservasadmin/{reserva}', [
+        ReservaController::class,
+        'update'
+    ])->name('reservas.update');
+    Route::delete('/reservasadmin/{reserva}', [
+        ReservaController::class,
+        'destroy'
+    ])->name('reservas.destroy');
+
+    /* Crud Usuario */
+    Route::get('/usuarios', [
+        UserController::class,
+        'index'
+    ])->name('crudusuarios');
+    Route::post('/usuarios', [UserController::class, 'store'])->name('usuario.store');
+    Route::post('/usuarios/{usuario}', [UserController::class,'update'])->name('usuarios.update');
+    Route::delete('/usuarios/{usuario}', [UserController::class,'destroy'])->name('usuario.destroy');
 });
 
 /* Modo usuario */
-Route::middleware(['auth:sanctum','verified'])->group(function () {
-    Route::get('/reservas',[ReservaController::class,
-    'indexusuario'])->name('reservasusuario');
-    Route::delete('/reservas/{reserva}',[ReservaController::class,
-    'destroy'])->name('reservasusuario.destroy');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/reservas', [
+        ReservaController::class,
+        'indexusuario'
+    ])->name('reservasusuario');
+    Route::delete('/reservas/{reserva}', [
+        ReservaController::class,
+        'destroy'
+    ])->name('reservasusuario.destroy');
 });
-/* Route::get('/tours',[TourController::class,
-'index'])->name('crudtours')->middleware(['auth', 'can:dashboard-admin']); */;
 
-
-/* Route::middleware(['auth:sanctum', 'verified'])->get('/crudtours', function () {
-    return view('crudtours');
-    })->name('crudtours'); */
-
-/* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard'); */
-
-
-/* Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return view('crudfree');
-})->name('crudfree'); */

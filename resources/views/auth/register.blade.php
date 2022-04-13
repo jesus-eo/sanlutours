@@ -54,6 +54,7 @@
                 <x-jet-button class="ml-4">
                     {{ __('Register') }}
                 </x-jet-button>
+                <a class="rounded-md  hover:bg-blue-600 transition duration-300 bg-blue-700  text-white font-bold py-2 px-4 my-3" href="/">Volver</a>
             </div>
         </form>
     </x-jet-authentication-card>
