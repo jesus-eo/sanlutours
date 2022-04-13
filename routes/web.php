@@ -4,7 +4,7 @@ use App\Http\Controllers\GuiaController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReservaController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,42 +43,57 @@ Route::get('/cultutours/{orden?}',[TourController::class,'cultutours'])->name('c
 Route::get('/deportours/{orden?}',[TourController::class,'deportours'])->name('deportours');
 
 
-/* Cruds Modo admin */
-/* Crud Tours */
-Route::get('/tours',[TourController::class,
-'index'])->name('crudtours');
-Route::post('/tours',[TourController::class,'store'])->name('tours.store');
-Route::post('/tours/{tour}',[TourController::class,
-'update'])->name('tours.update');
-Route::delete('/tours/{tour}',[TourController::class,
-'destroy'])->name('tours.destroy');
+/* Ruta para usuarios administrador o normales */
+Route::get('/dashboard', function () {
+    if (Auth::user()->administrador != null) {
+        return redirect()->route('crudtours');
+    }
+    return redirect()->route('reservasusuario');
+})->middleware(['auth'])->name('dashboard');
 
-/* Crud guias*/
-Route::get('/guias',[GuiaController::class,
-'index'])->name('crudguias');
-Route::post('/guias',[GuiaController::class,'store'])->name('guias.store');
-Route::post('/guias/{guia}',[GuiaController::class,
-'update'])->name('guias.update');
-Route::delete('/guias/{guia}',[GuiaController::class,
-'destroy'])->name('guias.destroy');
+/* Modo administrador */
+Route::middleware(['auth:sanctum','can:esAdmin'])->group(function () {
+   /*  Route::get('/dashboard', function(){ return view('dashboard');
+    })->name('dashboard'); */
+     /* Cruds Modo admin */
+    /* Crud Tours */
+    Route::get('/tours',[TourController::class,
+    'index'])->name('crudtours');
+    Route::post('/tours',[TourController::class,'store'])->name('tours.store');
+    Route::post('/tours/{tour}',[TourController::class,
+    'update'])->name('tours.update');
+    Route::delete('/tours/{tour}',[TourController::class,
+    'destroy'])->name('tours.destroy');
 
-/* Crud reservar */
-Route::get('/reservas',[ReservaController::class,
-'index'])->name('crudreservas');
-Route::post('/reservas',[ReservaController::class,'store'])->name('reservas.store');
-Route::post('/reservas/{reserva}',[ReservaController::class,
-'update'])->name('reservas.update');
-Route::delete('/reservas/{reserva}',[ReservaController::class,
-'destroy'])->name('reservas.destroy');
+    /* Crud guias*/
+    Route::get('/guias',[GuiaController::class,
+    'index'])->name('crudguias');
+    Route::post('/guias',[GuiaController::class,'store'])->name('guias.store');
+    Route::post('/guias/{guia}',[GuiaController::class,
+    'update'])->name('guias.update');
+    Route::delete('/guias/{guia}',[GuiaController::class,
+    'destroy'])->name('guias.destroy');
 
-
-
-Route::middleware(['auth:sanctum','verified'])->group(function () {
-    Route::get('/dashboard', function(){ return view('dashboard');
-    })->name('dashboard');
-
-
+    /* Crud reservar */
+    Route::get('/reservasadmin',[ReservaController::class,
+    'index'])->name('crudreservas');
+    Route::post('/reservasadmin',[ReservaController::class,'store'])->name('reservas.store');
+    Route::post('/reservasadmin/{reserva}',[ReservaController::class,
+    'update'])->name('reservas.update');
+    Route::delete('/reservasadmin/{reserva}',[ReservaController::class,
+    'destroy'])->name('reservas.destroy');
 });
+
+/* Modo usuario */
+Route::middleware(['auth:sanctum','verified'])->group(function () {
+    Route::get('/reservas',[ReservaController::class,
+    'indexusuario'])->name('reservasusuario');
+    Route::delete('/reservas/{reserva}',[ReservaController::class,
+    'destroy'])->name('reservasusuario.destroy');
+});
+/* Route::get('/tours',[TourController::class,
+'index'])->name('crudtours')->middleware(['auth', 'can:dashboard-admin']); */;
+
 
 /* Route::middleware(['auth:sanctum', 'verified'])->get('/crudtours', function () {
     return view('crudtours');

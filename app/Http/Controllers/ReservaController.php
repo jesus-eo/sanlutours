@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ReservaController extends Controller
@@ -102,5 +103,20 @@ class ReservaController extends Controller
         $id = $reserva->id;
         Reserva::find($id)->delete();
         return redirect('/reservas')->with('success','Reserva borrada con exito');
+    }
+
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexusuario()
+    {
+        /* dd(Auth::user()->reservas); */
+        return view('dashboardusuario.reservausuario', [
+            "reservas" => Auth::user()->reservas,
+        ]);
     }
 }
