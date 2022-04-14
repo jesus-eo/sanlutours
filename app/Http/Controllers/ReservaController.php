@@ -129,4 +129,9 @@ class ReservaController extends Controller
             "reservas" => Auth::user()->reservas,
         ]);
     }
+
+    public function tramitar()
+    {
+        return view('sanlutour.tramite');
+    }
 }

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
+/**Index, sobre nosotros,contacto y guias */
 Route::get('/', function () {
     return view('sanlutour.principal');
 })->name('index');
@@ -27,7 +27,10 @@ Route::get('/sobrenosotros', function () {
 Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('contacto');
+Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
 
+/*Tramite reserva*/
+Route::post('/tramitereserva', [ReservaController::class, 'tramitar'])->name('tramitereserva');
 
 /**Estrellas***/
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
@@ -35,9 +38,9 @@ Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion
 
 /* Tours individuales y completos */
 Route::get('/tourindividual/{tour}', [TourController::class, 'show'])->name('tourindividual');
-Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
 
-/**Tours individuales**/
+
+/**Tipos de tours **/
 Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
 Route::get('/freetours/{orden?}', [TourController::class, 'freetours'])->name('freetours');
 Route::get('/cultutours/{orden?}', [TourController::class, 'cultutours'])->name('cultutours');
@@ -51,6 +54,7 @@ Route::get('/dashboard', function () {
     }
     return redirect()->route('reservasusuario');
 })->middleware(['auth'])->name('dashboard');
+
 
 /* -----Modo administrador---- */
 Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
@@ -112,7 +116,7 @@ Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
     Route::delete('/usuarios/{usuario}', [UserController::class,'destroy'])->name('usuario.destroy');
 });
 
-/* Modo usuario */
+/*-----Modo usuario------- */
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/reservas', [
         ReservaController::class,

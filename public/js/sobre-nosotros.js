@@ -154,52 +154,13 @@ async function valoraciontour(e, id) {
 
 /* Ventana modal tour individual */
 function muestraModal(e) {
-    console.log('entra');
     let modal = document.getElementById("myModal");
-    let span = document.querySelector(".close");
-    let body = document.getElementsByTagName("body")[0];
     modal.classList.toggle('modalContainerVisible');
-    modal.classList.toggle('modalContainerInvisible'),
-
-    body.style.position = "static";
-    body.style.height = "100%";
-    body.style.overflow = "hidden";
-
-    span.addEventListener('click',function (){
-        modal.classList.toggle('modalContainerVisible');
     modal.classList.toggle('modalContainerInvisible');
-        body.style.position = "inherit";
-        body.style.height = "auto";
-        body.style.overflow = "visible";
-    });
-
-    /* if (document.getElementById("btnModal")) {
-        let modal = document.getElementById("myModal");
-        let btn = document.getElementById("btnModal");
-        let span = document.querySelector(".close");
-        let body = document.getElementsByTagName("body")[0];
-
-        btn.onclick = function () {
-            modal.style.display = "block";
-            body.style.position = "static";
-            body.style.height = "100%";
-            body.style.overflow = "hidden";
-        }
-
-        span.addEventListener('click',function (){
-            modal.style.display = "none";
-            body.style.position = "inherit";
-            body.style.height = "auto";
-            body.style.overflow = "visible";
-        })
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                body.style.position = "inherit";
-                body.style.height = "auto";
-                body.style.overflow = "visible";
-            }
-        }
-    } */
     e.preventDefault();
+}
+function cerrarModal() {
+    let modal = document.getElementById("myModal");
+    modal.classList.toggle('modalContainerVisible');
+    modal.classList.toggle('modalContainerInvisible');
 }

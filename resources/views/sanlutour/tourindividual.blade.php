@@ -190,21 +190,22 @@
                     <p>Duración: {{$tour->duracion}}h</p>
                     <p>Precio: {{$tour->precio}}€</p>
 
-                    <form class="form" {{-- action="index.html" method="get" --}} >
+                    <form class="form" action="{{route('tramitereserva')}}" method="post" >
+                        @csrf
                         <div>
                             <p>N.personas:</p>
-                            <input type="number" name="npersonas" id="" max="5" min="1">{{-- Hacer consulta abase de datos para ver las plazas disponible para ese tours --}}
+                            <input type="number" name="npersonas" id="">{{-- Hacer consulta abase de datos para ver las plazas disponible para ese tours --}}
                         </div>
                         @if (Auth::user()== null)
-                            <button  id="btnModal" onclick="muestraModal(event);">No</button>
+                            <button  id="btnModal" onclick="muestraModal(event);">Reservar</button>
                         @else
-                        <button type="submit" id="btnModal">Si</button>
+                        <button type="submit" id="btnModal">Reservar</button>
                         @endif
 
                     </form>
                     <div id="myModal" class="modalContainerInvisible">
                         <div class="modal-content">
-                        <span class="close">×</span>
+                        <span onclick="cerrarModal();" class="close">×</span>
                         <h2>Modal</h2>
                         <p>Se ha desplegado el modal y bloqueado el scroll del body!</p> </div>
                     </div>
