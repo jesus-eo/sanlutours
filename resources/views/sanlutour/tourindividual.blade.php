@@ -5,23 +5,28 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- Alpine --}}
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
     <link rel="stylesheet" href="{{asset('css/tourIndividual.css')}}">
     {{-- JS --}}
     <script src="{{asset('js/sobre-nosotros.js')}}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!--Iconos -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Styles -->
-
+    <!--Fuente-->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
     </style>
+    {{-- taildwind --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
     <title>Tour individual</title>
 </head>
 
@@ -44,7 +49,49 @@
                 </div>
                 @endif
             </div>
-            <header class="encabezado-b1-principal">
+            <header class="encabezado-b1-principal" x-data="{ open: false }">
+                    <!-- Mobile menu button-->
+                    <div class="absolute justify-center w-1/5 inset-y-0 left-0 flex items-center sm:hidden">
+
+                        <button type="button"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-green-900 hover:text-white hover:bg-green-900 "
+                            aria-controls="mobile-menu" aria-expanded="false" @click="open=true">
+                            <i :class="open ? 'fas fa-bars giro-burguer text-2xl' : 'fas fa-bars text-2xl'"></i>
+                        </button>
+                    </div>
+                    <!-- Mobile menu, show/hide based on menu state. -->
+                    <div class="sm:hidden" id="mobile-menu" x-show="open" @click.away="open=false">
+                        <li>
+                            <a href="{{ route('index') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a página de inicio">
+                                Inicio
+                            </a>
+                        </li>
+                        <li id="submenu">
+                            <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                aria-current="page">Tours</a>
+                            <i id="boton-lateral" class="fa fa-angle-right"></i>
+                        </li>
+                        <ul id="menu-desplegable-burguer" class="desplegable-oculto-burguer">
+                            <li><a class="subrallado" href="{{ route('freetours') }}"title="Enlace a página de freetours">Free Tours</a></li>
+                            <li><a class="subrallado" href="{{ route('cultutours') }}" title="Enlace a página de tours culturales">Cultural</a></li>
+                            <li><a class="subrallado" href="{{ route('gastrotours') }}" title="Enlace a página de tours gastronómicos">Gastronómico</a></li>
+                            <li><a class="subrallado" href="{{ route('deportours') }}" title="Enlace a página de tours deportivos">Deportivo</a></li>
+                        </ul>
+                        <li>
+                            <a href="{{route('guias')}}" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                            title="Enlace a Guias">Guias</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('sobrenosotros') }}" class="text-white  block px-3 py-2 rounded-md text-base font-medium" title="Enlace a sección Sobre nosotros">Sobre
+                                nosotros</a>
+                        </li>
+                        <li>
+                            <a href="{{route('contacto')}}" class="text-white  block px-3 py-2 rounded-md text-base font-medium" title="Enlace a sección de contacto">Contacto</a>
+                        </li>
+                    </div>
+
                 <div id="container-logo">
                     <picture id="logo">
                         <img src="{{asset('Img/Página principal/Logo_completo_verde-removebg-preview3.png')}}" alt="Logo Sanlutours">
@@ -142,13 +189,25 @@
                     <p>Fecha: {{$tour->fechahora}}</p>
                     <p>Duración: {{$tour->duracion}}h</p>
                     <p>Precio: {{$tour->precio}}€</p>
-                    <form class="form" action="index.html" method="get">
+
+                    <form class="form" {{-- action="index.html" method="get" --}} >
                         <div>
                             <p>N.personas:</p>
                             <input type="number" name="npersonas" id="" max="5" min="1">{{-- Hacer consulta abase de datos para ver las plazas disponible para ese tours --}}
                         </div>
-                        <button type="submit" id="btnenviar">Reservar</button>
+                        @if (Auth::user()== null)
+                            <button  id="btnModal" onclick="muestraModal(event);">No</button>
+                        @else
+                        <button type="submit" id="btnModal">Si</button>
+                        @endif
+
                     </form>
+                    <div id="myModal" class="modalContainerInvisible">
+                        <div class="modal-content">
+                        <span class="close">×</span>
+                        <h2>Modal</h2>
+                        <p>Se ha desplegado el modal y bloqueado el scroll del body!</p> </div>
+                    </div>
                 </div>
             </div>
         </div>

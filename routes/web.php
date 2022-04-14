@@ -52,7 +52,7 @@ Route::get('/dashboard', function () {
     return redirect()->route('reservasusuario');
 })->middleware(['auth'])->name('dashboard');
 
-/* Modo administrador */
+/* -----Modo administrador---- */
 Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
     /*  Route::get('/dashboard', function(){ return view('dashboard');
     })->name('dashboard'); */

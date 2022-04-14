@@ -84,7 +84,7 @@
             </tbody>
 
         </table>
-        <p class="px-4 py-1 font-bold">Si deseas anular una reserva pongase en <a class="text-blue-600" href="/contacto">contacto</a> con nosotros para abonarle la reserva, Gracias.</p>
+        <p class="py-1 font-bold">Si deseas anular una reserva o modificarla pongase en <a class="text-blue-600" href="/contacto" title="Enlace a página contacto">contacto</a> con nosotros para abonarle la reserva, le atenderemos gustosamente, Gracias.</p>
         @endif
 
         </div>

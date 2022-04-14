@@ -151,12 +151,67 @@
        .subrallado-actual {
            text-decoration: underline #485342;
        }
+/* Menu hamburguesa */
+.giro-burguer {
+    transform: rotate(90deg);
+   }
+   #mobile-menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 100px;
+    background-color: #2F3A29;
+    text-align: center;
+    transition: all .5s;
+   }
+   #mobile-menu li {
+    line-height: 30px;
+    margin: 50px 0;
+    transition: all .5s;
+   }
+   #mobile-menu li a {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: var(--fuenteCorben);
+   }
+   #mobile-menu li a:hover {
+    background-color: #FFFFFF;
+    color: var(--colorLetra);
+   }
+   #submenu {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+   }
+   #boton-lateral {
+    color: #FFFFFF;
+   }
+   .desplegable-oculto-burguer{
+    transform: translateX(-100%);
+    transition: all 1s;
+    color: #FFFFFF;
+    position: absolute;
+   }
+      /*Hace visible la lista*/
+   .desplegable-visible-burguer{
+    display: block;
+    position: relative;
+    margin-top: -10%;
+    margin-left: 55%;
+    transition: all 1s;
+   }
+   .desplegable-visible-burguer li{
+    padding-top: 5px;
+    color: #FFFFFF;
+   }
 /*----------------------------
 ---Bloque2 tour individual----
 ----------------------------*/
 
 #bloque2-pag-individual {
- height: 100vh;
+ height: 100%;
  display: flex;
  flex-direction: column;
  background-color: #485342;
@@ -201,6 +256,7 @@
     align-items: center;
     flex-direction: column;
     height: 60%;
+    margin-bottom: 5%;
 }
 .planing-ind p {
     width: 80%;
@@ -268,7 +324,7 @@ Punto de encuentro
 }
 .form-reserva {
   display: flex;
-  height: 60%;
+  height: 70%;
   width: 40%;
   margin-bottom: 5%;
   justify-content: space-evenly;
@@ -290,7 +346,7 @@ Punto de encuentro
     height: 50%;
     width: 10%;
 }
-#btnenviar {
+#btnModal {
   border-radius: 10px;
   height: 30%;
   margin-left: 25%;
@@ -305,7 +361,7 @@ Punto de encuentro
 #b6-pagina-principal {
     display: flex;
     flex-direction: column;
-    height: 45vh;
+    height: 100%;
     width: 100%;
     background-color: #DBE2DD;
   }
@@ -356,3 +412,97 @@ Punto de encuentro
     display: flex;
     justify-content: center;
   }
+
+/*---Modal---*/
+.modalContainerInvisible {
+    display: none;
+}
+.modalContainerVisible {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+#myModal .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-top: 10px solid #58abb7;
+    width: 60%;
+}
+
+#myModal .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#myModal .close:hover,
+#myModal .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*-------------MEDIA QUERY--------*/
+
+
+/* md */
+@media (max-width: 768px) {
+    .nav-b1-principal{
+        font-size: 16px;
+      }
+    .breadcrumb,
+    .cont-orden {
+        width: 100%;
+    }
+    .descripcion-ind p,
+    .planing-ind p {
+        font-size: 25px;
+    }
+    .planing-ind h1 {
+        font-size: 30px;
+    }
+    .form-reserva {
+        width: 60%;
+    }
+ }
+
+ /* Movil sm */
+@media (max-width: 640px) {
+    .nav-b1-principal{
+      display: none;
+    }
+    #container-logo {
+        margin-left: 30%;
+        width: 80%;
+    }
+    #logo img {
+        width: 80%;
+    }
+    .b6-container-iconos {
+        align-items: center;
+        flex-direction: column;
+      }
+      .b6-iconos{
+        width: 90%;
+        margin-bottom: 20px;
+      }
+      .descripcion-ind p,
+      .planing-ind p {
+          font-size: 20px;
+      }
+      .planing-ind h1 {
+          font-size: 25px;
+          margin-top: 3%;
+      }
+
+ }

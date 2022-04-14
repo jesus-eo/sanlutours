@@ -89,7 +89,12 @@ class ReservaController extends Controller
         $reserva->user_id = $validados['user_id'];
         $reserva->tour_id = $validados['tour_id'];
         $reserva->save();
-        return redirect('/reservas')->with('success', 'Reserva actualizado con exito');
+        if(Auth::user()->administrador != null){
+           return redirect()->route('crudreservas')->with('success', 'Reserva actualizado con exito');
+        }else{
+            return redirect()->route('reservasusuario')->with('success', 'Reserva actualizado con exito');
+        }
+
     }
 
     /**
@@ -102,7 +107,12 @@ class ReservaController extends Controller
     {
         $id = $reserva->id;
         Reserva::find($id)->delete();
-        return redirect('/reservas')->with('success','Reserva borrada con exito');
+        if(Auth::user()->administrador != null){
+            return redirect()->route('crudreservas')->with('success','Reserva borrada con exito');
+         }else{
+             return redirect()->route('reservasusuario')->with('success','Reserva borrada con exito');
+         }
+
     }
 
 

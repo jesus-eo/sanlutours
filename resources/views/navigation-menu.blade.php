@@ -25,11 +25,17 @@
                         <x-jet-nav-link href="{{ route('crudusuarios') }}" :active="request()->routeIs('crudusuarios')">
                             {{ __('Usuarios') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
+                            {{ __('Inicio') }}
+                        </x-jet-nav-link>
                     </div>
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('reservasusuario') }}" :active="request()->routeIs('reservasusuario')">
                             {{ __('Reservas') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
+                            {{ __('Inicio') }}
                         </x-jet-nav-link>
                     </div>
                 @endif
@@ -183,12 +189,18 @@
                 <x-jet-nav-link href="{{ route('crudusuarios') }}" :active="request()->routeIs('crudusuarios')">
                     {{ __('Usuarios') }}
                 </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
+                    {{ __('Inicio') }}
+                </x-jet-nav-link>
             </div>
         @else
             <div class="pt-2 pb-3 space-y-1">
 
                 <x-jet-nav-link href="{{ route('reservasusuario') }}" :active="request()->routeIs('reservasusuario')">
                     {{ __('Reservas') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
+                    {{ __('Inicio') }}
                 </x-jet-nav-link>
             </div>
         @endif

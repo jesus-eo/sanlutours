@@ -32,11 +32,11 @@ btntours.addEventListener('click', function () {
 });
 /*Desplegable menuhamburguesa(Tours)*/
 let btnsubmenu = document.querySelector("#submenu");
-btnsubmenu.addEventListener('click', function (){
-        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
-        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
-        document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
-        document.querySelector("#boton-lateral").classList.toggle("fa-angle-right");
+btnsubmenu.addEventListener('click', function () {
+    document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
+    document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
+    document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
+    document.querySelector("#boton-lateral").classList.toggle("fa-angle-right");
 
 });
 /*Header aparece cuando scrolleamos hacia arriba
@@ -105,54 +105,101 @@ async function valoracion(e, id) {
     }
 }
 
-    /********************Estrella tours(free,cultural,deportivo,gastronomico) ***************/
-    let primeraveztour = true;
-    async function valoraciontour(e, id) {
-        /*  Si no existe lo crea pasandole el id*/
-        if (primeraveztour) {
-            sessionStorage.setItem('valoracion', JSON.stringify([]));
-            primeraveztour = false;
-        }
+/********************Estrella tours(free,cultural,deportivo,gastronomico) ***************/
+let primeraveztour = true;
+async function valoraciontour(e, id) {
+    /*  Si no existe lo crea pasandole el id*/
+    if (primeraveztour) {
+        sessionStorage.setItem('valoracion', JSON.stringify([]));
+        primeraveztour = false;
+    }
 
-        /* Si no existe */
-        if (JSON.parse(sessionStorage.getItem('valoracion')).indexOf(id) == -1) {
-            let valoracion = sessionStorage.getItem('valoracion');
-            let valoracionparse = JSON.parse(valoracion);
-            valoracionparse.push(id);
-            sessionStorage.setItem('valoracion', JSON.stringify(valoracionparse));
-            try {
-                let json = {
-                    "id": id,
-                    "valor": e.value,
-                };
-                let response = await fetch('http://127.0.0.1:8000/valtour', {
-                    method: 'POST',
-                    //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
-                    headers: {
-                        'Content-type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    /* Si no existe */
+    if (JSON.parse(sessionStorage.getItem('valoracion')).indexOf(id) == -1) {
+        let valoracion = sessionStorage.getItem('valoracion');
+        let valoracionparse = JSON.parse(valoracion);
+        valoracionparse.push(id);
+        sessionStorage.setItem('valoracion', JSON.stringify(valoracionparse));
+        try {
+            let json = {
+                "id": id,
+                "valor": e.value,
+            };
+            let response = await fetch('http://127.0.0.1:8000/valtour', {
+                method: 'POST',
+                //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
+                headers: {
+                    'Content-type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
-                    },
-                    body: JSON.stringify(json),
-                })
-                //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
-                if (response.ok) {
-                    let valorActual = await response.json();
-                    let pValor = document.querySelector('.val' + id);
-                    /*  console.log(pValor); */
-                    pValor.innerHTML = `${valorActual}`;
-                } else {
-                    alert("Error en la respuesta")
-                }
-            } catch (error) {
-                alert(error.message);
+                },
+                body: JSON.stringify(json),
+            })
+            //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
+            if (response.ok) {
+                let valorActual = await response.json();
+                let pValor = document.querySelector('.val' + id);
+                /*  console.log(pValor); */
+                pValor.innerHTML = `${valorActual}`;
+            } else {
+                alert("Error en la respuesta")
             }
-
+        } catch (error) {
+            alert(error.message);
         }
-
-
-        /*  console.log(e.value + id); */
-
 
     }
 
+}
+
+/* Ventana modal tour individual */
+function muestraModal(e) {
+    console.log('entra');
+    let modal = document.getElementById("myModal");
+    let span = document.querySelector(".close");
+    let body = document.getElementsByTagName("body")[0];
+    modal.classList.toggle('modalContainerVisible');
+    modal.classList.toggle('modalContainerInvisible'),
+
+    body.style.position = "static";
+    body.style.height = "100%";
+    body.style.overflow = "hidden";
+
+    span.addEventListener('click',function (){
+        modal.classList.toggle('modalContainerVisible');
+    modal.classList.toggle('modalContainerInvisible');
+        body.style.position = "inherit";
+        body.style.height = "auto";
+        body.style.overflow = "visible";
+    });
+
+    /* if (document.getElementById("btnModal")) {
+        let modal = document.getElementById("myModal");
+        let btn = document.getElementById("btnModal");
+        let span = document.querySelector(".close");
+        let body = document.getElementsByTagName("body")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+            body.style.position = "static";
+            body.style.height = "100%";
+            body.style.overflow = "hidden";
+        }
+
+        span.addEventListener('click',function (){
+            modal.style.display = "none";
+            body.style.position = "inherit";
+            body.style.height = "auto";
+            body.style.overflow = "visible";
+        })
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                body.style.position = "inherit";
+                body.style.height = "auto";
+                body.style.overflow = "visible";
+            }
+        }
+    } */
+    e.preventDefault();
+}

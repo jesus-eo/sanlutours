@@ -14,7 +14,9 @@
         </div>
         <div class="mt-4 text-2xl">
             <div>Reservas</div>
+
         </div>
+        <p class="py-1 font-bold">Ver <a class="text-blue-600" href="/reservas" title="Ver reservas Administrador">reservas</a> administrador</p>
         <div class="mt-3" x-data="{ formcreate: false, formedit: false }">
             <button @click="formcreate=true"
                 class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Crear Reserva</button>
@@ -78,6 +80,7 @@
                     </tr>
                 </tbody>
             </table>
+
         </div>
         <div class="mt-4">
             {{ $reservas->links() }}
