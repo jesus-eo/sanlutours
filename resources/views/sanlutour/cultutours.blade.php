@@ -74,6 +74,24 @@
                             <p class="p-card">Fecha: {{(new Datetime($tour->fechahora))->format('d/m/Y H:i:s')}}</p>
                             <p class="p-card">Duración: {{$tour->duracion}}h</p>
                             <p class="p-card">Precio: {{$tour->precio}}€</p>
+                            @php
+                                    $numguias = $tour->guias->count();
+                                    $cont = 0;
+                                @endphp
+                                <a class="p-card hover:bg-green-900 hover:text-white"
+                                    href="{{ Route('guias') }}">Guia:
+                                    @foreach ($tour->guias as $guia)
+                                        @php
+                                            $cont++;
+                                        @endphp
+                                        {{ $guia->nombre }}
+                                        @if ($cont < $numguias)
+                                            ,
+                                        @else
+                                            .
+                                        @endif
+                                    @endforeach
+                                </a>
                         </div>
                         <div class="flex items-center justify-center py-4">
                             <a href="{{Route('tourindividual',[$tour])}}"
