@@ -186,17 +186,17 @@
             </div>
             <div id="container-form-reserva">
                 <div class="form-reserva">
-                    <p>Fecha: {{$tour->fechahora}}</p>
-                    <p>Duración: {{$tour->duracion}}h</p>
+                    <p>Fecha: {{(new Datetime($tour->fechahora))->format('d/m/Y H:i:s')}}</p>
+                    <p>Duración: {{$tour->duracion}}horas</p>
                     <p>Precio: {{$tour->precio}}€</p>
 
-                    <form class="form" action="{{route('tramitereserva')}}" method="post" >
+                    <form class="form" action="{{Route('tramitereserva',[$tour])}}" method="post" >
                         @csrf
                         <div>
                             <p>N.personas:</p>
-                            <input type="number" name="npersonas" id="">{{-- Hacer consulta abase de datos para ver las plazas disponible para ese tours --}}
+                            <input type="number" name="numpersonas" min="0" max="{{$tour->plazas}}" required>
                         </div>
-                        @if (Auth::user()== null)
+                        @if (Auth::user()== null || $tour->plazas == 0)
                             <button  id="btnModal" onclick="muestraModal(event);">Reservar</button>
                         @else
                         <button type="submit" id="btnModal">Reservar</button>
@@ -207,7 +207,12 @@
                         <div class="modal-content">
                         <span onclick="cerrarModal();" class="close">×</span>
                         <h2>Modal</h2>
-                        <p>Se ha desplegado el modal y bloqueado el scroll del body!</p> </div>
+                        @if (Auth::user()== null )
+                        <p>Debes logearte antes de reservar</p>
+                        @else
+                        <p>No hay plazas disponibles</p>
+                        @endif
+                         </div>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
+use App\Models\Tour;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -130,8 +131,29 @@ class ReservaController extends Controller
         ]);
     }
 
-    public function tramitar()
+    public function tramitar(Tour $tour)
     {
-        return view('sanlutour.tramite');
+        Tour::findOrfail($tour->id);
+        $validado = $this->validar();
+        $plazasReservadas = $validado['numpersonas'];
+        /* return view('sanlutour.tramite',[
+        "tour" => $tour->first(),
+        ]); */
+        return view('sanlutour.tramite',[
+            "tour"=>$tour,
+            "plazasreservadas"=>$plazasReservadas,
+        ]);
+    }
+
+    private function validar()
+    {
+        $validados = request()->validate([
+            'numpersonas'=> 'required|integer',
+            /* 'fechahora'=> 'required',
+            'precio'=> 'required|numeric',
+            'duracion'=> 'required', */
+        ]);
+
+        return $validados;
     }
 }

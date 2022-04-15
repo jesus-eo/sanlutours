@@ -481,6 +481,12 @@
     color: var(--color-hover);
     transform: rotate(360deg);
   }
+/*--------------------------
+------Tramite.blade.php-----
+---------------------------*/
+.reserva-actual {
+    color: black !important;
+}
 
 /*-----------MEDIA QUERY--------*/
 /* Movil sm */
