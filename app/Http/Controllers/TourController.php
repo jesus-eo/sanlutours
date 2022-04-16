@@ -45,14 +45,37 @@ class TourController extends Controller
      */
     public function store(StoreTourRequest $request)
     {
-
         /* $validados = $this->validar(); */
         $validados = $request->validated();
-
         $tourExistente = Tour::get()->where('nombre', $validados['nombre'])->where('fechahora', $validados['fechahora'])->where('tipo', $validados['tipo'])->where('duracion', $validados['duracion']);
+        $tipo = $validados['tipo'];
+
         if ($tourExistente->isEmpty()) {
             $nuevoTour = new Tour($validados);
+            /* recueperar el archivo que subimos */
+            $image =$request->file('imagen');
+            /* Movemos a la carpeta deseada */
+            if($tipo == 'free'){
+                $image->move('Img/img Freetours', $image->getClientOriginalName());
+                 /* Lo guardamos en la base de datos como string */
+                $nuevoTour->imagen = "Img/img Freetours/".$image->getClientOriginalName();
+            }elseif ($tipo == 'gastronomico') {
+                $image->move('Img/Img gastronomia', $image->getClientOriginalName());
+                 /* Lo guardamos en la base de datos como string */
+                $nuevoTour->imagen = "Img/Img gastronomia/".$image->getClientOriginalName();
+            }elseif ($tipo == 'cultural') {
+                $image->move('Img/Img Cultural', $image->getClientOriginalName());
+                /* Lo guardamos en la base de datos Como string */
+               $nuevoTour->imagen = "Img/Img Cultural/".$image->getClientOriginalName();
+            }elseif ($tipo == 'deportivo') {
+                $image->move('Img/img Deportivo', $image->getClientOriginalName());
+                /* Lo guardamos en la base de datos como string */
+               $nuevoTour->imagen = "Img/img Deportivo/".$image->getClientOriginalName();
+            }
+
             $nuevoTour->save();
+
+
             return redirect()->route('crudtours')->with('success', 'Tour creado con exito');
         }
         return redirect()->route('crudtours')->with('fault', 'Tour no creado');

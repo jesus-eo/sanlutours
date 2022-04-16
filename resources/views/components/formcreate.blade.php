@@ -5,7 +5,7 @@
         </div>
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-            <form id="formcreatetour" action="{{Route('tours.store')}}" method="post">
+            <form id="formcreatetour" action="{{Route('tours.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div  class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
                     <div class="mb-4">
@@ -41,7 +41,9 @@
                     </div>
                     <div class="mb-4">
                         <label for="imagen" class="block text-gray-700 text-sm font-bold mb-2">Imagen</label>
-                        <input type="text" name="imagen" id="imagen"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="imagen" required>
+                        <input type="file" name="imagen" id="imagen"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none @error('imagen') border-red-500 @enderror" required>
+                        {{-- <input type="text" name="imagen" id="imagen"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="imagen" required> --}}
                     </div>
                     <div class="mb-4">
                         <label for="precio" class="block text-gray-700 text-sm font-bold mb-2">Precio</label>
@@ -53,7 +55,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="valoracion" class="block text-gray-700 text-sm font-bold mb-2">Valoración</label>
-                        <input type="number" name="valoracion" id="valoracion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0"  placeholder="valoracion" >
+                        <input type="number" name="valoracion" id="valoracion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0"  placeholder="valoracion" required>
                     </div>
                     <div class="mb-4">
                         <label for="latitud" class="block text-gray-700 text-sm font-bold mb-2">Latitud</label>
