@@ -28,13 +28,13 @@
                     <tr>
                         <th class="px-4 py-2">
                             <div class="flex items-center justify-center">
-                                User_id
+                                Nombre usuario
                             </div>
                         </th>
 
                         <th class="px-4 py-2">
                             <div class="flex items-center justify-center">
-                                Tour_id
+                                Nombre tour
                             </div>
                         </th>
                         <th class="px-4 py-2">
@@ -59,11 +59,11 @@
                 <tbody>
                     @foreach ($reservas as $reserva)
                         <tr>
-                            <td class="rounded border px-4 py-2">{{ $reserva->user_id }} </td>
-                            <td class="rounded border px-4 py-2">{{ $reserva->tour_id }} </td>
+                            <td class="rounded border px-4 py-2">{{ $reserva->user->name }} </td>
+                            <td class="rounded border px-4 py-2">{{ $reserva->tour->nombre }} </td>
                             <td class="rounded border px-4 py-2">{{ $reserva->numpersonas }} </td>
                             <td class="rounded border px-4 py-2">{{ $reserva->fechahora}} </td>
-                    @endforeach
+
 
                     <div x-show='formedit'>@include('components.formeditreserva', [$reserva])</div>
                     <td class="rounded border px-4 py-2 text-center">
@@ -78,6 +78,7 @@
 
                     </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
 

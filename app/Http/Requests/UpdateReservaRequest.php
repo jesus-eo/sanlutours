@@ -26,8 +26,8 @@ class UpdateReservaRequest extends FormRequest
         return [
             'numpersonas'=> 'required|integer',
             'fechahora'=> 'required',
-            'user_id'=> 'required|integer',
-            'tour_id'=> 'required|integer',
+            'user_id'=> 'required|string',
+            'tour_id'=> 'required|string',
         ];
     }
 }

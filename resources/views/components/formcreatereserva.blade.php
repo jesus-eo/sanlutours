@@ -9,8 +9,8 @@
                 @csrf
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
                     <div class="mb-4">
-                        <label for="user_id" class="block text-gray-700 text-sm font-bold mb-2">Id Usuario</label>
-                        <input type="number" name="user_id" id="user_id"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none @error('usuario') border-red-500 @enderror" placeholder="user_id" required>
+                        <label for="user_id" class="block text-gray-700 text-sm font-bold mb-2">Nombre usuario</label>
+                        <input type="text" name="user_id" id="user_id"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none @error('usuario') border-red-500 @enderror" placeholder="Nombre usuario" required>
                         @error('usuario')
                 <p class="text-red-500 text-sm mt-1">
                     {{ $message }}
@@ -18,8 +18,8 @@
             @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="tour_id" class="block text-gray-700 text-sm font-bold mb-2">Id Tour</label>
-                        <input type="number" name="tour_id" id="tour_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0"  placeholder="tour_id" required>
+                        <label for="tour_id" class="block text-gray-700 text-sm font-bold mb-2">Nombre Tour</label>
+                        <input type="text" name="tour_id" id="tour_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Nombre tour" required>
 
                     </div>
                     <div class="mb-4">

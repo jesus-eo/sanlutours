@@ -6,6 +6,7 @@ use App\Http\Requests\StoreReservaRequest;
 use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
 use App\Models\Tour;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -42,10 +43,15 @@ class ReservaController extends Controller
     public function store(StoreReservaRequest $request)
     {
         $validados = $request->validated();
-
-        $reservaExistente = Reserva::get()->where('numpersonas', $validados['numpersonas'])->where('fechahora', $validados['fechahora'])->where('user_id', $validados['user_id'])->where('tour_id', $validados['tour_id']);
+        $userid = User::where('name',$validados['user_id'])->first()->id;
+        $tourid = Tour::where('nombre',$validados['tour_id'])->first()->id;
+        $reservaExistente = Reserva::get()->where('numpersonas', $validados['numpersonas'])->where('fechahora', $validados['fechahora'])->where('user_id', $userid)->where('tour_id', $tourid);
         if ($reservaExistente->isEmpty()) {
-            $nuevoreserva = new Reserva($validados);
+            $nuevoreserva = new Reserva();
+            $nuevoreserva->numpersonas = $validados['numpersonas'];
+            $nuevoreserva->fechahora = $validados['fechahora'];
+            $nuevoreserva->user_id = $userid;
+            $nuevoreserva->tour_id = $tourid;
             $nuevoreserva->save();
             return redirect()->route('crudreservas')->with('success', 'Reserva creada con exito');
         }
@@ -83,12 +89,15 @@ class ReservaController extends Controller
      */
     public function update(UpdateReservaRequest $request, Reserva $reserva)
     {
+
         Reserva::findOrfail($reserva->id);
         $validados = $request->validated();
+        $userid = User::where('name',$validados['user_id'])->first()->id;
+        $tourid = Tour::where('nombre',$validados['tour_id'])->first()->id;
         $reserva->numpersonas = $validados['numpersonas'];
         $reserva->fechahora = $validados['fechahora'];
-        $reserva->user_id = $validados['user_id'];
-        $reserva->tour_id = $validados['tour_id'];
+        $reserva->user_id = $userid;
+        $reserva->tour_id = $tourid;
         $reserva->save();
         if(Auth::user()->administrador != null){
            return redirect()->route('crudreservas')->with('success', 'Reserva actualizado con exito');

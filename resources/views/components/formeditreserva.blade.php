@@ -9,12 +9,12 @@
                 @csrf
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
                     <div class="mb-4">
-                        <label for="user_id" class="block text-gray-700 text-sm font-bold mb-2">Id Usuario</label>
-                        <input type="number" name="user_id" id="user_id" value="{{ old('user_id', $reserva->user_id) }}"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="user_id" required>
+                        <label for="user_id" class="block text-gray-700 text-sm font-bold mb-2">Nombre usuario</label>
+                        <input type="text" name="user_id" id="user_id" value="{{ old('user_id', $reserva->user->where('id',$reserva->user_id)->first()->name) }}"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Nombre usuario" required>
                     </div>
                     <div class="mb-4">
-                        <label for="tour_id" class="block text-gray-700 text-sm font-bold mb-2">Id Tour</label>
-                        <input type="number" name="tour_id" id="tour_id" value="{{ old('tour_id', $reserva->tour_id) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0"  placeholder="tour_id" required>
+                        <label for="tour_id" class="block text-gray-700 text-sm font-bold mb-2">Nombre tour</label>
+                        <input type="text" name="tour_id" id="tour_id" value="{{ old('tour_id', $reserva->tour->where('id',$reserva->tour_id)->first()->nombre) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Nombre tour" required>
 
                     </div>
                     <div class="mb-4">
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="flex items-center justify-evenly w-full">
-                        <button id="btnenviareserva" type="button" class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3"
+                        <button id="btnenviareserva" type="submit" class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3"
                        >Enviar</button>
                        <a  href="{{Route('crudreservas')}}"
                        class="rounded-md  hover:bg-blue-600 transition duration-300 bg-blue-700  text-white font-bold py-2 px-4 my-3">Volver</a>
