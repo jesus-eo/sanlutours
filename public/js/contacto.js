@@ -60,7 +60,6 @@ function validarEmail() {
     limpiarCustomvaliditi();
     //Si no contiene datos validos
     if(!email.checkValidity()){
-        console.log("Entra en valida email");
         if(email.validity.patternMismatch){
             email.setCustomValidity("Debes introducir un email valido");
         }
@@ -79,7 +78,6 @@ function validarNombre() {
     limpiarCustomvaliditi();
     if(!nombre.checkValidity()){
         if(nombre.validity.valueMissing){
-            console.log("Entra en valida nombre");
             nombre.setCustomValidity("Debes rellenar el campo nombre");
             nombre.reportValidity();
             return false;
@@ -91,7 +89,7 @@ function validarApellido() {
     limpiarCustomvaliditi();
     if(!apellido.checkValidity()){
         if(apellido.validity.valueMissing){
-            console.log("Entra en valida apellido");
+
             apellido.setCustomValidity("Debes rellenar el campo apellido");
             apellido.reportValidity();
             return false;
@@ -103,10 +101,8 @@ function validarApellido() {
 function validar(e) {
     limpiarCustomvaliditi();
     if(validarNombre() &&  validarApellido() && validarEmail()) {
-        console.log("Entra en validar todo true");
         document.getElementById('textarea').disabled = false;
     } else {
-        console.log("Entra en prevent");
         e.preventDefault();
     }
 }

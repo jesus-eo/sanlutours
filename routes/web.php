@@ -29,8 +29,9 @@ Route::get('/contacto', function () {
 })->name('contacto');
 Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
 
-/*Tramite reserva*/
+/*Tramite reserva y pago*/
 Route::post('/tramitereserva/{tour}', [ReservaController::class, 'tramitar'])->name('tramitereserva');
+Route::post('/tramitepago', [ReservaController::class, 'pagar'])->name('realizarpago');
 
 /**Estrellas***/
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');

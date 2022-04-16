@@ -105,7 +105,7 @@
                         <div class="flex justify-between items-center w-full">
                             <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Total</p>
                             <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                                {{ /* $tour->precio $plazasreservadas  */ number_format($tour->precio * $plazasreservadas, 2) }}€
+                                {{number_format($tour->precio * $plazasreservadas, 2) }}€
                             </p>
                         </div>
                     </div>
@@ -199,9 +199,16 @@
                     </div>
                 </div>
                 <div>
+                    {{-- Este botón va hacia reservacontroller el cual quita las plazas seleccionadas del tour indicado --}}
+                    <form action="{{Route('realizarpago')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="tour" value="{{$tour}}">
+                        <input type="hidden" name="plazasreservadas" value="{{$plazasreservadas}}">
                     <button
                         class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i
-                            class="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
+                            class="mdi mdi-lock-outline mr-1"></i> PAY NOW
+                    </button>
+                </form>
                 </div>
             </div>
         </div>

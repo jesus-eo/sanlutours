@@ -109,15 +109,15 @@
                                 <i id="botonLateral" class="fa fa-angle-right"></i>
                             </li>
                             <ul id="menu-desplegable" class="desplegable-oculto">
-                                <li><a class="subrallado" href="{{route('freetours')}}">Free Tours</a></li>
-                                <li><a class="subrallado" href="{{route('cultutours')}}">Cultural</a></li>
-                                <li><a class="subrallado" href="{{route('gastrotours')}}">Gastronómico</a></li>
-                                <li><a class="subrallado" href="{{route('deportours')}}">Deportivo</a></li>
+                                <li><a class="subrallado" href="{{route('freetours')}}" title="Página freetours">Free Tours</a></li>
+                                <li><a class="subrallado" href="{{route('cultutours')}}"  title="Página tour cultural">Cultural</a></li>
+                                <li><a class="subrallado" href="{{route('gastrotours')}}"  title="Página tour gastronómico">Gastronómico</a></li>
+                                <li><a class="subrallado" href="{{route('deportours')}}"  title="Página tour deportivo">Deportivo</a></li>
                             </ul>
                         </div>
-                        <li><a class="subrallado" href="{{route('guias')}}">Guias</a></li>
-                        <li><a class="subrallado" href="{{route('sobrenosotros')}}">Sobre Nosotros</a></li>
-                        <li><a class="subrallado" href="{{route('contacto')}}">Contacto</a></li>
+                        <li><a class="subrallado" href="{{route('guias')}}"  title="Página guias">Guias</a></li>
+                        <li><a class="subrallado" href="{{route('sobrenosotros')}}"  title="Página sobrenosotros">Sobre Nosotros</a></li>
+                        <li><a class="subrallado" href="{{route('contacto')}}"  title="Página contacto">Contacto</a></li>
                     </ul>
                 </div>
             </header>
@@ -157,8 +157,8 @@
         <div id="bloque2-pag-individual">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ul>
-                    <li><a class="enlace-bread" href="/">Inicio</a></li>
-                    <li><a class="enlace-bread"  href="{{route($ultimaVisita)}}">Tours {{$tour->tipo}}</a> </li>
+                    <li><a class="enlace-bread" href="/" title="Página de inicio.">Inicio</a></li>
+                    <li><a class="enlace-bread"  href="{{route($ultimaVisita)}}" title="Enlace a ultima visita">Tours {{$tour->tipo}}</a> </li>
                     <li class="sitio-actual">Tour {{$tour->nombre}}</li>
                 </ul>
             </nav>
@@ -196,6 +196,8 @@
                             <p>N.personas:</p>
                             <input type="number" name="numpersonas" min="0" max="{{$tour->plazas}}" required>
                         </div>
+
+
                         @if (Auth::user()== null || $tour->plazas == 0)
                             <button  id="btnModal" onclick="muestraModal(event);">Reservar</button>
                         @else
@@ -208,8 +210,8 @@
                         <span onclick="cerrarModal();" class="close">×</span>
                         <h2>Modal</h2>
                         @if (Auth::user()== null )
-                        <p>Debes logearte antes de reservar</p>
-                        @else
+                        <p>Debes <a class="text-blue-600" href="/login" title="Login">loguearte</a> antes de reservar.</p>
+                        @elseif ($tour->plazas == 0)
                         <p>No hay plazas disponibles</p>
                         @endif
                          </div>

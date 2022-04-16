@@ -156,4 +156,17 @@ class ReservaController extends Controller
 
         return $validados;
     }
+
+    public function pagar()
+    {
+        $plazasReservadas = request()->input('plazasreservadas');
+        $tour = json_decode(request()->input('tour'));
+        $plazas = intval($tour->plazas) - intval($plazasReservadas);
+        Tour::findOrfail($tour->id);
+        DB::table('tours') -> where('id', $tour->id) ->update(["plazas" => $plazas]);
+        /* Cambiar redirección cuando realizsemnos el pago */
+        return redirect("/") -> with("succes", "Pago realizado con exito");
+    }
+
+
 }
