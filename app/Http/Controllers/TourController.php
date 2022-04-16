@@ -117,13 +117,33 @@ class TourController extends Controller
         //Recogo el id del tour para comprobar que si existe y cambio las propiedades de ese objeto
         Tour::findOrfail($tour->id);
         $validados = $request->validated();
+        $tipo = $validados['tipo'];
         $tour->nombre = $validados['nombre'];
         $tour->descripcion = $validados['descripcion'];
         $tour->planing = $validados['planing'];
         $tour->fechahora = $validados['fechahora'];
         $tour->plazas = $validados['plazas'];
         $tour->tipo = $validados['tipo'];
-        $tour->imagen = $validados['imagen'];
+         /* recueperar el archivo que subimos */
+         $image =$request->file('imagen');
+         /* Movemos a la carpeta deseada */
+         if($tipo == 'free'){
+             $image->move('Img/img Freetours', $image->getClientOriginalName());
+              /* Lo guardamos en la base de datos como string */
+             $tour->imagen = "Img/img Freetours/".$image->getClientOriginalName();
+         }elseif ($tipo == 'gastronomico') {
+             $image->move('Img/Img gastronomia', $image->getClientOriginalName());
+              /* Lo guardamos en la base de datos como string */
+             $tour->imagen = "Img/Img gastronomia/".$image->getClientOriginalName();
+         }elseif ($tipo == 'cultural') {
+             $image->move('Img/Img Cultural', $image->getClientOriginalName());
+             /* Lo guardamos en la base de datos Como string */
+            $tour->imagen = "Img/Img Cultural/".$image->getClientOriginalName();
+         }elseif ($tipo == 'deportivo') {
+             $image->move('Img/img Deportivo', $image->getClientOriginalName());
+             /* Lo guardamos en la base de datos como string */
+            $tour->imagen = "Img/img Deportivo/".$image->getClientOriginalName();
+         }
         $tour->duracion = $validados['duracion'];
         $tour->precio = $validados['precio'];
         $tour->valoracion = $validados['valoracion'];

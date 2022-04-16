@@ -5,7 +5,7 @@
         </div>
         <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-            <form id="formedittour" action="{{Route('tours.update',[$tour])}}" method="post">
+            <form id="formedittour" action="{{Route('tours.update',[$tour])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
                     <div class="mb-4">
@@ -41,7 +41,12 @@
                     </div>
                     <div class="mb-4">
                         <label for="imagen" class="block text-gray-700 text-sm font-bold mb-2">Imagen</label>
-                        <input type="text" name="imagen" id="imagen" value="{{ old('imagen', $tour->imagen) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="imagen" required>
+                        <input type="file" name="imagen" id="imagen"
+                        value="{{old('imagen', $tour->imagen)}}"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none @error('imagen') border-red-500 @enderror"
+                        placeholder="imagen">
+
+                      {{--   <input type="text" name="imagen" id="imagen" value="{{ old('imagen', $tour->imagen) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="imagen" > --}}
                     </div>
                     <div class="mb-4">
                         <label for="precio" class="block text-gray-700 text-sm font-bold mb-2">Precio</label>
@@ -57,11 +62,11 @@
                     </div>
                     <div class="mb-4">
                         <label for="latitud"  class="block text-gray-700 text-sm font-bold mb-2">Latitud</label>
-                        <input type="text" name="latitud" id="latitud" value="{{ old('latitud', $tour->latitud) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="latitud" pattern="^-?([0-8]?[0-9]|90)(\.[0-9]{1,10})?$" required>
+                        <input type="text" name="latitud" id="latitud" value="{{ old('latitud', $tour->latitud) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="latitud" {{-- pattern="^-?([0-8]?[0-9]|90)(\.[0-9]{1,10})?$" --}} required>
                     </div>
                     <div class="mb-4">
                         <label for="longitud" class="block text-gray-700 text-sm font-bold mb-2">Longitud</label>
-                        <input type="text" name="longitud" id="longitud" value="{{ old('longitud', $tour->longitud) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="longitud" pattern="^-?([0-8]?[0-9]|90)(\.[0-9]{1,10})?$" required>
+                        <input type="text" name="longitud" id="longitud" value="{{ old('longitud', $tour->longitud) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="longitud" {{-- pattern="^-?([0-8]?[0-9]|90)(\.[0-9]{1,10})?$"  --}}required>
                     </div>
                     <div class="flex items-center justify-evenly w-full">
                         <button type="submit" id="btneditartour" class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3"

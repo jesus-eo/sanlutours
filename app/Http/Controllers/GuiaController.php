@@ -54,6 +54,11 @@ class GuiaController extends Controller
         $guiaExistente = Guia::get()->where('nombre', $validados['nombre'])->where('tipo', $validados['tipo'])->where('tipo', $validados['tipo'])->where('descripcion', $validados['descripcion']);
         if ($guiaExistente->isEmpty()) {
             $nuevoGuia = new Guia($validados);
+            $image =$request->file('imagen');
+            /* Movemos a la carpeta deseada */
+            $image->move('Img/guia', $image->getClientOriginalName());
+             /* Lo guardamos en la base de datos como string */
+             $nuevoGuia->imagen = "Img/guia/".$image->getClientOriginalName();
             $nuevoGuia->save();
             return redirect()->route('crudguias')->with('success', 'Guia creado con exito');
         }

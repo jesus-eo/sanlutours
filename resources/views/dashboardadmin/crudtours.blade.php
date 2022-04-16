@@ -60,6 +60,16 @@
                             Valoración
                         </div>
                     </th>
+                    <th class="px-4 py-2">
+                        <div class="flex items-center justify-center">
+                            Longitud
+                        </div>
+                    </th>
+                    <th class="px-4 py-2">
+                        <div class="flex items-center justify-center">
+                            Latitud
+                        </div>
+                    </th>
 
                 </tr>
             </thead>
@@ -73,6 +83,8 @@
                         <td class="rounded border px-4 py-2">{{$tour->imagen}} </td>
                         <td class="rounded border px-4 py-2">{{$tour->precio}} </td>
                         <td class="rounded border px-4 py-2">{{$tour->valoracion}} </td>
+                        <td class="rounded border px-4 py-2">{{$tour->longitud}} </td>
+                        <td class="rounded border px-4 py-2">{{$tour->latitud}} </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -83,12 +95,12 @@
                             Duración
                         </div>
                     </th>
-                    <th class="px-4 py-2" colspan="2">
+                    <th class="px-4 py-2" colspan="3">
                         <div class="flex items-center justify-center">
                             Descripción
                         </div>
                     </th>
-                    <th class="px-4 py-2" colspan="2">
+                    <th class="px-4 py-2" colspan="3">
                         <div class="flex items-center justify-center">
                             Planing
                         </div>
@@ -103,8 +115,8 @@
             <tbody>
                 <div x-show='formedit'>@include('components.formedit',[$tour])</div>
                 <td class="rounded border px-4 py-2">{{$tour->duracion}} </td>
-                <td class="rounded border px-4 py-2" colspan="2">{{$tour->descripcion}} </td>
-                <td class="rounded border px-4 py-2" colspan="2">{{$tour->planing}} </td>
+                <td class="rounded border px-4 py-2" colspan="3">{{$tour->descripcion}} </td>
+                <td class="rounded border px-4 py-2" colspan="3">{{$tour->planing}} </td>
 
                 <td class="rounded border px-4 py-2 text-center">
 

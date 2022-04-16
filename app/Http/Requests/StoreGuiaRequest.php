@@ -27,7 +27,7 @@ class StoreGuiaRequest extends FormRequest
             'nombre'=> 'required|string|max:255',
             'descripcion'=> 'required',
             'tipo'=> 'required|string|max:255',
-            'imagen'=> 'required|string|max:255',
+            'imagen'=> 'required|image',
             'valoracion'=> 'required|integer',
         ];
     }
