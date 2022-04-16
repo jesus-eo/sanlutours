@@ -38,8 +38,8 @@
                     <div class="flex items-center justify-evenly w-full">
                         <button type="submit" class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3"
                        >Enviar</button>
-                        <button class="rounded-md  hover:bg-blue-600 transition duration-300 bg-blue-700  text-white font-bold py-2 px-4 my-3"
-                        >Cancelar</button>
+                       <a href="{{Route('crudguias')}}"
+                       class="rounded-md  hover:bg-blue-600 transition duration-300 bg-blue-700  text-white font-bold py-2 px-4 my-3">Cancelar</a>
                     </div>
                 </div>
             </form>
