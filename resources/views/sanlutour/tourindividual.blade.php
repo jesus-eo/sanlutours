@@ -197,7 +197,6 @@
                             <input type="number" name="numpersonas" min="0" max="{{$tour->plazas}}" required>
                         </div>
 
-
                         @if (Auth::user()== null || $tour->plazas == 0)
                             <button  id="btnModal" onclick="muestraModal(event);">Reservar</button>
                         @else

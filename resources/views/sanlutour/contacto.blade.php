@@ -140,6 +140,7 @@
                             <p>Si deseas contactar con nosotros le atenderemos gustosamente. <br>
                                 Un saludo!!
                             </p>
+                            <button id="modalContacto">Saber más!!</button>
                         </div>
                         <div class="form-contacto">
                             <form class="form" action="index.html" method="get">
@@ -213,6 +214,7 @@
         </footer>
 
     </div>
+
 </body>
 
 </html>

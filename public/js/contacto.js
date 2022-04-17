@@ -106,4 +106,19 @@ function validar(e) {
         e.preventDefault();
     }
 }
+/*********Modal******* */
+if (document.querySelector("#modalContacto")) {
+    const btn = document.querySelector("#modalContacto");
+    btn.addEventListener('click',crearVentana);
+     //Cuando llama a la función crarVentana se ejecuta el windows.open() y se guarda en la variable ventanaNueva que es un objeto para después hacer cambios en ella, ** En el momento que se le cambia el width y el height van *juntosss*abre una ventana nueva no una pestaña***
+     function crearVentana(){
+        ventanaNueva = window.open("","_black","width=300 height=100");
+            ventanaNueva.resizeBy(300,300);
+            ventanaNueva.moveBy(400,200);
+        ventanaNueva.document.write('<html><head><title>Datos de interes se sanlutours</title><style>.bodyventana{background-color: #485342;}.bodyventana ul li {color: white;font-size: 20px;}</style></head><body class="bodyventana">');
+        ventanaNueva.document.write("<ul><li>Nombre de la empresa: Sanlutours</li><li>Teléfono: 678765458</li><li>Correo Electrónico: sanlutours@gmail.com</li><li>Dirección: C.Mesón del Duque,20</li></ul>");
+        ventanaNueva.document.write('</body></html>');
 
+     }
+
+}
