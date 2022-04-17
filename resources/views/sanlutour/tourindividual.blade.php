@@ -206,8 +206,7 @@
                     </form>
                     <div id="myModal" class="modalContainerInvisible">
                         <div class="modal-content">
-                        <span onclick="cerrarModal();" class="close">×</span>
-                        <h2>Modal</h2>
+                        <span onclick="cerrarModal();" class="close">X</span>
                         @if (Auth::user()== null )
                         <p>Debes <a class="text-blue-600" href="/login" title="Login">loguearte</a> antes de reservar.</p>
                         @elseif ($tour->plazas == 0)

@@ -445,7 +445,8 @@ Punto de encuentro
     margin: auto;
     padding: 20px;
     border: 1px solid lightgray;
-    border-top: 10px solid #58abb7;
+    border-top: 10px solid #DBE2DD;
+    border-bottom: 10px solid #DBE2DD;
     width: 60%;
 }
 
