@@ -70,6 +70,8 @@ ul, li {
  top: 25px;
  z-index: 5;
  transition: top 0.5s;
+ animation-name: apareceElementos;
+animation-duration: 2s;
 }
 
 #container-logo {
@@ -115,6 +117,16 @@ ul, li {
  margin-top: 20px;
  display: none;
 }
+/*Animación principal*/
+@keyframes apareceElementos {
+    0% {opacity: 0%;}
+    25% {opacity: 25%;}
+    50% {opacity: 50%;}
+    60% {opacity: 60%;}
+    75% {opacity: 75%;}
+    85% {opacity: 85%;}
+    100% {opacity: 100%;}
+ }
 /*Hace visible la lista*/
 .desplegable-visible{
  display: block;
@@ -139,13 +151,16 @@ ul, li {
  color: #FFFFFF;
  font-size: 50px;
  margin: auto;
-
+ animation-name: apareceElementos;
+animation-duration: 2s;
 }
 .p2-main-b1 {
  grid-column: 3/9;
  grid-row: 5/7;
  color: #FFFFFF;
- font-size: 30px
+ font-size: 30px;
+ animation-name: apareceElementos;
+ animation-duration: 2s;
 }
 .subrallado:hover {
  text-decoration: underline;
