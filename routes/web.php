@@ -6,6 +6,8 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +30,13 @@ Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('contacto');
 Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
+
+/* Comentarios */
+Route::get('/comentarios', function () {
+    $comentarios = DB::table('comentarios')->get();
+    echo json_encode($comentarios);
+});
+
 
 /*Tramite reserva y pago*/
 Route::post('/tramitereserva/{tour}', [ReservaController::class, 'tramitar'])->name('tramitereserva');

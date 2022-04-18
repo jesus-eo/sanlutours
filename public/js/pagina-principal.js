@@ -87,7 +87,7 @@ function cambiaImg(e) {
     }
 }
 
-/*----  QUIENES SOMOS------*/
+/*----  Que dicen de nosotros------*/
 
 let arrowLeftb5 = document.querySelector("#arrow-left-b5");
 let arrowRightb5 = document.querySelector("#arrow-right-b5");
@@ -95,13 +95,16 @@ let comentarioActual = 0;
 arrowLeftb5.addEventListener('click', peticion);
 arrowRightb5.addEventListener('click', peticion);
 
-
 async function peticion(e) {
+
     let id = e.target.id;
     try {
-        const respuesta = await fetch('comentarios.json');
+        const respuesta = await fetch('http://127.0.0.1:8000/comentarios');
+
         if (respuesta.ok) {
+            console.log('entra');
             let response = await respuesta.json();
+
             cambiaComentario(id, response);
         } else {
             alert("Error en la respuesta")
@@ -111,20 +114,21 @@ async function peticion(e) {
     }
 };
 
+
 /* Función que cambia de imagen dependiendo de la flecha que pulses cambiando el src de la imagen por uno del array  */
 function cambiaComentario(id, json) {
 
-    if (id == "arrow-right-b5" && comentarioActual < (json.comentarios.length - 1)) {
+    if (id == "arrow-right-b5" && comentarioActual < (json.length - 1)) {
         comentarioActual += 1;
 
-        document.querySelector("#b5-p").innerHTML = json.comentarios[comentarioActual].comentario;
-        document.querySelector("#b5-p2").innerHTML = json.comentarios[comentarioActual].autor;
+        document.querySelector("#b5-p").innerHTML = json[comentarioActual].descripcion;
+        document.querySelector("#b5-p2").innerHTML = json[comentarioActual].nombre;
     }
     if (id == "arrow-left-b5" && comentarioActual != 0) {
 
         comentarioActual -= 1;
-        document.querySelector("#b5-p").innerHTML = json.comentarios[comentarioActual].comentario;
-        document.querySelector("#b5-p2").innerHTML = json.comentarios[comentarioActual].autor;
+        document.querySelector("#b5-p").innerHTML = json[comentarioActual].descripcion;
+        document.querySelector("#b5-p2").innerHTML = json[comentarioActual].nombre;
     }
 }
 
