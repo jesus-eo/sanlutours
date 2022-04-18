@@ -15,8 +15,12 @@
         <div class="mt-4 text-2xl">
             <div>Reservas</div>
         </div>
-
-
+        <div class="mt-3" x-data="{formcomentar: false}">
+            {{-- Realiza la función Freetous.php --}}
+            <button @click="formcomentar=true"  class= "rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Comentar experiencia</button>
+            {{-- Abre ventana modal añadiendo el componente crear --}}
+            <div x-show='formcomentar'>@include('components.formcomentario')</div>
+        </div>
 
         <div class="mt-3">
             @if ($reservas->isEmpty())

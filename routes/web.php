@@ -36,7 +36,7 @@ Route::get('/comentarios', function () {
     $comentarios = DB::table('comentarios')->get();
     echo json_encode($comentarios);
 });
-
+Route::post('/comentario', [TourController::class, 'crearComentarios'])->name('comentarios.store');
 
 /*Tramite reserva y pago*/
 Route::post('/tramitereserva/{tour}', [ReservaController::class, 'tramitar'])->name('tramitereserva');
