@@ -307,4 +307,26 @@ class TourController extends Controller
             ]);
         }
     }
+
+
+
+    public function crearComentarios()
+    {
+        $validados = $this->validarComentarios();
+        DB::table('comentarios')->insert([
+            'nombre' => $validados['nombre'],
+            'descripcion' => $validados['descripcion'],
+            ]);
+        return redirect()->route('reservasusuario')->with('success','Gracias por comentar su experiencia');
+    }
+
+    private function validarComentarios()
+    {
+        $validados = request()->validate([
+            'nombre'=> 'required|string',
+            'descripcion'=> 'required|string',
+        ]);
+
+        return $validados;
+    }
 }
