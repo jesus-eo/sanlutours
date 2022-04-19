@@ -316,6 +316,7 @@ class TourController extends Controller
         DB::table('comentarios')->insert([
             'nombre' => $validados['nombre'],
             'descripcion' => $validados['descripcion'],
+            'user_id'=> Auth::id(),
             ]);
         return redirect()->route('reservasusuario')->with('success','Gracias por comentar su experiencia');
     }
