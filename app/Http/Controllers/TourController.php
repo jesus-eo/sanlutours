@@ -59,7 +59,7 @@ class TourController extends Controller
                 $image->move('Img/img Freetours', $image->getClientOriginalName());
                  /* Lo guardamos en la base de datos como string */
                 $nuevoTour->imagen = "Img/img Freetours/".$image->getClientOriginalName();
-            }elseif ($tipo == 'gastronomico') {
+            }elseif ($tipo == 'gastronómico') {
                 $image->move('Img/Img gastronomia', $image->getClientOriginalName());
                  /* Lo guardamos en la base de datos como string */
                 $nuevoTour->imagen = "Img/Img gastronomia/".$image->getClientOriginalName();
@@ -131,7 +131,7 @@ class TourController extends Controller
              $image->move('Img/img Freetours', $image->getClientOriginalName());
               /* Lo guardamos en la base de datos como string */
              $tour->imagen = "Img/img Freetours/".$image->getClientOriginalName();
-         }elseif ($tipo == 'gastronomico') {
+         }elseif ($tipo == 'gastronómico') {
              $image->move('Img/Img gastronomia', $image->getClientOriginalName());
               /* Lo guardamos en la base de datos como string */
              $tour->imagen = "Img/Img gastronomia/".$image->getClientOriginalName();
@@ -256,19 +256,19 @@ class TourController extends Controller
     {
         if ($orden == 'precio') {
             return view("sanlutour.gastrotours", [
-                "tours" => Tour::where('tipo', 'gastronomico')->orderBy('precio', 'asc')->get(),
+                "tours" => Tour::where('tipo', 'gastronómico')->orderBy('precio', 'asc')->get(),
             ]);
         } else if ($orden == 'fecha') {
             return view("sanlutour.gastrotours", [
-                "tours" => Tour::where('tipo', 'gastronomico')->orderBy('fechahora', 'asc')->get(),
+                "tours" => Tour::where('tipo', 'gastronómico')->orderBy('fechahora', 'asc')->get(),
             ]);
         } else if ($orden == 'duracion') {
             return view("sanlutour.gastrotours", [
-                "tours" => Tour::where('tipo', 'gastronomico')->orderBy('duracion', 'asc')->get(),
+                "tours" => Tour::where('tipo', 'gastronómico')->orderBy('duracion', 'asc')->get(),
             ]);
         } else {
             return view("sanlutour.gastrotours", [
-                "tours" => Tour::all()->where('tipo', 'gastronomico'),
+                "tours" => Tour::all()->where('tipo', 'gastronómico'),
             ]);
         }
     }

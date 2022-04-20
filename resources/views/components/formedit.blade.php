@@ -34,7 +34,7 @@
                         <label for="tipo" class="block text-gray-700 text-sm font-bold mb-2">Tipo</label>
                         <select name="tipo" {{-- selected value="{{ old('tipo', $tour->tipo) }}" --}}>
                             <option value="free">free</option>
-                            <option value="gastronomico">gastronomico</option>
+                            <option value="gastronómico">gastronomico</option>
                             <option value="deportivo">deportivo</option>
                             <option value="cultural">cultural</option>
                           </select>
