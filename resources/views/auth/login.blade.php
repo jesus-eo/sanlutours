@@ -1,10 +1,11 @@
 <x-guest-layout>
 
+    {{-- box --}}
+    <div id="fondo-login" class="min-h-screen flex  sm:justify-center items-center pt-6 sm:pt-0 ">
 
-    <div id="fondo-login" class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
 
         {{-- LOGO --}}
-        <a href="/">
+       {{--  <a href="/">
             <svg class="w-16 h-16" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z"
@@ -13,10 +14,15 @@
                     d="M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z"
                     fill="#6875F5" />
             </svg>
-        </a>
-
-
+        </a> --}}
+        <div class="cuadrado" style="--i:1"></div>
+        <div class="cuadrado" style="--i:2"></div>
+        <div class="cuadrado" style="--i:3"></div>
+        <div class="cuadrado" style="--i:4"></div>
+        <div class="cuadrado" style="--i:0"></div>
         <div id="container-login" class="w-full sm:max-w-md mt-6 px-6 py-4  overflow-hidden sm:rounded-lg">
+
+
             <x-jet-validation-errors class="mb-4" />
 
             @if (session('status'))
@@ -25,9 +31,10 @@
                 </div>
             @endif
 
+
             <form id="form-login" method="POST" action="{{ route('login') }} ">
                 @csrf
-
+                <h2>Login Form</h2>
                 <div>
                     <x-jet-label for="email" value="{{ __('Email') }}" />
                     <x-jet-input id="email" class="inputlogin block mt-1 w-full" type="email" name="email" :value="old('email')"
@@ -65,5 +72,6 @@
             </form>
         </div>
     </div>
+
 
 </x-guest-layout>

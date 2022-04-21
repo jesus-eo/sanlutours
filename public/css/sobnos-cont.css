@@ -506,6 +506,7 @@
 -----------------------------*/
 #fondo-login {
     background-color:coral;
+    position: relative;
 }
 #container-login {
     position: relative;
@@ -514,6 +515,7 @@
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 #form-login {
     position: relative;
@@ -524,6 +526,70 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     border: none;
 }
+#form-login h2 {
+    position: relative;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: var(--fuenteAcme);
+    letter-spacing: 1px;
+    margin-bottom: 10%;
+}
+#fondo-login .cuadrado {
+    position:absolute;
+    background: rgba( 255, 255, 255, 0.3 );
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    animation: animate 10s linear infinite;
+    animation-delay: calc(-1s) *var(--i) ;
+}
+@keyframes animate
+{
+    0%,100%
+    {
+        transform: translateY(-40px);
+    }
+    50%
+    {
+        transform: translateY(40px);
+    }
+}
+#fondo-login .cuadrado:nth-child(1) {
+    top: 70%;
+    left: 60%;
+    width: 100px;
+    height: 100px;
+}
+#fondo-login .cuadrado:nth-child(2) {
+    top: 150px;
+    left: 60%;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+}
+#fondo-login .cuadrado:nth-child(3) {
+    bottom: 55px;
+    left: 30%;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+}
+#fondo-login .cuadrado:nth-child(4) {
+
+    left: 35%;
+    width: 50px;
+    height: 50px;
+}
+#fondo-login .cuadrado:nth-child(5) {
+    top: 30%;
+    width: 60px;
+    height: 60px;
+}
+
 /*-----------MEDIA QUERY--------*/
 /* Movil sm */
 @media (max-width: 640px) {
