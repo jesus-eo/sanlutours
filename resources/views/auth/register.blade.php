@@ -1,32 +1,37 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
 
+
+    <div id="fondo-login" class="min-h-screen flex  sm:justify-center items-center pt-6 sm:pt-0 ">
+        <div class="cuadrado" style="--i:1"></div>
+        <div class="cuadrado" style="--i:2"></div>
+        <div class="cuadrado" style="--i:3"></div>
+        <div class="cuadrado" style="--i:4"></div>
+        <div class="cuadrado" style="--i:0"></div>
+
+        <div id="container-login" class="w-full sm:max-w-md mt-6 px-6 py-4  overflow-hidden sm:rounded-lg">
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form class="form-login" method="POST" action="{{ route('register') }}">
             @csrf
-
+            <h2>Register</h2>
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="inputlogin  block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-input id="email" class="inputlogin  block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="inputlogin  block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-input id="password_confirmation" class=" inputlogin  block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -45,17 +50,19 @@
                     </x-jet-label>
                 </div>
             @endif
+            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
+            <div class="flex items-center justify-around mt-4">
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
-                </x-jet-button>
-                <a class="rounded-md  hover:bg-blue-600 transition duration-300 bg-blue-700  text-white font-bold py-2 px-4 my-3" href="/">Volver</a>
+                <button type="submit"
+                        class="border-2 border-green-800 sm:px-10 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300">
+                        {{ __('Register') }}
+                </button>
+                <a class="border-2 border-green-800 sm:px-10 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300"
+                href="/">Volver</a>
             </div>
         </form>
-    </x-jet-authentication-card>
+    </div>
+   </div>
 </x-guest-layout>
