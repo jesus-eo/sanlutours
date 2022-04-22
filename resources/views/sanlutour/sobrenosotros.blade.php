@@ -36,7 +36,7 @@
 <body>
 
     <div id="container-envolvente-sn">
-        <div id="bloque1-pag-principal" role="contentinfo">
+        <div id="bloque1-pag-sobnos" role="contentinfo">
             <div id="login">
                 @if (Route::has('login'))
                     <div>
@@ -145,6 +145,7 @@
                         definitiva
                         VOLVERAS </p>
                 </div>
+
             </div>
         </div>
 

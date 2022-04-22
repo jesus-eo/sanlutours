@@ -1,5 +1,5 @@
 /* Fondo imagen para los distintos tipos de tour */
-window.addEventListener('load', function () {
+/* window.addEventListener('load', function () {
 
     let declaration = document.styleSheets[0].cssRules[6].style;
     let valor = document.querySelector("#valor-img-fondo").value;
@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
         subTour.classList.toggle('subrallado-actual');
     }
 
-});
+}); */
 
 /*Desplegable menu(Tours)*/
 let btntours = document.querySelector(".tours");

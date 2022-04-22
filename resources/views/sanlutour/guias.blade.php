@@ -1,11 +1,15 @@
 <x-clasetour>
-    <input id="valor-img-fondo" type="text" value="guias" hidden>
+    {{-- <input id="valor-img-fondo" type="text" value="guias" hidden> --}}
     <x-slot name="title">
         Guias
     </x-slot>
     <x-slot name="main">
+        <div class="datos-tour">
         <p class="p1-main-freetour">Tu brújula sera...</p>
         <p class="p2-main-freetour">Nuestros guías de confianza</p>
+        </div>
+        {{-- imagen de fondo --}}
+        <img class="img-fondo" src="{{asset('Img/Guias.jpg')}}" alt="Imagen fondo tour free">
     </x-slot>
 
 
