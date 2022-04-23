@@ -1,26 +1,18 @@
-/* Fondo imagen para los distintos tipos de tour */
-window.addEventListener('load', function () {
 
-    let declaration = document.styleSheets[0].cssRules[6].style;
-    let valor = document.querySelector("#valor-img-fondo").value;
-    if (valor == "freetour") {
-        declaration.setProperty("background-image", "url('../Img/img Freetours/imagen caballos encabezado.jpg')");
-    } else if (valor == "gastrotour") {
-        declaration.setProperty("background-image", "url('../Img/Img gastronomia/pp-Vaso vino.jpg')");
-    } else if (valor == "cultutour") {
-        declaration.setProperty("background-image", "url('../Img/Img Cultural/palacio2.jpg')");
-    } else if (valor == "deportour") {
-        declaration.setProperty("background-image", "url('../Img/img Deportivo/imagen fondo deportiva.jpg')");
-    } else if (valor == "guias") {
-        declaration.setProperty("background-image", "url('../Img/Guias.jpg')");
+/* Cambiar subrallado guia-tour */
+if (document.querySelector("#valor-subrallado")) {
+    let valor = document.querySelector("#valor-subrallado").value
+
+    if (valor == "guias") {
         let subGuia = document.querySelector("#subrallado-guia");
         let subTour = document.querySelector("#subrallado-tour");
         subGuia.classList.toggle('subrallado');
         subGuia.classList.toggle('subrallado-actual');
         subTour.classList.toggle('subrallado-actual');
     }
+}
 
-});
+
 
 /*Desplegable menu(Tours)*/
 let btntours = document.querySelector(".tours");
