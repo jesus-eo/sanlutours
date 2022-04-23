@@ -63,17 +63,21 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 99%;
     opacity: 0.6;
    }
    .datos-tour {
-    position: relative;
+    /* position: relative; */
     z-index: 2;
+    display: grid;
+    height: 100%;
+    /* grid-template-columns: repeat(10, 1fr); */
+    grid-template-rows: repeat(10, 1fr);
    }
 
 
    #login {
-
+    z-index: 2;
     width: 100%;
     height: 5%;
     display: flex;
@@ -411,10 +415,10 @@
 }
 /*Main*/
 .main-freetour {
-    display: grid;
+   /*  display: grid;
     height: 100%;
     grid-template-columns: repeat(10, 1fr);
-   grid-template-rows: repeat(10, 1fr);
+   grid-template-rows: repeat(10, 1fr); */
 }
 .p1-main-freetour {
  grid-column: 2/5;
@@ -422,12 +426,14 @@
  font-family: var(--fuenteCorben);
  color: #FFFFFF;
  font-size: 35px;
+ z-index: 2;
 }
 .p2-main-freetour {
  grid-column: 2/8;
  grid-row: 6/7;
  color: #FFFFFF;
- font-size: 50px
+ font-size: 50px;
+ z-index: 2;
 }
 
 .cont-card {
@@ -677,6 +683,18 @@
     }
     #modalContacto {
         height: 100%;
+    }
+    /* Letras img fondo */
+    .datos-tour {
+        grid-template-rows: repeat(10,80%);
+    }
+    .p1-main-freetour {
+        grid-row: 5/5;
+        font-size: 25px;
+    }
+    .p2-main-freetour {
+        grid-row: 6/6;
+        font-size: 30px;
     }
  }
 
