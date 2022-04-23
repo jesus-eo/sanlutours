@@ -19,6 +19,7 @@
     <!-- Styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
@@ -30,6 +31,7 @@
 
     <title>Sanlutours</title>
 </head>
+
 <body>
     <div id="container-envolvente-principal">
         <div id="bloque1-pag-principal" role="contentinfo">
@@ -190,18 +192,20 @@
 
 
         <div id="b4-pagina-principal" role="contentinfo">
-            <i id="arrow-left" class="far fa-angle-left"></i>
-            <div id="b4-definicion">
-                <h1>Tours Destacados</h1>
-                <h2 id="b4-h2">Visita a Doñana</h2>
-                <p id="b4-p"> Con la visita a Doñana desde Sanlúcar de Barrameda descubrirás el Parque Nacional al
-                    completo y de la manera más especial. Recorrerás todos los ecosistemas en vehículo todoterreno,
-                    desde las dunas hasta la marisma, descubriendo también las impresionantes playas de Doñana. Podrás
-                    navegar desde Bajo de Guía hasta Doñana en una barcaza tradicional, y surcar el río Guadalquivir
-                    para regresar a Sanlúcar.
-                </p>
-
-
+            <div id="b4-contenido-1">
+                <div class="flechas2"><i id="arrow-left" class="far fa-angle-left"></i></div>
+                <div id="b4-definicion">
+                    <h1>Tours Destacados</h1>
+                    <h2 id="b4-h2">Visita a Doñana</h2>
+                    <p id="b4-p"> Con la visita a Doñana desde Sanlúcar de Barrameda descubrirás el Parque Nacional al
+                        completo y de la manera más especial. Recorrerás todos los ecosistemas en vehículo todoterreno,
+                        desde las dunas hasta la marisma, descubriendo también las impresionantes playas de Doñana.
+                        Podrás
+                        navegar desde Bajo de Guía hasta Doñana en una barcaza tradicional, y surcar el río Guadalquivir
+                        para regresar a Sanlúcar.
+                    </p>
+                </div>
+                <div class="flechas2"><i id="arrow-right" class="far fa-angle-right"></i></div>
             </div>
             <!-- container-slider -->
             <div id="b4-imagen">
@@ -210,11 +214,11 @@
                         alt="Imagen Tours destacado doñana">
                 </picture>
             </div>
-            <i id="arrow-right" class="far fa-angle-right"></i>
+
         </div>
 
         <div id="b5-pagina-principal">
-            <i id="arrow-left-b5" class="far fa-angle-left"></i>
+            <div class="flechas2"><i id="arrow-left-b5" class="far fa-angle-left"></i></div>
             <div id="container-b5">
                 <h1 id="h1-b5">QUE DICEN DE NOSOTROS</h1>
                 <p id="b5-p">Cómo puedo empezar a describir mi tiempo con SanluTours... ¡Simplemente me cambió la vida!
@@ -224,8 +228,8 @@
                 <p id="b5-p2">-Manuela Dominguez</p>
 
             </div>
+            <div class="flechas2"><i id="arrow-right-b5" class="far fa-angle-right"></i></div>
 
-            <i id="arrow-right-b5" class="far fa-angle-right"></i>
         </div>
 
         <footer id="b6-pagina-principal">
