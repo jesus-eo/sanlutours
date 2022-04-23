@@ -1,5 +1,5 @@
 <x-clasetour>
-    {{-- <input id="valor-img-fondo" type="text" value="guias" hidden> --}}
+    <input id="valor-subrallado" type="text" value="guias" hidden>
     <x-slot name="title">
         Guias
     </x-slot>
