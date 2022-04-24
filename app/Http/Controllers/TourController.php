@@ -295,7 +295,7 @@ class TourController extends Controller
     }
 
 
-    public function ordenar($orden)
+   /*  public function ordenar($orden)
     {
         if ($orden == 'precio') {
             return view("sanlutour.freetours", [
@@ -306,7 +306,7 @@ class TourController extends Controller
                 "tours" => Tour::where('tipo', 'free')->orderBy('duracion', 'asc')->get(),
             ]);
         }
-    }
+    } */
 
 
 

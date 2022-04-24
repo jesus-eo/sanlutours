@@ -527,20 +527,21 @@ li {
     padding: 15px;
     width: 100%;
     justify-content: space-between;
+    font-family: var(--fuenteCorben);
 }
 
 .cont-orden {
     box-shadow: 0px 0px 10px 1px black;
     display: flex;
     height: 100%;
+    width: 60%;
     padding: 10px;
-    width: 50%;
     justify-content: space-around;
 }
 
 .breadcrumb {
     height: 10%;
-    width: 50%;
+    width: 30%;
 }
 
 .breadcrumb>ul {
@@ -815,6 +816,9 @@ li {
     .p2-main-freetour {
         grid-row: 6/6;
         font-size: 30px;
+    }
+    .lupa {
+        left: 30%;
     }
 }
 
