@@ -10,7 +10,9 @@
      <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/sobnos-cont.css') }}">
+    @livewireScripts
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @livewireStyles
     {{-- JS --}}
     <script src="{{ asset('js/sobre-nosotros.js') }}" defer></script>
     <!-- Fonts -->
@@ -18,6 +20,7 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
     </style>

@@ -15,11 +15,11 @@
     <!-- Remove py-8 -->
 
 
-    <livewire:filtros tipo='free'>
+    {{-- <livewire:filtros tipo='free'> --}}
     <!-- Remove py-8 -->
+    @livewire('filtros', ['tipo' => 'free'])
 
 
-    {{-- @livewire('filtros', ['tipo' => 'free']) --}}
 </x-clasetour>
 <script>
 
