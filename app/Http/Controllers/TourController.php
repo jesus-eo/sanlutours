@@ -45,6 +45,7 @@ class TourController extends Controller
      */
     public function store(StoreTourRequest $request)
     {
+
         /* $validados = $this->validar(); */
         $validados = $request->validated();
         $tourExistente = Tour::get()->where('nombre', $validados['nombre'])->where('fechahora', $validados['fechahora'])->where('tipo', $validados['tipo'])->where('duracion', $validados['duracion']);
@@ -53,24 +54,24 @@ class TourController extends Controller
         if ($tourExistente->isEmpty()) {
             $nuevoTour = new Tour($validados);
             /* recueperar el archivo que subimos */
-            $image =$request->file('imagen');
+            $image = $request->file('imagen');
             /* Movemos a la carpeta deseada */
-            if($tipo == 'free'){
+            if ($tipo == 'free') {
                 $image->move('Img/img Freetours', $image->getClientOriginalName());
-                 /* Lo guardamos en la base de datos como string */
-                $nuevoTour->imagen = "Img/img Freetours/".$image->getClientOriginalName();
-            }elseif ($tipo == 'gastronómico') {
+                /* Lo guardamos en la base de datos como string */
+                $nuevoTour->imagen = "Img/img Freetours/" . $image->getClientOriginalName();
+            } elseif ($tipo == 'gastronómico') {
                 $image->move('Img/Img gastronomia', $image->getClientOriginalName());
-                 /* Lo guardamos en la base de datos como string */
-                $nuevoTour->imagen = "Img/Img gastronomia/".$image->getClientOriginalName();
-            }elseif ($tipo == 'cultural') {
+                /* Lo guardamos en la base de datos como string */
+                $nuevoTour->imagen = "Img/Img gastronomia/" . $image->getClientOriginalName();
+            } elseif ($tipo == 'cultural') {
                 $image->move('Img/Img Cultural', $image->getClientOriginalName());
                 /* Lo guardamos en la base de datos Como string */
-               $nuevoTour->imagen = "Img/Img Cultural/".$image->getClientOriginalName();
-            }elseif ($tipo == 'deportivo') {
+                $nuevoTour->imagen = "Img/Img Cultural/" . $image->getClientOriginalName();
+            } elseif ($tipo == 'deportivo') {
                 $image->move('Img/img Deportivo', $image->getClientOriginalName());
                 /* Lo guardamos en la base de datos como string */
-               $nuevoTour->imagen = "Img/img Deportivo/".$image->getClientOriginalName();
+                $nuevoTour->imagen = "Img/img Deportivo/" . $image->getClientOriginalName();
             }
 
             $nuevoTour->save();
@@ -124,31 +125,38 @@ class TourController extends Controller
         $tour->fechahora = $validados['fechahora'];
         $tour->plazas = $validados['plazas'];
         $tour->tipo = $validados['tipo'];
-         /* recueperar el archivo que subimos */
-         $image =$request->file('imagen');
-         /* Movemos a la carpeta deseada */
-         if($tipo == 'free'){
-             $image->move('Img/img Freetours', $image->getClientOriginalName());
-              /* Lo guardamos en la base de datos como string */
-             $tour->imagen = "Img/img Freetours/".$image->getClientOriginalName();
-         }elseif ($tipo == 'gastronómico') {
-             $image->move('Img/Img gastronomia', $image->getClientOriginalName());
-              /* Lo guardamos en la base de datos como string */
-             $tour->imagen = "Img/Img gastronomia/".$image->getClientOriginalName();
-         }elseif ($tipo == 'cultural') {
-             $image->move('Img/Img Cultural', $image->getClientOriginalName());
-             /* Lo guardamos en la base de datos Como string */
-            $tour->imagen = "Img/Img Cultural/".$image->getClientOriginalName();
-         }elseif ($tipo == 'deportivo') {
-             $image->move('Img/img Deportivo', $image->getClientOriginalName());
-             /* Lo guardamos en la base de datos como string */
-            $tour->imagen = "Img/img Deportivo/".$image->getClientOriginalName();
-         }
         $tour->duracion = $validados['duracion'];
         $tour->precio = $validados['precio'];
         $tour->valoracion = $validados['valoracion'];
         $tour->latitud = $validados['latitud'];
         $tour->longitud = $validados['longitud'];
+
+        if (request()->file('imagen') != null) {
+            /* recueperar el archivo que subimos */
+            $image = $request->file('imagen');
+            /* Movemos a la carpeta deseada */
+            if ($tipo == 'free') {
+                $image->move('Img/img Freetours', $image->getClientOriginalName());
+                /* Lo guardamos en la base de datos como string */
+                $tour->imagen = "Img/img Freetours/" . $image->getClientOriginalName();
+            } elseif ($tipo == 'gastronómico') {
+                $image->move('Img/Img gastronomia', $image->getClientOriginalName());
+                /* Lo guardamos en la base de datos como string */
+                $tour->imagen = "Img/Img gastronomia/" . $image->getClientOriginalName();
+            } elseif ($tipo == 'cultural') {
+                $image->move('Img/Img Cultural', $image->getClientOriginalName());
+                /* Lo guardamos en la base de datos Como string */
+                $tour->imagen = "Img/Img Cultural/" . $image->getClientOriginalName();
+            } elseif ($tipo == 'deportivo') {
+                $image->move('Img/img Deportivo', $image->getClientOriginalName());
+                /* Lo guardamos en la base de datos como string */
+                $tour->imagen = "Img/img Deportivo/" . $image->getClientOriginalName();
+            }
+        }else{
+            $tour->imagen = $tour->imagen;
+        }
+
+
         $tour->save();
         return redirect('/tours')->with('success', 'Tour actualizado con exito');
     }
@@ -162,10 +170,10 @@ class TourController extends Controller
     public function destroy(Tour $tour)
     {
         $id = $tour->id;
-        DB::table('reservas')->where('tour_id',$id)->delete();
-        DB::table('guia_tour')->where('tour_id',$id)->delete();
+        DB::table('reservas')->where('tour_id', $id)->delete();
+        DB::table('guia_tour')->where('tour_id', $id)->delete();
         Tour::find($id)->delete();
-        return redirect('/tours')->with('success','Tour borrado con exito');
+        return redirect('/tours')->with('success', 'Tour borrado con exito');
     }
 
     /*  private function validar()
@@ -294,40 +302,24 @@ class TourController extends Controller
         echo json_encode($tour->valoracion);
     }
 
-
-   /*  public function ordenar($orden)
-    {
-        if ($orden == 'precio') {
-            return view("sanlutour.freetours", [
-                "tours" => Tour::where('tipo', 'free')->orderBy('precio', 'asc')->get(),
-            ]);
-        } else if ($orden == 'fecha') {
-            return view("sanlutour.freetours", [
-                "tours" => Tour::where('tipo', 'free')->orderBy('duracion', 'asc')->get(),
-            ]);
-        }
-    } */
-
-
-
+    /* Creamos comentarios cuando los usuarios tienen reservas realizadas  */
     public function crearComentarios()
     {
         $validados = $this->validarComentarios();
         DB::table('comentarios')->insert([
             'nombre' => $validados['nombre'],
             'descripcion' => $validados['descripcion'],
-            'user_id'=> Auth::id(),
-            ]);
-        return redirect()->route('reservasusuario')->with('success','Gracias por comentar su experiencia');
+            'user_id' => Auth::id(),
+        ]);
+        return redirect()->route('reservasusuario')->with('success', 'Gracias por comentar su experiencia');
     }
 
     private function validarComentarios()
     {
         $validados = request()->validate([
-            'nombre'=> 'required|string',
-            'descripcion'=> 'required|string',
+            'nombre' => 'required|string',
+            'descripcion' => 'required|string',
         ]);
-
         return $validados;
     }
 }

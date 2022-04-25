@@ -42,11 +42,10 @@
                     <div class="mb-4">
                         <label for="imagen" class="block text-gray-700 text-sm font-bold mb-2">Imagen</label>
                         <input type="file" name="imagen" id="imagen"
-                        value="{{old('imagen', $tour->imagen)}}"
+
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none @error('imagen') border-red-500 @enderror"
                         placeholder="imagen">
 
-                      {{--   <input type="text" name="imagen" id="imagen" value="{{ old('imagen', $tour->imagen) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="imagen" > --}}
                     </div>
                     <div class="mb-4">
                         <label for="precio" class="block text-gray-700 text-sm font-bold mb-2">Precio</label>

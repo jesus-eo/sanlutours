@@ -68,9 +68,7 @@ Route::get('/dashboard', function () {
 
 /* -----Modo administrador---- */
 Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
-    /*  Route::get('/dashboard', function(){ return view('dashboard');
-    })->name('dashboard'); */
-    /* Cruds Modo admin */
+    /*---Cruds Modo admin---*/
     /* Crud Tours */
     Route::get('/tours', [
         TourController::class,
