@@ -30,7 +30,6 @@ class UpdateTourRequest extends FormRequest
             'fechahora' => 'required',
             'plazas' => 'required|integer',
             'tipo' => 'required|string|max:255',
-            'imagen'=> 'image',
             'precio' => 'required|numeric',
             'duracion' => 'required',
             'valoracion' => 'required|integer',

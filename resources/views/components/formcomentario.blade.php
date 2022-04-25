@@ -10,7 +10,7 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
                     <div class="mb-4">
                         <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
-                        <input type="text" name="nombre" id="nombre"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Nombre" required>
+                        <input type="text" name="nombre" id="nombre" title="Inserta un nombre valido" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Nombre" required>
                     </div>
                     <div class="mb-4">
                         <label for="descripcion" class="block text-gray-700 text-sm font-bold mb-2">Descripción</label>

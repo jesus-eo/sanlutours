@@ -119,7 +119,7 @@
                                 title="Enlace a página de inicio">Inicio
                             </a>
                         </li>
-                        <div>
+                        <div id="container-tour-desplegable">
                             <li id="subrallado-tour" class="tours subrallado-actual" title="Tours">Tours
                                 <i id="botonLateral" class="fa fa-angle-right"></i>
                             </li>

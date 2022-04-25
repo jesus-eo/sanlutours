@@ -101,7 +101,15 @@ class GuiaController extends Controller
         $guia->nombre = $validados['nombre'];
         $guia->descripcion = $validados['descripcion'];
         $guia->tipo = $validados['tipo'];
-        $guia->imagen = $validados['imagen'];
+        if (request()->file('imagen') != null) {
+            /* recuperar el archivo que subimos */
+            $image = $request->file('imagen');
+            $image->move('Img/guia', $image->getClientOriginalName());
+            /* Lo guardamos en la base de datos como string */
+            $guia->imagen = "Img/guia/". $image->getClientOriginalName();
+        }else {
+            $guia->imagen = $guia->imagen;
+        }
         $guia->valoracion = $validados['valoracion'];
         $guia->save();
         return redirect('/guias')->with('success', 'Guia actualizado con exito');

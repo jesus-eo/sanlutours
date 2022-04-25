@@ -1,4 +1,3 @@
-
 /* Cambiar subrallado guia-tour */
 if (document.querySelector("#valor-subrallado")) {
     let valor = document.querySelector("#valor-subrallado").value
@@ -15,16 +14,24 @@ if (document.querySelector("#valor-subrallado")) {
 
 
 /*Desplegable menu(Tours)*/
-let btntours = document.querySelector(".tours");
-btntours.addEventListener('click', function () {
+if (document.querySelector("#container-tour-desplegable")) {
+    let menuDesSup = document.querySelector("#container-tour-desplegable");
+    menuDesSup.addEventListener('mouseover', desplegable);
+    menuDesSup.addEventListener('mouseout', desplegable);
+};
+
+function desplegable() {
     document.querySelector("#menu-desplegable").classList.toggle("desplegable-visible");
     document.querySelector("#menu-desplegable").classList.toggle("desplegable-oculto");
     document.querySelector("#botonLateral").classList.toggle("fa-angle-down");
     document.querySelector("#botonLateral").classList.toggle("fa-angle-right");
-});
+};
+
+
+
 /*Desplegable menuhamburguesa(Tours)*/
 let btnsubmenu = document.querySelector("#submenu");
-btnsubmenu.addEventListener('click', function () {
+btnsubmenu.addEventListener('click', function() {
     document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
     document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
     document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
@@ -35,7 +42,7 @@ btnsubmenu.addEventListener('click', function () {
 ubicacionPrincipal vale 0 al inicio*/
 
 let ubicacionPrincipal = window.scrollY;
-window.onscroll = function () {
+window.onscroll = function() {
     let desplazamientoActual = window.scrollY;
     if (desplazamientoActual >= 100) {
         if (ubicacionPrincipal >= desplazamientoActual) {
@@ -75,15 +82,15 @@ async function valoracion(e, id) {
                 "valor": e.value
             };
             let response = await fetch('http://127.0.0.1:8000/valguias', {
-                method: 'POST',
-                //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
-                headers: {
-                    'Content-type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: JSON.stringify(json),
-            })
-            //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
+                    method: 'POST',
+                    //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify(json),
+                })
+                //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
             if (response.ok) {
                 let valorActual = await response.json();
                 let pValor = document.querySelector('.val' + id);
@@ -118,16 +125,16 @@ async function valoraciontour(e, id) {
                 "valor": e.value,
             };
             let response = await fetch('http://127.0.0.1:8000/valtour', {
-                method: 'POST',
-                //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
-                headers: {
-                    'Content-type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    method: 'POST',
+                    //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
-                },
-                body: JSON.stringify(json),
-            })
-            //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
+                    },
+                    body: JSON.stringify(json),
+                })
+                //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
             if (response.ok) {
                 let valorActual = await response.json();
                 let pValor = document.querySelector('.val' + id);
@@ -151,6 +158,7 @@ function muestraModal(e) {
     modal.classList.toggle('modalContainerInvisible');
     e.preventDefault();
 }
+
 function cerrarModal() {
     let modal = document.getElementById("myModal");
     modal.classList.toggle('modalContainerVisible');

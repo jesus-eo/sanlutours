@@ -115,7 +115,7 @@
                                 title="Enlace a página de inicio">Inicio
                             </a>
                         </li>
-                        <div>
+                        <div id="container-tour-desplegable">
                             <li class="tours subrallado" title="Tours">Tours
                                 <i id="botonLateral" class="fa fa-angle-right"></i>
                             </li>
