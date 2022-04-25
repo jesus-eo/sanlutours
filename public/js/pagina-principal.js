@@ -1,18 +1,24 @@
 /*Desplegable menu(Tours)*/
-let btntours = document.querySelector(".tours");
-btntours.addEventListener('click', function () {
+if (document.querySelector("#container-tour-desplegable")) {
+    let menuDesSup = document.querySelector("#container-tour-desplegable");
+    menuDesSup.addEventListener('mouseover', desplegable);
+    menuDesSup.addEventListener('mouseout', desplegable);
+};
+
+function desplegable() {
     document.querySelector("#menu-desplegable").classList.toggle("desplegable-visible");
     document.querySelector("#menu-desplegable").classList.toggle("desplegable-oculto");
     document.querySelector("#botonLateral").classList.toggle("fa-angle-down");
     document.querySelector("#botonLateral").classList.toggle("fa-angle-right");
-});
+};
+
 /*Desplegable menuhamburguesa(Tours)*/
 let btnsubmenu = document.querySelector("#submenu");
-btnsubmenu.addEventListener('click', function (){
-        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
-        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
-        document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
-        document.querySelector("#boton-lateral").classList.toggle("fa-angle-right");
+btnsubmenu.addEventListener('click', function() {
+    document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
+    document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
+    document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
+    document.querySelector("#boton-lateral").classList.toggle("fa-angle-right");
 
 });
 
@@ -21,31 +27,31 @@ btnsubmenu.addEventListener('click', function (){
 ubicacionPrincipal vale 0 al inicio*/
 
 let ubicacionPrincipal = window.scrollY;
-window.onscroll = function () {
-    let desplazamientoActual = window.scrollY;
-    if (desplazamientoActual >= 100) {
-        if (ubicacionPrincipal >= desplazamientoActual) {
-            document.querySelector('.encabezado-b1-principal').style.top = '0';
-            document.querySelector('.encabezado-b1-principal').style.backgroundColor = '#C7CEC9';
-            document.querySelector('.desplegable-oculto').style.backgroundColor = '#C7CEC9';
+window.onscroll = function() {
+        let desplazamientoActual = window.scrollY;
+        if (desplazamientoActual >= 100) {
+            if (ubicacionPrincipal >= desplazamientoActual) {
+                document.querySelector('.encabezado-b1-principal').style.top = '0';
+                document.querySelector('.encabezado-b1-principal').style.backgroundColor = '#C7CEC9';
+                document.querySelector('.desplegable-oculto').style.backgroundColor = '#C7CEC9';
+            } else {
+                document.querySelector('.encabezado-b1-principal').style.top = '-100px';
+            }
+            ubicacionPrincipal = desplazamientoActual;
         } else {
-            document.querySelector('.encabezado-b1-principal').style.top = '-100px';
+            document.querySelector('.encabezado-b1-principal').style.top = '25px';
+            document.querySelector('.encabezado-b1-principal').style.backgroundColor = '';
+            document.querySelector('.desplegable-oculto').style.backgroundColor = '';
         }
-        ubicacionPrincipal = desplazamientoActual;
-    } else {
-        document.querySelector('.encabezado-b1-principal').style.top = '25px';
-        document.querySelector('.encabezado-b1-principal').style.backgroundColor = '';
-        document.querySelector('.desplegable-oculto').style.backgroundColor = '';
     }
-}
-/*---------VIDEO---- */
-/* let video = document.getElementById('video-sanlucar');
-video.addEventListener('mouseover',function (){
-    video.play();
-})
-video.addEventListener('mouseout',function (){
-    video.pause();
-}) */
+    /*---------VIDEO---- */
+    /* let video = document.getElementById('video-sanlucar');
+    video.addEventListener('mouseover',function (){
+        video.play();
+    })
+    video.addEventListener('mouseout',function (){
+        video.pause();
+    }) */
 
 /* ----SLIDER---- */
 let p = [
@@ -131,5 +137,3 @@ function cambiaComentario(id, json) {
         document.querySelector("#b5-p2").innerHTML = json[comentarioActual].nombre;
     }
 }
-
-
