@@ -4,6 +4,8 @@ use App\Http\Controllers\GuiaController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PayPalController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -136,3 +138,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     ])->name('reservasusuario.destroy');
 });
 
+/* Paypal */
+Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
+Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
