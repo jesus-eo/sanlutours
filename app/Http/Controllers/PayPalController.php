@@ -38,7 +38,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => "1000.00"
+                        "value" => "100.00"
                     ]
                 ]
             ]
@@ -46,9 +46,10 @@ class PayPalController extends Controller
 
         if (isset($response['id']) && $response['id'] != null) {
 
-            // redirect to approve href
+            // redirigir para aprobar href
             foreach ($response['links'] as $links) {
                 if ($links['rel'] == 'approve') {
+                    #redirige a paypal
                     return redirect()->away($links['href']);
                 }
             }
