@@ -163,24 +163,7 @@ class ReservaController extends Controller
         return $validados;
     }
 
-    public function pagar()
-    {
-        #Recalculo las plazas
-        $plazasReservadas = request()->input('plazasreservadas');
-        $tour = json_decode(request()->input('tour'));
-        $plazas = intval($tour->plazas) - intval($plazasReservadas);
-        Tour::findOrfail($tour->id);
-        DB::table('tours') -> where('id', $tour->id) ->update(["plazas" => $plazas]);
-        #Creo reserva prueba
-       /*  $nuevoreserva = new Reserva();
-        $nuevoreserva->numpersonas = $plazasReservadas;
-        $nuevoreserva->fechahora = $tour->fechahora;
-        $nuevoreserva->user_id = Auth::id();
-        $nuevoreserva->tour_id = $tour->id;
-        $nuevoreserva->save(); */
-        /* Cambiar redirección cuando realizsemnos el pago y crear la reserva*/
-        return redirect("/dashboard") -> with("succes", "Pago realizado con exito");
-    }
+
 
 
 }

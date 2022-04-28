@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reserva;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use stdClass;
@@ -13,6 +15,7 @@ class PayPalController extends Controller
     public $plazasReservadas = 0;
     public $tour;
     public $plazas = 0;
+    public $total;
 
     /**
      * create transaction.
@@ -32,11 +35,13 @@ class PayPalController extends Controller
     public function processTransaction()
     {
         #Recalculo las plazas
+        $this->total = request()->input('total');
         $this->plazasReservadas = request()->input('plazasreservadas');
         $this->tour = json_decode(request()->input('tour'));
         $this->plazas = intval($this->tour->plazas) - intval($this->plazasReservadas);
         session_start();
-        $_SESSION['idtour']=$this->tour->id;
+        $_SESSION['tour']=$this->tour;
+        $_SESSION['plazasreservadas']=$this->plazasReservadas;
         $_SESSION['plazas']=$this->plazas;
 
 
@@ -53,8 +58,8 @@ class PayPalController extends Controller
             "purchase_units" => [
                 0 => [
                     "amount" => [
-                        "currency_code" => "USD",
-                        "value" => "10.00"
+                        "currency_code" => "EUR",
+                        "value" => $this->total
                     ]
                 ]
             ]
@@ -95,14 +100,24 @@ class PayPalController extends Controller
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             session_start();
-           $tourid=$_SESSION['idtour'];
-           $plazas=$_SESSION['plazas'];
+            $tour=$_SESSION['tour'];
+            $plazasReservadas=$_SESSION['plazasreservadas'];
+            $plazas=$_SESSION['plazas'];
 
 
-            Tour::findOrfail($tourid);
-            DB::table('tours') -> where('id', $tourid) ->update(["plazas" => $plazas]);
-            unset($_SESSION['idtour']);
+            Tour::findOrfail($tour->id);
+            DB::table('tours') -> where('id', $tour->id) ->update(["plazas" => $plazas]);
+             #Creo reserva prueba
+            $nuevoreserva = new Reserva();
+            $nuevoreserva->numpersonas = $plazasReservadas;
+            $nuevoreserva->fechahora = $tour->fechahora;
+            $nuevoreserva->user_id = Auth::id();
+            $nuevoreserva->tour_id = $tour->id;
+            $nuevoreserva->save();
+
+            unset($_SESSION['tour']);
             unset($_SESSION['plazas']);
+            unset($_SESSION['plazasreservadas']);
 
             return redirect()
                 ->route('dashboard')-> with("succes", "Pago realizado con exito");;
