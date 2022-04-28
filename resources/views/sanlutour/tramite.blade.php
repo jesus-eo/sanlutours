@@ -30,6 +30,8 @@
 
         <div class="flex justify-start item-start space-y-2 flex-col">
             @php
+                date_default_timezone_set('Europe/Madrid');
+                $fecha=new DateTime();
                 $ultimaVisita = '';
                 if ($tour->tipo == 'gastronomico') {
                     $ultimaVisita = 'gastrotours';
@@ -41,14 +43,15 @@
                     $ultimaVisita = 'freetours';
                 }
             @endphp
-            <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Order
-                #13432</h1>
-            <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">21st Mart 2021 at 10:34 PM</p>
+            <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Sanlutours</h1>
+            <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">{{$fecha->format("d-m-Y h:i:s a");}}</p>
             <nav class="breadcrumb w-full" aria-label="Breadcrumb">
                 <ul>
                     <li><a class="enlace-bread text-gray-400" href="/">Inicio</a></li>
-                    <li><a class="enlace-bread text-gray-400" href="{{ route($ultimaVisita) }}">Tours {{ $tour->tipo }}</a> </li>
-                    <li><a class="enlace-bread text-gray-400" href="{{Route('tourindividual',[$tour])}}">{{ $tour->nombre }}</a> </li>
+                    <li><a class="enlace-bread text-gray-400" href="{{ route($ultimaVisita) }}">Tours
+                            {{ $tour->tipo }}</a> </li>
+                    <li><a class="enlace-bread text-gray-400"
+                            href="{{ Route('tourindividual', [$tour]) }}">{{ $tour->nombre }}</a> </li>
                     <li class="reserva-actual">Tramitar reservas</li>
                 </ul>
             </nav>
@@ -109,7 +112,8 @@
                                 <p class="text-base dark:text-white leading-4 text-gray-800">Número de plazas
                                     reservadas:
                                 </p>
-                                <p class="text-base dark:text-gray-300 leading-4 text-gray-600">{{ $plazasreservadas }}
+                                <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
+                                    {{ $plazasreservadas }}
                                 </p>
                             </div>
 
@@ -117,9 +121,33 @@
                         <div class="flex justify-between items-center w-full">
                             <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Total</p>
                             <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                                {{number_format($tour->precio * $plazasreservadas, 2) }}€
+                                {{ number_format($tour->precio * $plazasreservadas, 2) }}€
                             </p>
                         </div>
+                        {{-- Sección pago --}}
+
+
+                        <div>
+                            {{-- Este botón va hacia reservacontroller el cual quita las plazas seleccionadas del tour indicado --}}
+                            <form action="{{ Route('processTransaction') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="tour" value="{{ $tour }}">
+                                <input type="hidden" name="plazasreservadas" value="{{ $plazasreservadas }}">
+                                <input type="hidden" name="total"
+                                    value="{{ number_format($tour->precio * $plazasreservadas, 2) }}">
+
+                                <button
+                                    class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i
+                                        class="mdi mdi-lock-outline mr-1"></i> PAGAR
+                                </button>
+                            </form>
+                        </div>
+
+
+
+
+
+
                     </div>
 
                 </div>
@@ -127,26 +155,9 @@
 
         </div>
 
-        {{-- Sección pago --}}
-        <div class="min-w-screen w-full min-h-screen  flex items-center justify-center px-5 pb-10 pt-16">
 
-                <div>
-                    {{-- Este botón va hacia reservacontroller el cual quita las plazas seleccionadas del tour indicado --}}
-                    <form action="{{Route('processTransaction')}}" method="post">
-                        @csrf
-                        <input type="hidden" name="tour" value="{{$tour}}">
-                        <input type="hidden" name="plazasreservadas" value="{{$plazasreservadas}}">
-                        <input type="hidden" name="total" value="{{number_format($tour->precio * $plazasreservadas, 2) }}">
 
-                        {{-- <a class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" href="{{ route('processTransaction') }}">Pagar</a> --}}
-                    <button
-                        class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i
-                            class="mdi mdi-lock-outline mr-1"></i> PAY NOW
-                    </button>
-                </form>
-                </div>
 
-        </div>
     </div>
 
 
