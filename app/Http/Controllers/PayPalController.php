@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use stdClass;
 
 class PayPalController extends Controller
 {
+    public $plazasReservadas = 0;
+    public $tour;
+    public $plazas = 0;
+
     /**
      * create transaction.
      *
@@ -14,7 +21,7 @@ class PayPalController extends Controller
      */
     public function createTransaction()
     {
-        return view('transaction');
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -22,8 +29,17 @@ class PayPalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function processTransaction(Request $request)
+    public function processTransaction()
     {
+        #Recalculo las plazas
+        $this->plazasReservadas = request()->input('plazasreservadas');
+        $this->tour = json_decode(request()->input('tour'));
+        $this->plazas = intval($this->tour->plazas) - intval($this->plazasReservadas);
+        session_start();
+        $_SESSION['idtour']=$this->tour->id;
+        $_SESSION['plazas']=$this->plazas;
+
+
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -38,7 +54,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => "100.00"
+                        "value" => "10.00"
                     ]
                 ]
             ]
@@ -56,12 +72,12 @@ class PayPalController extends Controller
 
             return redirect()
                 ->route('createTransaction')
-                ->with('error', 'Something went wrong.');
+                ->with('fault', 'Algo salió mal.');
 
         } else {
             return redirect()
                 ->route('createTransaction')
-                ->with('error', $response['message'] ?? 'Something went wrong.');
+                ->with('fault', $response['message'] ?? 'Algo salió mal.');
         }
     }
 
@@ -78,13 +94,22 @@ class PayPalController extends Controller
         $response = $provider->capturePaymentOrder($request['token']);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            session_start();
+           $tourid=$_SESSION['idtour'];
+           $plazas=$_SESSION['plazas'];
+
+
+            Tour::findOrfail($tourid);
+            DB::table('tours') -> where('id', $tourid) ->update(["plazas" => $plazas]);
+            unset($_SESSION['idtour']);
+            unset($_SESSION['plazas']);
+
             return redirect()
-                ->route('createTransaction')
-                ->with('success', 'Transaction complete.');
+                ->route('dashboard')-> with("succes", "Pago realizado con exito");;
         } else {
             return redirect()
                 ->route('createTransaction')
-                ->with('error', $response['message'] ?? 'Something went wrong.');
+                ->with('fault', $response['message'] ?? 'Something went wrong.');
         }
     }
 
@@ -96,7 +121,7 @@ class PayPalController extends Controller
     public function cancelTransaction(Request $request)
     {
         return redirect()
-            ->route('createTransaction')
-            ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+            ->route('dashboard')
+            ->with('fault', $response['message'] ?? 'Tu has cancelado la transacción.');
     }
 }

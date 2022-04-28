@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
     {{-- <link href="https://cdn.tailwindcss.com" rel="stylesheet"> --}}
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/sobnos-cont.css') }}">
@@ -14,7 +15,18 @@
 
 <body class="flex items-center justify-center " style="background: #edf2f7;">
     <div class="py-14 w-9/12 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-
+        <div>
+            @if (session('success'))
+                <div class="alert alert-success bg-green-400">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('fault'))
+                <div class="alert alert-success bg-red-500">
+                    {{ session('fault') }}
+                </div>
+            @endif
+        </div>
 
         <div class="flex justify-start item-start space-y-2 flex-col">
             @php
@@ -200,10 +212,12 @@
                 </div>
                 <div>
                     {{-- Este botón va hacia reservacontroller el cual quita las plazas seleccionadas del tour indicado --}}
-                    <form action="{{Route('realizarpago')}}" method="post">
+                    <form action="{{Route('processTransaction')}}" method="post">
                         @csrf
                         <input type="hidden" name="tour" value="{{$tour}}">
                         <input type="hidden" name="plazasreservadas" value="{{$plazasreservadas}}">
+
+                        {{-- <a class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" href="{{ route('processTransaction') }}">Pagar</a> --}}
                     <button
                         class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i
                             class="mdi mdi-lock-outline mr-1"></i> PAY NOW

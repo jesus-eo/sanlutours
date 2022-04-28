@@ -40,9 +40,7 @@ Route::get('/comentarios', function () {
 });
 Route::post('/comentario', [TourController::class, 'crearComentarios'])->name('comentarios.store');
 
-/*Tramite reserva y pago*/
-Route::post('/tramitereserva/{tour}', [ReservaController::class, 'tramitar'])->name('tramitereserva');
-Route::post('/tramitepago', [ReservaController::class, 'pagar'])->name('realizarpago');
+
 
 /**Estrellas***/
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
@@ -140,6 +138,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 /* Paypal */
 Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
-Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');#pulsa botón
+Route::post('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');#pulsa botón
 Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
+
+/*Tramite reserva y pago*/
+Route::post('/tramitereserva/{tour}', [ReservaController::class, 'tramitar'])->name('tramitereserva');
+Route::get('/tramitepago', [ReservaController::class, 'pagar'])->name('realizarpago');
