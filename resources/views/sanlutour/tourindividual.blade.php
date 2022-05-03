@@ -209,7 +209,7 @@
             </div>
             <div id="map">
             </div>
-            <button id="btnllegar">Como llegar</button>
+            <button id="btnllegar" class="p-card border-2 border-green-800 px-20 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300">Como llegar</button>
         </div>
 
         <div id="form-reserva" role="contentinfo">
@@ -334,16 +334,23 @@
                     let CustomRouteLayer = MQ.Routing.RouteLayer.extend({
                         /* Creo marcador inicial */
                         createStartMarker: function(location, stopNumber) {
-                            let marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+                            let marker = L.marker([position.coords.latitude, position.coords.longitude])
+                                .addTo(map);
                             marker.bindPopup("<b>Localización actual</b>").openPopup()
                             return marker;
                         },
                         /* Creo marcador final */
                         createEndMarker: function(location, stopNumber) {
-                            let marker = L.marker([{{ $tour->latitud }}, {{ $tour->longitud }}]).addTo(map);
+                            let greenIcon = L.icon({
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+
+                            });
+                            let marker = L.marker([{{ $tour->latitud }}, {{ $tour->longitud }}], {icon: greenIcon}).addTo(map);
                             marker.bindPopup("<b>Este es tu punto de encuentro</b><br>Te esperamos!!")
                                 .openPopup();
-                            return marker;
+                                return marker;
                         }
                     });
 
@@ -366,8 +373,6 @@
                         directions: dir,
                         fitBounds: true,
                     }));
-
-
 
                 });
             }
