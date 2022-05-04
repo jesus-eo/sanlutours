@@ -77,7 +77,7 @@
                                 <div class="flex justify-start items-start flex-col space-y-2">
                                     <p class="text-sm dark:text-white leading-none text-gray-800"><span
                                             class="text-gray-800">Fecha:
-                                        </span>{{ (new Datetime($tour->fechahora))->format('d/m/Y H:i:s') }} </p>
+                                        </span>{{ (new Datetime($viaje->fechahora))->format('d/m/Y H:i:s') }} </p>
                                     <p class="text-sm dark:text-white leading-none text-gray-800"><span
                                             class="text-gray-800">Duración:
                                         </span>{{ $tour->duracion }}horas</p>
@@ -128,13 +128,14 @@
 
 
                         <div>
-                            {{-- Este botón va hacia reservacontroller el cual quita las plazas seleccionadas del tour indicado --}}
+
                             <form action="{{ Route('processTransaction') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="tour" value="{{ $tour }}">
                                 <input type="hidden" name="plazasreservadas" value="{{ $plazasreservadas }}">
                                 <input type="hidden" name="total"
                                     value="{{ number_format($tour->precio * $plazasreservadas, 2) }}">
+                                <input type="hidden" name="viaje" value="{{ $viaje }}">
 
                                 <button
                                     class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i

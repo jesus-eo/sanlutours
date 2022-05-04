@@ -22,14 +22,14 @@
                         <textarea name="planing" id="planing" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="planing" cols="30" rows="10" required></textarea>
 
                     </div>
-                    <div class="mb-4">
+                    {{-- <div class="mb-4">
                         <label for="fechahora" class="block text-gray-700 text-sm font-bold mb-2">Fecha hora</label>
                         <input type="text" name="fechahora" id="fechahora" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" pattern="^[0-9]{4}(-|/)(0[1-9]|1[0-2])(-|/)(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$" placeholder="YYYY-MM-DD 00:00:00" required>
-                    </div>
-                    <div class="mb-4">
+                    </div> --}}
+                    {{-- <div class="mb-4">
                         <label for="plazas" class="block text-gray-700 text-sm font-bold mb-2">Plazas</label>
                         <input type="number" name="plazas" id="plazas"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0" required placeholder="Plazas" >
-                    </div>
+                    </div> --}}
                     <div class="mb-4">
                         <label for="tipo" class="block text-gray-700 text-sm font-bold mb-2">Tipo</label>
                         <select name="tipo">
@@ -78,12 +78,12 @@
 <script>
     let btnenviar = document.getElementById("btnenviartour");
 let formulario = document.getElementById('formcreatetour')
-let fechahora = document.querySelector('#fechahora');
+/* let fechahora = document.querySelector('#fechahora'); */
 let longitud = document.getElementById("longitud");
 let latitud = document.getElementById("latitud");
 
 btnenviar.addEventListener('click',validar);
-fechahora.addEventListener('input',validarfechahora);
+/* fechahora.addEventListener('input',validarfechahora); */
 longitud.addEventListener('input', validarlongitud);
 latitud.addEventListener('input', validarlongitud);
 
@@ -110,7 +110,7 @@ function validarlongitud() {
 
 
 
-function validarfechahora() {
+/* function validarfechahora() {
     limpiarCustomvaliditi();
     if(!fechahora.checkValidity()){
         if(fechahora.validity.valueMissing){
@@ -120,11 +120,11 @@ function validarfechahora() {
         }
     }
     return true;
-}
+} */
 
 function validar(e) {
     limpiarCustomvaliditi();
-    if(validarfechahora() && validarlongitud()) {
+    if(validarlongitud()) {
     } else {
         e.preventDefault();
     }

@@ -37,7 +37,7 @@
         </div>
     </div>
 </div>
-{{-- <script>
+ <script>
     let btnenviareserva = document.getElementById("btnenviareserva");
     let formulario1 = document.getElementById('formreserva')
     let fecha1 = document.querySelector('#fechahora');
@@ -73,4 +73,4 @@
         }
     }
     </script>
- --}}
+

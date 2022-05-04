@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reserva;
 use App\Models\Tour;
+use App\Models\Viaje;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,7 @@ use stdClass;
 class PayPalController extends Controller
 {
     public $plazasReservadas = 0;
-    public $tour;
+    public $viaje;
     public $plazas = 0;
     public $total;
 
@@ -37,10 +38,10 @@ class PayPalController extends Controller
         #Recalculo las plazas
         $this->total = request()->input('total');
         $this->plazasReservadas = request()->input('plazasreservadas');
-        $this->tour = json_decode(request()->input('tour'));
-        $this->plazas = intval($this->tour->plazas) - intval($this->plazasReservadas);
+        $this->viaje = json_decode(request()->input('viaje'));
+        $this->plazas = intval($this->viaje->plazas) - intval($this->plazasReservadas);
         session_start();
-        $_SESSION['tour']=$this->tour;
+        $_SESSION['viaje']=$this->viaje;
         $_SESSION['plazasreservadas']=$this->plazasReservadas;
         $_SESSION['plazas']=$this->plazas;
 
@@ -100,22 +101,22 @@ class PayPalController extends Controller
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             session_start();
-            $tour=$_SESSION['tour'];
+            $viaje=$_SESSION['viaje'];
             $plazasReservadas=$_SESSION['plazasreservadas'];
             $plazas=$_SESSION['plazas'];
 
 
-            Tour::findOrfail($tour->id);
-            DB::table('tours') -> where('id', $tour->id) ->update(["plazas" => $plazas]);
+            Viaje::findOrfail($viaje->id);
+            DB::table('viajes') -> where('id', $viaje->id) ->update(["plazas" => $plazas]);
              #Creo reserva prueba
             $nuevoreserva = new Reserva();
             $nuevoreserva->numpersonas = $plazasReservadas;
-            $nuevoreserva->fechahora = $tour->fechahora;
+            $nuevoreserva->fechahora = $viaje->fechahora;
             $nuevoreserva->user_id = Auth::id();
-            $nuevoreserva->tour_id = $tour->id;
+            $nuevoreserva->tour_id = $viaje->tour_id;
             $nuevoreserva->save();
 
-            unset($_SESSION['tour']);
+            unset($_SESSION['viaje']);
             unset($_SESSION['plazas']);
             unset($_SESSION['plazasreservadas']);
 

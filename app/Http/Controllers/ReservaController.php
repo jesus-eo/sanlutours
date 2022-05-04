@@ -145,9 +145,12 @@ class ReservaController extends Controller
         Tour::findOrfail($tour->id);
         $validado = $this->validar();
         $plazasReservadas = $validado['numpersonas'];
+        $viaje = request()->input('viaje');
+
         return view('sanlutour.tramite',[
             "tour"=>$tour,
             "plazasreservadas"=>$plazasReservadas,
+            "viaje"=>json_decode($viaje),
         ]);
     }
 

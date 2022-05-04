@@ -47,14 +47,14 @@ Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracio
 Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
 /* Tours individuales y completos */
-Route::get('/tourindividual/{tour}', [TourController::class, 'show'])->name('tourindividual');
+Route::post('/tourindividual/{tour}', [TourController::class, 'show'])->name('tourindividual');
 
 
 /**Tipos de tours **/
-Route::get('/gastrotours/{orden?}', [TourController::class, 'gastrotours'])->name('gastrotours');
-Route::get('/freetours/{orden?}', [TourController::class, 'freetours'])->name('freetours');
-Route::get('/cultutours/{orden?}', [TourController::class, 'cultutours'])->name('cultutours');
-Route::get('/deportours/{orden?}', [TourController::class, 'deportours'])->name('deportours');
+Route::get('/gastrotours', [TourController::class, 'gastrotours'])->name('gastrotours');
+Route::get('/freetours', [TourController::class, 'freetours'])->name('freetours');
+Route::get('/cultutours', [TourController::class, 'cultutours'])->name('cultutours');
+Route::get('/deportours', [TourController::class, 'deportours'])->name('deportours');
 
 
 /* Ruta para usuarios administrador o normales */

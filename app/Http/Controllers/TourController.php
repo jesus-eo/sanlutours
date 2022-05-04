@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTourRequest;
 use App\Http\Requests\UpdateTourRequest;
 use App\Models\Tour;
+use App\Models\Viaje;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -89,8 +90,11 @@ class TourController extends Controller
      */
     public function show(Tour $tour)
     {
+
+        $viaje = Viaje::where('id',request()->input('viajes'))->first();
         return (view('sanlutour.tourindividual', [
-            'tour' => $tour
+            'tour' => $tour,
+            'viaje' => $viaje,
         ]));
     }
 
@@ -122,8 +126,6 @@ class TourController extends Controller
         $tour->nombre = $validados['nombre'];
         $tour->descripcion = $validados['descripcion'];
         $tour->planing = $validados['planing'];
-        $tour->fechahora = $validados['fechahora'];
-        $tour->plazas = $validados['plazas'];
         $tour->tipo = $validados['tipo'];
         $tour->duracion = $validados['duracion'];
         $tour->precio = $validados['precio'];
@@ -197,88 +199,40 @@ class TourController extends Controller
         return $validados;
     } */
 
-    public function freetours($orden = "")
+    public function freetours()
     {
-        if ($orden == 'precio') {
-            return view("sanlutour.freetours", [
-                "tours" => Tour::where('tipo', 'free')->orderBy('precio', 'asc')->get(),
-            ]);
-        } else if ($orden == 'fecha') {
-            return view("sanlutour.freetours", [
-                "tours" => Tour::where('tipo', 'free')->orderBy('fechahora', 'asc')->get(),
-            ]);
-        } else if ($orden == 'duracion') {
-            return view("sanlutour.freetours", [
-                "tours" => Tour::where('tipo', 'free')->orderBy('duracion', 'asc')->get(),
-            ]);
-        } else {
+
             return view("sanlutour.freetours", [
                 "tours" => Tour::all()->where('tipo', 'free'),
             ]);
-        }
+
     }
 
-    public function cultutours($orden = "")
+    public function cultutours()
     {
-        if ($orden == 'precio') {
-            return view("sanlutour.cultutours", [
-                "tours" => Tour::where('tipo', 'cultural')->orderBy('precio', 'asc')->get(),
-            ]);
-        } else if ($orden == 'fecha') {
-            return view("sanlutour.cultutours", [
-                "tours" => Tour::where('tipo', 'cultural')->orderBy('fechahora', 'asc')->get(),
-            ]);
-        } else if ($orden == 'duracion') {
-            return view("sanlutour.cultutours", [
-                "tours" => Tour::where('tipo', 'cultural')->orderBy('duracion', 'asc')->get(),
-            ]);
-        } else {
+
             return view("sanlutour.cultutours", [
                 "tours" => Tour::all()->where('tipo', 'cultural'),
             ]);
-        }
+
     }
 
-    public function deportours($orden = "")
+    public function deportours()
     {
-        if ($orden == 'precio') {
-            return view("sanlutour.deportours", [
-                "tours" => Tour::where('tipo', 'deportivo')->orderBy('precio', 'asc')->get(),
-            ]);
-        } else if ($orden == 'fecha') {
-            return view("sanlutour.deportours", [
-                "tours" => Tour::where('tipo', 'deportivo')->orderBy('fechahora', 'asc')->get(),
-            ]);
-        } else if ($orden == 'duracion') {
-            return view("sanlutour.deportours", [
-                "tours" => Tour::where('tipo', 'deportivo')->orderBy('duracion', 'asc')->get(),
-            ]);
-        } else {
+
             return view("sanlutour.deportours", [
                 "tours" => Tour::all()->where('tipo', 'deportivo'),
             ]);
-        }
+
     }
 
-    public function gastrotours($orden = "")
+    public function gastrotours()
     {
-        if ($orden == 'precio') {
-            return view("sanlutour.gastrotours", [
-                "tours" => Tour::where('tipo', 'gastronómico')->orderBy('precio', 'asc')->get(),
-            ]);
-        } else if ($orden == 'fecha') {
-            return view("sanlutour.gastrotours", [
-                "tours" => Tour::where('tipo', 'gastronómico')->orderBy('fechahora', 'asc')->get(),
-            ]);
-        } else if ($orden == 'duracion') {
-            return view("sanlutour.gastrotours", [
-                "tours" => Tour::where('tipo', 'gastronómico')->orderBy('duracion', 'asc')->get(),
-            ]);
-        } else {
+
             return view("sanlutour.gastrotours", [
                 "tours" => Tour::all()->where('tipo', 'gastronómico'),
             ]);
-        }
+
     }
 
     public function valoracion(Request $request)
@@ -289,8 +243,6 @@ class TourController extends Controller
         $tour->nombre = $tour->nombre;
         $tour->descripcion = $tour->descripcion;
         $tour->planing = $tour->planing;
-        $tour->fechahora = $tour->fechahora;
-        $tour->plazas = $tour->plazas;
         $tour->tipo = $tour->tipo;
         $tour->imagen = $tour->imagen;
         $tour->duracion = $tour->duracion;
