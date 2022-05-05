@@ -135,7 +135,8 @@
                                 <input type="hidden" name="plazasreservadas" value="{{ $plazasreservadas }}">
                                 <input type="hidden" name="total"
                                     value="{{ number_format($tour->precio * $plazasreservadas, 2) }}">
-                                <input type="hidden" name="viaje" value="{{ $viaje }}">
+
+                                <input type="hidden" name="viaje" value="{{ json_encode($viaje) }}">
 
                                 <button
                                     class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i

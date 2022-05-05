@@ -225,9 +225,12 @@
                     <form class="form" action="{{ Route('tramitereserva', [$tour]) }}" method="post">
                         @csrf
 
+                        @php
+                            $min = $viaje->plazas == 0 ? 0 : 1;
+                        @endphp
                         <div>
                             <p>N.personas:</p>
-                            <input type="number" name="numpersonas" min="1" max="{{ $viaje->plazas }}" required>
+                            <input type="number" name="numpersonas" min="{{$min}}" max="{{ $viaje->plazas }}" required>
                             <input type="hidden" name="viaje" value="{{$viaje}}">
                         </div>
 
@@ -245,7 +248,7 @@
                                 <p>Debes <a class="text-blue-600" href="/login" title="Login">loguearte</a> antes de
                                     reservar.</p>
                             @elseif ($viaje->plazas == 0)
-                                <p>No hay plazas disponibles</p>
+                                <p>No hay plazas disponibles.</p>
                             @endif
                         </div>
                     </div>

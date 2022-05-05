@@ -49,7 +49,7 @@ class TourController extends Controller
 
         /* $validados = $this->validar(); */
         $validados = $request->validated();
-        $tourExistente = Tour::get()->where('nombre', $validados['nombre'])->where('fechahora', $validados['fechahora'])->where('tipo', $validados['tipo'])->where('duracion', $validados['duracion']);
+        $tourExistente = Tour::get()->where('nombre', $validados['nombre'])->where('tipo', $validados['tipo'])->where('duracion', $validados['duracion']);
         $tipo = $validados['tipo'];
 
         if ($tourExistente->isEmpty()) {
@@ -91,7 +91,7 @@ class TourController extends Controller
     public function show(Tour $tour)
     {
 
-        $viaje = Viaje::where('id',request()->input('viajes'))->first();
+        $viaje = Viaje::where('id', request()->input('viajes'))->first();
         return (view('sanlutour.tourindividual', [
             'tour' => $tour,
             'viaje' => $viaje,
@@ -154,7 +154,7 @@ class TourController extends Controller
                 /* Lo guardamos en la base de datos como string */
                 $tour->imagen = "Img/img Deportivo/" . $image->getClientOriginalName();
             }
-        }else{
+        } else {
             $tour->imagen = $tour->imagen;
         }
 
@@ -173,6 +173,7 @@ class TourController extends Controller
     {
         $id = $tour->id;
         DB::table('reservas')->where('tour_id', $id)->delete();
+        DB::table('viajes')->where('tour_id', $id)->delete();
         DB::table('guia_tour')->where('tour_id', $id)->delete();
         Tour::find($id)->delete();
         return redirect('/tours')->with('success', 'Tour borrado con exito');
@@ -202,37 +203,33 @@ class TourController extends Controller
     public function freetours()
     {
 
-            return view("sanlutour.freetours", [
-                "tours" => Tour::all()->where('tipo', 'free'),
-            ]);
-
+        return view("sanlutour.freetours", [
+            "tours" => Tour::all()->where('tipo', 'free'),
+        ]);
     }
 
     public function cultutours()
     {
 
-            return view("sanlutour.cultutours", [
-                "tours" => Tour::all()->where('tipo', 'cultural'),
-            ]);
-
+        return view("sanlutour.cultutours", [
+            "tours" => Tour::all()->where('tipo', 'cultural'),
+        ]);
     }
 
     public function deportours()
     {
 
-            return view("sanlutour.deportours", [
-                "tours" => Tour::all()->where('tipo', 'deportivo'),
-            ]);
-
+        return view("sanlutour.deportours", [
+            "tours" => Tour::all()->where('tipo', 'deportivo'),
+        ]);
     }
 
     public function gastrotours()
     {
 
-            return view("sanlutour.gastrotours", [
-                "tours" => Tour::all()->where('tipo', 'gastronómico'),
-            ]);
-
+        return view("sanlutour.gastrotours", [
+            "tours" => Tour::all()->where('tipo', 'gastronómico'),
+        ]);
     }
 
     public function valoracion(Request $request)

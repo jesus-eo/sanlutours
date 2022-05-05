@@ -16,11 +16,11 @@
                 <div>
                     <label for="orden" class="mr-4">Ordenar por:</label>
                     <select wire:model="orden" name="orden" id="orden">
-                        <option value="fechahora">Fecha</option>
                         <option value="precio">Precio</option>
                         <option value="duracion">Duración</option>
                     </select>
                 </div>
+
                 <div>
                     <label class="mr-4" for="sentido">Sentido:</label>
                     <select wire:model="sentido" name="sentido" id="sentido">
@@ -50,6 +50,7 @@
         <div class="flex flex-wrap  justify-around">
             <!-- Card 1 -->
             @foreach ($tours as $tour)
+
                 <div class="mx-2 xl:mb-5 mt-8 mb-8 rounded-md cont-card">
                     <div class="rounded-md">
                         <img alt="imagen tour" src="{{ asset($tour->imagen) }}"

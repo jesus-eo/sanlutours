@@ -15,7 +15,7 @@ class Filtros extends Component
 
     public function render()
     {
-        /* dd($this->orden); */
+
         return view('livewire.filtros',[
             "tours" => Tour::where('tipo', $this->tipo)->where('nombre', 'ilike', "%$this->busqueda%")->orderBy($this->orden, $this->sentido)->get(),
         ]);
