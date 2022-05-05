@@ -129,7 +129,7 @@
                                 title="Enlace a página de inicio">Inicio
                             </a>
                         </li>
-                        <div>
+                        <div id="container-tour-desplegable">
                             <li class="tours subrallado-actual" title="Tours">Tours
                                 <i id="botonLateral" class="fa fa-angle-right"></i>
                             </li>
@@ -218,18 +218,23 @@
             </div>
             <div id="container-form-reserva">
                 <div class="form-reserva">
-                    <p>Fecha: {{ (new Datetime($tour->fechahora))->format('d/m/Y H:i:s') }}</p>
+                    <p>Fecha: {{ (new Datetime($viaje->fechahora))->format('d/m/Y H:i:s') }}</p>
                     <p>Duración: {{ $tour->duracion }}horas</p>
                     <p>Precio: {{ $tour->precio }}€</p>
 
                     <form class="form" action="{{ Route('tramitereserva', [$tour]) }}" method="post">
                         @csrf
+
+                        @php
+                            $min = $viaje->plazas == 0 ? 0 : 1;
+                        @endphp
                         <div>
                             <p>N.personas:</p>
-                            <input type="number" name="numpersonas" min="0" max="{{ $tour->plazas }}" required>
+                            <input type="number" name="numpersonas" min="{{$min}}" max="{{ $viaje->plazas }}" required>
+                            <input type="hidden" name="viaje" value="{{$viaje}}">
                         </div>
 
-                        @if (Auth::user() == null || $tour->plazas == 0)
+                        @if (Auth::user() == null || $viaje->plazas == 0)
                             <button id="btnModal" onclick="muestraModal(event);">Reservar</button>
                         @else
                             <button type="submit" id="btnModal">Reservar</button>
@@ -242,8 +247,8 @@
                             @if (Auth::user() == null)
                                 <p>Debes <a class="text-blue-600" href="/login" title="Login">loguearte</a> antes de
                                     reservar.</p>
-                            @elseif ($tour->plazas == 0)
-                                <p>No hay plazas disponibles</p>
+                            @elseif ($viaje->plazas == 0)
+                                <p>No hay plazas disponibles.</p>
                             @endif
                         </div>
                     </div>

@@ -27,8 +27,6 @@ class StoreTourRequest extends FormRequest
             'nombre'=> 'required|string|max:255',
             'descripcion'=> 'required',
             'planing'=> 'required',
-            'fechahora'=> 'required',
-            'plazas'=> 'required|integer',
             'tipo'=> 'required|string|max:255',
             'imagen'=> 'required|image',
             'precio'=> 'required|numeric',

@@ -32,16 +32,6 @@
 
                     <th class="px-4 py-2">
                         <div class="flex items-center justify-center">
-                            Fecha Hora
-                        </div>
-                    </th>
-                    <th class="px-4 py-2">
-                        <div class="flex items-center justify-center">
-                            Plazas
-                        </div>
-                    </th>
-                    <th class="px-4 py-2">
-                        <div class="flex items-center justify-center">
                             Tipo
                         </div>
                     </th>
@@ -77,8 +67,6 @@
                 @foreach ($tours as $tour)
                     <tr>
                         <td class="rounded border px-4 py-2">{{$tour->nombre}} </td>
-                        <td class="rounded border px-4 py-2">{{$tour->fechahora}} </td>
-                        <td class="rounded border px-4 py-2">{{$tour->plazas}} </td>
                         <td class="rounded border px-4 py-2">{{$tour->tipo}} </td>
                         <td class="rounded border px-4 py-2">{{$tour->imagen}} </td>
                         <td class="rounded border px-4 py-2">{{$tour->precio}} </td>

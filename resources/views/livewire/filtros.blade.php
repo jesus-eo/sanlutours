@@ -15,20 +15,20 @@
                 {{-- Ordenar --}}
                 <div>
                     <label for="orden" class="mr-4">Ordenar por:</label>
-                <select wire:model="orden" name="orden" id="orden">
-                    <option value="fechahora">Fecha</option>
-                    <option value="precio">Precio</option>
-                    <option value="duracion">Duración</option>
-                </select>
+                    <select wire:model="orden" name="orden" id="orden">
+                        <option value="precio">Precio</option>
+                        <option value="duracion">Duración</option>
+                    </select>
                 </div>
-                <div>
-                <label class="mr-4" for="sentido">Sentido:</label>
-                <select wire:model="sentido" name="sentido" id="sentido">
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
 
-                </select>
-            </div>
+                <div>
+                    <label class="mr-4" for="sentido">Sentido:</label>
+                    <select wire:model="sentido" name="sentido" id="sentido">
+                        <option value="asc">Ascendente</option>
+                        <option value="desc">Descendente</option>
+
+                    </select>
+                </div>
             </div>
             {{-- Busqueda --}}
             <div class="pt-2 relative mr-auto ml-4 text-gray-600">
@@ -50,6 +50,7 @@
         <div class="flex flex-wrap  justify-around">
             <!-- Card 1 -->
             @foreach ($tours as $tour)
+
                 <div class="mx-2 xl:mb-5 mt-8 mb-8 rounded-md cont-card">
                     <div class="rounded-md">
                         <img alt="imagen tour" src="{{ asset($tour->imagen) }}"
@@ -88,39 +89,55 @@
 
                         </div>
                         <div class="p-4">
-                            <div class="flex items-center">
-                                <p class="p-card  mt-2">{{ $tour->descripcion }}</p>
-                            </div>
-                            <div class="flex flex-col colums mt-4">
-                                <p class="p-card">Fecha:
-                                    {{ (new Datetime($tour->fechahora))->format('d/m/Y H:i:s') }}</p>
-                                <p class="p-card">Duración: {{ $tour->duracion }}h</p>
-                                <p class="p-card">Precio: {{ $tour->precio }}€</p>
-                                @php
-                                    $numguias = $tour->guias->count();
-                                    $cont = 0;
-                                @endphp
-                                <a class="p-card hover:bg-green-900 hover:text-white"
-                                    href="{{ Route('guias') }}">Guia:
-                                    @foreach ($tour->guias as $guia)
-                                        @php
-                                            $cont++;
-                                        @endphp
-                                        {{ $guia->nombre }}
-                                        @if ($cont < $numguias)
-                                            ,
-                                        @else
-                                            .
-                                        @endif
-                                    @endforeach
-                                </a>
+                            <form action="{{ Route('tourindividual', [$tour]) }}" method="post">
+                                @csrf
 
-                            </div>
-                            <div class="flex items-center justify-center py-4">
-                                <a href="{{ Route('tourindividual', [$tour]) }}"
-                                    class="p-card border-2 border-green-800 px-20 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300">Ver
-                                    más</a>
-                            </div>
+                                <div class="flex items-center">
+                                    <p class="p-card  mt-2">{{ $tour->descripcion }}</p>
+                                </div>
+                                <div class="flex flex-col colums mt-4">
+                                    <label for="p-card">Fechas disponibles:</label>
+
+                                    <select name="viajes" id="viajes">
+                                        @foreach ($tour->viajes as $viaje)
+                                            <option value={{ $viaje->id }}>
+                                                {{ (new Datetime($viaje->fechahora))->format('d/m/Y H:i:s') }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+
+
+                                    <p class="p-card">Duración: {{ $tour->duracion }}h</p>
+                                    <p class="p-card">Precio: {{ $tour->precio }}€</p>
+                                    @php
+                                        $numguias = $tour->guias->count();
+                                        $cont = 0;
+                                    @endphp
+                                    <a class="p-card hover:bg-green-900 hover:text-white"
+                                        href="{{ Route('guias') }}">Guia:
+                                        @foreach ($tour->guias as $guia)
+                                            @php
+                                                $cont++;
+                                            @endphp
+                                            {{ $guia->nombre }}
+                                            @if ($cont < $numguias)
+                                                ,
+                                            @else
+                                                .
+                                            @endif
+                                        @endforeach
+                                    </a>
+
+                                </div>
+                                <div class="flex items-center justify-center py-4">
+                                    <button
+                                        class="p-card border-2 border-green-800 px-20 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300"
+                                        type="submit">Ver
+                                        más</button>
+
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
