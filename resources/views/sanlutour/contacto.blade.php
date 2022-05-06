@@ -10,11 +10,11 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/sobnos-cont.css') }}">
     {{-- JS --}}
-    <script src="{{ asset('js/contacto.js') }}" defer></script>
+    <script src="{{ asset('js/sobre-nosotros.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    {{-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <style>
