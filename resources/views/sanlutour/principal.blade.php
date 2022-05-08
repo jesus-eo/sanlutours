@@ -9,7 +9,7 @@
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- JS --}}
-    <script src="{{ asset('js/pagina-principal.js') }}" defer></script>
+    <script src="{{ asset('js/sobre-nosotros.js') }}" defer></script>
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Fonts -->
