@@ -579,7 +579,14 @@ li {
 }
 
 
-/*-----------MEDIA QUERY--------*/
+/* Dashboard */
+
+.menu-dashboard-visible {
+    display: inherit;
+}
+
+
+/*-----------MEDIA QUERY(incluye menu hamburguesa del dashboard--------*/
 
 
 /* md */
@@ -634,6 +641,16 @@ li {
     #arrow-left,
     #arrow-right {
         font-size: 6vh;
+    }
+    /* dashboard */
+    .nav-menu-dashboard {
+        display: none;
+    }
+    #container-dashboard {
+        flex-direction: column;
+    }
+    #main-dashboard {
+        width: 100%;
     }
 }
 
