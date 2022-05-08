@@ -231,14 +231,20 @@ li {
     transform: rotate(90deg);
 }
 
-#mobile-menu {
+#mobile-menu,
+#mobile-menu-dashboard {
     position: fixed;
     width: 100%;
     height: 100vh;
+    z-index: 1;
     top: 100px;
     background-color: #2F3A29;
     text-align: center;
     transition: all .5s;
+}
+
+#mobile-menu-dashboard {
+    margin: opx;
 }
 
 #mobile-menu li {
@@ -247,7 +253,8 @@ li {
     transition: all .5s;
 }
 
-#mobile-menu li a {
+#mobile-menu li a,
+#mobile-menu-dashboard li a {
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 600;

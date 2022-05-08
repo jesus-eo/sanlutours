@@ -186,61 +186,6 @@
 
     <!-- Responsive Navigation Menu -->
      <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
-        {{-- @if (Auth::user()->administrador != null)
-            <div class="pt-2 pb-3 space-y-1">
 
-                <x-jet-nav-link href="{{ route('crudtours') }}" :active="request()->routeIs('crudtours')">
-                    {{ __('Tours') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('crudguias') }}" :active="request()->routeIs('crudguias')">
-                    {{ __('Guias') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('crudreservas') }}" :active="request()->routeIs('crudreservas')">
-                    {{ __('Reservas') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('crudusuarios') }}" :active="request()->routeIs('crudusuarios')">
-                    {{ __('Usuarios') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
-                    {{ __('Inicio') }}
-                </x-jet-nav-link>
-            </div>
-        @else
-            <div class="pt-2 pb-3 space-y-1">
-
-                <x-jet-nav-link href="{{ route('reservasusuario') }}" :active="request()->routeIs('reservasusuario')">
-                    {{ __('Reservas') }}
-                </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
-                    {{ __('Inicio') }}
-                </x-jet-nav-link>
-            </div>
-        @endif
-
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <div class="shrink-0 mr-3">
-                        @if (Auth::user()->profile_photo_path)
-                            <img class="h-8 w-8 rounded-full object-cover"
-                                src="/storage/{{ Auth::user()->profile_photo_path }}"
-                                alt="{{ Auth::user()->name }}" />
-                        @else
-                            <img class="h-8 w-8 rounded-full object-cover"
-                                src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                        @endif
-                    </div>
-                @endif
-
-                <div>
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                </div>
-            </div>
-
-
-        </div> --}}
     </div>
 </nav>
