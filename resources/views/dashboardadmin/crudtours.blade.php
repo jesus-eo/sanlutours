@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="p-2 h-full md:px-10  border-b border-gray-200">
+    <div class="p-1 h-full md:px-10  border-b border-gray-300">
         <div>
             @if (session('success'))
                 <div class="alert alert-success bg-green-400">
@@ -21,7 +21,7 @@
                 Tour</button>
             {{-- Abre ventana modal añadiendo el componente crear --}}
 
-            <div x-show='formcreate'>@include('components.formcreate')</div>
+            <div x-cloak x-show='formcreate'>@include('components.formcreate')</div>
             <div class="overflow-x-auto">
                 <table class="table-auto w-full">
                     <thead>
@@ -103,7 +103,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <div x-show='formedit'>@include('components.formedit', [$tour])</div>
+                        <div x-cloak x-show='formedit'>@include('components.formedit', [$tour])</div>
                         <td class="rounded border-2 px-4 py-2" colspan="3">{{ $tour->descripcion }} </td>
                         <td class="rounded border-2 px-4 py-2" colspan="4">{{ $tour->planing }} </td>
                         <td class="rounded border-2 px-4 py-2 text-center">

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="p-2 h-full md:px-10 bg-white border-b border-gray-200">
+    <div class="p-1 h-full md:px-10  border-b border-gray-300">
         <div>
             @if (session('success'))
                 <div class="alert alert-success bg-green-400">
@@ -56,7 +56,7 @@
                                     </form>
                                 </td>
                             </tr>
-                            <div x-show='formedit'>@include('components.formeditusuario', [
+                            <div x-cloak x-show='formedit'>@include('components.formeditusuario', [
                                 $usuario,
                             ])</div>
                         @endforeach

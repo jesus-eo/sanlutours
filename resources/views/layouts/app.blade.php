@@ -21,14 +21,14 @@
 
 </head>
 
-<body class="flex h-screen">
+<body class="flex min-h-screen" id="body-dashboard">
 
     {{-- <x-jet-banner /> --}}
-    <div class="h-full bg-gray-100 w-full flex" id="container-dashboard" x-data="datos()">
+    <div class="h-full w-full flex" id="container-dashboard" x-data="datos()">
 
         {{-- Menu Hamburguesa --}}
         <div class="-mr-2 flex items-center md:hidden">
-            <button @click="icono = ! icono" id="btn-menu-dashboard"
+            <button x-on:click="icono = ! icono" id="btn-menu-dashboard"
                 class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path :class="{ 'hidden': icono, 'inline-flex': !icono }" class="inline-flex"
@@ -190,7 +190,7 @@
         @livewire('navigation-menu')
 
         <!-- Page Content -->
-        <main class=" w-5/6" id="main-dashboard">
+        <main class=" w-5/6 min-h-screen" id="main-dashboard">
             {{ $slot }}
         </main>
     </div>

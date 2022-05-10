@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="p-2 h-full md:px-10 bg-white border-b border-gray-200">
+    <div class="p-1 h-full md:px-10  border-b border-gray-200">
         <div>
             @if (session('success'))
                 <div class="alert alert-success bg-green-400">
@@ -21,7 +21,7 @@
             <button x-on:click="formcreate=true"
                 class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Crear Reserva</button>
             {{-- Abre ventana modal añadiendo el componente crear --}}
-            <div class="h-3/4" x-show='formcreate'>@include('components.formcreatereserva')</div>
+            <div class="h-3/4" x-cloak x-show='formcreate'>@include('components.formcreatereserva')</div>
             <div class="overflow-x-auto">
             <table class="table-auto w-full">
                 <thead>
@@ -65,7 +65,7 @@
                             <td class="rounded border-2 px-4 py-2">{{ $reserva->fechahora}} </td>
 
 
-                    <div x-show='formedit'>@include('components.formeditreserva', [$reserva])</div>
+                    <div x-cloak x-show='formedit'>@include('components.formeditreserva', [$reserva])</div>
                     <td class="rounded border-2 px-4 py-2 text-center">
                         <button @click="formedit=true"
                             class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-4 rounded mb-6">Editar</button>
