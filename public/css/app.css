@@ -1023,16 +1023,9 @@ select {
 .m-3 {
   margin: 0.75rem;
 }
-.m-0 {
-  margin: 0px;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-.-mx-6 {
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
 }
 .my-3 {
   margin-top: 0.75rem;
@@ -1046,9 +1039,9 @@ select {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
 }
-.mx-0 {
-  margin-left: 0px;
-  margin-right: 0px;
+.-mx-6 {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -1206,11 +1199,14 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-full {
+  height: 100%;
+}
 .h-52 {
   height: 13rem;
 }
-.h-full {
-  height: 100%;
+.h-3\/4 {
+  height: 75%;
 }
 .h-32 {
   height: 8rem;
@@ -1266,14 +1262,14 @@ select {
 .w-1\/6 {
   width: 16.666667%;
 }
-.w-32 {
-  width: 8rem;
-}
 .w-1\/5 {
   width: 20%;
 }
 .w-64 {
   width: 16rem;
+}
+.w-32 {
+  width: 8rem;
 }
 .w-9\/12 {
   width: 75%;
@@ -1465,6 +1461,9 @@ select {
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-x-auto {
+  overflow-x: auto;
+}
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -1653,23 +1652,19 @@ select {
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
-.from-sky-600 {
-  --tw-gradient-from: #0284c7;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(2 132 199 / 0));
-}
-.from-green-700 {
-  --tw-gradient-from: #15803d;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(21 128 61 / 0));
-}
 .from-green-600 {
   --tw-gradient-from: #16a34a;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(22 163 74 / 0));
 }
-.to-cyan-400 {
-  --tw-gradient-to: #22d3ee;
+.from-sky-600 {
+  --tw-gradient-from: #0284c7;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(2 132 199 / 0));
 }
 .to-green-400 {
   --tw-gradient-to: #4ade80;
+}
+.to-cyan-400 {
+  --tw-gradient-to: #22d3ee;
 }
 .bg-cover {
   background-size: cover;
@@ -2729,6 +2724,11 @@ select {
 
   .md\:p-6 {
     padding: 1.5rem;
+  }
+
+  .md\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   .md\:px-6 {

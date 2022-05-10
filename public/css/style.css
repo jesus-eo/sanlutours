@@ -243,8 +243,8 @@ li {
     transition: all .5s;
 }
 
-#mobile-menu-dashboard {
-    margin: opx;
+#mobile-menu-dashboard li {
+    margin: 10px;
 }
 
 #mobile-menu li {
@@ -592,6 +592,10 @@ li {
     display: inherit;
 }
 
+thead {
+    background-color: rgb(218, 218, 218);
+}
+
 
 /*-----------MEDIA QUERY(incluye menu hamburguesa del dashboard--------*/
 
@@ -658,6 +662,7 @@ li {
     }
     #main-dashboard {
         width: 100%;
+        height: 100%;
     }
 }
 

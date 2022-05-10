@@ -30,14 +30,16 @@ function desplegable() {
 
 
 /*Desplegable menuhamburguesa(Tours)*/
-let btnsubmenu = document.querySelector("#submenu");
-btnsubmenu.addEventListener('click', function() {
-    document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
-    document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
-    document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
-    document.querySelector("#boton-lateral").classList.toggle("fa-angle-right");
+if (document.querySelector("#submenu")) {
+    let btnsubmenu = document.querySelector("#submenu");
+    btnsubmenu.addEventListener('click', function() {
+        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-visible-burguer");
+        document.querySelector("#menu-desplegable-burguer").classList.toggle("desplegable-oculto-burguer");
+        document.querySelector("#boton-lateral").classList.toggle("fa-angle-down");
+        document.querySelector("#boton-lateral").classList.toggle("fa-angle-right");
 
-});
+    });
+}
 /*Header aparece cuando scrolleamos hacia arriba
 ubicacionPrincipal vale 0 al inicio*/
 
