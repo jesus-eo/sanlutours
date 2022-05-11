@@ -62,7 +62,7 @@
                             <td class="rounded border-2 px-4 py-2">{{ $reserva->user->name }} </td>
                             <td class="rounded border-2 px-4 py-2">{{ $reserva->tour->nombre }} </td>
                             <td class="rounded border-2 px-4 py-2">{{ $reserva->numpersonas }} </td>
-                            <td class="rounded border-2 px-4 py-2">{{ $reserva->fechahora}} </td>
+                            <td class="rounded border-2 px-4 py-2">{{(new Datetime($reserva->fechahora))->format('d/m/Y H:i:s')}} </td>
 
 
                     <div x-cloak x-show='formedit'>@include('components.formeditreserva', [$reserva])</div>

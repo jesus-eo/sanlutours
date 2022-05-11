@@ -44,7 +44,8 @@
             <!-- Navigation Links -->
             @if (Auth::user()->administrador != null)
                 <li>
-                    <a href="{{ route('index') }}" title="Dashboard" aria-label="dashboard"
+                    <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')" title="Dashboard"
+                        aria-label="dashboard"
                         class="relative px-4 py-3 flex text-white  items-center space-x-4 rounded-xl hover:bg-gradient-to-r from-green-600 to-green-400  ">
                         <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                             <path
@@ -56,11 +57,12 @@
                                 class="fill-current "></path>
                         </svg>
                         <span class="-mr-1 font-medium"> {{ __('Inicio') }}</span>
-                    </a>
+                    </x-jet-nav-link>
                 </li>
 
                 <li>
-                    <a href="{{ route('profile.show') }}" title="Perfil usuario" aria-label="dashboard"
+                    <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" title="Perfil usuario"
+                        aria-label="dashboard"
                         class=" text-white relative px-4 py-3 flex items-center space-x-4 rounded-xl hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white ">
                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -70,11 +72,10 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                         <span class="-mr-1 font-medium"> {{ __('Perfil') }}</span>
-                    </a>
+                    </x-jet-nav-link>
                 </li>
                 <li>
-                    <a href="{{ route('crudtours') }}"
-                        title="Tours"
+                    <x-jet-nav-link href="{{ route('crudtours') }}" title="Tours" :active="request()->routeIs('crudtours')"
                         class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white">
                         <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path class="fill-current text-gray-600 " fill-rule="evenodd"
@@ -84,10 +85,10 @@
                                 d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
                         </svg>
                         <span class="-mr-1 font-medium">{{ __('Tours') }}</span>
-                    </a>
+                    </x-jet-nav-link>
                 </li>
                 <li>
-                    <a href="{{ route('crudguias') }}" title="Guías"
+                    <x-jet-nav-link href="{{ route('crudguias') }}" title="Guías" :active="request()->routeIs('crudguias')"
                         class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white ">
                         <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path class="fill-current text-gray-600 " d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
@@ -95,10 +96,11 @@
                                 d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
                         </svg>
                         <span class="-mr-1 font-medium">{{ __('Guías') }}</span>
-                    </a>
+                    </x-jet-nav-link>
                 </li>
                 <li>
-                    <a href="{{ route('crudreservas') }}" title="Reservas"
+                    <x-jet-nav-link href="{{ route('crudreservas') }}" title="Reservas"
+                    :active="request()->routeIs('crudreservas')"
                         class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white  group">
                         <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd"
@@ -108,10 +110,11 @@
                                 d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
                         </svg>
                         <span class=" -mr-1 font-medium">{{ __('Reservas') }}</span>
-                    </a>
+                    </x-jet-nav-link>
                 </li>
                 <li>
-                    <a href="{{ route('crudusuarios') }}" title="Usuarios"
+                    <x-jet-nav-link href="{{ route('crudusuarios') }}" title="Usuarios"
+                    :active="request()->routeIs('crudusuarios')"
                         class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white">
                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -120,11 +123,26 @@
                         </svg>
 
                         <span class="-mr-1 font-medium">{{ __('Usuarios') }}</span>
-                    </a>
+                    </x-jet-nav-link>
+                </li>
+                <li>
+                    <x-jet-nav-link href="{{ route('crudviajes') }}" title="Viajes" :active="request()->routeIs('crudviajes')"
+                        class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white">
+                        <svg class="w-6 h-6 text-gray-500 flex-shrink-0  transition duration-75" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path class="fill-current text-gray-600 " fill-rule="evenodd"
+                                d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
+                                clip-rule="evenodd" />
+                            <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                                d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
+                        </svg>
+                        <span class="-mr-1 font-medium">{{ __('Viajes') }}</span>
+                    </x-jet-nav-link>
                 </li>
             @else
                 <li>
-                    <a href="{{ route('index') }}" aria-label="dashboard"
+                    <x-jet-nav-link href="{{ route('index') }}" aria-label="dashboard"
+                    :active="request()->routeIs('index')"
                         class="text-white relative px-4 py-3 flex items-center space-x-4 rounded-xl hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white ">
                         <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                             <path
@@ -136,10 +154,11 @@
                                 class="fill-current "></path>
                         </svg>
                         <span class="-mr-1 font-medium"> {{ __('Inicio') }}</span>
-                    </a>
+                    </x-jet-nav-link>
                 </li>
                 <li>
-                    <a href="{{ route('profile.show') }}" title="Perfil usuario" aria-label="dashboard"
+                    <x-jet-nav-link href="{{ route('profile.show') }}" title="Perfil usuario" aria-label="dashboard"
+                    :active="request()->routeIs('profile.show')"
                         class="text-white relative px-4 py-3 flex items-center space-x-4 rounded-xl hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white ">
                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -149,10 +168,11 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                         <span class="-mr-1 font-medium"> {{ __('Perfil') }}</span>
-                    </a>
+                    </x-jet-nav-link>
                 </li>
                 <li>
-                    <a href="{{ route('reservasusuario') }}"
+                    <x-jet-nav-link href="{{ route('reservasusuario') }}"
+                    :active="request()->routeIs('reservasusuario')"
                         class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white  group">
                         <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd"
@@ -162,8 +182,7 @@
                                 d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
                         </svg>
                         <span class=" -mr-1 font-medium">{{ __('Reservas') }}</span>
-                    </a>
-
+                    </x-jet-nav-link>
                 </li>
             @endif
             <li>

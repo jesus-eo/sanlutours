@@ -26,7 +26,7 @@ class GuiaController extends Controller
     public function index()
     {
         return view('dashboardadmin.crudguias', [
-            "guias" => Guia::paginate(1)
+            "guias" => Guia::paginate(3)
         ]);
     }
 

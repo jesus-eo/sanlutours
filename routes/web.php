@@ -5,7 +5,7 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PayPalController;
-
+use App\Http\Controllers\ViajeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -122,6 +122,21 @@ Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
     Route::post('/usuarios', [UserController::class, 'store'])->name('usuario.store');
     Route::post('/usuarios/{usuario}', [UserController::class,'update'])->name('usuarios.update');
     Route::delete('/usuarios/{usuario}', [UserController::class,'destroy'])->name('usuario.destroy');
+
+    /* Crud Viajes */
+    Route::get('/viajes', [
+        ViajeController::class,
+        'index'
+    ])->name('crudviajes');
+    Route::post('/viajes', [ViajeController::class, 'store'])->name('viajes.store');
+    Route::post('/viajes/{viaje}', [
+        ViajeController::class,
+        'update'
+    ])->name('viajes.update');
+    Route::delete('/viajes/{viaje}', [
+        ViajeController::class,
+        'destroy'
+    ])->name('viajes.destroy');
 });
 
 /*-----Modo usuario------- */

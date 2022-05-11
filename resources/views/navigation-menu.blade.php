@@ -56,7 +56,7 @@
                             <span class="-mr-1 font-bold"> {{ __('Inicio') }}</span>
                         </x-jet-nav-link>
                     </li>
-
+                    {{-- Perfil --}}
                     <li>
                         <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" title="Perfil usuario"
                             aria-label="dashboard"
@@ -71,6 +71,7 @@
                             <span class="-mr-1 font-bold"> {{ __('Perfil') }}</span>
                         </x-jet-nav-link>
                     </li>
+                    {{-- Tours --}}
                     <li>
                         <x-jet-nav-link href="{{ route('crudtours') }}" :active="request()->routeIs('crudtours')" title="Tours"
                             class="active px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400   hover:text-white">
@@ -118,6 +119,21 @@
                             </svg>
 
                             <span class="-mr-1 font-bold">{{ __('Usuarios') }}</span>
+                        </x-jet-nav-link>
+                    </li>
+                    <li>
+                        <x-jet-nav-link href="{{ route('crudviajes') }}" title="Viajes" :active="request()->routeIs('crudviajes')"
+                            class="px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400   hover:text-white">
+                            <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path class="fill-current text-gray-600 " fill-rule="evenodd"
+                                    d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
+                                    clip-rule="evenodd" />
+                                <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                                    d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
+                            </svg>
+
+                            <span class="-mr-1 font-bold">{{ __('Viajes') }}</span>
                         </x-jet-nav-link>
                     </li>
                 @else
@@ -184,14 +200,7 @@
             </ul>
         </div>
 
-
-
-
-        <!-- Hamburger -->
-
-
     </aside>
-
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
 

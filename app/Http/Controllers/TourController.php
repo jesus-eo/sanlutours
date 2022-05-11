@@ -74,10 +74,7 @@ class TourController extends Controller
                 /* Lo guardamos en la base de datos como string */
                 $nuevoTour->imagen = "Img/img Deportivo/" . $image->getClientOriginalName();
             }
-
             $nuevoTour->save();
-
-
             return redirect()->route('crudtours')->with('success', 'Tour creado con exito');
         }
         return redirect()->route('crudtours')->with('fault', 'Tour no creado');
