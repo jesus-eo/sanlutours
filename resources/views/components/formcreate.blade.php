@@ -22,14 +22,7 @@
                         <textarea name="planing" id="planing" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="planing" cols="30" rows="10" required></textarea>
 
                     </div>
-                    {{-- <div class="mb-4">
-                        <label for="fechahora" class="block text-gray-700 text-sm font-bold mb-2">Fecha hora</label>
-                        <input type="text" name="fechahora" id="fechahora" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" pattern="^[0-9]{4}(-|/)(0[1-9]|1[0-2])(-|/)(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$" placeholder="YYYY-MM-DD 00:00:00" required>
-                    </div> --}}
-                    {{-- <div class="mb-4">
-                        <label for="plazas" class="block text-gray-700 text-sm font-bold mb-2">Plazas</label>
-                        <input type="number" name="plazas" id="plazas"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0" required placeholder="Plazas" >
-                    </div> --}}
+
                     <div class="mb-4">
                         <label for="tipo" class="block text-gray-700 text-sm font-bold mb-2">Tipo</label>
                         <select name="tipo">
@@ -46,11 +39,11 @@
                     </div>
                     <div class="mb-4">
                         <label for="precio" class="block text-gray-700 text-sm font-bold mb-2">Precio</label>
-                        <input type="text" name="precio" id="precio" pattern="^\d{1,2}(\.\d{1,2})?$" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0" placeholder="precio" required >
+                        <input type="text" name="precio" id="precio" pattern="^\d{1,2}(\.\d{1,2})?$" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0" title="Formato:DD.DD" placeholder="precio" required >
                     </div>
                     <div class="mb-4">
                         <label for="duracion" class="block text-gray-700 text-sm font-bold mb-2">Duración</label>
-                        <input type="number" name="duracion" id="duracion" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="duracion" required>
+                        <input type="number" name="duracion" id="duracion" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Duración (horas)" required>
                     </div>
                     <div class="mb-4">
                         <label for="valoracion" class="block text-gray-700 text-sm font-bold mb-2">Valoración</label>

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="p-2 sm:px-20 bg-white border-b border-gray-200">
+    <div class="p-2 h-full sm:px-20 bg-white border-b border-gray-200">
         <div>
             @if (session('success'))
                 <div class="alert alert-success bg-green-400">

@@ -2,6 +2,10 @@
 *----------------Página Principal-------------
 *---------------------------------------------*/
 
+[x-cloak] {
+    display: none !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -231,14 +235,20 @@ li {
     transform: rotate(90deg);
 }
 
-#mobile-menu {
+#mobile-menu,
+#mobile-menu-dashboard {
     position: fixed;
     width: 100%;
     height: 100vh;
+    z-index: 1;
     top: 100px;
     background-color: #2F3A29;
     text-align: center;
     transition: all .5s;
+}
+
+#mobile-menu-dashboard li {
+    margin: 10px;
 }
 
 #mobile-menu li {
@@ -247,7 +257,8 @@ li {
     transition: all .5s;
 }
 
-#mobile-menu li a {
+#mobile-menu li a,
+#mobile-menu-dashboard li a {
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 600;
@@ -328,7 +339,7 @@ li {
 }
 
 .container-b2 a>img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     transition: all 1s;
 }
 
@@ -517,7 +528,7 @@ li {
 #b6-pagina-principal {
     display: flex;
     flex-direction: column;
-    height: 55vh;
+    height: 100%;
     width: 100%;
     background-color: #DBE2DD;
 }
@@ -576,10 +587,30 @@ li {
 #b6-p-actualizacion {
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
 
 
-/*-----------MEDIA QUERY--------*/
+/* Dashboard */
+
+.menu-dashboard-visible {
+    display: inherit;
+}
+
+thead {
+    background-color: rgb(218, 218, 218);
+}
+
+#main-dashboard {
+    background-color: rgb(243 244 246);
+}
+
+#body-dashboard {
+    font-family: var(--fuenteCorben);
+}
+
+
+/*-----------MEDIA QUERY(incluye menu hamburguesa del dashboard--------*/
 
 
 /* md */
@@ -634,6 +665,17 @@ li {
     #arrow-left,
     #arrow-right {
         font-size: 6vh;
+    }
+    /* dashboard */
+    .nav-menu-dashboard {
+        display: none;
+    }
+    #container-dashboard {
+        flex-direction: column;
+    }
+    #main-dashboard {
+        width: 100%;
+        height: 100%;
     }
 }
 

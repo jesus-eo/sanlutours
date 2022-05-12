@@ -19,11 +19,11 @@
                     </div>
                     <div class="mb-4">
                         <label for="numpersonas" class="block text-gray-700 text-sm font-bold mb-2">Número personas</label>
-                        <input type="number" name="numpersonas" id="numpersonas" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0" value="{{ old('numpersonas', $reserva->numpersonas) }}" placeholder="numpersonas" required>
+                        <input type="number" name="numpersonas" id="numpersonas" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="1" value="{{ old('numpersonas', $reserva->numpersonas) }}" placeholder="numpersonas" required>
                     </div>
                     <div class="mb-4">
                         <label for="fechahora" class="block text-gray-700 text-sm font-bold mb-2">Fecha-Hora</label>
-                        <input type="text" name="fechahora" id="fechahora" value="{{ old('fechahora', $reserva->fechahora) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0"  placeholder="fechahora" pattern="^[0-9]{4}(-|/)(0[1-9]|1[0-2])(-|/)(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$" required>
+                        <input type="text" name="fechahora" id="fechahora" value="{{ old('fechahora', $reserva->fechahora) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" min="0"  placeholder="fechahora" pattern="^[0-9]{4}(-|/)(0[1-9]|1[0-2])(-|/)(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$"  title="YYYY-MM-DD HH:MM:SS" required>
                     </div>
 
                     <div class="flex items-center justify-evenly w-full">
@@ -37,40 +37,4 @@
         </div>
     </div>
 </div>
- <script>
-    let btnenviareserva = document.getElementById("btnenviareserva");
-    let formulario1 = document.getElementById('formreserva')
-    let fecha1 = document.querySelector('#fechahora');
-
-    btnenviareserva.addEventListener('click',validar);
-    fecha1.addEventListener('input',validarfecha);
-    /* Hay que vaciar el valor de todos los elementos del formulario1 con setCustomValidity porque se queda guardado la cadena introducida anteriormente */
-    function limpiarCustomvaliditi() {
-        for (const elemento of formulario1.elements) {
-            elemento.setCustomValidity("");
-        }
-    }
-
-    function validarfecha() {
-        limpiarCustomvaliditi();
-        //Si no contiene datos validos
-        if(!fecha1.checkValidity()){
-            if(fecha1.validity.patternMismatch){
-                fecha1.setCustomValidity("Debes introducir un formato correcto YYYY/MM/DD HH:MM:SS ");
-            }
-            //Para mandar el mensaje creado
-            fecha1.reportValidity();
-            return false;
-        }
-        return true;
-    }
-
-    function validar(e) {
-        limpiarCustomvaliditi();
-        if(validarfecha()) {
-        } else {
-            e.preventDefault();
-        }
-    }
-    </script>
 

@@ -13,8 +13,8 @@
     <script src="{{ asset('js/sobre-nosotros.js') }}" defer></script>
 
     <!--Iconos -->
-{{--     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> --}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--Fuente-->
@@ -164,7 +164,7 @@
                 </div>
                 <div>
                     <h3 class="h3-datos-tour">FECHA</h3>
-                    <p>{{ $tour->fechahora }}</p>
+                    <p>{{(new Datetime($viaje->fechahora))->format('d/m/Y H:i:s')}}</p>
                 </div>
                 <div>
                     <h3 class="h3-datos-tour">PRECIO</h3>
