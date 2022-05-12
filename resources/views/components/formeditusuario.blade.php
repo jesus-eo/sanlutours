@@ -10,11 +10,11 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
                     <div class="mb-4">
                         <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" value="{{ old('nombre', $usuario->name) }}"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="nombre">
+                        <input type="text" name="nombre" id="nombre" value="{{ old('nombre', $usuario->name) }}"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="nombre" required>
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                        <input type="email" name="email" id="email" value="{{ old('email', $usuario->email) }}"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="email">
+                        <input type="email" name="email" id="email" value="{{ old('email', $usuario->email) }}"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="email" required>
                     </div>
 
                     <div class="flex items-center justify-evenly w-full">

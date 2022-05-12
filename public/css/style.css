@@ -339,7 +339,7 @@ li {
 }
 
 .container-b2 a>img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     transition: all 1s;
 }
 
@@ -528,7 +528,7 @@ li {
 #b6-pagina-principal {
     display: flex;
     flex-direction: column;
-    height: 55vh;
+    height: 100%;
     width: 100%;
     background-color: #DBE2DD;
 }
@@ -587,6 +587,7 @@ li {
 #b6-p-actualizacion {
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
 
 

@@ -24,10 +24,10 @@
                     <div class="mb-4">
                         <label for="tipo" class="block text-gray-700 text-sm font-bold mb-2">Tipo</label>
                         <select name="tipo">
-                            <option value="free">free</option>
-                            <option value="gastronomico">gastronomico</option>
-                            <option value="deportivo">deportivo</option>
-                            <option value="cultural">cultural</option>
+                            <option value="free">Free</option>
+                            <option value="gastronomico">Gastronómico</option>
+                            <option value="deportivo">Deportivo</option>
+                            <option value="cultural">Cultural</option>
                           </select>
                     </div>
                     <div class="mb-4">

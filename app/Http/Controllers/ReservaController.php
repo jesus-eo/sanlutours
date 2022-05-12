@@ -43,8 +43,16 @@ class ReservaController extends Controller
     public function store(StoreReservaRequest $request)
     {
         $validados = $request->validated();
-        $userid = User::where('name',$validados['user_id'])->first()->id;
-        $tourid = Tour::where('nombre',$validados['tour_id'])->first()->id;
+        $userid = User::where('name',$validados['user_id'])->first();
+        $tourid = Tour::where('nombre',$validados['tour_id'])->first();
+        if($userid == null){
+            return redirect()->route('crudreservas')->with('fault', 'Reserva no creada, usuario incorrecto');
+        }elseif($tourid == null){
+            return redirect()->route('crudreservas')->with('fault', 'Reserva no creada, tour incorrecto');
+        }else{
+            $userid = $userid->id();
+            $tourid = $tourid->id();
+        }
         $reservaExistente = Reserva::get()->where('numpersonas', $validados['numpersonas'])->where('fechahora', $validados['fechahora'])->where('user_id', $userid)->where('tour_id', $tourid);
         if ($reservaExistente->isEmpty()) {
             $nuevoreserva = new Reserva();
