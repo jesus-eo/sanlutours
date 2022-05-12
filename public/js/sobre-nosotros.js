@@ -350,5 +350,5 @@ function cambiaComentario(id, json) {
         comentarioActual -= 1;
         document.querySelector("#b5-p").innerHTML = json[comentarioActual].descripcion;
         document.querySelector("#b5-p2").innerHTML = json[comentarioActual].nombre;
-    }
+    };
 }
