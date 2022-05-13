@@ -91,6 +91,7 @@ async function valoracion(e, id) {
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                     },
                     body: JSON.stringify(json),
+                    mode: "no-cors",
                 })
                 //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
             if (response.ok) {
@@ -131,7 +132,7 @@ async function valoraciontour(e, id) {
                     //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
                     headers: {
                         'Content-type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        /* 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') */
 
                     },
                     body: JSON.stringify(json),
