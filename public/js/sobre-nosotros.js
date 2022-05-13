@@ -61,7 +61,7 @@ window.onscroll = function() {
         document.querySelector('.desplegable-oculto').style.backgroundColor = '';
     }
 }
-const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+
 /********************Estrella guias ***************/
 let primeravezguia = true;
 async function valoracion(e, id) {
@@ -83,7 +83,7 @@ async function valoracion(e, id) {
                 "id": id,
                 "valor": e.value
             };
-            let response = await fetch(corsAnywhere + 'valguias', {
+            let response = await fetch('http://sanlutours.herokuapp.com/valguias', {
                     method: 'POST',
                     //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
                     headers: {
@@ -324,7 +324,7 @@ let comentarioActual = 0;
 async function peticion(e) {
     let id = e.target.id;
     try {
-        const respuesta = await fetch('https://sanlutours.herokuapp.com/comentarios', { mode: 'no-cors' });
+        const respuesta = await fetch('http://sanlutours.herokuapp.com/comentarios');
         if (respuesta.ok) {
             let response = await respuesta.json();
             cambiaComentario(id, response);
