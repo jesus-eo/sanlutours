@@ -92,7 +92,6 @@ async function valoracion(e, id) {
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                     },
                     body: JSON.stringify(json),
-                    mode: "no-cors",
                 })
                 //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
             if (response.ok) {
@@ -128,7 +127,7 @@ async function valoraciontour(e, id) {
                 "id": id,
                 "valor": e.value,
             };
-            let response = await fetch('https://sanlutours.herokuapp.com/valtour', {
+            let response = await fetch('http://sanlutours.herokuapp.com/valtour', {
                     method: 'POST',
                     //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
                     headers: {
@@ -325,7 +324,7 @@ let comentarioActual = 0;
 async function peticion(e) {
     let id = e.target.id;
     try {
-        const respuesta = await fetch(corsAnywhere + 'comentarios');
+        const respuesta = await fetch('https://sanlutours.herokuapp.com/comentarios', { mode: 'no-cors' });
         if (respuesta.ok) {
             let response = await respuesta.json();
             cambiaComentario(id, response);
