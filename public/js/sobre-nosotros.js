@@ -61,7 +61,7 @@ window.onscroll = function() {
         document.querySelector('.desplegable-oculto').style.backgroundColor = '';
     }
 }
-
+const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 /********************Estrella guias ***************/
 let primeravezguia = true;
 async function valoracion(e, id) {
@@ -83,13 +83,13 @@ async function valoracion(e, id) {
                 "id": id,
                 "valor": e.value
             };
-            let response = await fetch('https://sanlutours.herokuapp.com/valguias', {
+            let response = await fetch(corsAnywhere + 'valguias', {
                     method: 'POST',
                     //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
                     headers: {
                         'Content-type': 'application/json',
                         'Access-Control-Allow-Origin': '*',
-                        /* 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') */
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                     },
                     body: JSON.stringify(json),
                     mode: "no-cors",
@@ -136,8 +136,6 @@ async function valoraciontour(e, id) {
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                         'Access-Control-Allow-Origin': '*'
                     },
-
-                    mode: "no-cors",
                     body: JSON.stringify(json),
                 })
                 //Utilizamos el siguiente if para comprobar si la respuesta es ok, porque puede que la respuesta este bien pero devuelva un código de fallo
@@ -327,7 +325,7 @@ let comentarioActual = 0;
 async function peticion(e) {
     let id = e.target.id;
     try {
-        const respuesta = await fetch('https://sanlutours.herokuapp.com/comentarios');
+        const respuesta = await fetch(corsAnywhere + 'comentarios');
         if (respuesta.ok) {
             let response = await respuesta.json();
             cambiaComentario(id, response);
