@@ -83,7 +83,7 @@ async function valoracion(e, id) {
                 "id": id,
                 "valor": e.value
             };
-            let response = await fetch('http://sanlutours.herokuapp.com/valguias', {
+            let response = await fetch('https://sanlutours.herokuapp.com/valguias', {
                     method: 'POST',
                     //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
                     headers: {
@@ -127,7 +127,7 @@ async function valoraciontour(e, id) {
                 "id": id,
                 "valor": e.value,
             };
-            let response = await fetch('http://sanlutours.herokuapp.com/valtour', {
+            let response = await fetch('https://sanlutours.herokuapp.com/valtour', {
                     method: 'POST',
                     //Se manda la petición en forma de cadena tenemos que utilizar ese content-type del headers
                     headers: {
@@ -324,7 +324,7 @@ let comentarioActual = 0;
 async function peticion(e) {
     let id = e.target.id;
     try {
-        const respuesta = await fetch('http://sanlutours.herokuapp.com/comentarios');
+        const respuesta = await fetch('https://sanlutours.herokuapp.com/comentarios');
         if (respuesta.ok) {
             let response = await respuesta.json();
             cambiaComentario(id, response);

@@ -167,7 +167,7 @@
                         </x-jet-nav-link>
                     </li>
                     <li>
-                        <a href="{{ route('reservasusuario') }}" :active="request()->routeIs('reservasusuario')"
+                        <x-jet-nav-link href="{{ route('reservasusuario') }}" :active="request()->routeIs('reservasusuario')"
                             class="px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400   hover:text-white  group">
                             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd"
@@ -177,7 +177,7 @@
                                     d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
                             </svg>
                             <span class=" -mr-1 font-bold">{{ __('Reservas') }}</span>
-                        </a>
+                        </x-jet-nav-link>
 
                     </li>
                 @endif
