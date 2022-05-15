@@ -41,7 +41,7 @@
                 <!-- Navigation Links -->
                 @if (Auth::user()->administrador != null)
                     <li>
-                        <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')" title="Dashboard"
+                        <x-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')" title="Dashboard"
                             aria-label="dashboard"
                             class="relative px-4 py-3 flex items-center space-x-4 rounded-xl hover:bg-gradient-to-r from-green-600 to-green-400   hover:text-white ">
                             <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
@@ -54,7 +54,7 @@
                                     class="fill-current "></path>
                             </svg>
                             <span class="-mr-1 font-bold"> {{ __('Inicio') }}</span>
-                        </x-jet-nav-link>
+                        </x-nav-link>
                     </li>
                     {{-- Perfil --}}
                     <li>
@@ -73,7 +73,7 @@
                     </li>
                     {{-- Tours --}}
                     <li>
-                        <x-jet-nav-link href="{{ route('crudtours') }}" :active="request()->routeIs('crudtours')" title="Tours"
+                        <x-nav-link href="{{ route('crudtours') }}" :active="request()->routeIs('crudtours')" title="Tours"
                             class="active px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400   hover:text-white">
                             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path class="fill-current text-gray-600 " fill-rule="evenodd"
@@ -83,7 +83,7 @@
                                     d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
                             </svg>
                             <span class="-mr-1 font-bold">{{ __('Tours') }}</span>
-                        </x-jet-nav-link>
+                        </x-nav-link>
                     </li>
                     <li>
                         <x-jet-nav-link href="{{ route('crudguias') }}" title="Guías" :active="request()->routeIs('crudguias')"
