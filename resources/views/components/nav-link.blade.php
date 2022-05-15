@@ -2,7 +2,8 @@
 
 @php
 $classes = ($active ?? false)
-            ? 'border-b-2 border-green-700 p-2 '
+
+            ? 'underline decoration-green-700'
             : 'p-2 ';
 @endphp
 

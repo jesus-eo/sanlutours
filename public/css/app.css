@@ -1548,6 +1548,10 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
+.border-green-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(21 128 61 / var(--tw-border-opacity));
+}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1992,6 +1996,10 @@ select {
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+.decoration-green-700 {
+  -webkit-text-decoration-color: #15803d;
+          text-decoration-color: #15803d;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
