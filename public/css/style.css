@@ -40,6 +40,7 @@ li {
 -----------------*/
 
 #bloque1-pag-principal {
+    position: relative;
     height: 99vh;
     display: flex;
     flex-direction: column;
@@ -49,20 +50,19 @@ li {
 
 /*Imagen fondo*/
 
-#bloque1-pag-principal::before {
-    content: ' ';
-    display: block;
+.img-fondo {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    opacity: 0.6;
-    background-image: url('../Img/Página\ principal/Fondob1.jpg');
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
+}
+
+#login,
+.p1-main-b1,
+.p2-main-b1 {
+    position: relative;
+    z-index: 2;
 }
 
 #login {
