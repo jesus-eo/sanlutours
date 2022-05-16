@@ -185,8 +185,7 @@
             }
         @endphp
         {{-- Empezamos aqui --}}
-        <div id="bloque2-pag-individual"  x-data="{           activeTab:1,
-            }"
+        <div id="bloque2-pag-individual"  x-data="{activeTab:1,}"
             {{-- class="container mx-auto mt-20" --}}>
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ul>
@@ -197,21 +196,25 @@
                 </ul>
             </nav>
 
-            <ul class="flex flex-row justify-between">
+            <ul class="flex flex-row justify-around mb-6">
                 <li>
-                    <a href="#" class="px-4 border-b-2 border-gray-900 hover:border-teal-300" x-on:click.prevent="activeTab = 1" >Tab 1</a>
+                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 1" x-cloak :class="activeTab === 1 ? 'border-teal-500' : ''">Descripción</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 border-gray-900 hover:border-teal-300" x-on:click.prevent="activeTab = 2" >Tab 2</a>
+                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 2" x-cloak :class="activeTab === 2 ? 'border-teal-500' : ''">Planing de la visita</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 border-gray-900 hover:border-teal-300" x-on:click.prevent="activeTab = 3" >Tab 3</a>
+                    <a href="#" class="px-4 border-b-2 border-gray-900 text-white hover:border-teal-500" x-on:click.prevent="activeTab = 3" x-cloak :class="activeTab === 3 ? 'border-teal-500' : ''">Punto de encuentro</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 border-gray-900 hover:border-teal-300" x-on:click.prevent="activeTab = 4" :class="activeTab === 4 ? activeClass : inactiveClass">Tab 4</a>
+                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 4" x-cloak :class="activeTab === 4 ? 'border-teal-500' : ''">Reserva tu plaza</a>
+                </li>
+                <li>
+                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 5" x-cloak :class="activeTab === 5 ? 'border-teal-500' : ''">Meteorologia</a>
                 </li>
             </ul>
-            <div x-show="activeTab === 1" class="descripcion-ind">
+            <div x-show="activeTab === 1" class="planing-ind">
+                <h1>Descripción</h1>
                 <p>{{ $tour->descripcion }}</p>
             </div>
             <div x-show="activeTab === 2" class="planing-ind">
@@ -221,14 +224,16 @@
 
             {{-- MApa --}}
             <div x-show="activeTab === 3" id="punto-encuentro">
-                <div class="b1-punto-encuentro">
+                <div class="b1-punto-encuentro text-white">
                     <h1>Punto de encuentro</h1>
                 </div>
                 <div id="map">
                 </div>
+                <div class="flex justify-center items-center">
                 <button id="btnllegar"
-                    class="p-card border-2 border-green-800 px-20 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300">Como
+                    class="p-card border-2 text-black  px-20 rounded-md font-medium  transition duration-300">Como
                     llegar</button>
+                </div>
             </div>
 
             <div x-show="activeTab === 4" id="form-reserva" role="contentinfo">

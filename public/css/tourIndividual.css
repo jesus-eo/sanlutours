@@ -285,19 +285,6 @@ li {
     color: #FFFFFF;
 }
 
-.descripcion-ind {
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30%;
-}
-
-.descripcion-ind p {
-    width: 80%;
-    font-size: 30px;
-}
-
 .planing-ind {
     color: #FFFFFF;
     display: flex;
@@ -306,6 +293,7 @@ li {
     flex-direction: column;
     height: 60%;
     margin-bottom: 5%;
+    margin-top: 3%;
 }
 
 .planing-ind p {
@@ -326,7 +314,6 @@ Punto de encuentro
 
 #punto-encuentro {
     height: 100vh;
-    background-color: #DBE2DD;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -341,6 +328,15 @@ Punto de encuentro
     font-size: 40px;
     color: var(--colorLetra);
     font-family: var(--fuenteAcme);
+}
+
+#btnllegar {
+    background-color: #DBE2DD;
+}
+
+#btnllegar:hover {
+    background-color: #2F3A29;
+    color: white;
 }
 
 
@@ -411,6 +407,11 @@ Punto de encuentro
     border: none;
     background-color: #DBE2DD;
     width: 50%;
+}
+
+#btnModal:hover {
+    background-color: #2F3A29;
+    color: white;
 }
 
 
@@ -552,7 +553,6 @@ Punto de encuentro
     .cont-orden {
         width: 100%;
     }
-    .descripcion-ind p,
     .planing-ind p {
         font-size: 25px;
     }
@@ -586,7 +586,6 @@ Punto de encuentro
         width: 90%;
         margin-bottom: 20px;
     }
-    .descripcion-ind p,
     .planing-ind p {
         font-size: 20px;
     }
