@@ -184,9 +184,9 @@
                 $ultimaVisita = 'freetours';
             }
         @endphp
-        {{-- Empezamos aqui --}}
+
         <div id="bloque2-pag-individual"  x-data="{activeTab:1,}"
-            {{-- class="container mx-auto mt-20" --}}>
+            >
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ul>
                     <li><a class="enlace-bread" href="/" title="Página de inicio.">Inicio</a></li>
@@ -236,7 +236,7 @@
                 </div>
             </div>
 
-            <div x-show="activeTab === 4" id="form-reserva" role="contentinfo">
+            <div  x-show="activeTab === 4" id="form-reserva" role="contentinfo">
                 <div id="h1-form-reserva">
                     <h1>Reserva tu plaza</h1>
                 </div>
@@ -280,6 +280,23 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            {{-- METEOROLOGIA --}}
+            <div class="meteorologia" x-show="activeTab === 5">
+                <section class="top-banner">
+                    <div class="container-meteo">
+                      <form>
+                        <input type="text" placeholder="Buscar por ciudad" autofocus>
+                        <button type="submit">Enviar</button>
+                        <span class="msg"></span>
+                      </form>
+                    </div>
+                  </section>
+                  <section class="ajax-section">
+                    <div class="container-img-meteo">
+                      <ul class="cities"></ul>
+                    </div>
+                  </section>
             </div>
         </div>
 
