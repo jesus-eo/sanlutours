@@ -353,3 +353,80 @@ function cambiaComentario(id, json) {
         document.querySelector("#b5-p2").innerHTML = json[comentarioActual].nombre;
     };
 }
+
+//----API meteorologia-----
+/*Búsqueda mediante el nombre de una ciudad (ej. atenas) o el nombre de una ciudad separada por comas unto al código del pais (ej. atenas,gr)*/
+if (document.querySelector(".top-banner form")) {
+    let formMap = document.querySelector(".top-banner form");
+    let inputCiudad = document.querySelector(".top-banner input");
+    let msg = document.querySelector(".top-banner .msg");
+    let list = document.querySelector(".ajax-section .cities");
+    let apiKey = "4d8fb5b93d4af21d66a2948710284366";
+
+
+    formMap.addEventListener("submit", e => {
+        /* Para que no se envia el formulario */
+        e.preventDefault();
+        //Nombre ciudad
+        let inputVal = inputCiudad.value;
+        let mainDict = {
+            clear_sky: 'Cielo limpio',
+            few_clouds: 'Pocas nubes',
+            scattered_clouds: 'Nubes dispersas',
+            broken_clouds: 'Nubes rotas',
+            shower_rain: 'Aguacero',
+            thunderstorm: 'Tormentas',
+            mist: 'Neblina',
+            Rain: 'Lluvia',
+            Snow: 'Nieve',
+        }
+
+        //URL Para la petición a la API
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                //Guardamos en variables los objetoscon los mismos nombres
+                let { main, name, sys, weather } = data;
+                let icon = `https://openweathermap.org/img/wn/${
+        weather[0]["icon"]
+      }@2x.png`;
+                //Pasamos a español la descripción del tiempo
+                let remplaza = weather[0]["description"].replace(' ', '_');
+                let descripcion = mainDict[remplaza];
+                let li = document.createElement("li");
+                li.classList.add("city");
+                let markup = `
+        <div class="city-left">
+        <h2 class="city-name" data-name="${name},${sys.country}">
+          <span>${name}</span>
+          <sup>${sys.country}</sup>
+        </h2>
+
+        <figure>
+          <img class="city-icon" src=${icon} alt= 'imagen fondo'>
+        </figure>
+        <h1 class="city-temp">${Math.round(main.temp)}<sup>°C</sup>
+        </h1>
+        <h2 class="h2-meteo">${descripcion}</h2>
+        </div>
+        <div class="city-dates">
+
+        <h2 class="h2-meteo">Humedad:${main.humidity}</h2>
+        <h2 class="h2-meteo">Temperatura máxima:  ${Math.round(main.temp_max)}<sup>°C</sup></h2>
+        <h2 class="h2-meteo">Temperatura mínima:  ${Math.round(main.temp_min)}<sup>°C</sup></h2>
+        </div>
+    `;
+                li.innerHTML = markup;
+                list.appendChild(li);
+            })
+            .catch(() => {
+                msg.textContent = "Por favor inserte una ciudad valida 😩";
+            });
+        //Vacio el mensaje, reseteo el formulario.
+        msg.textContent = "";
+        formMap.reset();
+
+    });
+};

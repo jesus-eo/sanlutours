@@ -52,7 +52,6 @@ li {
     top: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.7;
 }
 
 #login {
@@ -102,11 +101,11 @@ li {
     flex-wrap: wrap;
     padding: 10px;
     font-size: 20px;
-    color: #485342;
+    color: #FFFFFF;
 }
 
 .nav-b1-principal ul li a {
-    color: #485342;
+    color: #FFFFFF;
 }
 
 .nav-b1-principal>ul {
@@ -285,19 +284,6 @@ li {
     color: #FFFFFF;
 }
 
-.descripcion-ind {
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30%;
-}
-
-.descripcion-ind p {
-    width: 80%;
-    font-size: 30px;
-}
-
 .planing-ind {
     color: #FFFFFF;
     display: flex;
@@ -306,6 +292,7 @@ li {
     flex-direction: column;
     height: 60%;
     margin-bottom: 5%;
+    margin-top: 3%;
 }
 
 .planing-ind p {
@@ -326,7 +313,6 @@ Punto de encuentro
 
 #punto-encuentro {
     height: 100vh;
-    background-color: #DBE2DD;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -341,6 +327,15 @@ Punto de encuentro
     font-size: 40px;
     color: var(--colorLetra);
     font-family: var(--fuenteAcme);
+}
+
+#btnllegar {
+    background-color: #DBE2DD;
+}
+
+#btnllegar:hover {
+    background-color: #2F3A29;
+    color: white;
 }
 
 
@@ -411,6 +406,149 @@ Punto de encuentro
     border: none;
     background-color: #DBE2DD;
     width: 50%;
+}
+
+#btnModal:hover {
+    background-color: #2F3A29;
+    color: white;
+}
+
+.planing-ind,
+#punto-encuentro,
+#form-reserva,
+.meteorologia {
+    min-height: 50vh;
+}
+
+
+/*-------------------
+||Meteorologia||
+------------------*/
+
+
+/* SECTION #1*/
+
+.top-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fuenteCorben);
+    margin-bottom: 5px;
+}
+
+.top-banner form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.top-banner form input {
+    height: 40px;
+    padding: 5px 5px 10px;
+    border-bottom: 1px solid;
+}
+
+.top-banner form button {
+    background-color: #DBE2DD;
+    padding: 5px 5px 10px;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+.top-banner form button:hover {
+    background-color: #2F3A29;
+    color: white;
+}
+
+.top-banner form .msg {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+}
+
+
+/* SECTION #2
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.ajax-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.container-img-meteo {
+    width: 50%;
+}
+
+.city-name {
+    font-size: 25px;
+}
+
+.ajax-section .city {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    padding: 40px 10%;
+    margin-bottom: 5%;
+    box-shadow: black 0px 0px 10px 1px;
+    border-radius: 10px;
+    background-size: 100% 100%;
+    background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
+}
+
+.city-temp {
+    font-size: 5rem;
+}
+
+.ajax-section .city sup {
+    font-size: 0.5em;
+}
+
+.ajax-section .city-name sup {
+    padding: 0.2em 0.6em;
+    border-radius: 30px;
+    color: var(--text_light);
+    background: var(--orange);
+}
+
+.ajax-section .city-icon {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.h2-meteo {
+    font-size: 1.3rem;
+}
+
+@media screen and (max-width: 700px) {
+    .heading,
+    .ajax-section .city-temp {
+        font-size: 3rem;
+    }
+    .ajax-section .city {
+        flex-direction: column;
+    }
+    .top-banner form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .top-banner form input,
+    .top-banner form button {
+        width: 100%;
+    }
+    .top-banner form button {
+        margin: 20px 0 0 0;
+    }
+    .top-banner form .msg {
+        position: static;
+        max-width: none;
+        min-height: 0;
+        margin-top: 10px;
+    }
 }
 
 
@@ -552,7 +690,6 @@ Punto de encuentro
     .cont-orden {
         width: 100%;
     }
-    .descripcion-ind p,
     .planing-ind p {
         font-size: 25px;
     }
@@ -586,7 +723,6 @@ Punto de encuentro
         width: 90%;
         margin-bottom: 20px;
     }
-    .descripcion-ind p,
     .planing-ind p {
         font-size: 20px;
     }

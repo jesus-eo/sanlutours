@@ -32,8 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC">
-    </script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
 
     <style>
         #map {
@@ -164,7 +163,7 @@
                 </div>
                 <div>
                     <h3 class="h3-datos-tour">FECHA</h3>
-                    <p>{{(new Datetime($viaje->fechahora))->format('d/m/Y H:i:s')}}</p>
+                    <p>{{ (new Datetime($viaje->fechahora))->format('d/m/Y H:i:s') }}</p>
                 </div>
                 <div>
                     <h3 class="h3-datos-tour">PRECIO</h3>
@@ -185,7 +184,9 @@
                 $ultimaVisita = 'freetours';
             }
         @endphp
-        <div id="bloque2-pag-individual">
+
+        <div id="bloque2-pag-individual"  x-data="{activeTab:1,}"
+            >
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ul>
                     <li><a class="enlace-bread" href="/" title="Página de inicio.">Inicio</a></li>
@@ -194,68 +195,110 @@
                     <li class="sitio-actual">Tour {{ $tour->nombre }}</li>
                 </ul>
             </nav>
-            <div class="descripcion-ind">
+
+            <ul class="flex flex-row justify-around mb-6">
+                <li>
+                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 1" x-cloak :class="activeTab === 1 ? 'border-teal-500' : ''">Descripción</a>
+                </li>
+                <li>
+                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 2" x-cloak :class="activeTab === 2 ? 'border-teal-500' : ''">Planing de la visita</a>
+                </li>
+                <li>
+                    <a href="#" class="px-4 border-b-2 border-gray-900 text-white hover:border-teal-500" x-on:click.prevent="activeTab = 3" x-cloak :class="activeTab === 3 ? 'border-teal-500' : ''">Punto de encuentro</a>
+                </li>
+                <li>
+                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 4" x-cloak :class="activeTab === 4 ? 'border-teal-500' : ''">Reserva tu plaza</a>
+                </li>
+                <li>
+                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 5" x-cloak :class="activeTab === 5 ? 'border-teal-500' : ''">Meteorologia</a>
+                </li>
+            </ul>
+            <div x-show="activeTab === 1" class="planing-ind">
+                <h1>Descripción</h1>
                 <p>{{ $tour->descripcion }}</p>
             </div>
-            <div class="planing-ind">
+            <div x-show="activeTab === 2" class="planing-ind">
                 <h1>Planing de la Visita</h1>
                 <p>{{ $tour->planing }}</p>
             </div>
-        </div>
-        {{-- MApa --}}
-        <div id="punto-encuentro">
-            <div class="b1-punto-encuentro">
-                <h1>Punto de encuentro</h1>
+
+            {{-- MApa --}}
+            <div x-show="activeTab === 3" id="punto-encuentro">
+                <div class="b1-punto-encuentro text-white">
+                    <h1>Punto de encuentro</h1>
+                </div>
+                <div id="map">
+                </div>
+                <div class="flex justify-center items-center">
+                <button id="btnllegar"
+                    class="p-card border-2 text-black  px-20 rounded-md font-medium  transition duration-300">Como
+                    llegar</button>
+                </div>
             </div>
-            <div id="map">
-            </div>
-            <button id="btnllegar" class="p-card border-2 border-green-800 px-20 rounded-md font-medium hover:bg-green-900 hover:text-white transition duration-300">Como llegar</button>
-        </div>
 
-        <div id="form-reserva" role="contentinfo">
-            <div id="h1-form-reserva">
-                <h1>Reserva tu plaza</h1>
-            </div>
-            <div id="container-form-reserva">
-                <div class="form-reserva">
-                    <p>Fecha: {{ (new Datetime($viaje->fechahora))->format('d/m/Y H:i:s') }}</p>
-                    <p>Duración: {{ $tour->duracion }}horas</p>
-                    <p>Precio: {{ $tour->precio }}€</p>
+            <div  x-show="activeTab === 4" id="form-reserva" role="contentinfo">
+                <div id="h1-form-reserva">
+                    <h1>Reserva tu plaza</h1>
+                </div>
+                <div id="container-form-reserva">
+                    <div class="form-reserva">
+                        <p>Fecha: {{ (new Datetime($viaje->fechahora))->format('d/m/Y H:i:s') }}</p>
+                        <p>Duración: {{ $tour->duracion }}horas</p>
+                        <p>Precio: {{ $tour->precio }}€</p>
 
-                    <form class="form" action="{{ Route('tramitereserva', [$tour]) }}" method="post">
-                        @csrf
+                        <form class="form" action="{{ Route('tramitereserva', [$tour]) }}" method="post">
+                            @csrf
 
-                        @php
-                            $min = $viaje->plazas == 0 ? 0 : 1;
-                        @endphp
-                        <div>
-                            <p>N.personas:</p>
-                            <input type="number" name="numpersonas" min="{{$min}}" max="{{ $viaje->plazas }}" required>
-                            <input type="hidden" name="viaje" value="{{$viaje}}">
-                        </div>
+                            @php
+                                $min = $viaje->plazas == 0 ? 0 : 1;
+                            @endphp
+                            <div>
+                                <p>N.personas:</p>
+                                <input type="number" name="numpersonas" min="{{ $min }}"
+                                    max="{{ $viaje->plazas }}" required>
+                                <input type="hidden" name="viaje" value="{{ $viaje }}">
+                            </div>
 
-                        @if (Auth::user() == null || $viaje->plazas == 0)
-                            <button id="btnModal" onclick="muestraModal(event);">Reservar</button>
-                        @else
-                            <button type="submit" id="btnModal">Reservar</button>
-                        @endif
-
-                    </form>
-                    <div id="myModal" class="modalContainerInvisible">
-                        <div class="modal-content">
-                            <span onclick="cerrarModal();" class="close">X</span>
-                            @if (Auth::user() == null)
-                                <p>Debes <a class="text-blue-600" href="/login" title="Login">loguearte</a> antes de
-                                    reservar.</p>
-                            @elseif ($viaje->plazas == 0)
-                                <p>No hay plazas disponibles.</p>
+                            @if (Auth::user() == null || $viaje->plazas == 0)
+                                <button id="btnModal" onclick="muestraModal(event);">Reservar</button>
+                            @else
+                                <button type="submit" id="btnModal">Reservar</button>
                             @endif
+
+                        </form>
+                        <div id="myModal" class="modalContainerInvisible">
+                            <div class="modal-content">
+                                <span onclick="cerrarModal();" class="close">X</span>
+                                @if (Auth::user() == null)
+                                    <p>Debes <a class="text-blue-600" href="/login" title="Login">loguearte</a> antes
+                                        de
+                                        reservar.</p>
+                                @elseif ($viaje->plazas == 0)
+                                    <p>No hay plazas disponibles.</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{-- METEOROLOGIA --}}
+            <div class="meteorologia" x-show="activeTab === 5">
+                <section class="top-banner">
+                    <div class="container-meteo">
+                      <form>
+                        <input type="text" placeholder="Buscar por ciudad" autofocus>
+                        <button type="submit">Enviar</button>
+                        <span class="msg"></span>
+                      </form>
+                    </div>
+                  </section>
+                  <section class="ajax-section">
+                    <div class="container-img-meteo">
+                      <ul class="cities"></ul>
+                    </div>
+                  </section>
+            </div>
         </div>
-
 
 
 
@@ -352,10 +395,12 @@
                                 iconAnchor: [12, 41],
 
                             });
-                            let marker = L.marker([{{ $tour->latitud }}, {{ $tour->longitud }}], {icon: greenIcon}).addTo(map);
+                            let marker = L.marker([{{ $tour->latitud }}, {{ $tour->longitud }}], {
+                                icon: greenIcon
+                            }).addTo(map);
                             marker.bindPopup("<b>Este es tu punto de encuentro</b><br>Te esperamos!!")
                                 .openPopup();
-                                return marker;
+                            return marker;
                         }
                     });
 

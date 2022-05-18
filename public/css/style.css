@@ -320,8 +320,8 @@ li {
     width: 20%;
     display: flex;
     flex-direction: column;
-    margin-top: 130px;
-    margin-bottom: 80px;
+    margin-top: 150px;
+    margin-bottom: 0px;
 }
 
 .container-b2 a {
@@ -330,25 +330,44 @@ li {
     transform: scale(1);
     box-shadow: 0px 0px 10px 1px black;
     border-radius: 8px;
-    overflow: hidden;
+    /*  overflow: hidden; */
+    position: relative;
+    text-align: center;
 }
 
 .container-b2 a>img {
     width: 100%;
     height: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 1px black;
 }
 
-.container-b2 a>img:hover {
-    transform: scale(1.2);
-    transition: all 1s;
-}
-
-.container-b2 p {
+.container-b2 a p {
     font-size: 40px;
-    text-align: center;
-    margin-top: 30px;
     font-family: var(--fuenteCorben);
-    color: var(--colorLetra);
+    color: #FFFFFF;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.container-b2 a div:hover {
+    opacity: 1;
+}
+
+.container-b2 a div {
+    transition: 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .4);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -634,9 +653,6 @@ thead {
         display: flex;
         align-self: center;
     }
-    .container-b2 p {
-        margin-top: 20px;
-    }
     #b3-pagina-principal,
     #b4-pagina-principal {
         flex-direction: column;
@@ -658,6 +674,9 @@ thead {
     }
     #b4-contenido-1 {
         width: 100%;
+    }
+    .container-b2 a p {
+        margin-top: 20px;
     }
     /* Flechas */
     #arrow-left-b5,
