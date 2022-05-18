@@ -148,27 +148,38 @@
             <div class="container-b2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                 <a href="{{ route('freetours') }}" title="Free Tours">
                     <img src="{{ asset('Img/Página principal/PP-plaza cabildo.jpg') }}" alt="Free Tours">
+                    <div >
                     <p>Free Tours</p>
+                    </div>
                 </a>
 
             </div>
             <div class="container-b2" data-aos="fade-up" data-aos-delay="250" data-aos-duration="1000">
                 <a href="{{ route('gastrotours') }}" title="Enlace a Tours gastronómicos">
                     <img src="{{ asset('Img/Página principal/pp-gastronomia.jpg') }}" alt="Imagen gastronimia">
+                    <div>
+                    <p>Gastronomía</p>
+                    </div>
                 </a>
-                <p>Gastronomía</p>
+
             </div>
             <div class="container-b2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                 <a href="{{ route('cultutours') }}" title="Enlace a tours culturales">
                     <img src="{{ asset('Img/Página principal/PP-palacio.jpg') }}" alt="Foto palacio orleans">
+                    <div>
+                    <p>Cultural</p>
+                    </div>
                 </a>
-                <p>Cultural</p>
+
             </div>
             <div class="container-b2" data-aos="fade-up" data-aos-delay="350" data-aos-duration="1000">
                 <a href="{{ route('deportours') }}" title="Enlace a tours deportivos">
                     <img src="{{ asset('Img/Página principal/pp-ruta caballo.jpg') }}" alt="Imagen ruta caballo">
+                    <div>
+                        <p>Deportivo</p>
+                    </div>
                 </a>
-                <p>Deportivo</p>
+
             </div>
         </div>
 
