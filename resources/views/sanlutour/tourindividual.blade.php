@@ -99,7 +99,7 @@
                     <li>
                         <a href="{{ route('guias') }}"
                             class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a Guias">Guias</a>
+                            title="Enlace a Guías">Guías</a>
                     </li>
                     <li>
                         <a href="{{ route('sobrenosotros') }}"
@@ -143,7 +143,7 @@
                                         title="Página tour deportivo">Deportivo</a></li>
                             </ul>
                         </div>
-                        <li><a class="subrallado" href="{{ route('guias') }}" title="Página guias">Guias</a></li>
+                        <li><a class="subrallado" href="{{ route('guias') }}" title="Página guias">Guías</a></li>
                         <li><a class="subrallado" href="{{ route('sobrenosotros') }}"
                                 title="Página sobrenosotros">Sobre Nosotros</a></li>
                         <li><a class="subrallado" href="{{ route('contacto') }}"
