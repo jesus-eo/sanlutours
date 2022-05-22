@@ -106,16 +106,14 @@
                                         @endforeach
 
                                     </select>
-
-
                                     <p class="p-card">Duración: {{ $tour->duracion }}h</p>
                                     <p class="p-card">Precio: {{ $tour->precio }}€</p>
                                     @php
                                         $numguias = $tour->guias->count();
                                         $cont = 0;
                                     @endphp
-                                    <a class="p-card hover:bg-green-900 hover:text-white"
-                                        href="{{ Route('guias') }}">Guia:
+                                    <a class="p-card hover:bg-green-900 hover:text-white underline"
+                                        href="{{ Route('guias') }}">Guía:
                                         @foreach ($tour->guias as $guia)
                                             @php
                                                 $cont++;

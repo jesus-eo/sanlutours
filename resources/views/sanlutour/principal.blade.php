@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--  Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{asset('Img/Página principal/favicon.png')}}"/>
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- JS --}}
@@ -31,7 +33,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <title>Sanlutours</title>
+    <title>Sanlutours, Conoce Sanlúcar de
+        Barrameda profúndamente con nosotros.
+    </title>
 </head>
 
 <body>

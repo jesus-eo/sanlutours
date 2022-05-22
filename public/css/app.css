@@ -2009,6 +2009,9 @@ select {
   -webkit-text-decoration-color: #15803d;
           text-decoration-color: #15803d;
 }
+.underline-offset-2 {
+  text-underline-offset: 2px;
+}
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

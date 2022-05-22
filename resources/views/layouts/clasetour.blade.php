@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--  Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{asset('Img/Página principal/favicon.png')}}"/>
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
@@ -93,7 +95,7 @@
                         <a href="{{ route('guias') }}"
                             class="text-white  block px-3 py-2 rounded-md text-base font-medium"
                             title="Enlace a página de guias">
-                            Guias
+                            Guías
                         </a>
                     </li>
                     <li>
@@ -133,7 +135,7 @@
                                 <li><a class="subrallado" href="{{ route('deportours') }}">Deportivo</a></li>
                             </ul>
                         </div>
-                        <li><a id="subrallado-guia" class="subrallado" href="{{ route('guias') }}">Guias</a></li>
+                        <li><a id="subrallado-guia" class="subrallado" href="{{ route('guias') }}">Guías</a></li>
                         <li><a class="subrallado" href="{{ route('sobrenosotros') }}">Sobre Nosotros</a></li>
                         <li><a class="subrallado" href="{{ route('contacto') }}">Contacto</a></li>
                     </ul>

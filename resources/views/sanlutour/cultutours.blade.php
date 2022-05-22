@@ -1,6 +1,4 @@
 <x-clasetour>
-
-   {{--  <input id="valor-img-fondo" type="text" value="cultutour" hidden> --}}
     <x-slot name="title">
         Tours Culturales
     </x-slot>

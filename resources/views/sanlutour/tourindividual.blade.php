@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{--  Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{asset('Img/Página principal/favicon.png')}}"/>
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/tourIndividual.css') }}">
     {{-- JS --}}
     <script src="{{ asset('js/sobre-nosotros.js') }}" defer></script>
-
     <!--Iconos -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--Fuente-->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
@@ -33,7 +33,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
-
     <style>
         #map {
             height: 60%;
@@ -42,9 +41,7 @@
     </style>
     <title>Tour individual</title>
 </head>
-
 <body>
-
     <div id="container-envolvente-principal">
         <div id="bloque1-pag-individual" role="contentinfo">
             <div id="login">
@@ -201,7 +198,7 @@
                     <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 1" x-cloak :class="activeTab === 1 ? 'border-teal-500' : ''">Descripción</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 2" x-cloak :class="activeTab === 2 ? 'border-teal-500' : ''">Planing de la visita</a>
+                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 2" x-cloak :class="activeTab === 2 ? 'border-teal-500' : ''">Planning de la visita</a>
                 </li>
                 <li>
                     <a href="#" class="px-4 border-b-2 border-gray-900 text-white hover:border-teal-500" x-on:click.prevent="activeTab = 3" x-cloak :class="activeTab === 3 ? 'border-teal-500' : ''">Punto de encuentro</a>
@@ -218,7 +215,7 @@
                 <p>{{ $tour->descripcion }}</p>
             </div>
             <div x-show="activeTab === 2" class="planing-ind">
-                <h1>Planing de la Visita</h1>
+                <h1>Planning de la Visita</h1>
                 <p>{{ $tour->planing }}</p>
             </div>
 
@@ -285,9 +282,10 @@
             <div class="meteorologia" x-show="activeTab === 5">
                 <section class="top-banner">
                     <div class="container-meteo">
+                        <h2>Consulta la meteorologia actual por ciudad.</h2>
                       <form>
                         <input type="text" placeholder="Buscar por ciudad" autofocus>
-                        <button type="submit">Enviar</button>
+                        <button type="submit">Buscar</button>
                         <span class="msg"></span>
                       </form>
                     </div>

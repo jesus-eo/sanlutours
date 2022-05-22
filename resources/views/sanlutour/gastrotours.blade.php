@@ -1,6 +1,4 @@
 <x-clasetour>
-
-    {{-- <input id="valor-img-fondo" type="text" value="gastrotour" hidden> --}}
     <x-slot name="title">
         Tours Gastronómicos
     </x-slot>

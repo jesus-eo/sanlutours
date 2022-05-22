@@ -1,6 +1,4 @@
 <x-clasetour>
-
-    {{-- <input id="valor-img-fondo" type="text" value="deportour" hidden> --}}
     <x-slot name="title">
         Tours Deportivos
     </x-slot>
