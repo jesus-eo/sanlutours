@@ -189,7 +189,7 @@
 
 
         <div id="b3-pagina-principal" role="contentinfo">
-            <div id="b3-video" data-aos="fade-right" data-aos-offset="500" data-aos-duration="300">
+            <div id="b3-video" data-aos="fade-right" data-aos-offset="300" data-aos-duration="800">
                 <video id="video-sanlucar" preload controls
                     poster="{{ asset('Img/Página principal/imagen figma video.jpg') }}"
                     title="Video descriptivo sobre sanlúcar de barrameda">
@@ -197,7 +197,7 @@
                     Tu navegador no soporta esta video.
                 </video>
             </div>
-            <div id="b3-definicion" data-aos="fade-left" data-aos-offset="500" data-aos-duration="300">
+            <div id="b3-definicion" data-aos="fade-left" data-aos-offset="300" data-aos-duration="800">
                 <h1>Sanlúcar de Barrameda</h1>
                 <p> Su asentamiento al margen izquierdo de la desembocadura del Guadalquivir, frente al coto de Doñana,
                     lo hacen disfrutar de un enclave privilegiado.
@@ -211,7 +211,7 @@
 
 
         <div id="b4-pagina-principal" role="contentinfo">
-            <div id="b4-contenido-1"  data-aos="fade-left" data-aos-offset="500" data-aos-duration="300">
+            <div id="b4-contenido-1"  data-aos="fade-left" data-aos-offset="200" data-aos-duration="600">
                 <div class="flechas2"><i id="arrow-left" class="far fa-angle-left"></i></div>
                 <div id="b4-definicion">
                     <h1>Tours Destacados</h1>
@@ -227,7 +227,7 @@
                 <div class="flechas2"><i id="arrow-right" class="far fa-angle-right"></i></div>
             </div>
             <!-- container-slider -->
-            <div id="b4-imagen"  data-aos="fade-right" data-aos-offset="500" data-aos-duration="300">
+            <div id="b4-imagen"  data-aos="fade-right" data-aos-offset="200" data-aos-duration="600">
                 <picture title="Imagen Tours destacado doñana">
                     <img class="img-slider" src="{{ asset('Img/Página principal/Tour destacado doñana.jpg') }}"
                         alt="Imagen Tours destacado doñana">
@@ -238,7 +238,7 @@
 
         <div id="b5-pagina-principal">
             <div class="flechas2"><i id="arrow-left-b5" class="far fa-angle-left"></i></div>
-            <div id="container-b5" data-aos="flip-down" data-aos-offset="500" data-aos-duration="300">
+            <div id="container-b5" data-aos="flip-down" data-aos-offset="200" data-aos-duration="600">
                 <h1 id="h1-b5">QUE DICEN DE NOSOTROS</h1>
                 <p id="b5-p">Cómo puedo empezar a describir mi tiempo con SanluTours... ¡Simplemente me cambió la vida!
                     Siempre imaginé que Sanlúcar de Barrameda sería un destino impresionante, pero gracias a SanluTours,

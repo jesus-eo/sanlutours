@@ -11,8 +11,6 @@ if (document.querySelector("#valor-subrallado")) {
     }
 }
 
-
-
 /*Desplegable menu(Tours)*/
 if (document.querySelector("#container-tour-desplegable")) {
     let menuDesSup = document.querySelector("#container-tour-desplegable");
@@ -27,8 +25,6 @@ function desplegable() {
     document.querySelector("#botonLateral").classList.toggle("fa-angle-right");
 };
 
-
-
 /*Desplegable menuhamburguesa(Tours)*/
 if (document.querySelector("#submenu")) {
     let btnsubmenu = document.querySelector("#submenu");
@@ -42,7 +38,6 @@ if (document.querySelector("#submenu")) {
 }
 /*Header aparece cuando scrolleamos hacia arriba
 ubicacionPrincipal vale 0 al inicio*/
-
 let ubicacionPrincipal = window.scrollY;
 window.onscroll = function() {
     let desplazamientoActual = window.scrollY;
