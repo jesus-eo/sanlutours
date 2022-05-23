@@ -9,7 +9,7 @@
          {{--  Favicon --}}
         <link rel="icon" type="image/jpg" href="{{asset('Img/Página principal/favicon.png')}}"/>
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">

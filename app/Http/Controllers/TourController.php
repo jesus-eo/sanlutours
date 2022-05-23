@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\StoreTourRequest;
 use App\Http\Requests\UpdateTourRequest;
 use App\Models\Tour;
@@ -10,10 +9,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Controlador para las rutas relacionadas con los tours.
+ */
 class TourController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Vista de todos los tours con paginación.
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,29 +27,19 @@ class TourController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Crea un tour.
      *
      * @param  \App\Http\Requests\StoreTourRequest  $request
      * @return \Illuminate\Http\Response
-     * * Validamos la request con validated accediendo a la función rules de app/http/request/store...Request que es la encargada de validar.
+     *
+     * Validamos la request con validated accediendo a la función rules de app/http/request/store...Request que es la encargada de validar.
      * Poner la authorizacion a true
      * En el modelo el fillable protected
-     * StoreTourRequest $request
+     * @param StoreTourRequest $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StoreTourRequest $request)
     {
-
-        /* $validados = $this->validar(); */
         $validados = $request->validated();
         $tourExistente = Tour::get()->where('nombre', $validados['nombre'])->where('tipo', $validados['tipo'])->where('duracion', $validados['duracion']);
         $tipo = $validados['tipo'];
@@ -80,14 +72,13 @@ class TourController extends Controller
         return redirect()->route('crudtours')->with('fault', 'Tour no creado');
     }
     /**
-     * Display the specified resource.
+     * Muestra datos del tour pasado como paŕametro.
      *
      * @param  \App\Models\Tour  $tour
-     * @return \Illuminate\Http\Response
+     * @return array Devuelve los datos del tour y viaje asociado.
      */
     public function show(Tour $tour)
     {
-
         $viaje = Viaje::where('id', request()->input('viajes'))->first();
         return (view('sanlutour.tourindividual', [
             'tour' => $tour,
@@ -96,18 +87,7 @@ class TourController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tour  $tour
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tour $tour)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Actualiza datos del tour.
      *
      * @param  \App\Http\Requests\UpdateTourRequest  $request
      * @param  \App\Models\Tour  $tour
@@ -154,14 +134,12 @@ class TourController extends Controller
         } else {
             $tour->imagen = $tour->imagen;
         }
-
-
         $tour->save();
         return redirect('/tours')->with('success', 'Tour actualizado con exito');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Borra tour.
      *
      * @param  \App\Models\Tour  $tour
      * @return \Illuminate\Http\Response
@@ -176,59 +154,53 @@ class TourController extends Controller
         return redirect('/tours')->with('success', 'Tour borrado con exito');
     }
 
-    /*  private function validar()
-    {
-
-        $validados = request()->validate([
-            'nombre'=> 'required|string|max:255',
-            'descripcion'=> 'required',
-            'planing'=> 'required',
-            'fechahora'=> 'required',
-            'plazas'=> 'required|integer',
-            'tipo'=> 'required|string|max:255',
-            'imagen'=> 'required|string|max:255',
-            'precio'=> 'required|numeric',
-            'duracion'=> 'required',
-            'valoracion'=> 'required|integer',
-            'latitud'=> 'required|string|max:255',
-            'longitud'=> 'required|string|max:255',
-        ]);
-
-        return $validados;
-    } */
-
+    /**
+     * Devuleve todos los tour de tipo freetour.
+     * @return array tours free
+     */
     public function freetours()
     {
-
         return view("sanlutour.freetours", [
             "tours" => Tour::all()->where('tipo', 'free'),
         ]);
     }
-
+     /**
+     * Devuleve todos los tour de tipo cultural.
+     * @return array tours culturales
+     */
     public function cultutours()
     {
-
         return view("sanlutour.cultutours", [
             "tours" => Tour::all()->where('tipo', 'cultural'),
         ]);
     }
-
+     /**
+     * Devuleve todos los tour de tipo deportours.
+     * @return array tours deportivo
+     */
     public function deportours()
     {
-
         return view("sanlutour.deportours", [
             "tours" => Tour::all()->where('tipo', 'deportivo'),
         ]);
     }
-
+     /**
+     * Devuleve todos los tour de tipo gastrotour.
+     * @return array tours gastrnómicos
+     */
     public function gastrotours()
     {
-
         return view("sanlutour.gastrotours", [
             "tours" => Tour::all()->where('tipo', 'gastronómico'),
         ]);
     }
 
+    /**
+     * Valora los tours calculando la valoración acumulada.
+     * @param Request $request
+     *
+     * @return json valoración
+     */
     public function valoracion(Request $request)
     {
         $id = $request->input('id');
@@ -248,7 +220,10 @@ class TourController extends Controller
         echo json_encode($tour->valoracion);
     }
 
-    /* Creamos comentarios cuando los usuarios tienen reservas realizadas  */
+    /**
+     * Creamos comentarios cuando los usuarios tienen reservas realizadas
+     * @return string mensaje
+     */
     public function crearComentarios()
     {
         $validados = $this->validarComentarios();
@@ -260,6 +235,10 @@ class TourController extends Controller
         return redirect()->route('reservasusuario')->with('success', 'Gracias por comentar su experiencia');
     }
 
+    /**
+     * Validación comentarios
+     * @return array validados
+     */
     private function validarComentarios()
     {
         $validados = request()->validate([

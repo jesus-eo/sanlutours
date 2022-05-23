@@ -8,20 +8,27 @@ use App\Models\Guia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
+/**
+ * Controlador para las rutas relacionadas con los guías.
+ */
 class GuiaController extends Controller
 {
+    /**
+     * Vista general de todos los guías
+     * @return Guia
+     */
     public function guias()
     {
-        return view('sanlutour.guias',[
-
-            "guias"=> Guia::all(),
+        return view('sanlutour.guias', [
+            "guias" => Guia::all(),
         ]);
     }
 
     /**
-     * Display a listing of the resource.
+     * Mostrar una lista de guías con paginación.
      *
-     * @return \Illuminate\Http\Response
+     * @return array guias
      */
     public function index()
     {
@@ -31,34 +38,22 @@ class GuiaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Crea un guía almacenandolo en la Base de datos.
      *
      * @param  \App\Http\Requests\StoreGuiaRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreGuiaRequest $request)
     {
-        /* $validados = $this->validar(); */
         $validados = $request->validated();
-
         $guiaExistente = Guia::get()->where('nombre', $validados['nombre'])->where('tipo', $validados['tipo'])->where('tipo', $validados['tipo'])->where('descripcion', $validados['descripcion']);
         if ($guiaExistente->isEmpty()) {
             $nuevoGuia = new Guia($validados);
-            $image =$request->file('imagen');
+            $image = $request->file('imagen');
             /* Movemos a la carpeta deseada */
             $image->move('Img/guia', $image->getClientOriginalName());
-             /* Lo guardamos en la base de datos como string */
-             $nuevoGuia->imagen = "Img/guia/".$image->getClientOriginalName();
+            /* Lo guardamos en la base de datos como string */
+            $nuevoGuia->imagen = "Img/guia/" . $image->getClientOriginalName();
             $nuevoGuia->save();
             return redirect()->route('crudguias')->with('success', 'Guia creado con exito');
         }
@@ -66,29 +61,7 @@ class GuiaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Guia  $guia
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Guia $guia)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Guia  $guia
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Guia $guia)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Actualiza el guía pasado como parámetro.
      *
      * @param  \App\Http\Requests\UpdateGuiaRequest  $request
      * @param  \App\Models\Guia  $guia
@@ -106,8 +79,8 @@ class GuiaController extends Controller
             $image = $request->file('imagen');
             $image->move('Img/guia', $image->getClientOriginalName());
             /* Lo guardamos en la base de datos como string */
-            $guia->imagen = "Img/guia/". $image->getClientOriginalName();
-        }else {
+            $guia->imagen = "Img/guia/" . $image->getClientOriginalName();
+        } else {
             $guia->imagen = $guia->imagen;
         }
         $guia->valoracion = $validados['valoracion'];
@@ -116,7 +89,7 @@ class GuiaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Borra el guía pasado como parámetro.
      *
      * @param  \App\Models\Guia  $guia
      * @return \Illuminate\Http\Response
@@ -124,11 +97,17 @@ class GuiaController extends Controller
     public function destroy(Guia $guia)
     {
         $id = $guia->id;
-        DB::table('guia_tour')->where('guia_id',$id)->delete();
+        DB::table('guia_tour')->where('guia_id', $id)->delete();
         Guia::find($id)->delete();
-        return redirect('/guias')->with('success','Guia borrado con exito');
+        return redirect('/guias')->with('success', 'Guia borrado con exito');
     }
 
+    /**
+     * Calcula la valoración del guía y lo guarda en la BD.
+     * @param Request $request
+     *
+     * @return json valoración de dicho guía.
+     */
     public function valoracion(Request $request)
     {
         $id = $request->input('id');

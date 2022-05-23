@@ -68,8 +68,6 @@
                                 <td class="rounded border-2 px-4 py-2">{{ $guia->imagen }} </td>
                                 <td class="rounded border-2 px-4 py-2">{{ $guia->tipo }} </td>
 
-
-
                         <td class="rounded border-2 px-4 py-2 text-center">
                             <button x-on:click="formedit=true"
                                 class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-4 rounded mb-6">Editar</button>

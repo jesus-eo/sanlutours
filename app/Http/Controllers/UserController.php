@@ -6,11 +6,13 @@ use App\Models\Administrador;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+/**
+ * Controlador para los usuarios.
+ */
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     *  Vista de todos los usuarios con paginación.
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,54 +26,10 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Actualiza un usuario especifico.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  User usuario
+     * @return string mensaje actualizado
      */
     public function update(User $usuario)
     {
@@ -83,10 +41,10 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Borra usuario.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  User usuario
+     * @return string mensaje.
      */
     public function destroy(User $usuario)
     {
@@ -96,6 +54,10 @@ class UserController extends Controller
         return redirect('/usuarios')->with('success','Usuario borrada con exito');
     }
 
+    /**
+     * Valida campos usuario.
+     * @return array validados
+     */
     private function validar()
     {
         $validados = request()->validate([

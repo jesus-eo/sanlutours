@@ -7,13 +7,15 @@ use App\Http\Requests\UpdateViajeRequest;
 use App\Models\Tour;
 use App\Models\Viaje;
 use Illuminate\Http\Request;
-
+/**
+ * Controlador para las rutas relacionadas con los viajes.
+ */
 class ViajeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Todos los viajes con paginación.
      *
-     * @return \Illuminate\Http\Response
+     * @return array viajes
      */
     public function index()
     {
@@ -23,17 +25,7 @@ class ViajeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Crea un viaje.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -54,33 +46,12 @@ class ViajeController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Actualiza un viaje.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Viaje viaje
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateViajeRequest $request, Viaje $viaje)
@@ -94,9 +65,9 @@ class ViajeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Borra viaje.
      *
-     * @param  int  $id
+     * @param Viaje viaje
      * @return \Illuminate\Http\Response
      */
     public function destroy(Viaje $viaje)

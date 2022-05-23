@@ -14,50 +14,65 @@ use Illuminate\Support\Facades\DB;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Rutas Sanlutours
 |
 */
 
-/**Index, sobre nosotros,contacto y guias */
+/**
+ * Ruta Index
+ */
 Route::get('/', function () {
     return view('sanlutour.principal');
 })->name('index');
+/**
+ * Rutas sobrenosotros
+ */
 Route::get('/sobrenosotros', function () {
     return view('sanlutour.sobrenosotros');
 })->name('sobrenosotros');
+/**
+ * Rutas contacto
+ */
 Route::get('/contacto', function () {
     return view('sanlutour.contacto');
 })->name('contacto');
+/**
+ * Rutas guías
+ */
 Route::get('/nuestrosguias', [GuiaController::class, 'guias'])->name('guias');
 
-/* Comentarios */
+/**
+ * Rutas comentarios
+*/
 Route::get('/comentarios', function () {
     $comentarios = DB::table('comentarios')->get();
     echo json_encode($comentarios);
 });
 Route::post('/comentario', [TourController::class, 'crearComentarios'])->name('comentarios.store');
 
-
-
-/**Estrellas***/
+/**
+ * Ruta valoración Estrellas guías y tours
+ */
 Route::post('/valguias', [GuiaController::class, 'valoracion'])->name('valoracion.guias');
 Route::post('/valtour', [TourController::class, 'valoracion'])->name('valoracion.tour');
 
-/* Tours individuales y completos */
+/**
+ * Tours individuales
+ */
 Route::post('/tourindividual/{tour}', [TourController::class, 'show'])->name('tourindividual');
 
-
-/**Tipos de tours **/
+/**
+ * Tipos de tours
+ */
 Route::get('/gastrotours', [TourController::class, 'gastrotours'])->name('gastrotours');
 Route::get('/freetours', [TourController::class, 'freetours'])->name('freetours');
 Route::get('/cultutours', [TourController::class, 'cultutours'])->name('cultutours');
 Route::get('/deportours', [TourController::class, 'deportours'])->name('deportours');
 
 
-/* Ruta para usuarios administrador o normales */
+/**
+ * Ruta para dashboard usuarios administrador o usuales
+*/
 Route::get('/dashboard', function () {
     if (Auth::user()->administrador != null) {
         return redirect()->route('crudtours');
@@ -66,10 +81,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-/* -----Modo administrador---- */
+/**
+ * Modo administrador
+*/
 Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
-    /*---Cruds Modo admin---*/
-    /* Crud Tours */
+    /*Crud tours*/
     Route::get('/tours', [
         TourController::class,
         'index'
@@ -139,7 +155,9 @@ Route::middleware(['auth:sanctum', 'can:esAdmin'])->group(function () {
     ])->name('viajes.destroy');
 });
 
-/*-----Modo usuario------- */
+/**
+ * Modo usuario habitual
+*/
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/reservas', [
         ReservaController::class,
@@ -151,12 +169,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     ])->name('reservasusuario.destroy');
 });
 
-/* Paypal */
+/**
+ * Paypal
+*/
 Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
 Route::post('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');#pulsa botón
 Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 
-/*Tramite reserva y pago*/
+/**
+ * Tramite reserva y pago
+*/
 Route::post('/tramitereserva/{tour}', [ReservaController::class, 'tramitar'])->name('tramitereserva');
 Route::get('/tramitepago', [ReservaController::class, 'pagar'])->name('realizarpago');

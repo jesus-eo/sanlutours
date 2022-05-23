@@ -47,11 +47,11 @@
 
         </div>
 
-        <div class="flex flex-wrap  justify-around" >
+        <div class="flex flex-wrap  justify-around">
             <!-- Card 1 -->
             @foreach ($tours as $tour)
-
-                <div class="mx-2 xl:mb-5 mt-8 mb-8 rounded-md cont-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="mx-2 xl:mb-5 mt-8 mb-8 rounded-md cont-card" data-aos="fade-up" data-aos-delay="200"
+                    data-aos-duration="1000">
                     <div class="rounded-md">
                         <img alt="imagen tour" src="{{ asset($tour->imagen) }}"
                             class="focus:outline-none w-full h-52 rounded-md" />

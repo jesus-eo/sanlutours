@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{--  Favicon --}}
-    <link rel="icon" type="image/jpg" href="{{asset('Img/Página principal/favicon.png')}}"/>
+    {{-- Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{ asset('Img/Página principal/favicon.png') }}" />
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
@@ -30,6 +30,7 @@
 
     <title>Contacto</title>
 </head>
+
 <body>
     <div id="container-envolvente-sn">
         <div id="bloque1-pag-contacto" role="contentinfo">
@@ -212,9 +213,7 @@
                 </div>
             </div>
         </footer>
-
     </div>
-
 </body>
 
 </html>
