@@ -11,15 +11,17 @@ use Illuminate\Support\Facades\DB;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use stdClass;
 
+/**
+ * Controlador para el pago con paypal.
+ */
 class PayPalController extends Controller
 {
     public $plazasReservadas = 0;
     public $viaje;
     public $plazas = 0;
     public $total;
-
     /**
-     * create transaction.
+     * crea transaction.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +31,7 @@ class PayPalController extends Controller
     }
 
     /**
-     * process transaction.
+     * Proceso de transaction.
      *
      * @return \Illuminate\Http\Response
      */
@@ -45,7 +47,7 @@ class PayPalController extends Controller
         $_SESSION['plazasreservadas']=$this->plazasReservadas;
         $_SESSION['plazas']=$this->plazas;
 
-
+        #Crea el cliente paypal
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -67,15 +69,13 @@ class PayPalController extends Controller
         ]);
 
         if (isset($response['id']) && $response['id'] != null) {
-
-            // redirigir para aprobar href
+            #Redirigir para aprobar href.
             foreach ($response['links'] as $links) {
                 if ($links['rel'] == 'approve') {
                     #redirige a paypal
                     return redirect()->away($links['href']);
                 }
             }
-
             return redirect()
                 ->route('createTransaction')
                 ->with('fault', 'Algo salió mal.');
@@ -88,8 +88,10 @@ class PayPalController extends Controller
     }
 
     /**
-     * success transaction.
      *
+     * Realiza transacción transaction.
+     *
+     * @param Request
      * @return \Illuminate\Http\Response
      */
     public function successTransaction(Request $request)
@@ -108,14 +110,14 @@ class PayPalController extends Controller
 
             Viaje::findOrfail($viaje->id);
             DB::table('viajes') -> where('id', $viaje->id) ->update(["plazas" => $plazas]);
-             #Creo reserva prueba
+            #Creo reserva prueba
             $nuevoreserva = new Reserva();
             $nuevoreserva->numpersonas = $plazasReservadas;
             $nuevoreserva->fechahora = $viaje->fechahora;
             $nuevoreserva->user_id = Auth::id();
             $nuevoreserva->tour_id = $viaje->tour_id;
             $nuevoreserva->save();
-
+            #Borro variables de session
             unset($_SESSION['viaje']);
             unset($_SESSION['plazas']);
             unset($_SESSION['plazasreservadas']);
@@ -130,7 +132,7 @@ class PayPalController extends Controller
     }
 
     /**
-     * cancel transaction.
+     * Cancelar transaction.
      *
      * @return \Illuminate\Http\Response
      */

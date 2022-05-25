@@ -11,8 +11,6 @@
         {{-- imagen de fondo --}}
         <img class="img-fondo" src="{{asset('Img/Guias.jpg')}}" alt="Imagen fondo tour free">
     </x-slot>
-
-
     <div class="fondo-guias  w-full   px-10 pt-10">
         <div class="container mx-auto">
             <div role="list" aria-label="Behind the scenes People "

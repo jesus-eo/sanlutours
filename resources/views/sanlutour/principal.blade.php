@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--  Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{asset('Img/Página principal/favicon.png')}}"/>
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- JS --}}
@@ -31,7 +33,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <title>Sanlutours</title>
+    <title>Sanlutours, Conoce Sanlúcar de
+        Barrameda profúndamente con nosotros.
+    </title>
 </head>
 
 <body>
@@ -89,8 +93,8 @@
                     <li>
                         <a href="{{ route('guias') }}"
                             class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a página de guias">
-                            Guias
+                            title="Enlace a página de guías">
+                            Guías
                         </a>
                     </li>
                     <li>
@@ -129,7 +133,7 @@
                                 <li><a class="subrallado" href="{{ route('deportours') }}">Deportivo</a></li>
                             </ul>
                         </div>
-                        <li><a class="subrallado" href="{{ route('guias') }}">Guias</a></li>
+                        <li><a class="subrallado" href="{{ route('guias') }}">Guías</a></li>
                         <li><a class="subrallado" href="{{ route('sobrenosotros') }}">Sobre Nosotros</a></li>
                         <li><a class="subrallado" href="{{ route('contacto') }}">Contacto</a></li>
                     </ul>
@@ -185,7 +189,7 @@
 
 
         <div id="b3-pagina-principal" role="contentinfo">
-            <div id="b3-video" data-aos="fade-right" data-aos-offset="500" data-aos-duration="300">
+            <div id="b3-video" data-aos="fade-right" data-aos-offset="300" data-aos-duration="800">
                 <video id="video-sanlucar" preload controls
                     poster="{{ asset('Img/Página principal/imagen figma video.jpg') }}"
                     title="Video descriptivo sobre sanlúcar de barrameda">
@@ -193,7 +197,7 @@
                     Tu navegador no soporta esta video.
                 </video>
             </div>
-            <div id="b3-definicion" data-aos="fade-left" data-aos-offset="500" data-aos-duration="300">
+            <div id="b3-definicion" data-aos="fade-left" data-aos-offset="300" data-aos-duration="800">
                 <h1>Sanlúcar de Barrameda</h1>
                 <p> Su asentamiento al margen izquierdo de la desembocadura del Guadalquivir, frente al coto de Doñana,
                     lo hacen disfrutar de un enclave privilegiado.
@@ -207,7 +211,7 @@
 
 
         <div id="b4-pagina-principal" role="contentinfo">
-            <div id="b4-contenido-1"  data-aos="fade-left" data-aos-offset="500" data-aos-duration="300">
+            <div id="b4-contenido-1"  data-aos="fade-left" data-aos-offset="200" data-aos-duration="600">
                 <div class="flechas2"><i id="arrow-left" class="far fa-angle-left"></i></div>
                 <div id="b4-definicion">
                     <h1>Tours Destacados</h1>
@@ -223,7 +227,7 @@
                 <div class="flechas2"><i id="arrow-right" class="far fa-angle-right"></i></div>
             </div>
             <!-- container-slider -->
-            <div id="b4-imagen"  data-aos="fade-right" data-aos-offset="500" data-aos-duration="300">
+            <div id="b4-imagen"  data-aos="fade-right" data-aos-offset="200" data-aos-duration="600">
                 <picture title="Imagen Tours destacado doñana">
                     <img class="img-slider" src="{{ asset('Img/Página principal/Tour destacado doñana.jpg') }}"
                         alt="Imagen Tours destacado doñana">
@@ -234,7 +238,7 @@
 
         <div id="b5-pagina-principal">
             <div class="flechas2"><i id="arrow-left-b5" class="far fa-angle-left"></i></div>
-            <div id="container-b5" data-aos="flip-down" data-aos-offset="500" data-aos-duration="300">
+            <div id="container-b5" data-aos="flip-down" data-aos-offset="200" data-aos-duration="600">
                 <h1 id="h1-b5">QUE DICEN DE NOSOTROS</h1>
                 <p id="b5-p">Cómo puedo empezar a describir mi tiempo con SanluTours... ¡Simplemente me cambió la vida!
                     Siempre imaginé que Sanlúcar de Barrameda sería un destino impresionante, pero gracias a SanluTours,

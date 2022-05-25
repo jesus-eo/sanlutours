@@ -56,9 +56,7 @@
                                     </form>
                                 </td>
                             </tr>
-                            <div x-cloak x-show='formedit'>@include('components.formeditusuario', [
-                                $usuario,
-                            ])</div>
+                            <div x-cloak x-show='formedit'>@include('components.formeditusuario', [$usuario])</div>
                         @endforeach
                     </tbody>
                 </table>

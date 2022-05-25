@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>Sanlutours</title>
+    {{-- Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{ asset('Img/Página principal/favicon.png') }}" />
     <!-- Fonts -->
     {{-- @livewireScripts --}}
     <!-- Styles -->
@@ -47,8 +48,7 @@
             <!-- Navigation Links -->
             @if (Auth::user()->administrador != null)
                 <li>
-                    <x-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')" title="Dashboard"
-                        aria-label="dashboard"
+                    <x-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')" title="Dashboard" aria-label="dashboard"
                         class="relative px-4 py-3 flex text-white  items-center space-x-4 rounded-xl hover:bg-gradient-to-r from-green-600 to-green-400  ">
                         <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                             <path
@@ -187,7 +187,8 @@
             <li>
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-                    <x-nav-link class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white  group"
+                    <x-nav-link
+                        class="text-white px-4 py-3 flex items-center space-x-4 rounded-md hover:bg-gradient-to-r from-green-600 to-green-400 hover:text-white  group"
                         href="{{ route('logout') }}" @click.prevent="$root.submit();">
                         <svg class="h-5 w-5">
                             <path fill-rule="evenodd"

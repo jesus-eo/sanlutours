@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
-    {{-- <link href="https://cdn.tailwindcss.com" rel="stylesheet"> --}}
+    {{-- Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{ asset('Img/Página principal/favicon.png') }}" />
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/sobnos-cont.css') }}">
     {{-- taildwind --}}
@@ -31,7 +32,7 @@
         <div class="flex justify-start item-start space-y-2 flex-col">
             @php
                 date_default_timezone_set('Europe/Madrid');
-                $fecha=new DateTime();
+                $fecha = new DateTime();
                 $ultimaVisita = '';
                 if ($tour->tipo == 'gastronomico') {
                     $ultimaVisita = 'gastrotours';
@@ -43,8 +44,10 @@
                     $ultimaVisita = 'freetours';
                 }
             @endphp
-            <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Sanlutours</h1>
-            <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">{{$fecha->format("d-m-Y h:i:s a");}}</p>
+            <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
+                Sanlutours</h1>
+            <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">
+                {{ $fecha->format('d-m-Y h:i:s a') }}</p>
             <nav class="breadcrumb w-full" aria-label="Breadcrumb">
                 <ul>
                     <li><a class="enlace-bread text-gray-400" href="/">Inicio</a></li>
@@ -144,25 +147,12 @@
                                 </button>
                             </form>
                         </div>
-
-
-
-
-
-
                     </div>
-
                 </div>
             </div>
 
         </div>
-
-
-
-
     </div>
-
-
 </body>
 
 </html>

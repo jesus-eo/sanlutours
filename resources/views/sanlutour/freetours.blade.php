@@ -11,5 +11,4 @@
         <img class="img-fondo" src="{{ asset('Img/img Freetours/tourind2.jpg') }}" alt="Imagen fondo tour free">
     </x-slot>
     @livewire('filtros', ['tipo' => 'free'])
-
 </x-clasetour>

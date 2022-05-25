@@ -47,11 +47,11 @@
 
         </div>
 
-        <div class="flex flex-wrap  justify-around" >
+        <div class="flex flex-wrap  justify-around">
             <!-- Card 1 -->
             @foreach ($tours as $tour)
-
-                <div class="mx-2 xl:mb-5 mt-8 mb-8 rounded-md cont-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="mx-2 xl:mb-5 mt-8 mb-8 rounded-md cont-card" data-aos="fade-up"
+                    data-aos-duration="1000">
                     <div class="rounded-md">
                         <img alt="imagen tour" src="{{ asset($tour->imagen) }}"
                             class="focus:outline-none w-full h-52 rounded-md" />
@@ -106,16 +106,14 @@
                                         @endforeach
 
                                     </select>
-
-
                                     <p class="p-card">Duración: {{ $tour->duracion }}h</p>
                                     <p class="p-card">Precio: {{ $tour->precio }}€</p>
                                     @php
                                         $numguias = $tour->guias->count();
                                         $cont = 0;
                                     @endphp
-                                    <a class="p-card hover:bg-green-900 hover:text-white"
-                                        href="{{ Route('guias') }}">Guia:
+                                    <a class="p-card hover:bg-green-900 hover:text-white underline"
+                                        href="{{ Route('guias') }}">Guía:
                                         @foreach ($tour->guias as $guia)
                                             @php
                                                 $cont++;

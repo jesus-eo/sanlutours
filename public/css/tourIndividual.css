@@ -1,29 +1,29 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 /* font-family:var(--fuenteAcme) */
 
  :root {
-    --fuenteAcme: 'Acme', sans-serif;
-    --fuenteCorben: 'Corben', cursive;
-    --colorLetra: #485342;
+  --fuenteAcme: 'Acme', sans-serif;
+  --fuenteCorben: 'Corben', cursive;
+  --colorLetra: #485342;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 ul,
 li {
-    list-style: none;
+  list-style: none;
 }
 
 #container-envolvente-principal {
-    height: 100%;
+  height: 100%;
 }
 
 
@@ -32,217 +32,217 @@ li {
    -----------------*/
 
 #bloque1-pag-individual {
-    position: relative;
-    height: 97vh;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--fuenteCorben);
+  position: relative;
+  height: 97vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fuenteCorben);
 }
 
 #login,
 .titulo-central,
 .datos-tour {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 .img-fondo {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #login {
-    width: 100%;
-    height: 5%;
-    display: flex;
-    justify-content: flex-end;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #login a {
-    padding: 5px;
-    color: #485342;
+  padding: 5px;
+  color: #485342;
 }
 
 .encabezado-b1-principal {
-    display: flex;
-    height: 80px;
-    width: 100%;
-    z-index: 5;
-    position: fixed;
-    top: 25px;
-    transition: top 0.5s;
+  display: flex;
+  height: 80px;
+  width: 100%;
+  z-index: 5;
+  position: fixed;
+  top: 25px;
+  transition: top 0.5s;
 }
 
 #container-logo {
-    display: flex;
-    width: 40%;
+  display: flex;
+  width: 40%;
 }
 
 #logo {
-    margin-left: 20px;
-    display: flex;
-    width: 100%;
-    height: 100%;
+  margin-left: 20px;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 #logo>img {
-    width: 60%;
+  width: 60%;
 }
 
 
 /*Navegación*/
 
 .nav-b1-principal {
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    font-size: 20px;
-    color: #FFFFFF;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  font-size: 20px;
+  color: #FFFFFF;
 }
 
 .nav-b1-principal ul li a {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .nav-b1-principal>ul {
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    justify-content: space-around;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .tours {
-    position: relative;
-    cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 .desplegable-oculto {
-    position: absolute;
-    border: 1px solid black;
-    margin-top: 20px;
-    display: none;
+  position: absolute;
+  border: 1px solid black;
+  margin-top: 20px;
+  display: none;
 }
 
 
 /*Hace visible la lista*/
 
 .desplegable-visible {
-    display: block;
-    position: absolute;
-    margin-top: 2px;
-    transition: all 2s;
+  display: block;
+  position: absolute;
+  margin-top: 2px;
+  transition: all 2s;
 }
 
 .desplegable-visible li {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 .titulo-central {
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    color: #FFFFFF;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  color: #FFFFFF;
 }
 
 .titulo-central h1 {
-    font-size: 35px;
+  font-size: 35px;
 }
 
 .datos-tour {
-    height: 20%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    color: #FFFFFF;
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #FFFFFF;
 }
 
 .h3-datos-tour {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .subrallado:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .subrallado-actual {
-    text-decoration: underline #485342;
+  text-decoration: underline #485342;
 }
 
 
 /* Menu hamburguesa */
 
 .giro-burguer {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 #mobile-menu {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 100px;
-    background-color: #2F3A29;
-    text-align: center;
-    transition: all .5s;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 100px;
+  background-color: #2F3A29;
+  text-align: center;
+  transition: all .5s;
 }
 
 #mobile-menu li {
-    line-height: 30px;
-    margin: 50px 0;
-    transition: all .5s;
+  line-height: 30px;
+  margin: 50px 0;
+  transition: all .5s;
 }
 
 #mobile-menu li a {
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-family: var(--fuenteCorben);
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--fuenteCorben);
 }
 
 #mobile-menu li a:hover {
-    background-color: #FFFFFF;
-    color: var(--colorLetra);
+  background-color: #FFFFFF;
+  color: var(--colorLetra);
 }
 
 #submenu {
-    display: flex;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
 
 #boton-lateral {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .desplegable-oculto-burguer {
-    transform: translateX(-100%);
-    transition: all 1s;
-    color: #FFFFFF;
-    position: absolute;
+  transform: translateX(-100%);
+  transition: all 1s;
+  color: #FFFFFF;
+  position: absolute;
 }
 
 
 /*Hace visible la lista*/
 
 .desplegable-visible-burguer {
-    display: block;
-    position: relative;
-    margin-top: -10%;
-    margin-left: 55%;
-    transition: all 1s;
+  display: block;
+  position: relative;
+  margin-top: -10%;
+  margin-left: 55%;
+  transition: all 1s;
 }
 
 .desplegable-visible-burguer li {
-    padding-top: 5px;
-    color: #FFFFFF;
+  padding-top: 5px;
+  color: #FFFFFF;
 }
 
 
@@ -251,59 +251,59 @@ li {
 ----------------------------*/
 
 #bloque2-pag-individual {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #485342;
-    font-family: var(--fuenteAcme);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #485342;
+  font-family: var(--fuenteAcme);
 }
 
 .breadcrumb {
-    height: 10%;
+  height: 10%;
 }
 
 .breadcrumb>ul {
-    padding: 2%;
+  padding: 2%;
 }
 
 .breadcrumb ul li {
-    display: inline;
-    color: #FFFFFF;
+  display: inline;
+  color: #FFFFFF;
 }
 
 .breadcrumb ul li+li:before {
-    content: ">";
-    padding: 10px;
+  content: ">";
+  padding: 10px;
 }
 
 .enlace-bread {
-    color: rgb(199, 206, 201);
+  color: rgb(199, 206, 201);
 }
 
 .sitio-actual {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .planing-ind {
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 60%;
-    margin-bottom: 5%;
-    margin-top: 3%;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60%;
+  margin-bottom: 5%;
+  margin-top: 3%;
 }
 
 .planing-ind p {
-    width: 80%;
-    margin-top: 10px;
-    font-size: 30px;
+  width: 80%;
+  margin-top: 10px;
+  font-size: 30px;
 }
 
 .planing-ind h1 {
-    margin-bottom: 2%;
-    font-size: 40px;
+  margin-bottom: 2%;
+  font-size: 40px;
 }
 
 
@@ -312,30 +312,31 @@ Punto de encuentro
 ------------------*/
 
 #punto-encuentro {
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .b1-punto-encuentro {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 20%;
-    width: 100%;
-    font-size: 40px;
-    color: var(--colorLetra);
-    font-family: var(--fuenteAcme);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 20%;
+  width: 100%;
+  font-size: 40px;
+  color: var(--colorLetra);
+  font-family: var(--fuenteAcme);
 }
 
 #btnllegar {
-    background-color: #DBE2DD;
+  margin-top: 10px;
+  background-color: #DBE2DD;
 }
 
 #btnllegar:hover {
-    background-color: #2F3A29;
-    color: white;
+  background-color: #2F3A29;
+  color: white;
 }
 
 
@@ -344,80 +345,80 @@ Punto de encuentro
 -----------------------*/
 
 #form-reserva {
-    height: 100vh;
-    width: 100%;
-    background-color: #485342;
-    ;
-    display: flex;
-    flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: #485342;
+  ;
+  display: flex;
+  flex-direction: column;
 }
 
 #h1-form-reserva {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 20%;
-    width: 100%;
-    font-size: 40px;
-    font-family: var(--fuenteAcme);
-    color: #FFFFFF;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 20%;
+  width: 100%;
+  font-size: 40px;
+  font-family: var(--fuenteAcme);
+  color: #FFFFFF;
 }
 
 #container-form-reserva {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 100%;
 }
 
 .form-reserva {
-    display: flex;
-    height: 70%;
-    width: 40%;
-    margin-bottom: 5%;
-    justify-content: space-evenly;
-    flex-direction: column;
-    background: #FFFFFF;
-    box-shadow: black 0px 0px 10px 1px;
-    border-radius: 10px;
+  display: flex;
+  height: 70%;
+  width: 40%;
+  margin-bottom: 5%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: black 0px 0px 10px 1px;
+  border-radius: 10px;
 }
 
 .form-reserva p {
-    padding: 3%;
-    font-size: 24px;
+  padding: 3%;
+  font-size: 24px;
 }
 
 .form div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .form>div>input {
-    height: 50%;
-    width: 20%;
+  height: 50%;
+  width: 20%;
 }
 
 #btnModal {
-    border-radius: 10px;
-    height: 30%;
-    margin-left: 25%;
-    cursor: pointer;
-    border: none;
-    background-color: #DBE2DD;
-    width: 50%;
+  border-radius: 10px;
+  height: 30%;
+  margin-left: 25%;
+  cursor: pointer;
+  border: none;
+  background-color: #DBE2DD;
+  width: 50%;
 }
 
 #btnModal:hover {
-    background-color: #2F3A29;
-    color: white;
+  background-color: #2F3A29;
+  color: white;
 }
 
 .planing-ind,
 #punto-encuentro,
 #form-reserva,
 .meteorologia {
-    min-height: 50vh;
+  min-height: 50vh;
 }
 
 
@@ -429,126 +430,131 @@ Punto de encuentro
 /* SECTION #1*/
 
 .top-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--fuenteCorben);
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--fuenteCorben);
+  margin-bottom: 5px;
 }
 
 .top-banner form {
-    position: relative;
-    display: flex;
-    align-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .top-banner form input {
-    height: 40px;
-    padding: 5px 5px 10px;
-    border-bottom: 1px solid;
+  height: 40px;
+  padding: 5px 5px 10px;
+  border-bottom: 1px solid;
 }
 
 .top-banner form button {
-    background-color: #DBE2DD;
-    padding: 5px 5px 10px;
-    margin-left: 15px;
-    border-radius: 5px;
+  background-color: #DBE2DD;
+  padding: 5px 5px 10px;
+  margin-left: 15px;
+  border-radius: 5px;
 }
 
 .top-banner form button:hover {
-    background-color: #2F3A29;
-    color: white;
+  background-color: #2F3A29;
+  color: white;
 }
 
 .top-banner form .msg {
-    position: absolute;
-    bottom: -60px;
-    left: 0;
+  position: absolute;
+  bottom: -60px;
+  left: 0;
 }
 
 
-/* SECTION #2
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* SECTION #2*/
+
+.container-meteo h2 {
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 5px;
+}
 
 .ajax-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+  margin-top: 50px;
 }
 
 .container-img-meteo {
-    width: 50%;
+  width: 50%;
 }
 
 .city-name {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .ajax-section .city {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    padding: 40px 10%;
-    margin-bottom: 5%;
-    box-shadow: black 0px 0px 10px 1px;
-    border-radius: 10px;
-    background-size: 100% 100%;
-    background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  padding: 40px 10%;
+  margin-bottom: 5%;
+  box-shadow: black 0px 0px 10px 1px;
+  border-radius: 10px;
+  background-size: 100% 100%;
+  background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
 }
 
 .city-temp {
-    font-size: 5rem;
+  font-size: 5rem;
 }
 
 .ajax-section .city sup {
-    font-size: 0.5em;
+  font-size: 0.5em;
 }
 
 .ajax-section .city-name sup {
-    padding: 0.2em 0.6em;
-    border-radius: 30px;
-    color: var(--text_light);
-    background: var(--orange);
+  padding: 0.2em 0.6em;
+  border-radius: 30px;
+  color: var(--text_light);
+  background: var(--orange);
 }
 
 .ajax-section .city-icon {
-    margin-top: 10px;
-    width: 100px;
-    height: 100px;
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
 }
 
 .h2-meteo {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 @media screen and (max-width: 700px) {
-    .heading,
-    .ajax-section .city-temp {
-        font-size: 3rem;
-    }
-    .ajax-section .city {
-        flex-direction: column;
-    }
-    .top-banner form {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .top-banner form input,
-    .top-banner form button {
-        width: 100%;
-    }
-    .top-banner form button {
-        margin: 20px 0 0 0;
-    }
-    .top-banner form .msg {
-        position: static;
-        max-width: none;
-        min-height: 0;
-        margin-top: 10px;
-    }
+  .heading,
+  .ajax-section .city-temp {
+    font-size: 3rem;
+  }
+  .ajax-section .city {
+    flex-direction: column;
+  }
+  .top-banner form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .top-banner form input,
+  .top-banner form button {
+    width: 100%;
+  }
+  .top-banner form button {
+    margin: 20px 0 0 0;
+  }
+  .top-banner form .msg {
+    position: static;
+    max-width: none;
+    min-height: 0;
+    margin-top: 10px;
+  }
 }
 
 
@@ -557,123 +563,123 @@ Punto de encuentro
 -----------------------*/
 
 #b6-pagina-principal {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    background-color: #DBE2DD;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #DBE2DD;
 }
 
 .b6-container-iconos {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 2%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2%;
 }
 
 .b6-iconos {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .b6-iconos picture {
-    width: 50%;
-    display: flex;
-    justify-content: center;
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .b6-iconos picture img {
-    width: 50%;
+  width: 50%;
 }
 
 .b6-iconos a {
-    font-size: 24px;
-    font-family: var(--fuenteCorben);
-    color: #2F3A29;
+  font-size: 24px;
+  font-family: var(--fuenteCorben);
+  color: #2F3A29;
 }
 
 .b6-iconos a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .b6-iconos-redes {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #iconos-redes {
-    display: flex;
-    justify-content: center;
-    margin-top: 4%;
-    padding: 1%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+  padding: 1%;
 }
 
 #iconos-redes a>img {
-    width: 40%;
+  width: 40%;
 }
 
 #b6-p-actualizacion {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
 
 
 /*---Modal---*/
 
 .modalContainerInvisible {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modalContainerVisible {
-    display: block;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #myModal .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid lightgray;
-    border-top: 10px solid #DBE2DD;
-    border-bottom: 10px solid #DBE2DD;
-    width: 60%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-top: 10px solid #DBE2DD;
+  border-bottom: 10px solid #DBE2DD;
+  width: 60%;
 }
 
 #myModal .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 #myModal .close:hover,
 #myModal .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
@@ -683,55 +689,55 @@ Punto de encuentro
 /* md */
 
 @media (max-width: 768px) {
-    .nav-b1-principal {
-        font-size: 16px;
-    }
-    .breadcrumb,
-    .cont-orden {
-        width: 100%;
-    }
-    .planing-ind p {
-        font-size: 25px;
-    }
-    .planing-ind h1 {
-        font-size: 30px;
-    }
-    .form-reserva {
-        width: 60%;
-    }
+  .nav-b1-principal {
+    font-size: 16px;
+  }
+  .breadcrumb,
+  .cont-orden {
+    width: 100%;
+  }
+  .planing-ind p {
+    font-size: 25px;
+  }
+  .planing-ind h1 {
+    font-size: 30px;
+  }
+  .form-reserva {
+    width: 60%;
+  }
 }
 
 
 /* Movil sm */
 
 @media (max-width: 640px) {
-    .nav-b1-principal {
-        display: none;
-    }
-    #container-logo {
-        margin-left: 30%;
-        width: 80%;
-    }
-    #logo img {
-        width: 80%;
-    }
-    .b6-container-iconos {
-        align-items: center;
-        flex-direction: column;
-    }
-    .b6-iconos {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-    .planing-ind p {
-        font-size: 20px;
-    }
-    .planing-ind h1 {
-        font-size: 25px;
-        margin-top: 3%;
-    }
-    .form>div>input {
-        height: 50%;
-        width: 25%;
-    }
+  .nav-b1-principal {
+    display: none;
+  }
+  #container-logo {
+    margin-left: 30%;
+    width: 80%;
+  }
+  #logo img {
+    width: 80%;
+  }
+  .b6-container-iconos {
+    align-items: center;
+    flex-direction: column;
+  }
+  .b6-iconos {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .planing-ind p {
+    font-size: 20px;
+  }
+  .planing-ind h1 {
+    font-size: 25px;
+    margin-top: 3%;
+  }
+  .form>div>input {
+    height: 50%;
+    width: 25%;
+  }
 }

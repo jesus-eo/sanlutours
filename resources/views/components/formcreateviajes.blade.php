@@ -49,7 +49,6 @@ function limpiarCustomvaliditi() {
     }
 }
 
-
 function validarfechahora() {
     limpiarCustomvaliditi();
     if(!fechahora.checkValidity()){

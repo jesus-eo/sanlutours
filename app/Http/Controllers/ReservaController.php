@@ -10,12 +10,15 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Controlador para las rutas relacionadas con las reservas.
+ */
 class ReservaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Vista de todos las reservas con paginación.
      *
-     * @return \Illuminate\Http\Response
+     * @return array reservas
      */
     public function index()
     {
@@ -25,17 +28,7 @@ class ReservaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Crea una nueva reserva.
      *
      * @param  \App\Http\Requests\StoreReservaRequest  $request
      * @return \Illuminate\Http\Response
@@ -43,13 +36,13 @@ class ReservaController extends Controller
     public function store(StoreReservaRequest $request)
     {
         $validados = $request->validated();
-        $userid = User::where('name',$validados['user_id'])->first();
-        $tourid = Tour::where('nombre',$validados['tour_id'])->first();
-        if($userid == null){
+        $userid = User::where('name', $validados['user_id'])->first();
+        $tourid = Tour::where('nombre', $validados['tour_id'])->first();
+        if ($userid == null) {
             return redirect()->route('crudreservas')->with('fault', 'Reserva no creada, usuario incorrecto');
-        }elseif($tourid == null){
+        } elseif ($tourid == null) {
             return redirect()->route('crudreservas')->with('fault', 'Reserva no creada, tour incorrecto');
-        }else{
+        } else {
             $userid = $userid->id();
             $tourid = $tourid->id();
         }
@@ -67,29 +60,7 @@ class ReservaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reserva  $reserva
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Reserva $reserva)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reserva  $reserva
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Reserva $reserva)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Actualiza reserva.
      *
      * @param  \App\Http\Requests\UpdateReservaRequest  $request
      * @param  \App\Models\Reserva  $reserva
@@ -97,26 +68,24 @@ class ReservaController extends Controller
      */
     public function update(UpdateReservaRequest $request, Reserva $reserva)
     {
-
         Reserva::findOrfail($reserva->id);
         $validados = $request->validated();
-        $userid = User::where('name',$validados['user_id'])->first()->id;
-        $tourid = Tour::where('nombre',$validados['tour_id'])->first()->id;
+        $userid = User::where('name', $validados['user_id'])->first()->id;
+        $tourid = Tour::where('nombre', $validados['tour_id'])->first()->id;
         $reserva->numpersonas = $validados['numpersonas'];
         $reserva->fechahora = $validados['fechahora'];
         $reserva->user_id = $userid;
         $reserva->tour_id = $tourid;
         $reserva->save();
-        if(Auth::user()->administrador != null){
-           return redirect()->route('crudreservas')->with('success', 'Reserva actualizado con exito');
-        }else{
+        if (Auth::user()->administrador != null) {
+            return redirect()->route('crudreservas')->with('success', 'Reserva actualizado con exito');
+        } else {
             return redirect()->route('reservasusuario')->with('success', 'Reserva actualizado con exito');
         }
-
     }
 
     /**
-     * Remove the specified resource from storage.
+     *Borra reserva.
      *
      * @param  \App\Models\Reserva  $reserva
      * @return \Illuminate\Http\Response
@@ -125,29 +94,31 @@ class ReservaController extends Controller
     {
         $id = $reserva->id;
         Reserva::find($id)->delete();
-        if(Auth::user()->administrador != null){
-            return redirect()->route('crudreservas')->with('success','Reserva borrada con exito');
-         }else{
-             return redirect()->route('reservasusuario')->with('success','Reserva borrada con exito');
-         }
-
+        if (Auth::user()->administrador != null) {
+            return redirect()->route('crudreservas')->with('success', 'Reserva borrada con exito');
+        } else {
+            return redirect()->route('reservasusuario')->with('success', 'Reserva borrada con exito');
+        }
     }
 
-
-
     /**
-     * Display a listing of the resource.
+     * Devuelve l as reservas del usuario logueado.
      *
-     * @return \Illuminate\Http\Response
+     * @return array reservas
      */
     public function indexusuario()
     {
-        /* dd(Auth::user()->reservas); */
         return view('dashboardusuario.reservausuario', [
             "reservas" => Auth::user()->reservas,
         ]);
     }
 
+    /**
+     * Tramita reserva.
+     * @param Tour $tour
+     *
+     * @return array devuelve datos necesarios para la reserva de dicho tour.
+     */
     public function tramitar(Tour $tour)
     {
         Tour::findOrfail($tour->id);
@@ -155,26 +126,22 @@ class ReservaController extends Controller
         $plazasReservadas = $validado['numpersonas'];
         $viaje = request()->input('viaje');
 
-        return view('sanlutour.tramite',[
-            "tour"=>$tour,
-            "plazasreservadas"=>$plazasReservadas,
-            "viaje"=>json_decode($viaje),
+        return view('sanlutour.tramite', [
+            "tour" => $tour,
+            "plazasreservadas" => $plazasReservadas,
+            "viaje" => json_decode($viaje),
         ]);
     }
 
+    /**
+     * Valida campos de reservas.
+     * @return array validados.
+     */
     private function validar()
     {
         $validados = request()->validate([
-            'numpersonas'=> 'required|integer',
-            /* 'fechahora'=> 'required',
-            'precio'=> 'required|numeric',
-            'duracion'=> 'required', */
+            'numpersonas' => 'required|integer',
         ]);
-
         return $validados;
     }
-
-
-
-
 }

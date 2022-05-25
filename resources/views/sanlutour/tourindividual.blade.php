@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{ asset('Img/Página principal/favicon.png') }}" />
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/tourIndividual.css') }}">
     {{-- JS --}}
     <script src="{{ asset('js/sobre-nosotros.js') }}" defer></script>
-
     <!--Iconos -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--Fuente-->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
@@ -33,7 +33,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
-
     <style>
         #map {
             height: 60%;
@@ -44,7 +43,6 @@
 </head>
 
 <body>
-
     <div id="container-envolvente-principal">
         <div id="bloque1-pag-individual" role="contentinfo">
             <div id="login">
@@ -99,7 +97,7 @@
                     <li>
                         <a href="{{ route('guias') }}"
                             class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a Guias">Guias</a>
+                            title="Enlace a Guías">Guías</a>
                     </li>
                     <li>
                         <a href="{{ route('sobrenosotros') }}"
@@ -143,7 +141,7 @@
                                         title="Página tour deportivo">Deportivo</a></li>
                             </ul>
                         </div>
-                        <li><a class="subrallado" href="{{ route('guias') }}" title="Página guias">Guias</a></li>
+                        <li><a class="subrallado" href="{{ route('guias') }}" title="Página guias">Guías</a></li>
                         <li><a class="subrallado" href="{{ route('sobrenosotros') }}"
                                 title="Página sobrenosotros">Sobre Nosotros</a></li>
                         <li><a class="subrallado" href="{{ route('contacto') }}"
@@ -185,8 +183,7 @@
             }
         @endphp
 
-        <div id="bloque2-pag-individual"  x-data="{activeTab:1,}"
-            >
+        <div id="bloque2-pag-individual" x-data="{ activeTab: 1, }">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ul>
                     <li><a class="enlace-bread" href="/" title="Página de inicio.">Inicio</a></li>
@@ -198,19 +195,29 @@
 
             <ul class="flex flex-row justify-around mb-6">
                 <li>
-                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 1" x-cloak :class="activeTab === 1 ? 'border-teal-500' : ''">Descripción</a>
+                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500"
+                        x-on:click.prevent="activeTab = 1" x-cloak
+                        :class="activeTab === 1 ? 'border-teal-500' : ''">Descripción</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 2" x-cloak :class="activeTab === 2 ? 'border-teal-500' : ''">Planing de la visita</a>
+                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500"
+                        x-on:click.prevent="activeTab = 2" x-cloak
+                        :class="activeTab === 2 ? 'border-teal-500' : ''">Planning de la visita</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 border-gray-900 text-white hover:border-teal-500" x-on:click.prevent="activeTab = 3" x-cloak :class="activeTab === 3 ? 'border-teal-500' : ''">Punto de encuentro</a>
+                    <a href="#" class="px-4 border-b-2 border-gray-900 text-white hover:border-teal-500"
+                        x-on:click.prevent="activeTab = 3" x-cloak
+                        :class="activeTab === 3 ? 'border-teal-500' : ''">Punto de encuentro</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 4" x-cloak :class="activeTab === 4 ? 'border-teal-500' : ''">Reserva tu plaza</a>
+                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500"
+                        x-on:click.prevent="activeTab = 4" x-cloak
+                        :class="activeTab === 4 ? 'border-teal-500' : ''">Reserva tu plaza</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500" x-on:click.prevent="activeTab = 5" x-cloak :class="activeTab === 5 ? 'border-teal-500' : ''">Meteorologia</a>
+                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500"
+                        x-on:click.prevent="activeTab = 5" x-cloak
+                        :class="activeTab === 5 ? 'border-teal-500' : ''">Meteorologia</a>
                 </li>
             </ul>
             <div x-show="activeTab === 1" class="planing-ind">
@@ -218,7 +225,7 @@
                 <p>{{ $tour->descripcion }}</p>
             </div>
             <div x-show="activeTab === 2" class="planing-ind">
-                <h1>Planing de la Visita</h1>
+                <h1>Planning de la Visita</h1>
                 <p>{{ $tour->planing }}</p>
             </div>
 
@@ -230,13 +237,13 @@
                 <div id="map">
                 </div>
                 <div class="flex justify-center items-center">
-                <button id="btnllegar"
-                    class="p-card border-2 text-black  px-20 rounded-md font-medium  transition duration-300">Como
-                    llegar</button>
+                    <button id="btnllegar"
+                        class="p-card border-2 text-black  px-20 rounded-md font-medium  transition duration-300">Como
+                        llegar</button>
                 </div>
             </div>
 
-            <div  x-show="activeTab === 4" id="form-reserva" role="contentinfo">
+            <div x-show="activeTab === 4" id="form-reserva" role="contentinfo">
                 <div id="h1-form-reserva">
                     <h1>Reserva tu plaza</h1>
                 </div>
@@ -285,18 +292,19 @@
             <div class="meteorologia" x-show="activeTab === 5">
                 <section class="top-banner">
                     <div class="container-meteo">
-                      <form>
-                        <input type="text" placeholder="Buscar por ciudad" autofocus>
-                        <button type="submit">Enviar</button>
-                        <span class="msg"></span>
-                      </form>
+                        <h2>Consulta la meteorologia actual por ciudad.</h2>
+                        <form>
+                            <input type="text" placeholder="Buscar por ciudad" autofocus>
+                            <button type="submit">Buscar</button>
+                            <span class="msg"></span>
+                        </form>
                     </div>
-                  </section>
-                  <section class="ajax-section">
+                </section>
+                <section class="ajax-section">
                     <div class="container-img-meteo">
-                      <ul class="cities"></ul>
+                        <ul class="cities"></ul>
                     </div>
-                  </section>
+                </section>
             </div>
         </div>
 
@@ -350,8 +358,6 @@
 
     </div>
 
-
-
     <script>
         /* Datos vista inicial mapa */
         let map = L.map('map', {
@@ -367,8 +373,6 @@
         /* Marcador punto de encuentro inicial*/
         let marker = L.marker([{{ $tour->latitud }}, {{ $tour->longitud }}]).addTo(map);
         marker.bindPopup("<b>Este es tu punto de encuentro</b><br>Te esperamos!!").openPopup();
-
-
 
         let btnllegar = document.getElementById("btnllegar");
         btnllegar.addEventListener('click', geolocalizaciónActual);
