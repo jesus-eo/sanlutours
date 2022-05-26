@@ -66,7 +66,7 @@
 
                     <button type="button"
                         class="inline-flex items-center justify-center p-2 rounded-md text-green-900 hover:text-white hover:bg-green-900 "
-                        aria-controls="mobile-menu" aria-expanded="false" @click="open=true">
+                        aria-controls="mobile-menu" aria-expanded="false" x-on:click="open=true">
                         <i :class="open ? 'fas fa-bars giro-burguer text-2xl' : 'fas fa-bars text-2xl'"></i>
                     </button>
                 </div>

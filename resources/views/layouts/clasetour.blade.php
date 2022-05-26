@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{--  Favicon --}}
-    <link rel="icon" type="image/jpg" href="{{asset('Img/Página principal/favicon.png')}}"/>
+    {{-- Favicon --}}
+    <link rel="icon" type="image/jpg" href="{{ asset('Img/Página principal/favicon.png') }}" />
     {{-- Alpine --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
@@ -69,18 +69,20 @@
                 </div>
                 <!-- Mobile menu, show/hide based on menu state. -->
                 <div class="sm:hidden" id="mobile-menu" x-show="open" @click.away="open=false">
-                    <li>
-                        <a href="{{ route('index') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a página de inicio">
-                            Inicio
-                        </a>
-                    </li>
-                    <li id="submenu">
-                        <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            aria-current="page">Tours</a>
-                        <i id="boton-lateral" class="fa fa-angle-right"></i>
-                    </li>
+                    <ul>
+                        <li>
+                            <a href="{{ route('index') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a página de inicio">
+                                Inicio
+                            </a>
+                        </li>
+                        <li id="submenu">
+                            <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                aria-current="page">Tours</a>
+                            <i id="boton-lateral" class="fa fa-angle-right"></i>
+                        </li>
+                    </ul>
                     <ul id="menu-desplegable-burguer" class="desplegable-oculto-burguer">
                         <li><a class="subrallado" href="{{ route('freetours') }}"
                                 title="Enlace a página de freetours">Free Tours</a></li>
@@ -91,24 +93,26 @@
                         <li><a class="subrallado" href="{{ route('deportours') }}"
                                 title="Enlace a página de tours deportivos">Deportivo</a></li>
                     </ul>
-                    <li>
-                        <a href="{{ route('guias') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a página de guias">
-                            Guías
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('sobrenosotros') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a sección Sobre nosotros">Sobre
-                            nosotros</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('contacto') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a sección de contacto">Contacto</a>
-                    </li>
+                    <ul>
+                        <li>
+                            <a href="{{ route('guias') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a página de guias">
+                                Guías
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('sobrenosotros') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a sección Sobre nosotros">Sobre
+                                nosotros</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('contacto') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a sección de contacto">Contacto</a>
+                        </li>
+                    </ul>
                 </div>
                 <div id="container-logo">
                     <picture id="logo">
@@ -141,7 +145,7 @@
                     </ul>
                 </div>
             </header>
-            <main role="main" class="main-freetour">
+            <main class="main-freetour">
                 {{ $main }}
             </main>
 
