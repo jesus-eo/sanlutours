@@ -72,18 +72,20 @@
                 </div>
                 <!-- Mobile menu, show/hide based on menu state. -->
                 <div class="sm:hidden" id="mobile-menu" x-show="open" @click.away="open=false">
-                    <li>
-                        <a href="{{ route('index') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a página de inicio">
-                            Inicio
-                        </a>
-                    </li>
-                    <li id="submenu">
-                        <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            aria-current="page">Tours</a>
-                        <i id="boton-lateral" class="fa fa-angle-right"></i>
-                    </li>
+                    <ul>
+                        <li>
+                            <a href="{{ route('index') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a página de inicio">
+                                Inicio
+                            </a>
+                        </li>
+                        <li id="submenu">
+                            <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                aria-current="page">Tours</a>
+                            <i id="boton-lateral" class="fa fa-angle-right"></i>
+                        </li>
+                    </ul>
                     <ul id="menu-desplegable-burguer" class="desplegable-oculto-burguer">
                         <li><a class="subrallado" href="{{ route('freetours') }}"
                                 title="Enlace a página de freetours">Free Tours</a></li>
@@ -94,22 +96,24 @@
                         <li><a class="subrallado" href="{{ route('deportours') }}"
                                 title="Enlace a página de tours deportivos">Deportivo</a></li>
                     </ul>
-                    <li>
-                        <a href="{{ route('guias') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a Guías">Guías</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('sobrenosotros') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a sección Sobre nosotros">Sobre
-                            nosotros</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('contacto') }}"
-                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                            title="Enlace a sección de contacto">Contacto</a>
-                    </li>
+                    <ul>
+                        <li>
+                            <a href="{{ route('guias') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a Guías">Guías</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('sobrenosotros') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a sección Sobre nosotros">Sobre
+                                nosotros</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('contacto') }}"
+                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                                title="Enlace a sección de contacto">Contacto</a>
+                        </li>
+                    </ul>
                 </div>
 
                 <div id="container-logo">
