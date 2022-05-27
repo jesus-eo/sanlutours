@@ -11,7 +11,7 @@
         <img class="img-fondo" src="{{ asset('Img/Img gastronomia/pp-Vaso vino.jpg') }}"
             alt="Imagen fondo tour free">
     </x-slot>
-    @livewire('filtros', ['tipo' => 'gastronomico'])
+    @livewire('filtros', ['tipo' => 'gastronómico'])
 
     </div>
 
