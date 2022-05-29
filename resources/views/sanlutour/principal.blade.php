@@ -62,12 +62,13 @@
 
                     <button type="button"
                         class="inline-flex items-center justify-center p-2 rounded-md text-green-900 hover:text-white hover:bg-green-900 "
-                        aria-controls="mobile-menu" aria-expanded="false" @click="open=true">
+                        aria-controls="mobile-menu" aria-expanded="false" x-on:click="open=true">
                         <i :class="open ? 'fas fa-bars giro-burguer text-2xl' : 'fas fa-bars text-2xl'"></i>
                     </button>
                 </div>
                 <!-- Mobile menu, show/hide based on menu state. -->
                 <div class="sm:hidden" id="mobile-menu" x-show="open" @click.away="open=false">
+                    <ul>
                     <li>
                         <a href="{{ route('index') }}"
                             class="text-white  block px-3 py-2 rounded-md text-base font-medium"
@@ -80,6 +81,7 @@
                             aria-current="page">Tours</a>
                         <i id="boton-lateral" class="fa fa-angle-right"></i>
                     </li>
+                </ul>
                     <ul id="menu-desplegable-burguer" class="desplegable-oculto-burguer">
                         <li><a class="subrallado" href="{{ route('freetours') }}"
                                 title="Enlace a página de freetours">Free Tours</a></li>
@@ -90,6 +92,7 @@
                         <li><a class="subrallado" href="{{ route('deportours') }}"
                                 title="Enlace a página de tours deportivos">Deportivo</a></li>
                     </ul>
+                    <ul>
                     <li>
                         <a href="{{ route('guias') }}"
                             class="text-white  block px-3 py-2 rounded-md text-base font-medium"
@@ -108,6 +111,7 @@
                             class="text-white  block px-3 py-2 rounded-md text-base font-medium"
                             title="Enlace a sección de contacto">Contacto</a>
                     </li>
+                </ul>
                 </div>
                 <div id="container-logo">
 

@@ -14,6 +14,6 @@ La función principal de esta aplicación es la de llevar a acabo la contrataci�
 Cada tour tendrá un guía especializado para ello.
 También tiene como finalidad, de informar al usuario sobre que puede visitar en nuestra ciudad.
 ### Documentación
-- [Documentación]
+- [Documentación](https://github.com/jesus-eo/sanlutours/blob/master/Documentación.pdf)
 ### Despliegue
-- [Despliegue]
+- [Despliegue](https://sanlutours.herokuapp.com/)
