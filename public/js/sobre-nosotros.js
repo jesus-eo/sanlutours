@@ -365,6 +365,7 @@ if (document.querySelector(".top-banner form")) {
         //Nombre ciudad
         let inputVal = inputCiudad.value;
         let mainDict = {
+            overcast_clouds: 'Nubes cubiertas',
             clear_sky: 'Cielo limpio',
             few_clouds: 'Pocas nubes',
             scattered_clouds: 'Nubes dispersas',
