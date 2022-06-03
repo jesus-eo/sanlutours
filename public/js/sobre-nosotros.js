@@ -59,14 +59,20 @@ window.onscroll = function() {
 
 /********************Estrella guias ***************/
 let primeravezguia = true;
+/**
+ * Función que cambia la valoración de los guías recibe el id del guía qiue corresponde con la estrella pulsada
+ * @param  {event} e
+ * @param  {atring} id
+ */
 async function valoracion(e, id) {
 
+    /* La primera vez crea la sesion, crando un array en formato json */
     if (primeravezguia) {
         sessionStorage.setItem('valoraciong', JSON.stringify([]));
         primeravezguia = false;
     }
 
-    /* Si no existe */
+    /* Si no existe la sesion de dicho usuario entra y añade ese usuario al la session para que solo pueda votar una vez */
     if (JSON.parse(sessionStorage.getItem('valoraciong')).indexOf(id) == -1) {
         let valoraciong = sessionStorage.getItem('valoraciong');
         let valoraciongparse = JSON.parse(valoraciong);
@@ -104,6 +110,11 @@ async function valoracion(e, id) {
 
 /********************Estrella tours(free,cultural,deportivo,gastronomico) ***************/
 let primeraveztour = true;
+/**
+ * Función que cambia la valoración de los tour recibe el id del tour que corresponde con la estrella pulsada
+ * @param  {event} e
+ * @param  {atring} id
+ */
 async function valoraciontour(e, id) {
     /*  Si no existe lo crea pasandole el id*/
     if (primeraveztour) {
@@ -144,9 +155,7 @@ async function valoraciontour(e, id) {
         } catch (error) {
             alert(error.message);
         }
-
     }
-
 }
 
 /* Ventana modal tour individual */
@@ -167,8 +176,6 @@ function cerrarModal() {
 ---------------------*/
 /*FORMULARIO*/
 if (document.getElementById("btnenviar")) {
-
-
     let btnenviar = document.getElementById("btnenviar");
     let formulario = document.querySelector('.form');
     let nombre = document.querySelector('#nombre');
@@ -220,7 +227,6 @@ function validarApellido() {
     limpiarCustomvaliditi();
     if (!apellido.checkValidity()) {
         if (apellido.validity.valueMissing) {
-
             apellido.setCustomValidity("Debes rellenar el campo apellido");
             apellido.reportValidity();
             return false;
@@ -252,9 +258,7 @@ if (document.querySelector("#modalContacto")) {
         ventanaNueva.document.write('<html><head><title>Datos de interes se sanlutours</title><style>.bodyventana{background-color: #485342;}.bodyventana ul li {color: white;font-size: 20px;}</style></head><body class="bodyventana">');
         ventanaNueva.document.write("<ul><li>Nombre de la empresa: Sanlutours</li><li>Teléfono: 678765458</li><li>Correo Electrónico: sanlutours@gmail.com</li><li>Dirección: C.Mesón del Duque,20</li></ul>");
         ventanaNueva.document.write('</body></html>');
-
     }
-
 }
 /*-------------------------
 ----- Página principal-----
@@ -337,12 +341,10 @@ function cambiaComentario(id, json) {
 
     if (id == "arrow-right-b5" && comentarioActual < (json.length - 1)) {
         comentarioActual += 1;
-
         document.querySelector("#b5-p").innerHTML = json[comentarioActual].descripcion;
         document.querySelector("#b5-p2").innerHTML = json[comentarioActual].nombre;
     }
     if (id == "arrow-left-b5" && comentarioActual != 0) {
-
         comentarioActual -= 1;
         document.querySelector("#b5-p").innerHTML = json[comentarioActual].descripcion;
         document.querySelector("#b5-p2").innerHTML = json[comentarioActual].nombre;
@@ -379,7 +381,6 @@ if (document.querySelector(".top-banner form")) {
 
         //URL Para la petición a la API
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
-
         fetch(url)
             .then(response => response.json())
             .then(data => {

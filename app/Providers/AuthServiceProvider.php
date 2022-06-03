@@ -24,12 +24,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-         //Esta función recibe el usuario directamente laravel se lo asigna y comprueba si ese usuario esAdmin que es un método que esta en el modelo user, si es asi sigue la ejecución en la route que se utiliza si no retorna un error  de no tiene permiso para entrar
-        /* Gate::define('dashboard-admin', function (User $user) {
-            return $user->esAdmin()
-                ? Response::allow()
-                : Response::deny('No tiene permiso para entrar.');
-        }); */
 
          /* define a admin user role */
          Gate::define('esAdmin', function(User $user) {

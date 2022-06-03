@@ -219,7 +219,6 @@
         function datos() {
             return {
                 icono: false,
-
             }
         };
     </script>
