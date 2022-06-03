@@ -107,7 +107,6 @@ class PayPalController extends Controller
             $plazasReservadas=$_SESSION['plazasreservadas'];
             $plazas=$_SESSION['plazas'];
 
-
             Viaje::findOrfail($viaje->id);
             DB::table('viajes') -> where('id', $viaje->id) ->update(["plazas" => $plazas]);
             #Creo reserva prueba
