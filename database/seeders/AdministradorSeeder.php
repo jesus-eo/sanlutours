@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Administrador as ModelsAdministrador;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdministradorSeeder extends Seeder
 {
@@ -15,9 +16,10 @@ class AdministradorSeeder extends Seeder
      */
     public function run()
     {
-        $admin =new ModelsAdministrador();
-        $admin->nombre= 'admin';
-        $admin->email='admin@admin.com' ;
-        $admin->user_id= 1;
+        DB::table('Administrador')->insert([
+            'nombre'=> 'admin',
+            'email'=>'admin@admin.com',
+            'user_id'=>1,
+        ]);
     }
 }
