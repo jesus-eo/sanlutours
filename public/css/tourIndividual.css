@@ -308,6 +308,40 @@ li {
   font-size: 40px;
 }
 
+#nav-tour-ind {
+  background-color: #DBE2DD;
+  box-shadow: black 0px 0px 10px 1px;
+}
+
+
+/*----------------
+Descripción
+-----------------*/
+
+.detalles-tour {
+  display: flex;
+  flex-direction: column;
+}
+
+.detalles-tour-secciones {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.detalles-tour-secciones p {
+  text-align: center;
+}
+
+.detalles-tour-secciones p:nth-child(2) {
+  color: lightgray;
+}
+
+.preg-frec-p {
+  color: lightgray;
+}
+
 
 /*----------------
 Punto de encuentro
@@ -743,5 +777,8 @@ Punto de encuentro
   .form>div>input {
     height: 50%;
     width: 25%;
+  }
+  .detalles-tour-secciones {
+    flex-direction: column;
   }
 }

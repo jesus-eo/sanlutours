@@ -197,46 +197,101 @@
                 </ul>
             </nav>
 
-            <ul class="flex flex-row justify-around mb-6">
+            <ul id="nav-tour-ind" class="flex flex-row items-center justify-around h-16">
                 <li>
-                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500"
+                    <a href="#" class="px-4 text-black border-b-2 border-gray-900 hover:border-teal-500 text-xl"
                         x-on:click.prevent="activeTab = 1" x-cloak
                         :class="activeTab === 1 ? 'border-teal-500' : ''">Descripción</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 text-white border-b-2 border-gray-900 hover:border-teal-500"
+                    <a href="#" class="px-4 text-black border-b-2 border-gray-900 hover:border-teal-500 text-xl"
                         x-on:click.prevent="activeTab = 2" x-cloak
                         :class="activeTab === 2 ? 'border-teal-500' : ''">Planning de la visita</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 border-gray-900 text-white hover:border-teal-500"
+                    <a href="#" class="px-4 border-b-2 border-gray-900 text-black hover:border-teal-500 text-xl"
                         x-on:click.prevent="activeTab = 3" x-cloak
                         :class="activeTab === 3 ? 'border-teal-500' : ''">Punto de encuentro</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500"
+                    <a href="#" class="px-4 border-b-2 text-black border-gray-900 hover:border-teal-500 text-xl"
                         x-on:click.prevent="activeTab = 4" x-cloak
                         :class="activeTab === 4 ? 'border-teal-500' : ''">Reserva tu plaza</a>
                 </li>
                 <li>
-                    <a href="#" class="px-4 border-b-2 text-white border-gray-900 hover:border-teal-500"
+                    <a href="#" class="px-4 border-b-2 text-black border-gray-900 hover:border-teal-500 text-xl"
                         x-on:click.prevent="activeTab = 5" x-cloak
                         :class="activeTab === 5 ? 'border-teal-500' : ''">Meteorologia</a>
                 </li>
             </ul>
             <div x-show="activeTab === 1" class="planing-ind">
-                <h1>Descripción</h1>
+                <h1 class="text-white">Descripción</h1>
                 <p>{{ $tour->descripcion }}</p>
+                {{-- Detalles --}}
+                <h1 class="border-t-4 border-dashed text-center w-full mt-12 border-black text-white">Detalles</h1>
+                <div class="detalles-tour">
+                    <div class="detalles-tour-secciones">
+                        <p>Medidas Covid-19</p>
+                        <p>Antes de viajar, revisa las restricciones locales. Todos nuestros servicios cumplen las
+                            recomendaciones para evitar el coronavirus.</p>
+                    </div>
+
+                    <div class="detalles-tour-secciones">
+                       <p>Duración</p>
+                        <p>{{ $tour->duracion }} horas</p>
+                    </div>
+                    <div class="detalles-tour-secciones">
+                        <p>Idioma</p>
+                        <p>La actividad se realiza con un guía que habla español.</p>
+                    </div>
+                    <div class="detalles-tour-secciones">
+                        <p>Incluido</p>
+                        <p>Guía de habla española.</p>
+                    </div>
+                    <div class="detalles-tour-secciones">
+                        <p>Cuándo reservar</p>
+                        <p>Puedes reservar hasta la hora de inicio siempre que haya disponibilidad. Reserva ya y asegura
+                            tu plaza.</p>
+                    </div>
+                    <div class="detalles-tour-secciones">
+                        <p>Accesibilidad</p>
+                        <p>
+                            La mayoría de las zonas son accesibles.
+                        </p>
+                    </div>
+                    <div class="detalles-tour-secciones">
+                        <p>Preguntas frecuentes</p>
+                        <div>
+                            <p class="preg-frec-p">P -¿Cómo hacer la reserva?</p>
+                            <p class="preg-frec-p">R -
+                                Para reservar el Free tour por Sanlúcar elige la fecha deseada y completa el formulario.
+                                La confirmación es inmediata.</p>
+                            <br>
+                            <p class="preg-frec-p">¿Se necesita un número mínimo de participantes?</p>
+                            <p class="preg-frec-p">R -
+                                Esta actividad necesita un mínimo de 4 participantes. En caso de no alcanzar ese número,
+                                os contactaremos para ofreceros diferentes alternativas.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <h1 class="border-t-4 border-dashed text-center w-full mt-12 border-black text-white">Cancelación
+                    gratuita</h1>
+                <p>Si no vas a poder asistir al tour, por favor, cancela la reserva, si no, el guía te estará esperando.
+                </p>
+
+
             </div>
             <div x-show="activeTab === 2" class="planing-ind">
-                <h1>Planning de la Visita</h1>
+                <h1 class="text-white">Planning de la Visita</h1>
                 <p>{{ $tour->planing }}</p>
             </div>
 
             {{-- MApa --}}
             <div x-show="activeTab === 3" id="punto-encuentro">
                 <div class="b1-punto-encuentro text-white">
-                    <h1>Punto de encuentro</h1>
+                    <h1 class="text-white">Punto de encuentro</h1>
                 </div>
                 <div id="map">
                 </div>
@@ -249,7 +304,7 @@
 
             <div x-show="activeTab === 4" id="form-reserva" role="contentinfo">
                 <div id="h1-form-reserva">
-                    <h1>Reserva tu plaza</h1>
+                    <h1 class="text-white">Reserva tu plaza</h1>
                 </div>
                 <div id="container-form-reserva">
                     <div class="form-reserva">
@@ -293,9 +348,10 @@
                 </div>
             </div>
             {{-- METEOROLOGIA --}}
-            <div class="meteorologia" x-show="activeTab === 5">
+            <div class="meteorologia " x-show="activeTab === 5">
                 <section class="top-banner">
                     <div class="container-meteo">
+                        <h1 class="text-4xl text-white mt-3">Meteorologia</h1>
                         <h2>Consulta la meteorologia actual por ciudad.</h2>
                         <form>
                             <input type="text" placeholder="Buscar por ciudad" autofocus>

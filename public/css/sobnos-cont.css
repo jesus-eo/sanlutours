@@ -87,6 +87,17 @@ li {
   grid-template-rows: repeat(10, 0.8fr);
 }
 
+.pagina-container-wraper {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.p-definicion-tour {
+  font-family: var(--fuenteCorben);
+  padding: 1.6px 0px;
+  font-size: 24px;
+}
+
 #login {
   z-index: 2;
   width: 100%;
@@ -839,5 +850,9 @@ li {
   #fondo-login .cuadrado:nth-child(3),
   #fondo-login .cuadrado:nth-child(2) {
     z-index: 0;
+  }
+  .p-definicion-tour {
+    font-size: 20px;
+    padding: 10px;
   }
 }
