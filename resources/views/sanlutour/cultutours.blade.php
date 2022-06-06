@@ -12,7 +12,7 @@
             alt="Imagen fondo tour cultural">
     </x-slot>
     <div class="pagina-container-wraper">
-        <h1 class="text-center text-white pt-12 text-4xl">Nuestros tours Culturales</h1>
+        <h1 class="text-center text-white pt-12 mb-2 text-4xl">Nuestros tours Culturales</h1>
         <p class="p-definicion-tour">¿Viajas a Sanlúcar en familia? ¿Sois un cole que busca una actividad lúdico-cultural
             para vuestro viaje de fin de curso? ¿Te apetece disfrutar de un guía a tu disposición? <br>
             Los tours culturales permiten adaptar el ritmo y el tono del tour a las necesidades de cada grupo

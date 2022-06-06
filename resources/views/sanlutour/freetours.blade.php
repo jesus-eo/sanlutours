@@ -11,7 +11,7 @@
         <img class="img-fondo" src="{{ asset('Img/img Freetours/tourind2.jpg') }}" alt="Imagen fondo tour free">
     </x-slot>
     <div class="pagina-container-wraper">
-        <h1 class="text-center text-white pt-12 text-4xl">Nuestros free tours</h1>
+        <h1 class="text-center mb-2  text-white pt-12 text-4xl">Nuestros free tours</h1>
         <p class="p-definicion-tour">
             ¿Te gustaría conocer los edificios y monumentos más emblemáticos de Sanlúcar en un solo día sin tener que
             preocuparte de cómo moverte de un lado para otro de la ciudad? Tú marcas la ruta. <br>

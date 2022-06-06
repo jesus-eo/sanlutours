@@ -12,7 +12,7 @@
             alt="Imagen fondo tour deportivo">
     </x-slot>
     <div class="pagina-container-wraper">
-        <h1 class="text-center text-white pt-12 text-4xl">Nuestros tours Deportivos</h1>
+        <h1 class="text-center mb-2  text-white pt-12 text-4xl">Nuestros tours Deportivos</h1>
         <p class="p-definicion-tour">
             Justo en frente de la Ciudad de Sanlúcar de barrameda, al otro lado del río, nos encontramos con el coto de
             Doñana un área de las más interesantes y menos explotadas, un sitio digno de admirar donde podrás visitarlo

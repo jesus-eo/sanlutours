@@ -12,7 +12,7 @@
             alt="Imagen fondo tour free">
     </x-slot>
     <div class="pagina-container-wraper">
-        <h1 class="text-center text-white pt-12 text-4xl">Nuestros tours Gastronómicos</h1>
+        <h1 class="text-center text-white mb-2  pt-12 text-4xl">Nuestros tours Gastronómicos</h1>
         <p class="p-definicion-tour">
             Callejear por los barrios de Sanlúcar de Barrameda, disfrutando de sus monumentos y atracciones mientras
             descubres sus misterios y secretos mejor guardados puede resultar agotador y vas a necesitar hidratarte y
