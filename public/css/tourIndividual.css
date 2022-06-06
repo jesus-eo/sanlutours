@@ -301,6 +301,7 @@ li {
   width: 80%;
   margin-top: 10px;
   font-size: 30px;
+  color: rgb(199, 206, 201);
 }
 
 .planing-ind h1 {
@@ -509,7 +510,7 @@ Punto de encuentro
 
 .container-meteo h2 {
   font-size: 1.3rem;
-  color: white;
+  color: rgb(199, 206, 201);
   margin-bottom: 5px;
 }
 

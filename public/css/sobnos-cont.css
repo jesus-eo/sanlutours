@@ -90,11 +90,13 @@ li {
 .pagina-container-wraper {
   max-width: 1170px;
   margin: auto;
+  margin-bottom: 5rem;
 }
 
 .p-definicion-tour {
   font-family: var(--fuenteCorben);
   padding: 1.6px 0px;
+  color: rgb(199, 206, 201);
   font-size: 24px;
 }
 

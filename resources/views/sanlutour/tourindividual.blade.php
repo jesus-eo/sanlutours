@@ -228,7 +228,7 @@
                 <h1 class="text-white">Descripción</h1>
                 <p>{{ $tour->descripcion }}</p>
                 {{-- Detalles --}}
-                <h1 class="border-t-4 border-dashed text-center w-full mt-12 border-black text-white">Detalles</h1>
+                <h1 class=" text-center w-full mt-16  text-white">Detalles</h1>
                 <div class="detalles-tour">
                     <div class="detalles-tour-secciones">
                         <p>Medidas Covid-19</p>
@@ -276,7 +276,7 @@
                     </div>
 
                 </div>
-                <h1 class="border-t-4 border-dashed text-center w-full mt-12 border-black text-white">Cancelación
+                <h1 class="text-center w-full mt-16 text-white">Cancelación
                     gratuita</h1>
                 <p>Si no vas a poder asistir al tour, por favor, cancela la reserva, si no, el guía te estará esperando.
                 </p>
@@ -351,8 +351,8 @@
             <div class="meteorologia " x-show="activeTab === 5">
                 <section class="top-banner">
                     <div class="container-meteo">
-                        <h1 class="text-4xl text-white mt-3">Meteorologia</h1>
-                        <h2>Consulta la meteorologia actual por ciudad.</h2>
+                        <h1 class="text-4xl text-white mt-3 mb-4">Meteorología</h1>
+                        <h2>Consulta la meteorología actual por ciudad.</h2>
                         <form>
                             <input type="text" placeholder="Buscar por ciudad" autofocus>
                             <button type="submit">Buscar</button>
