@@ -194,7 +194,7 @@
 
         <div id="b3-pagina-principal" role="contentinfo">
             <div id="b3-video" data-aos="fade-right" data-aos-offset="300" data-aos-duration="800">
-                <video id="video-sanlucar" preload controls
+                <video id="video-sanlucar" preload controls muted
                     poster="{{ asset('Img/Página principal/imagen figma video.jpg') }}"
                     title="Video descriptivo sobre sanlúcar de barrameda">
                     <source src="{{ asset('Img/Página principal/video.mp4 ') }}" type="video/mp4">

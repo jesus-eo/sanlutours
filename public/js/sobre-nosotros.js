@@ -264,13 +264,16 @@ if (document.querySelector("#modalContacto")) {
 ----- Página principal-----
 --------------------------*/
 /*---------VIDEO---- */
-/* let video = document.getElementById('video-sanlucar');
-video.addEventListener('mouseover',function (){
-    video.play();
-})
-video.addEventListener('mouseout',function (){
-    video.pause();
-}) */
+if (document.getElementById('video-sanlucar')) {
+    let video = document.getElementById('video-sanlucar');
+    video.addEventListener('mouseenter', function(e) {
+        video.play();
+    })
+    video.addEventListener('mouseout', function(e) {
+        video.pause();
+    })
+}
+
 
 /* ----SLIDER---- */
 let p = [
