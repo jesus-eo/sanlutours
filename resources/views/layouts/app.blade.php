@@ -31,9 +31,9 @@
     <div class="h-full w-full flex" id="container-dashboard" x-data="datos()">
 
         {{-- Menu Hamburguesa --}}
-        <div class="-mr-2 flex items-center md:hidden">
+        <div class="-mr-2 flex items-center md:hidden ">
             <button x-on:click="icono = ! icono" id="btn-menu-dashboard"
-                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
+                class="inline-flex items-center justify-center p-2 rounded-md text-emerald-900 hover:text-green-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-green-900  transition">
                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path :class="{ 'hidden': icono, 'inline-flex': !icono }" class="inline-flex"
                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -53,7 +53,7 @@
                         <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                             <path
                                 d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
-                                class="fill-current text-grey-500 dark:fill-slate-500"></path>
+                                class="fill-current text-grey-500 dark:fill-green-500"></path>
                             <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
                                 class="fill-current text-grey-500 group-hover:text-cyan-300"></path>
                             <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"

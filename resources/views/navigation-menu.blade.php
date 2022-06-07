@@ -1,6 +1,6 @@
-<nav class="nav-menu-dashboard bg-white border-b border-gray-100 w-1/6">
+<nav class="nav-menu-dashboard bg-slate-400 border-b border-gray-100 w-1/6">
     <!-- Primary Navigation Menu -->
-    <aside class=" z-10 top-0 pb-3  w-full flex flex-col justify-between  border-r bg-white transition duration-300 ">
+    <aside class=" z-10 top-0 pb-3  w-full flex flex-col justify-between  border-r bg-slate-400 transition duration-300 ">
         {{-- div1 --}}
         <div>
             <!-- Logo -->
@@ -34,7 +34,7 @@
                     </span>
                 @endif
 
-                <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{{ Auth::user()->name }}</h5>
+                <h5 class="hidden mt-4 text-xl font-semibold text-black lg:block">{{ Auth::user()->name }}</h5>
 
             </div>
             <ul class="space-y-2 tracking-wide mt-8">
