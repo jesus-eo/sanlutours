@@ -16,12 +16,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $idadmin = Administrador::first()->user_id;
-        $usuariosdiarios = User::all()->where('id','!=',$idadmin);
+        $usuariosdiarios = User::where('id','!=',$idadmin);
+        $busqueda = $request->busqueda;
         return view('dashboardadmin.crudusuarios', [
-            "usuarios" => $usuariosdiarios
+            "usuarios" => $usuariosdiarios->paginate(4),
+            "busqueda" => User::where('id','!=',$idadmin)->where('name', 'ilike', "%$busqueda%")->paginate(4)
         ]);
     }
 

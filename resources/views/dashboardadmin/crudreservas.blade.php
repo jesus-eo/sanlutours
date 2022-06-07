@@ -19,10 +19,14 @@
         <p class="py-1 font-bold">Ver <a class="text-blue-600" href="/reservas"
                 title="Ver reservas Administrador">reservas</a> administrador</p>
         <div class="mt-3" x-data="{ formcreate: false, formedit: false }">
+
             <button x-on:click="formcreate=true"
                 class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Crear
                 Reserva</button>
             {{-- Abre ventana modal añadiendo el componente crear --}}
+
+
+
             <div class="h-3/4" x-cloak x-show='formcreate'>@include('components.formcreatereserva')</div>
             <div class="overflow-x-auto">
                 <table class="table-auto w-full">
@@ -89,7 +93,7 @@
             </div>
         </div>
         <div class="mt-6">
-            {{ $reservas->links() }}
+            {{ $reservas->links()}}
         </div>
     </div>
 </x-app-layout>

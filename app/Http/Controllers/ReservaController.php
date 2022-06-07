@@ -7,11 +7,12 @@ use App\Http\Requests\UpdateReservaRequest;
 use App\Models\Reserva;
 use App\Models\Tour;
 use App\Models\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Controlador para las rutas relacionadas con las reservas.
+ * Controlador para las rutas relacionadas con las reservas y busqueda por nombre de tour o usuario.
  */
 class ReservaController extends Controller
 {
@@ -23,7 +24,7 @@ class ReservaController extends Controller
     public function index()
     {
         return view('dashboardadmin.crudreservas', [
-            "reservas" => Reserva::paginate(1)
+            "reservas" => Reserva::paginate(1),
         ]);
     }
 

@@ -15,6 +15,22 @@
         <div class="mt-4 text-2xl">
             <div>Usuarios</div>
         </div>
+          {{-- Busqueda --}}
+          <form class="pt-2 relative ml-4 mr-4 text-gray-600" action="{{ route('crudusuarios') }}" method="GET">
+            <div class="flex mr-8">
+                <p class="mr-4">Buscar por nombre:</p>
+                <input class="border-2  bg-white h-10 px-5 pr-16 rounded-lg  focus:outline-none"
+                    type="search" name="busqueda" placeholder="Search">
+                <button class="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-6" type="submit">Buscar</button>
+            </div>
+
+        </form>
+
+        @php
+        if ($busqueda->total() != 0) {
+            $usuarios = $busqueda;
+        }
+    @endphp
         <div class="h-3/4" x-data="{ formedit: false }">
             <div class="overflow-x-auto">
                 <table class="table-auto w-full">
@@ -61,6 +77,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="mt-6">
+            {{ $usuarios->appends(['busqueda' => request()->query('busqueda')]) }}
         </div>
     </div>
 </x-app-layout>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class TourController extends Controller
 {
     /**
-     * Vista de todos los tours con paginación o filtrados por nombre, tipo y ordenados por precio o duración.
+     * Vista de todos los tours con paginación o filtrados por nombre, tipo.
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,6 +27,7 @@ class TourController extends Controller
             "busqueda" => Tour::where('nombre', 'ilike', "%$busqueda%")->orwhere('tipo', 'ilike', "%$busqueda%")->paginate(1)
 
         ]);
+
     }
 
     /**
