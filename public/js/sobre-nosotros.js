@@ -177,7 +177,6 @@ function cerrarModal() {
 /*FORMULARIO*/
 if (document.getElementById("btnenviar")) {
     let btnenviar = document.getElementById("btnenviar");
-    let formulario = document.querySelector('.form');
     let nombre = document.querySelector('#nombre');
     let apellido = document.getElementById("apellido");
     let email = document.getElementById("email");
@@ -188,6 +187,7 @@ if (document.getElementById("btnenviar")) {
 }
 /* Hay que vaciar el valor de todos los elementos del formulario con setCustomValidity porque se queda guardado la cadena introducida anteriormente */
 function limpiarCustomvaliditi() {
+    let formulario = document.querySelector('.form');
     for (const elemento of formulario.elements) {
         elemento.setCustomValidity("");
     }

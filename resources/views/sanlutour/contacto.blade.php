@@ -11,9 +11,9 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/sobnos-cont.css') }}">
-     <!--Iconos -->
-     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!--Iconos -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     {{-- JS --}}
     <script src="{{ asset('js/sobre-nosotros.js') }}" defer></script>
 
@@ -22,11 +22,9 @@
     <!-- Styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
-
     </style>
     {{-- taildwind --}}
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -65,18 +63,18 @@
                 <!-- Mobile menu, show/hide based on menu state. -->
                 <div class="sm:hidden" id="mobile-menu" x-show="open" @click.away="open=false">
 
-                        <li>
-                            <a href="{{ route('index') }}"
-                                class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                                title="Enlace a página de inicio">
-                                Inicio
-                            </a>
-                        </li>
-                        <li id="submenu">
-                            <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
-                                aria-current="page">Tours</a>
-                            <i id="boton-lateral" class="fa fa-angle-right"></i>
-                        </li>
+                    <li>
+                        <a href="{{ route('index') }}"
+                            class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                            title="Enlace a página de inicio">
+                            Inicio
+                        </a>
+                    </li>
+                    <li id="submenu">
+                        <a href="#" class="text-white  block px-3 py-2 rounded-md text-base font-medium"
+                            aria-current="page">Tours</a>
+                        <i id="boton-lateral" class="fa fa-angle-right"></i>
+                    </li>
 
                     <ul id="menu-desplegable-burguer" class="desplegable-oculto-burguer">
                         <li><a class="subrallado" href="{{ route('freetours') }}"
@@ -149,9 +147,21 @@
                                 Un saludo!!
                             </p>
                             <button id="modalContacto">Saber más!!</button>
+                            @if (session('success'))
+                                <div class="alert alert-success bg-green-400">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if (session('fault'))
+                                <div class="alert alert-success bg-red-500">
+                                    {{ session('fault') }}
+                                </div>
+                            @endif
                         </div>
+
                         <div class="form-contacto">
-                            <form class="form" action="index.html" method="get">
+                            <form class="form" action="{{ route('enviarCorreo') }}" method="post">
+                                @csrf
                                 <label for="nombre">Nombre</label>
                                 <input type="text" name="nombre" id="nombre" aria-label="nombre" class="cajasform"
                                     maxlength="20" required>
@@ -160,11 +170,10 @@
                                     maxlength="20" required>
                                 <label for="email">Email</label>
                                 <input type="email" name="email" id="email" class="cajasform"
-                                    pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" title="Correo electronico incorrecto"
-                                    required>
+                                    pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                                    title="Correo electronico incorrecto" required>
                                 <label for="textarea">Mensaje</label>
-                                <textarea name="textarea" id="textarea" title="textarea" class="cajasform" cols="30" rows="10" disabled
-                                    required></textarea>
+                                <textarea name="textarea" id="textarea" title="textarea" class="cajasform" cols="30" rows="10" disabled required></textarea>
                                 <button type="submit" id="btnenviar">Enviar</button>
                             </form>
                         </div>
