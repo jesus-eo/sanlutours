@@ -11,7 +11,16 @@
         <img class="img-fondo" src="{{ asset('Img/img Deportivo/imagen fondo deportiva.jpg') }}"
             alt="Imagen fondo tour deportivo">
     </x-slot>
+    <div class="pagina-container-wraper">
+        <h1 class="text-center mb-2  text-white pt-12 text-4xl">Nuestros tours Deportivos</h1>
+        <p class="p-definicion-tour">
+            Justo en frente de la Ciudad de Sanlúcar de barrameda, al otro lado del río, nos encontramos con el coto de
+            Doñana un área de las más interesantes y menos explotadas, un sitio digno de admirar donde podrás visitarlo
+            practicando uno de los tantos deportes que te brindamos. <br>
+            Te ofrecemos un concepto de viaje cuyo objetivo es el deporte, dirigido a todo tipo de aficionados.
 
+        </p>
+    </div>
     @livewire('filtros', ['tipo' => 'deportivo'])
 
     </div>

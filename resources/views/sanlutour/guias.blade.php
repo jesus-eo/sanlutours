@@ -14,11 +14,11 @@
     <div class="fondo-guias  w-full   px-10 pt-10">
         <div class="container mx-auto">
             <div role="list" aria-label="Behind the scenes People "
-                class="lg:flex md:flex sm:flex items-center flex-wrap md:justify-around sm:justify-around lg:justify-around">
+                class="lg:flex md:flex sm:flex  flex-wrap md:justify-around sm:justify-around lg:justify-around">
 
                 @foreach ($guias as $guia )
                 <div role="listitem"
-                    class="card-guias xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16  xl:max-w-sm lg:w-2/5">
+                    class="card-guias xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-20  xl:max-w-sm lg:w-2/5 p-2">
                     <div class="rounded overflow-hidden shadow-lg bg-white pb-5  shadow-black">
                         <div class="absolute -mt-20 w-full flex justify-center">
                             <div class="h-32 w-32">

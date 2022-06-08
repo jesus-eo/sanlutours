@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuiaController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\UserController;
@@ -182,3 +183,8 @@ Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])
 */
 Route::post('/tramitereserva/{tour}', [ReservaController::class, 'tramitar'])->name('tramitereserva');
 Route::get('/tramitepago', [ReservaController::class, 'pagar'])->name('realizarpago');
+
+/**
+ * Email
+ */
+Route::post('/correo', [MailController::class,'sendEmail'])->name('enviarCorreo');

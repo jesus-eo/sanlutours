@@ -64,6 +64,8 @@ li {
 #login a {
   padding: 5px;
   color: #485342;
+  font-weight: 900;
+  text-shadow: 1px 0px 0px whitesmoke, 0px 1px 0px whitesmoke, -1px 0px 0px whitesmoke, 0px -1px 0px whitesmoke;
 }
 
 .encabezado-b1-principal {
@@ -101,11 +103,13 @@ li {
   flex-wrap: wrap;
   padding: 10px;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #485342;
 }
 
 .nav-b1-principal ul li a {
-  color: #FFFFFF;
+  color: #485342;
+  font-weight: 900;
+  text-shadow: 1px 0px 0px whitesmoke, 0px 1px 0px whitesmoke, -1px 0px 0px whitesmoke, 0px -1px 0px whitesmoke;
 }
 
 .nav-b1-principal>ul {
@@ -120,6 +124,8 @@ li {
 .tours {
   position: relative;
   cursor: pointer;
+  font-weight: 900;
+  text-shadow: 1px 0px 0px whitesmoke, 0px 1px 0px whitesmoke, -1px 0px 0px whitesmoke, 0px -1px 0px whitesmoke;
 }
 
 .desplegable-oculto {
@@ -149,11 +155,13 @@ li {
   justify-content: center;
   align-items: center;
   width: 100vw;
+  font-weight: 800;
   color: #FFFFFF;
+  text-shadow: 1px 0px 0px black, 0px 1px 0px black, -1px 0px 0px black, 0px -1px 0px black;
 }
 
 .titulo-central h1 {
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .datos-tour {
@@ -168,6 +176,11 @@ li {
   font-size: 25px;
   text-shadow: 1px 0px 0px black, 0px 1px 0px black, -1px 0px 0px black, 0px -1px 0px black;
   font-weight: 800;
+}
+
+.datos-tour p {
+  text-shadow: 1px 0px 0px black, 0px 1px 0px black, -1px 0px 0px black, 0px -1px 0px black;
+  font-size: 20px;
 }
 
 .subrallado:hover {
@@ -301,11 +314,46 @@ li {
   width: 80%;
   margin-top: 10px;
   font-size: 30px;
+  color: rgb(199, 206, 201);
 }
 
 .planing-ind h1 {
   margin-bottom: 2%;
   font-size: 40px;
+}
+
+#nav-tour-ind {
+  background-color: #DBE2DD;
+  box-shadow: black 0px 0px 10px 1px;
+}
+
+
+/*----------------
+Descripción
+-----------------*/
+
+.detalles-tour {
+  display: flex;
+  flex-direction: column;
+}
+
+.detalles-tour-secciones {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.detalles-tour-secciones p {
+  text-align: center;
+}
+
+.detalles-tour-secciones p:nth-child(2) {
+  color: lightgray;
+}
+
+.preg-frec-p {
+  color: lightgray;
 }
 
 
@@ -475,7 +523,7 @@ Punto de encuentro
 
 .container-meteo h2 {
   font-size: 1.3rem;
-  color: white;
+  color: rgb(199, 206, 201);
   margin-bottom: 5px;
 }
 
@@ -743,5 +791,8 @@ Punto de encuentro
   .form>div>input {
     height: 50%;
     width: 25%;
+  }
+  .detalles-tour-secciones {
+    flex-direction: column;
   }
 }

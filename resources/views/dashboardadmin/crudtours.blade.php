@@ -16,9 +16,27 @@
             <div>Tours</div>
         </div>
         <div class="h-3/4" x-data="{ formcreate: false, formedit: false }">
+            <div class="flex justify-between">
             <button x-on:click="formcreate=true"
                 class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Crear
                 Tour</button>
+
+            {{-- Busqueda --}}
+            <form class="pt-2 relative ml-4 mr-4 text-gray-600" action="{{ route('crudtours') }}" method="GET">
+                <div class="flex mr-8">
+                    <p class="mr-4">Buscar por nombre o tipo:</p>
+                    <input class="border-2  bg-white h-10 px-5 pr-16 rounded-lg  focus:outline-none"
+                        type="search" name="busqueda" placeholder="Search">
+                    <button class="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-6" type="submit">Buscar</button>
+                </div>
+
+            </form>
+            </div>
+            @php
+                if ($busqueda->total() != 0) {
+                    $tours = $busqueda;
+                }
+            @endphp
             {{-- Abre ventana modal añadiendo el componente crear --}}
 
             <div x-cloak x-show='formcreate'>@include('components.formcreate')</div>
@@ -69,7 +87,9 @@
                             </th>
                         </tr>
                     </thead>
+
                     <tbody>
+
                         @foreach ($tours as $tour)
                             <tr>
                                 <td class="rounded border-2 px-4 py-2">{{ $tour->nombre }} </td>
@@ -103,6 +123,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <div x-cloak x-show='formedit'>@include('components.formedit', [$tour])</div>
                         <td class="rounded border-2 px-4 py-2" colspan="3">{{ $tour->descripcion }} </td>
                         <td class="rounded border-2 px-4 py-2" colspan="4">{{ $tour->planing }} </td>
@@ -122,7 +143,7 @@
             </div>
         </div>
         <div class="mt-6">
-            {{ $tours->links() }}
+            {{ $tours->appends(['busqueda' => request()->query('busqueda')]) }}
         </div>
     </div>
 </x-app-layout>

@@ -177,7 +177,6 @@ function cerrarModal() {
 /*FORMULARIO*/
 if (document.getElementById("btnenviar")) {
     let btnenviar = document.getElementById("btnenviar");
-    let formulario = document.querySelector('.form');
     let nombre = document.querySelector('#nombre');
     let apellido = document.getElementById("apellido");
     let email = document.getElementById("email");
@@ -188,6 +187,7 @@ if (document.getElementById("btnenviar")) {
 }
 /* Hay que vaciar el valor de todos los elementos del formulario con setCustomValidity porque se queda guardado la cadena introducida anteriormente */
 function limpiarCustomvaliditi() {
+    let formulario = document.querySelector('.form');
     for (const elemento of formulario.elements) {
         elemento.setCustomValidity("");
     }
@@ -264,13 +264,16 @@ if (document.querySelector("#modalContacto")) {
 ----- Página principal-----
 --------------------------*/
 /*---------VIDEO---- */
-/* let video = document.getElementById('video-sanlucar');
-video.addEventListener('mouseover',function (){
-    video.play();
-})
-video.addEventListener('mouseout',function (){
-    video.pause();
-}) */
+if (document.getElementById('video-sanlucar')) {
+    let video = document.getElementById('video-sanlucar');
+    video.addEventListener('mouseenter', function(e) {
+        video.play();
+    })
+    video.addEventListener('mouseout', function(e) {
+        video.pause();
+    })
+}
+
 
 /* ----SLIDER---- */
 let p = [

@@ -15,15 +15,19 @@ use Illuminate\Support\Facades\DB;
 class TourController extends Controller
 {
     /**
-     * Vista de todos los tours con paginación.
+     * Vista de todos los tours con paginación o filtrados por nombre, tipo.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $busqueda = $request->busqueda;
         return view('dashboardadmin.crudtours', [
-            "tours" => Tour::paginate(1)
+            "tours" => Tour::paginate(1),
+            "busqueda" => Tour::where('nombre', 'ilike', "%$busqueda%")->orwhere('tipo', 'ilike', "%$busqueda%")->paginate(1)
+
         ]);
+
     }
 
     /**

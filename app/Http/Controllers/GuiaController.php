@@ -30,10 +30,12 @@ class GuiaController extends Controller
      *
      * @return array guias
      */
-    public function index()
+    public function index(Request $request)
     {
+        $busqueda = $request->busqueda;
         return view('dashboardadmin.crudguias', [
-            "guias" => Guia::paginate(3)
+            "guias" => Guia::paginate(3),
+            "busqueda" => Guia::where('nombre', 'ilike', "%$busqueda%")->orwhere('tipo', 'ilike', "%$busqueda%")->paginate(1)
         ]);
     }
 

@@ -194,7 +194,7 @@
 
         <div id="b3-pagina-principal" role="contentinfo">
             <div id="b3-video" data-aos="fade-right" data-aos-offset="300" data-aos-duration="800">
-                <video id="video-sanlucar" preload controls
+                <video id="video-sanlucar" preload controls muted
                     poster="{{ asset('Img/Página principal/imagen figma video.jpg') }}"
                     title="Video descriptivo sobre sanlúcar de barrameda">
                     <source src="{{ asset('Img/Página principal/video.mp4 ') }}" type="video/mp4">
@@ -254,52 +254,7 @@
             <div class="flechas2"><i id="arrow-right-b5" class="far fa-angle-right"></i></div>
 
         </div>
-
-        <footer id="b6-pagina-principal">
-            <div class="b6-container-iconos">
-                <div class="b6-iconos">
-                    <picture title="Icono Free Tour">
-                        <img src="{{ asset('Img/Página principal/icono_free_tours-removebg-preview.png') }}"
-                            alt="Icono FreeTour">
-                    </picture>
-                    <a href="{{ route('freetours') }}" title="Enlace a FreeTours">Free Tour</a>
-                </div>
-                <div class="b6-iconos">
-                    <picture title="Icono Gastronomía">
-                        <img src="{{ asset('Img/Página principal/icono gastronimia 2.png') }}"
-                            alt="Icono Gastronomía">
-                    </picture>
-                    <a href="{{ route('gastrotours') }}" title="Enlace a tours de gastronomía">Gastronomía</a>
-                </div>
-                <div class="b6-iconos">
-                    <picture title="Icono Cultural">
-                        <img src="{{ asset('Img/Página principal/icono cultiral.png') }}" alt="Icono Cultural">
-                    </picture>
-                    <a href="{{ route('cultutours') }}" title="Enlace a tours de culturales">Cultural</a>
-                </div>
-                <div class="b6-iconos">
-                    <picture title="Icono tour deportivo">
-                        <img src="{{ asset('Img/Página principal/icono_deporte-removebg-preview.png') }}"
-                            alt="Icono Tour deportivo">
-                    </picture>
-                    <a href="{{ route('deportours') }}" title="Enlace a tours de deportivos">Deportivo</a>
-                </div>
-            </div>
-            <div class="b6-iconos-redes">
-                <div id="iconos-redes">
-                    <a href=""><img src="{{ asset('Img/Página principal/icono instagram.png') }}"
-                            alt="Icono instagram"></a>
-                    <a href=""><img
-                            src="{{ asset('Img/Página principal/icono_twitter_cuadrado-removebg-preview.png') }}"
-                            alt="Icono Twitter"></a>
-                    <a href=""><img src="{{ asset('Img/Página principal/icono facebook.png') }}"
-                            alt="Icono facebook"></a>
-                </div>
-                <div id="b6-p-actualizacion">
-                    Última actualización el 00-00-0000
-                </div>
-            </div>
-        </footer>
+        @include('components.footer')
 
     </div>
     <script>
