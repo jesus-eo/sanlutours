@@ -147,7 +147,7 @@
                 <p class="p1-main-b1">Sanlúcar de Barrameda desde su interior</p>
                 <p class="p2-main-b1">Bienvenidos a SanluTours , conoce los mejores tours por la ciudad de Sanlúcar.
                 </p>
-                <img class="img-fondo" src="{{ asset('Img/Página principal/Fondob1.jpg') }}" alt="Imagen fondo">
+                {{-- <img class="img-fondo" src="{{ asset('Img/Página principal/Fondob1.jpg') }}"  alt="Imagen fondo"> --}}
             </main>
         </div>
 
