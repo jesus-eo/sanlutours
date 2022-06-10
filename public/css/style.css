@@ -502,7 +502,9 @@ li {
 #b5-pagina-principal {
   display: flex;
   min-height: 100vh;
-  background-color: #2F3A29;
+  background-image: url('../Img/Página\ principal/mapa-mundi2.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
   width: 100%;
   align-items: center;
 }
@@ -552,6 +554,9 @@ li {
   height: 100%;
   width: 100%;
   background-color: #DBE2DD;
+  background-image: url('../Img/Página\ principal/fondo-footer.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 .b6-container-iconos {

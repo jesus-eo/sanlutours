@@ -109,6 +109,19 @@ li {
   font-size: 24px;
 }
 
+.img-tours-ef {
+  width: 100%;
+  transition: all 2s;
+}
+
+.img-tours-ef:hover {
+  transform: scale(1.10);
+}
+
+.cont-img-tour-ef {
+  overflow: hidden;
+}
+
 #login {
   z-index: 2;
   width: 100%;
@@ -330,6 +343,9 @@ li {
   height: 100%;
   width: 100%;
   background-color: #DBE2DD;
+  background-image: url('../Img/Página\ principal/fondo-footer.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 .b6-container-iconos {
@@ -500,7 +516,10 @@ li {
 *------------------------------------------------------------------------*/
 
 .container-card-tours {
-  background-color: #485342;
+  /*  background-color: #485342; */
+  background-image: url('../Img/Página\ principal/mapa-mundi2.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 .h1-card {
