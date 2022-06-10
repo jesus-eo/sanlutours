@@ -29,6 +29,12 @@
 
                     </select>
                 </div>
+
+                <div>
+                    <label class="mr-4" for="preciomax">Precio máximo:</label>
+                    <input wire:model.lazy="preciomax" min=0  type="number" name="preciomx" id="preciomx">
+                </div>
+
             </div>
             {{-- Busqueda --}}
             <div class="pt-2 relative ml-4 mr-4 text-gray-600">

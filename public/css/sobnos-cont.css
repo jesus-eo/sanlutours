@@ -38,7 +38,7 @@ li {
    -----------------*/
 
 #bloque1-pag-principal {
-  height: 99vh;
+  height: 96vh;
   display: flex;
   flex-direction: column;
   font-family: var(--fuenteCorben);
