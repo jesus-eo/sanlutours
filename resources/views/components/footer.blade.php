@@ -39,7 +39,7 @@
                     alt="Icono facebook"></a>
         </div>
         <div id="b6-p-actualizacion">
-            Última actualización el 00-00-0000
+            2022-Created By Jeśus Manuel Espinar Ocaña
         </div>
     </div>
 </footer>

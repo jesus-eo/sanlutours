@@ -554,7 +554,6 @@ Punto de encuentro
   border-radius: 10px;
   background-size: 100% 100%;
   background-image: url('../Img/Página\ principal/meteorologia.jpeg');
-  /* url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80") */
 }
 
 .city-temp {
@@ -620,6 +619,9 @@ Punto de encuentro
   height: 100%;
   width: 100%;
   background-color: #DBE2DD;
+  background-image: url('../Img/Página\ principal/fondo-footer.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 .b6-container-iconos {

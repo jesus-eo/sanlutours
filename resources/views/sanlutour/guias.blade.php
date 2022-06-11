@@ -18,7 +18,7 @@
 
                 @foreach ($guias as $guia )
                 <div role="listitem"
-                    class="card-guias xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-20  xl:max-w-sm lg:w-2/5 p-2">
+                    class="card-guias xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-20  xl:max-w-sm lg:w-2/5 p-2"  data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <div class="rounded overflow-hidden shadow-lg bg-white pb-5  shadow-black">
                         <div class="absolute -mt-20 w-full flex justify-center">
                             <div class="h-32 w-32">

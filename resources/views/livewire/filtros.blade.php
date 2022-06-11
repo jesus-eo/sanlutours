@@ -29,6 +29,12 @@
 
                     </select>
                 </div>
+
+                <div>
+                    <label class="mr-4" for="preciomax">Precio máximo:</label>
+                    <input wire:model.lazy="preciomax" min=0  type="number" name="preciomx" id="preciomx">
+                </div>
+
             </div>
             {{-- Busqueda --}}
             <div class="pt-2 relative ml-4 mr-4 text-gray-600">
@@ -52,9 +58,9 @@
             @foreach ($tours as $tour)
                 <div class="mx-2 xl:mb-5 mt-8 mb-8 rounded-md cont-card" data-aos="fade-up"
                     data-aos-duration="1000">
-                    <div class="rounded-md">
-                        <img alt="imagen tour" src="{{ asset($tour->imagen) }}"
-                            class="focus:outline-none w-full h-52 rounded-md" />
+                    <div class="cont-img-tour-ef rounded-md">
+                        <img alt="Imagen tour" src="{{ asset($tour->imagen) }}"
+                            class="img-tours-ef focus:outline-none w-full h-52 rounded-md" />
                     </div>
                     <div class="bg-white h-full rounded-md">
                         <div class="flex items-center justify-center px-4 pt-4">
