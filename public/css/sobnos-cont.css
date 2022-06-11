@@ -516,7 +516,7 @@ li {
 *------------------------------------------------------------------------*/
 
 .container-card-tours {
-  /*  background-color: #485342; */
+  background-color: #485342;
   background-image: url('../Img/Página\ principal/mapa-mundi2.jpg');
   background-size: 100% 100%;
   background-attachment: fixed;
@@ -607,6 +607,9 @@ li {
 
 .fondo-guias {
   background-color: #2F3A29;
+  background-image: url('../Img/Página\ principal/mapa-mundi2.jpg');
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 .font-guias {
