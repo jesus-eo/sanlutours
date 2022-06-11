@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\StoreTourRequest;
 use App\Http\Requests\UpdateTourRequest;
+use App\Models\Guia;
 use App\Models\Tour;
 use App\Models\Viaje;
 use Illuminate\Http\Request;
@@ -250,5 +251,38 @@ class TourController extends Controller
             'descripcion' => 'required|string',
         ]);
         return $validados;
+    }
+    /**
+     * Validación guia
+     * @return array validados
+     */
+    private function validarguia()
+    {
+        $validados = request()->validate([
+            'nombre' => 'required|string',
+        ]);
+        return $validados;
+    }
+
+
+    /**
+     *Asociamos un guía a un tour
+     *
+     * @param  mixed $tour
+     * @return void
+     */
+    public function asocGuia(Tour $tour) {
+        $validados = $this->validarguia();
+        $guia = Guia::where('nombre',$validados['nombre'])->first();
+        if($guia == null){
+            return redirect()->route('crudtours')->with('fault', 'Nombre del guía no existente');
+        }else {
+        DB::table('guia_tour')->insert([
+            'tour_id'=> $tour->id,
+            'guia_id'=> $guia->id,
+        ]);
+        return redirect()->route('crudtours')->with('success', 'Guía asociado con exito');
+        }
+
     }
 }

@@ -15,11 +15,15 @@
         <div class="mt-4 text-2xl">
             <div>Tours</div>
         </div>
-        <div class="h-3/4" x-data="{ formcreate: false, formedit: false }">
+        <div class="h-3/4" x-data="{ formcreate: false, formedit: false, asocguia:false }">
             <div class="flex justify-between">
             <button x-on:click="formcreate=true"
                 class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Crear
-                Tour</button>
+                Tour
+            </button>
+            <button x-on:click="asocguia=true"
+                class="rounded-md  hover:bg-green-700 transition duration-300 bg-green-900  text-white font-bold py-2 px-4 my-3">Asociar guía
+            </button>
 
             {{-- Busqueda --}}
             <form class="pt-2 relative ml-4 mr-4 text-gray-600" action="{{ route('crudtours') }}" method="GET">
@@ -123,7 +127,7 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        <div x-cloak x-show='asocguia'>@include('components.asocguia', [$tour])</div>
                         <div x-cloak x-show='formedit'>@include('components.formedit', [$tour])</div>
                         <td class="rounded border-2 px-4 py-2" colspan="3">{{ $tour->descripcion }} </td>
                         <td class="rounded border-2 px-4 py-2" colspan="4">{{ $tour->planing }} </td>

@@ -15,7 +15,7 @@
 
                     <div class="mb-4">
                         <label for="fechahora" class="block text-gray-700 text-sm font-bold mb-2">Fecha hora</label>
-                        <input type="text" name="fechahora" id="fechahora" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" pattern="^[0-9]{4}(-|/)(0[1-9]|1[0-2])(-|/)(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$" placeholder="YYYY-MM-DD 00:00:00" required>
+                        <input type="text" name="fechahora" id="fechahora" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" pattern="^[0-9]{4}(-|/)(0[1-9]|1[0-2])(-|/)(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$" placeholder="YYYY-MM-DD 00:00:00" title="Utiliza el formato adecuado:YYYY-MM-DD 00:00:00" required>
                     </div>
                     <div class="mb-4">
                         <label for="plazas" class="block text-gray-700 text-sm font-bold mb-2">Plazas</label>

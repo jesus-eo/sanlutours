@@ -80,7 +80,10 @@ Route::get('/dashboard', function () {
     }
     return redirect()->route('reservasusuario');
 })->middleware(['auth'])->name('dashboard');
-
+Route::post('/tours/asocguia/{tour}', [
+    TourController::class,
+    'asocGuia'
+])->name('asocguia');
 
 /**
  * Modo administrador
