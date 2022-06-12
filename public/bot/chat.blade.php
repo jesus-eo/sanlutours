@@ -2,9 +2,9 @@
 include "Bot.php";
 $bot = new Bot;
 $questions = [
-   
-    
-       
+
+
+
     //name
     "¿como te llamas?" =>"Soy TourBot y estoy para servirte",
     "¿cual es tu nombre?" =>"Soy TourBot y estoy para servirte",
@@ -17,7 +17,7 @@ $questions = [
     "hola" =>"Hola que tal!",
     "un saludo" =>"como te va",
     "hello" =>"un gusto de verte",
- 
+
     //despedida
     "adios" =>"cuidate",
     "hasta la proxima" =>"nos vemos pronto",
@@ -46,17 +46,17 @@ $questions = [
 
     "¿dónde sera el punto de partida?"=>"Cada tour tiene relacionado un punro de partida donde te recibira un guìa",
     "¿cómo puedo quejarme?"=>"Debe escribirnos su queja a nuestro departamento de reservas y nuestra administración se ocupará de ello.",
-    
 
-   
-    
+
+
+
 ];
 /**
  * Se crea un bot al principio del script($bot)
  * Cuando recibe la petición recogo el mensaje
  */
 if (isset($_GET['msg'])) {
-   
+
      /**Recojo el mensaje,
      * compruebo si tiene una respuesta relacionada con el mensaje devolviendola como respuesta, donde la procesamos en la recepción de la petición.
      */
@@ -68,5 +68,5 @@ if (isset($_GET['msg'])) {
         } else {
             $bot->reply($bot->ask($msg,$questions));
         }
-  
+
 }

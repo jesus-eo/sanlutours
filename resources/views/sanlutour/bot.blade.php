@@ -19,13 +19,13 @@
         <div class="container-sect-preg">
             <h1>Preguntas frecuentes</h1>
             <ul>
-                <li>¿cuáles son las ventajas de viajar con sanlutours?</li>
-                <li>¿cómo puede sanlutours ofrecer precios tan competitivos?</li>
-                <li>¿cómo puedo reservar un tour?</li>
-                <li>¿con cuánta anticipación debo reservar?</li>
-                <li>¿cómo puedo cancelar mi tour?</li>
-                <li>¿cuántas personas pueden participar en un tour?</li>
-                <li>¿cómo puedo quejarme?</li>
+                <li>¿Cuáles son las ventajas de viajar con sanlutours?</li>
+                <li>¿Cómo puede sanlutours ofrecer precios tan competitivos?</li>
+                <li>¿Cómo puedo reservar un tour?</li>
+                <li>¿Con cuánta anticipación debo reservar?</li>
+                <li>¿Cómo puedo cancelar mi tour?</li>
+                <li>¿Cuántas personas pueden participar en un tour?</li>
+                <li>¿Cómo puedo quejarme?</li>
             </ul>
             <a href="{{Route('contacto')}}"><button class="btnVolverChat">Volver</button></a>
         </div>
