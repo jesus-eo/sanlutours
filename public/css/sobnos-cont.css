@@ -510,6 +510,22 @@ li {
   color: white;
 }
 
+#btnChatCont {
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: #DBE2DD;
+}
+
+#btnChatCont:hover {
+  color: #FFFFFF;
+  background-color: var(--colorLetra);
+}
+
 
 /*-----------------------------------------------------------------------
 *---------------- (freetours,culturours,deportous,gastrotours))----------
@@ -797,6 +813,170 @@ li {
 }
 
 
+/*---------CHATBOT-------------*/
+
+.container-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: #DBE2DD;
+  ;
+}
+
+.container {
+  width: 70%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-preg {
+  width: 30%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-sect-preg {
+  margin-top: 5%;
+}
+
+.container-sect-preg h1 {
+  padding: 5%;
+  font-family: var(--fuenteCorben);
+  ;
+}
+
+.container-sect-preg ul li {
+  padding: 2%;
+  font-size: 20px;
+  font-family: var(--fuenteCorben);
+  ;
+}
+
+#btnChat {
+  width: 100%;
+  height: 100%;
+  background: white;
+  color: #000000;
+  cursor: pointer;
+}
+
+#btnChat:hover {
+  background: rgb(231, 210, 210);
+}
+
+.chatbox {
+  border-radius: 5%;
+  width: 90%;
+  display: flex;
+  height: 90%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  flex-direction: column;
+}
+
+.header {
+  background: #000000;
+  padding: 20px;
+  color: aliceblue;
+  font-size: 20px;
+}
+
+.body {
+  background-image: url('../Img/Página\ principal/chat.jpg');
+  height: 100%;
+  width: 100%;
+}
+
+.chat {
+  display: flex;
+  height: 10%;
+}
+
+.chat1 {
+  width: 90%;
+}
+
+.chat2 {
+  width: 10%;
+}
+
+#chat {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  font-weight: 500;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+}
+
+.visible {
+  display: block;
+}
+
+.none {
+  display: none;
+}
+
+ ::placeholder {
+  color: white;
+  padding-left: 10px;
+}
+
+.me {
+  color: black;
+  font-family: var(--fuenteCorben);
+  ;
+  width: 55%;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+  background-color: rgb(104, 186, 104);
+  border-radius: 10px;
+  float: right;
+  text-align: right;
+  display: block;
+}
+
+.robot {
+  color: black;
+  font-family: var(--fuenteCorben);
+  ;
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  float: left;
+  text-align: left;
+  display: block;
+}
+
+.btnVolverChat {
+  height: 8%;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.btnVolverChat:hover {
+  background-color: var(--colorLetra);
+  color: white;
+}
+
+#chatbody {
+  overflow-y: auto;
+}
+
+
 /*-----------MEDIA QUERY--------*/
 
 
@@ -861,6 +1041,22 @@ li {
   }
   .lupa {
     left: 30%;
+  }
+  /*Chat*/
+  .container-wrapper {
+    flex-direction: column;
+  }
+  .container-preg {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+  .container {
+    width: 100%;
+  }
+  .chatbox {
+    width: 100%;
+    margin: 1%;
+    height: 100%;
   }
 }
 

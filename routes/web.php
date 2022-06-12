@@ -80,6 +80,7 @@ Route::get('/dashboard', function () {
     }
     return redirect()->route('reservasusuario');
 })->middleware(['auth'])->name('dashboard');
+
 Route::post('/tours/asocguia/{tour}', [
     TourController::class,
     'asocGuia'
@@ -191,3 +192,8 @@ Route::get('/tramitepago', [ReservaController::class, 'pagar'])->name('realizarp
  * Email
  */
 Route::post('/correo', [MailController::class,'sendEmail'])->name('enviarCorreo');
+
+/**Chat bot */
+Route::get('/chatBot', function () {
+    return view('sanlutour.bot');
+})->name('bot');

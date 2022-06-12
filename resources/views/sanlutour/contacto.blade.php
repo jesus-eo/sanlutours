@@ -147,6 +147,10 @@
                                 Un saludo!!
                             </p>
                             <button id="modalContacto">Saber más!!</button>
+                            <form action="{{ route('bot') }}" method="get">
+                                <button id="btnChatCont">Chat con RoboTour</button>
+                            </form>
+
                             @if (session('success'))
                                 <div class="alert alert-success bg-green-400">
                                     {{ session('success') }}
