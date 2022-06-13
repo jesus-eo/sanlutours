@@ -43,7 +43,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="duracion" class="block text-gray-700 text-sm font-bold mb-2">Duración</label>
-                        <input type="number" name="duracion" id="duracion" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Duración (horas)" required>
+                        <input type="number" name="duracion" id="duracion" min="0" max="8" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus outlinr-none" placeholder="Duración (horas)" required>
                     </div>
                     <div class="mb-4">
                         <label for="valoracion" class="block text-gray-700 text-sm font-bold mb-2">Valoración</label>

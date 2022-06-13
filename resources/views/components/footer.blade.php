@@ -39,7 +39,7 @@
                     alt="Icono facebook"></a>
         </div>
         <div id="b6-p-actualizacion">
-            2022-Created By Jeśus Manuel Espinar Ocaña
+            2022-Created By Jesús Manuel Espinar Ocaña
         </div>
     </div>
 </footer>
