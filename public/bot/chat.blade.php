@@ -6,12 +6,12 @@ $questions = [
 
 
     //name
-    "¿como te llamas?" =>"Soy TourBot y estoy para servirte",
+    "¿cómo te llamas?" =>"Soy TourBot y estoy para servirte",
     "¿cual es tu nombre?" =>"Soy TourBot y estoy para servirte",
     "¿tienes nombre?" =>"Soy TourBot y estoy para servirte",
     "¿what is your name?" =>" my name is TourBot",
     "¿tu nombre es?" => "Mi nombre es " . $bot->getName(),
-    "¿tu eres?" => "Yo soy una " . $bot->getGender(),
+    "¿tu eres?" => "Yo soy un " . $bot->getGender(),
 
     //saludo
     "hola" =>"Hola que tal!",
@@ -20,6 +20,7 @@ $questions = [
 
     //despedida
     "adios" =>"cuidate",
+    "hasta pronto" =>"nos vemos pronto",
     "hasta la proxima" =>"nos vemos pronto",
     "nos vemos" =>"te estare esperando",
     "bye" =>"Good bye ♥",
